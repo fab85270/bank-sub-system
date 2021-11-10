@@ -10,6 +10,8 @@
     <modules>
         <module>loan-bank</module>
         <module>loan-broker</module>
+        <module>loan-master</module>
+        <module>loan-commons</module>
     </modules>
 
 </project>
