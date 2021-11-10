@@ -6,14 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="loan-broker" />
+        <module name="loan-commons" />
         <module name="credit-system" />
+        <module name="emprunt-broker" />
+        <module name="loan-broker" />
+        <module name="loan-master" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bank-sub-system-2" target="1.5" />
       <module name="credit-system" target="11" />
+      <module name="emprunt-broker" target="11" />
       <module name="loan-broker" target="11" />
+      <module name="loan-commons" target="11" />
+      <module name="loan-master" target="11" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="credit-system" options="-parameters" />
+      <module name="emprunt-broker" options="-parameters" />
+      <module name="loan-commons" options="-parameters" />
+      <module name="loan-master" options="-parameters" />
+    </option>
   </component>
 </project>
