@@ -8,8 +8,8 @@
     <packaging>pom</packaging>
     <name>bank-sub-system-2</name>
     <modules>
-        <module>emprunt-bank</module>
-        <module>emprunt-broker</module>
+        <module>loan-bank</module>
+        <module>loan-broker</module>
     </modules>
 
 </project>

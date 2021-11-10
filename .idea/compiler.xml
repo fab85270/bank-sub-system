@@ -6,14 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="emprunt-broker" />
+        <module name="loan-broker" />
         <module name="credit-system" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bank-sub-system-2" target="1.5" />
       <module name="credit-system" target="11" />
-      <module name="emprunt-broker" target="11" />
+      <module name="loan-broker" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
