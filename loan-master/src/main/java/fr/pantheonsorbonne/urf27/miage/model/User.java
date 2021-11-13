@@ -1,25 +1,40 @@
 package fr.pantheonsorbonne.urf27.miage.model;
 
 import javax.persistence.*;
+import java.time.Instant;
 
 @Entity
 public class User {
-    /* Variables privées propres à une Bank*/
+
+    public enum Gender{
+        FEMALE,
+        MALE,
+        UNIDENTIFIED
+    }
+
+    /* Variables privées propres à un utilisateur*/
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
     private String lastName;
     private String mail;
+    private Gender gender;
+    private Address address;
+    private Instant birthDate;
 
-    /*Constructeur de la classe User*/
+
+    /*Constructeurs de la classe User*/
 
     public User(){}
 
-    public User(String firstName,String lastName, String mail){
+    public User(String firstName,String lastName, String mail, Gender gender, Address address,Instant birthdDate){
         this.firstName = firstName;
         this.lastName = lastName;
         this.mail = mail;
+        this.gender = gender;
+        this.address = address;
+        this.birthDate = birthDate;
     }
 
     public String getFirstName() {
