@@ -11,14 +11,24 @@ public class Bank {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idBank", nullable = false)
     private Long id;
+
+    @Column(name = "name", nullable = false, length = 45)
     private String name;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "idBank", nullable = false)
     private Address address;
-    @ManyToOne  //Plusieurs banques peuvent avoir une list de client
-    @JoinColumn(name = "id", nullable = false)
-    private List<Customer> listClient;
-    @ManyToOne //Plusieurs banques peuvent avoir une liste de Clients pour un emprunt
-    private List<Customer> listLoanClient;
-    @OneToMany //Une banque peut posséder officers (employés) qui assureront la gestion/création de la simulation de crédit
+
+    @ManyToOne(optional = false)  //Plusieurs banques peuvent avoir une list de client
+    @JoinColumn(name = "idCustomer", nullable = false)  //Pas sûr de ceci=> à vérifier.
+    private List<Customer> listCustomer;
+
+    @ManyToOne(optional = false) //Plusieurs banques peuvent avoir une liste de Clients pour un emprunt
+    @JoinColumn(name = "idCustomer", nullable = false)
+    private List<Customer> listLoanCustomer;
+
+    @ManyToOne(optional = false) //Plusieurs banques peuvent posséder une liste d'officers (employés) qui assureront la gestion/création de la simulation de crédit
+    @JoinColumn(name = "idOfficer", nullable = false)
     private List<Officer> listOfficer;
 
 
@@ -40,20 +50,28 @@ public class Bank {
         this.address = address;
     }
 
-    public List<Customer> getListClient() {
-        return listClient;
+    public List<Customer> getListCustomer() {
+        return listCustomer;
     }
 
-    public void setListClient(List<Customer> listClient) {
-        this.listClient = listClient;
+    public void setListCustomer(List<Customer> listCustomer) {
+        this.listCustomer = listCustomer;
     }
 
-    public List<Customer> getListLoanClient() {
-        return listLoanClient;
+    public List<Customer> getListLoanCustomer() {
+        return listLoanCustomer;
     }
 
-    public void setListLoanClient(List<Customer> listLoanClient) {
-        this.listLoanClient = listLoanClient;
+    public void setListLoanCustomer(List<Customer> listLoanCustomer) {
+        this.listLoanCustomer = listLoanCustomer;
+    }
+
+    public List<Officer> getListOfficer() {
+        return listOfficer;
+    }
+
+    public void setListOfficer(List<Officer> listOfficer) {
+        this.listOfficer = listOfficer;
     }
 
     public String getName() {
@@ -70,8 +88,10 @@ public class Bank {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address=" + address +
-                ", listClient=" + listClient +
-                ", listLoanClient=" + listLoanClient +
+                ", listClient=" + listCustomer +
+                ", listLoanClient=" + listLoanCustomer +
                 '}';
     }
+
+
 }
