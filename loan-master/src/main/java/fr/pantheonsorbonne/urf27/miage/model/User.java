@@ -17,19 +17,28 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idUser", nullable = false)
     private Long id;
+
     @Column(nullable = false)
     private String firstName;
+
     @Column(nullable = false)
     private String lastName;
-    @Column(nullable = true)
+
+    @Column(nullable = false)
     private String mail;
+
+    @Column(nullable = false)
     private Gender gender;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "idAddress", nullable = false)
     private Address address;
-    private Instant birthDate; //Ici mettre des relations ?? OneToOne?
+
+    @Column(nullable = false)
+    private Instant birthDate;
 
     /*Getters/Setters de la classe User */
+
     public Address getAddress() {
         return address;
     }

@@ -22,7 +22,29 @@ public class LoanSimulation {
     private Instant dateSimulation;
 
     @Column(name = "interestRate", nullable = false)
-    private double interestRate;
+    private double interestRate; // En %
+
+    @Column(name = "duration", nullable = false)
+    private int loanDuration; //Exprimé en mois.
+
+    @Column(name = "monthlyRefund", nullable = false)
+    private double monthlyRefund; //Montant du remboursement de chaque mois.
+
+    @Column(name = "debtRate", nullable = false) //Il existe aussi le taux endettement (généralement 33% en france).
+    private double debtRate; // En %
+
+    @Column(name = "dateEnd", nullable = false)
+    private Instant dateEnd;
+
+    @OneToOne(optional = false) //Une LoanSimulation concerne un un seul employé de banque.
+    @JoinColumn(name = "idOfficer", nullable = false)
+    private Officer officer;
+
+
+
+
+
+
 
 
 
