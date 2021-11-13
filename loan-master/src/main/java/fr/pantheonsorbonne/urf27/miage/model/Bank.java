@@ -1,7 +1,6 @@
 package fr.pantheonsorbonne.urf27.miage.model;
 
 import javax.persistence.*;
-import javax.ws.rs.client.Client;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,26 +8,19 @@ import java.util.List;
 public class Bank {
     /* Variables privées propres à une Bank*/
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idBank", nullable = false)
     private Long id;
     private String name;
     private Address address;
     @ManyToOne  //Plusieurs banques peuvent avoir une list de client
-    private List<Client> listClient;
+    @JoinColumn(name = "id", nullable = false)
+    private List<Customer> listClient;
     @ManyToOne //Plusieurs banques peuvent avoir une liste de Clients pour un emprunt
-    private List<Client> listLoanClient;
+    private List<Customer> listLoanClient;
+    @OneToMany //Une banque peut posséder officers (employés) qui assureront la gestion/création de la simulation de crédit
+    private List<Officer> listOfficer;
 
-    /* Constructeurs de la classe Bank */
-
-    public Bank(){}
-
-    public Bank(String name,Address address){
-        this.name = name;
-        this.address = address;
-        /* Lors de sa création, une banque ne possède pas de Clients*/
-        this.listClient = new ArrayList<Client>();
-        this.listLoanClient = new ArrayList<Client>();
-    }
 
     /*Accesseurs/Getters de la classe Bank*/
 
@@ -48,19 +40,19 @@ public class Bank {
         this.address = address;
     }
 
-    public List<Client> getListClient() {
+    public List<Customer> getListClient() {
         return listClient;
     }
 
-    public void setListClient(List<Client> listClient) {
+    public void setListClient(List<Customer> listClient) {
         this.listClient = listClient;
     }
 
-    public List<Client> getListLoanClient() {
+    public List<Customer> getListLoanClient() {
         return listLoanClient;
     }
 
-    public void setListLoanClient(List<Client> listLoanClient) {
+    public void setListLoanClient(List<Customer> listLoanClient) {
         this.listLoanClient = listLoanClient;
     }
 
