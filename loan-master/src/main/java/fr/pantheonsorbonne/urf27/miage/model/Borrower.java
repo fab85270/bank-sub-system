@@ -3,7 +3,7 @@ package fr.pantheonsorbonne.urf27.miage.model;
 import javax.persistence.*;
 
 @Entity
-public class Borrower extends User{
+public class Borrower {
 
     /*Attributs privés propres à la classe User*/
 
@@ -23,6 +23,10 @@ public class Borrower extends User{
 
     public Borrower(Dossier dossier) {
         this.dossier = dossier;
+    }
+
+    public Borrower() {
+
     }
 
     /* Setters/Getters de la classe Customer */

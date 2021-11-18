@@ -23,11 +23,11 @@ public class Bank {
     @JoinColumn(name = "idCustomer", nullable = false)  //Pas sûr de ceci=> à vérifier.
     private List<Customer> listCustomer;
 */
-    @ManyToOne(optional = false) //Plusieurs banques peuvent avoir une liste de Clients pour un emprunt
-    @JoinColumn(name = "idCustomer", nullable = false)
+    @OneToMany //Plusieurs banques peuvent avoir une liste de Clients pour un emprunt
+    @JoinColumn(name = "idBorrower", nullable = false)
     private List<Borrower> listLoanBorrower;
 
-    @ManyToOne(optional = false) //Plusieurs banques peuvent posséder une liste d'officers (employés) qui assureront la gestion/création de la simulation de crédit
+    @OneToMany //Plusieurs banques peuvent posséder une liste d'officers (employés) qui assureront la gestion/création de la simulation de crédit
     @JoinColumn(name = "idOfficer", nullable = false)
     private List<Officer> listOfficer;
 

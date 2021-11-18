@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
-public class Officer extends User{
+public class Officer{
     /* Variables privées propres à une Officer*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

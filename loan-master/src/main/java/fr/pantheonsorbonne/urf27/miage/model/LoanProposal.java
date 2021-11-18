@@ -53,4 +53,7 @@ public class LoanProposal {
         this.officer = officer;
     }
 
+    public LoanProposal() {
+        
+    }
 }

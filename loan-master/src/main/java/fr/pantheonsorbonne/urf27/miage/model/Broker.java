@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Broker extends User{
+public class Broker {
 
     /*Attributs privés propres à la classe User*/
 
@@ -14,8 +14,10 @@ public class Broker extends User{
     @Column(name = "idBroker", nullable = false)
     private Long idBroker;
 
+    @ManyToOne
     private Dossier borrowerDossier; // ???
 
+    @OneToMany
     private List<Bank> listBank;
 
     /*Constructeur de la classe Broker */
@@ -25,11 +27,11 @@ public class Broker extends User{
         this.listBank = listBank;
     }
 
-    public Broker(List<Bank> listBank){
+    public Broker(List<Bank> listBank) {
         this.listBank = listBank;
     }
 
-    public Broker(){
+    public Broker() {
         listBank = new ArrayList<>();
     }
 
