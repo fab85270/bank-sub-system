@@ -1,6 +1,7 @@
 package fr.pantheonsorbonne.urf27.miage.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,15 +31,21 @@ public class Bank {
     @JoinColumn(name = "idOfficer", nullable = false)
     private List<Officer> listOfficer;
 
-    
-    public Bank(Long id, String name, Address address, List<Borrower> listLoanBorrower, List<Officer> listOfficer) {
-        this.id = id;
+    /* Constructeurs de la classe Bank */
+
+    public Bank(String name, Address address, List<Borrower> listLoanBorrower, List<Officer> listOfficer) {
         this.name = name;
         this.address = address;
         this.listLoanBorrower = listLoanBorrower;
         this.listOfficer = listOfficer;
     }
 
+    public Bank(String name, Address address){
+        this.name = name;
+        this.address = address;
+        this.listLoanBorrower = new ArrayList<>();
+        this.listOfficer = new ArrayList<>();
+    }
 
     /*Accesseurs/Getters de la classe Bank*/
 

@@ -23,10 +23,22 @@ public class Address {
     @Column(nullable = false)
     private String city;
 
+    @Column(name = "complementaryAddress",length = 45)
     private String complementaryAddress;
+
+    /*Constructeurs de la classe Address */
 
     public Address(){
     }
+
+    public Address(String streetName,int streetNumber,int postalCode, String city){
+        this.streetName = streetName;
+        this.streetNumber = streetNumber;
+        this.postalCode = postalCode;
+        this.city = city;
+    }
+
+
 
     /*Getters/Setters de la classe Address*/
 

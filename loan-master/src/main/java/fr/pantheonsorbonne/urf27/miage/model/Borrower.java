@@ -19,6 +19,11 @@ public class Borrower extends User{
     @JoinColumn(name = "idDossier", nullable = false)
     private Dossier dossier; //Dossier contenant tous les fichiers clients et informations personnelles pour constituer le dossier
 
+    /*Constructeur de la classe Borrower*/
+
+    public Borrower(Dossier dossier) {
+        this.dossier = dossier;
+    }
 
     /* Setters/Getters de la classe Customer */
     public Dossier getDossier() {
