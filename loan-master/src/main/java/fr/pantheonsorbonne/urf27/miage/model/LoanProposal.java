@@ -40,13 +40,17 @@ public class LoanProposal {
     @JoinColumn(name = "idOfficer", nullable = false)
     private Officer officer;
 
+    /*Constructeurs de la classe LoanProposal */
 
-
-
-
-
-
-
-
+    public LoanProposal(Dossier dossier,double interestRate, int loanDuration, double monthlyRefund, double debtRate, Instant dateEnd, Officer officer) {
+        this.dossier = dossier;
+        //this.dateSimulation = dateSimulation; ici mettre la date du jour, voir comment faire sr instant
+        this.interestRate = interestRate;
+        this.loanDuration = loanDuration;
+        this.monthlyRefund = monthlyRefund;
+        this.debtRate = debtRate;
+        this.dateEnd = dateEnd;
+        this.officer = officer;
+    }
 
 }

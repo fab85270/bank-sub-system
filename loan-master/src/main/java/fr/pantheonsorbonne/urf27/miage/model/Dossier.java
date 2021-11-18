@@ -36,6 +36,19 @@ public class Dossier { //Dossier client qui sera ensuite tranmis aux banques pou
     private double downPayment;
 
 
+
+    /*Constructeur de la classe Dossier */
+
+    public Dossier(double netMonthlyIncome, double net2yearsIncome,double priceProperty, double downPayment) {
+        NetMonthlyIncome = netMonthlyIncome;
+        Net2yearsIncome = net2yearsIncome;
+        //this.creationDate = ; ici mettre la date du jour actuelle (voir documentation de instant)
+        this.completed = false;
+       // this.lastModified = lastModified; mettre à zero
+        this.priceProperty = priceProperty;
+        this.downPayment = downPayment;
+    }
+
     /*Getters/Setters de la classe Dossier*/
 
     public Boolean getCompleted() {

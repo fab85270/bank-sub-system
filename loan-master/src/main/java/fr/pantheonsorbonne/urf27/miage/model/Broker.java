@@ -32,7 +32,7 @@ public class Broker extends User{
     public Broker(){
         listBank = new ArrayList<>();
     }
-    
+
     /*@Column(name = "role", nullable = false)
     private String role; //Mettre un type énuméré pour un rôle ? Qui sera défini un peu comme une classe ?
 */

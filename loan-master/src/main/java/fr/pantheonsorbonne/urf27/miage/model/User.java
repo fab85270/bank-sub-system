@@ -37,6 +37,19 @@ public class User {
     @Column(nullable = false)
     private Instant birthDate;
 
+    /*Constructeurs de la classe Java */
+
+    public User(String firstName, String lastName, String mail, Gender gender, Address address, Instant birthDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mail = mail;
+        this.gender = gender;
+        this.address = address;
+        this.birthDate = birthDate;
+    }
+
+    public User(){}
+
     /*Getters/Setters de la classe User */
 
     public Address getAddress() {
