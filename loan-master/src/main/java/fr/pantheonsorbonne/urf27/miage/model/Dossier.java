@@ -57,6 +57,10 @@ public class Dossier { //Dossier client qui sera ensuite tranmis aux banques pou
         this.downPayment = downPayment;
     }
 
+    public Dossier() {
+
+    }
+
     /*Getters/Setters de la classe Dossier*/
 
     public Boolean getCompleted() {
