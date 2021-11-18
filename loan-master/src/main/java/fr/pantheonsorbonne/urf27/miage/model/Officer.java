@@ -24,6 +24,7 @@ public class Officer{
     public Officer(String telNumber) {
         this.telNumber = telNumber;
     }
+    
     public Officer(){}
 
     /*Getters/Accesseurs de la classe Officer*/
