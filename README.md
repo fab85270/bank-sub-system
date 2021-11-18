@@ -6,10 +6,14 @@ On propose de modéliser un système de simulation d'un emprunt (loan) pouvant s
 ainsi que plusieurs courtiers (broker) qui échangent entre eux.
 Le système master, gère 
 
+## Definition projet
 Commons => DTO
+
 Broker => Application de gestion entre l'acquéreur et le broker
+
 Bank => Application de gestion entre la banque et le Broker
 
+## Que fait le projet
 Le courtier(broker) se caractérise d'intermédiaire entre la banque et l'acquéreur afin d'obtenir un emprunt au meilleur
 taux selon le projet. Son rôle est de recevoir le dossier du client, déterminer avec le client quels sont les organismes 
 de crédit à contacter parmi ceux partenaires au broker. Suite à cela, après été reçu par mail, le dossier client sera
