@@ -36,8 +36,7 @@ public class LoanProposal {
     @Column(name = "dateEnd", nullable = false)
     private Instant dateEnd;
 
-    @OneToOne(optional = false) //Une LoanSimulation concerne un un seul employé de banque.
-    @JoinColumn(name = "idOfficer", nullable = false)
+    @ManyToOne(optional = false) //Une LoanSimulation concerne un un seul employé de banque.
     private Officer officer;
 
     /*Constructeurs de la classe LoanProposal */

@@ -8,7 +8,7 @@ public class Officer{
     /* Variables privées propres à une Officer*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idOfficer", nullable = false)
+    @Column(name = "idOfficer", nullable = false, insertable=false, updatable=false)
     private Long id;
 
     @Column(name = "telNumber", nullable = false, length = 10)
