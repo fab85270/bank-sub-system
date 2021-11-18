@@ -5,7 +5,7 @@ import java.time.Instant;
 
 
 @Entity
-public class LoanSimulation {
+public class LoanProposal {
 
     /*Attributs privés propres à la classe User*/
 

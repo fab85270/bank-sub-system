@@ -2,8 +2,8 @@
 
 Objectifs du système à modéliser : Obtention de financements.
 
-On propose de modéliser un système d'acquisition (MASTER) d'un emprunt (loan) pouvant supporter plusieurs banques (bank)
-ainsi que plusieurs courtiers (broker).
+On propose de modéliser un système de simulation d'un emprunt (loan) pouvant supporter plusieurs banques (bank)
+ainsi que plusieurs courtiers (broker) qui échangent entre eux.
 Le système master, gère 
 
 
@@ -27,3 +27,5 @@ Phase 2: proposer une simulation de financement
 - vérifier validité avis imposition
 
 Phase 3 :
+
+-Génération de la simulation d'emprunt qui sera envoyée par la suite à l'Acquéreur.

@@ -12,9 +12,17 @@ public class Broker extends User{
     @Column(name = "idBroker", nullable = false)
     private Long idBroker;
 
-    @Column(name = "role", nullable = false)
-    private String role; //Mettre un type énuméré pour un rôle ? Qui sera défini un peu comme une classe ?
+    private Dossier borrowerDossier; // ???
 
+    public Broker(Long idBroker, Dossier borrowerDossier) {
+        this.idBroker = idBroker;
+        this.borrowerDossier = borrowerDossier;
+    }
+
+
+    /*@Column(name = "role", nullable = false)
+    private String role; //Mettre un type énuméré pour un rôle ? Qui sera défini un peu comme une classe ?
+*/
 
     /*Accesseurs/Getters de la classe Broker*/
     public Long getIdClient() {
@@ -25,11 +33,4 @@ public class Broker extends User{
         this.idBroker = idClient;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 }

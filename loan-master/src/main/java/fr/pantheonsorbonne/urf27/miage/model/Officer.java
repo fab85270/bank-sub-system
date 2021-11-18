@@ -14,9 +14,9 @@ public class Officer extends User{
     @Column(name = "telNumber", nullable = false, length = 10)
     private String telNumber; //Un officer possède un numéro de teléphone sur lequel on peut le contacter.
 
-    @Column(name = "roleOfficer", nullable = false)
+    /*@Column(name = "roleOfficer", nullable = false)
     private String roleOfficer;
-
+*/
 
     /*Getters/Accesseurs de la classe Officer*/
 
@@ -26,14 +26,6 @@ public class Officer extends User{
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getRole() {
-        return roleOfficer;
-    }
-
-    public void setRole(String role) {
-        this.roleOfficer = role;
     }
 
     public String getTelNumber() {

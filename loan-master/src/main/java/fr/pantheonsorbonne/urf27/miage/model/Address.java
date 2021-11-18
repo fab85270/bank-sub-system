@@ -25,6 +25,8 @@ public class Address {
 
     private String complementaryAddress;
 
+    public Address(){
+    }
 
     /*Getters/Setters de la classe Address*/
 
