@@ -1,12 +1,19 @@
 # bank-sub-system
 
-Objectifs du système à modéliser : Obtention de financements.
+**Objectifs du système à modéliser : Obtention de financements.**
 
 On propose de modéliser un système de simulation d'un emprunt (loan) pouvant supporter plusieurs banques (bank)
 ainsi que plusieurs courtiers (broker) qui échangent entre eux.
 Le système master, gère 
 
+## Definition espace
+Commons => DTO
 
+Broker => Application de gestion entre l'acquéreur et le broker
+
+Bank => Application de gestion entre la banque et le Broker
+
+## Que fait le projet
 Le courtier(broker) se caractérise d'intermédiaire entre la banque et l'acquéreur afin d'obtenir un emprunt au meilleur
 taux selon le projet. Son rôle est de recevoir le dossier du client, déterminer avec le client quels sont les organismes 
 de crédit à contacter parmi ceux partenaires au broker. Suite à cela, après été reçu par mail, le dossier client sera
@@ -30,5 +37,6 @@ Phase 3 :
 
 -Génération de la simulation d'emprunt qui sera envoyée par la suite à l'Acquéreur.
 
+## Amelioration possible
 Possiblement 
 - Transformer le JSON en PDF pour l'envoie au client

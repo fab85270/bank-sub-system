@@ -17,6 +17,7 @@ public class Broker {
     @ManyToOne
     private Dossier borrowerDossier; // ???
 
+
     @OneToMany
     private List<Bank> listBank;
 

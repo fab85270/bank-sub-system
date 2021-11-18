@@ -35,7 +35,15 @@ public class Dossier { //Dossier client qui sera ensuite tranmis aux banques pou
     @Column(name = "downPayment", nullable = false)
     private double downPayment;
 
-
+/*
+*  Transmettre du JSON pour faire parvenir les différentes informations
+* Faire une transciption du json envoyé par la banque vers le broket et le client en pdf pour améliorer la reception
+* User va utiliser postMan
+* Mettre toutes les entités dans broker et bank et les dto dans la partie commons
+* supprimer user et definir officer et broker dans chacun des projets.
+* Dans JPA, une chose permet de définir un type pour des fichiers(ici par exmeple pour les fichiers pour les
+* comme la taxeHabitation dans les dossiers. Par exemple MONEY ( à se renseigner)
+* */
 
     /*Constructeur de la classe Dossier */
 
