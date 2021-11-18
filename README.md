@@ -29,3 +29,6 @@ Phase 2: proposer une simulation de financement
 Phase 3 :
 
 -Génération de la simulation d'emprunt qui sera envoyée par la suite à l'Acquéreur.
+
+Possiblement 
+- Transformer le JSON en PDF pour l'envoie au client
