@@ -16,6 +16,7 @@ public class Broker extends User{
 
     private Dossier borrowerDossier; // ???
 
+
     private List<Bank> listBank;
 
     /*Constructeur de la classe Broker */
