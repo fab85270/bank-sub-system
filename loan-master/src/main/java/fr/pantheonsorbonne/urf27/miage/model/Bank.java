@@ -16,7 +16,7 @@ public class Bank {
     private String name;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "idBank", nullable = false)
+    @JoinColumn(name = "idAddress", nullable = false)
     private Address address;
 
   /*  @ManyToOne(optional = false)  //Plusieurs banques peuvent avoir une list de client
@@ -46,6 +46,8 @@ public class Bank {
         this.listLoanBorrower = new ArrayList<>();
         this.listOfficer = new ArrayList<>();
     }
+
+    public Bank(){}
 
     /*Accesseurs/Getters de la classe Bank*/
 
