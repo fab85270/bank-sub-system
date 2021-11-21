@@ -14,10 +14,20 @@ public interface BrokerDAO {
 
     Broker findMatchingBroker(String mail) throws BorrowerNotFoundException;
 
-    @Transactional
     Broker createNewBroker(String name, String email, Collection<Bank> banks, Collection<Borrower> borrowers);
 
-    @Transactional
     List<Broker> listBroker();
+
+    void createBaseBrokers();
+
+    void addBankBroker(String mail,Bank bank) throws BorrowerNotFoundException;
+
+    void addBorrowerBroker(String mail,Borrower borrower) throws BorrowerNotFoundException;
+
+
+
+
+
+
 
 }

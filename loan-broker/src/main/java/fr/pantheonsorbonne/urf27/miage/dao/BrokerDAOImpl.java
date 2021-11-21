@@ -12,13 +12,16 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.Collection;
+import java.util.List;
+import java.lang.Override;
 
-public class BrokerDAOImpl {
+public class BrokerDAOImpl implements BrokerDAO{
 
     @PersistenceContext(name = "mysql")
     EntityManager em;
 
     @Override
+    @Transactional
     public Broker createNewBroker(String name, String email, Collection<Bank> banks, Collection<Borrower> borrowers){
         Broker b = new Broker(name,email,banks,borrowers);
         em.persist(b);
@@ -35,6 +38,55 @@ public class BrokerDAOImpl {
         }
     }
 
+    @Override
+    @Transactional
+    public List<Broker> listBroker(){
+        return em.createQuery("Select b from Broker b").getResultList();
+    }
+
+    @Override
+    @Transactional
+    public void createBaseBrokers(){
+        int numOfBrokers = em.createQuery("Select b from Broker b").getResultList().size();
+        if(numOfBrokers==0){
+            em.persist(new Broker("Julien","phiphi@hotmail.fr"));
+            em.persist(new Broker("Manuela","ManuPayet@yahoo.fr"));
+        }
+    }
+
+    @Override
+    @Transactional
+    public void addBankBroker(String mail, Bank bank) throws BorrowerNotFoundException {
+        /*Récupération du broker concerné selon le mail indiqué en paramètre*/
+        Collection bankCollection = this.findMatchingBroker(mail).getBanks();
+
+        /*Ajoût de la bank dans la Collection de banks du broker */
+
+        bankCollection.add(bank);
+
+        /*Ajout des modifications dans la base de données */
+
+        /*Comment faire UPDATE ? */
+
+        //em.createQuery("Update Broker SET banks =: bankCollection where email=:mail").setParameter("bankCollection",bankCollection,"email",mail).executeUpdate();
 
 
+
+
+    }
+
+    @Override
+    @Transactional
+    public void addBorrowerBroker(String mail, Borrower borrower) throws BorrowerNotFoundException{
+        /*Récupération du broker concerné selon le mail indiqué en paramètre*/
+        Collection borrowersCollection = this.findMatchingBroker(mail).getBorrowers();
+
+        /*Ajoût de la bank dans la Collection de banks du broker */
+
+        borrowersCollection.add(borrower);
+
+        /*Ajoût du borrowers au sein de la base de données*/
+
+
+    }
 }
