@@ -28,4 +28,5 @@ public interface BorrowerDAO {
     @Transactional
     List<Borrower> listBorrower();
 
+
 }

@@ -14,6 +14,9 @@ public class Broker {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "email", nullable = false,unique=true)
+    private String email;
+
     @OneToMany(mappedBy = "idBroker")
     private Collection<Bank> banks;
 
@@ -21,5 +24,12 @@ public class Broker {
     private Collection<Borrower> borrowers;
 
     public Broker() {
+    }
+
+    public Broker(String name, String email, Collection<Bank> banks, Collection<Borrower> borrowers) {
+        this.name = name;
+        this.email = email;
+        this.banks = banks;
+        this.borrowers = borrowers;
     }
 }
