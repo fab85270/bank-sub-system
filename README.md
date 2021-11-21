@@ -42,4 +42,3 @@ Possiblement
 - Transformer le JSON en PDF pour l'envoie au client
 
 
-ee
