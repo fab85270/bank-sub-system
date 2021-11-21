@@ -1,6 +1,7 @@
 package fr.pantheonsorbonne.urf27.miage.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity

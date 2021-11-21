@@ -7,7 +7,7 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idBank", nullable = false)
+    @Column(name = "idAddress", nullable = false)
     private long idAddress;
 
     @Column(name = "streetName", nullable = false)
