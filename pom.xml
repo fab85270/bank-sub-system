@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>fr.pantheonsorbonne.ufr27.miage.loan</groupId>
-    <artifactId>bank-sub-system-2</artifactId>
+    <artifactId>bank-sub-system</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>bank-sub-system-2</name>
+    <name>bank-sub-system</name>
     <modules>
         <module>loan-bank</module>
         <module>loan-broker</module>
