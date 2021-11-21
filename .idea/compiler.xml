@@ -2,15 +2,6 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile name="Annotation profile for Unknown" enabled="true">
-        <sourceOutputDir name="../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="wrapper (2)" />
-        <module name="wrapper (1)" />
-        <module name="wrapper (4)" />
-        <module name="wrapper (3)" />
-      </profile>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -21,5 +12,11 @@
         <module name="loan-master" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wrapper (1)" target="1.5" />
+      <module name="wrapper (2)" target="1.5" />
+      <module name="wrapper (3)" target="1.5" />
+      <module name="wrapper (4)" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
