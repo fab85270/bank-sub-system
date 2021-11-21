@@ -50,17 +50,5 @@ public class BorrowerDAOImpl implements BorrowerDAO{
         return em.createQuery("Select b from Borrower b").getResultList();
     }
 
-    @Override
-    @Transactional
-    public void clearBrokers(){
-        em.createQuery("delete from Broker").executeUpdate();
-    }
-
-    @Override
-    @Transactional
-    public void clearBroker(String mail){
-        em.createQuery("delete from Broker b where i.email =:mail").setParameter("mail",mail).executeUpdate();
-    }
-
 
 }

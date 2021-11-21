@@ -86,7 +86,17 @@ public class BrokerDAOImpl implements BrokerDAO{
         borrowersCollection.add(borrower);
 
         /*Ajoût du borrowers au sein de la base de données*/
+    }
 
+    @Override
+    @Transactional
+    public void clearBrokers(){
+        em.createQuery("delete from Broker").executeUpdate();
+    }
 
+    @Override
+    @Transactional
+    public void clearBroker(String mail){
+        em.createQuery("delete from Broker b where i.email =:mail").setParameter("mail",mail).executeUpdate();
     }
 }

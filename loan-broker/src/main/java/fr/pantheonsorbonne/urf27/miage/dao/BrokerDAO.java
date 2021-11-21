@@ -26,6 +26,8 @@ public interface BrokerDAO {
 
     void clearBrokers();
 
+    void clearBroker(String mail);
+
 
 
 
