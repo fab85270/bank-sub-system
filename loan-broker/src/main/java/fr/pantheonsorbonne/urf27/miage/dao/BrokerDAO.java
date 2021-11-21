@@ -24,6 +24,8 @@ public interface BrokerDAO {
 
     void addBorrowerBroker(String mail,Borrower borrower) throws BorrowerNotFoundException;
 
+    void clearBrokers();
+
 
 
 
