@@ -1,8 +1,5 @@
 package fr.pantheonsorbonne.ufr27.miage.dto;
 
-import fr.pantheonsorbonne.ufr27.miage.model.Officer;
-
-
 import java.time.Instant;
 
 public class LoanProposal {

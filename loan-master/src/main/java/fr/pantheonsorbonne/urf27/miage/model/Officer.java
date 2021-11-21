@@ -14,11 +14,6 @@ public class Officer{
     @Column(name = "telNumber", nullable = false, length = 10)
     private String telNumber; //Un officer possède un numéro de teléphone sur lequel on peut le contacter.
 
-
-
-    /*@Column(name = "roleOfficer", nullable = false)
-    private String roleOfficer;
-*/
     /* Constructeurs de la classe Officer */
 
     public Officer(String telNumber) {

@@ -3,7 +3,6 @@ package fr.pantheonsorbonne.urf27.miage.model;
 import javax.persistence.*;
 import java.time.Instant;
 
-
 @Entity
 public class LoanProposal {
 

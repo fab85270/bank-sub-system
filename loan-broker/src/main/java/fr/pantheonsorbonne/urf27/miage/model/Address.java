@@ -1,13 +1,32 @@
 package fr.pantheonsorbonne.urf27.miage.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Address {
 
-    private int idAddress;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idBank", nullable = false)
+    private long idAddress;
+
+    @Column(name = "streetName", nullable = false)
     private String streetName;
+
+    @Column(name = "streetNumber", nullable = false)
     private int streetNumber;
+
+    @Column(name = "postalCode", nullable = false)
     private long postalCode;
+
+    @Column(name = "city", nullable = false)
     private String city;
+
+    @Column(name = "complementaryAddress")
     private String complementaryAddress;
+
+    public Address() {
+    }
 
     public Address(int idAddress, String streetName, int streetNumber, long postalCode, String city, String complementaryAddress) {
         this.idAddress = idAddress;
@@ -18,7 +37,7 @@ public class Address {
         this.complementaryAddress = complementaryAddress;
     }
 
-    public int getIdAddress() {
+    public long getIdAddress() {
         return idAddress;
     }
 

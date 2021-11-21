@@ -1,4 +1,4 @@
-package fr.pantheonsorbonne.urf27.miage.model;
+package fr.pantheonsorbonne.ufr27.miage.model;
 
 import javax.persistence.*;
 

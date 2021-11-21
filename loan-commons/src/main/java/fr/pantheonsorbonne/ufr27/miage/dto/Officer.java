@@ -1,7 +1,5 @@
 package fr.pantheonsorbonne.ufr27.miage.dto;
 
-import javax.persistence.*;
-
 public class Officer {
     /* Variables privées propres à une Officer*/
 

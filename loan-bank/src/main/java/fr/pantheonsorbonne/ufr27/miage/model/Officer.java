@@ -1,10 +1,9 @@
-package fr.pantheonsorbonne.urf27.miage.model;
+package fr.pantheonsorbonne.ufr27.miage.model;
 
 import javax.persistence.*;
-import java.time.Instant;
 
 @Entity
-public class Officer{
+public class Officer {
     /* Variables privées propres à une Officer*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
