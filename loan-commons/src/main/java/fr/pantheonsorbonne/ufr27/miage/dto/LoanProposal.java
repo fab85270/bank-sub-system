@@ -4,7 +4,7 @@ import java.time.Instant;
 
 public class LoanProposal {
 
-    /*Attributs privés propres à la classe User*/
+    /*Attributs privés propres à la classe Loan Proposal*/
 
     private Instant dateSimulation;
 
@@ -23,16 +23,7 @@ public class LoanProposal {
     private Officer officer;
 
     /*Constructeurs de la classe LoanProposal */
-
-    public LoanProposal(double interestRate, int loanDuration, double monthlyRefund, double debtRate, Instant dateEnd, Officer officer) {
-        //this.dateSimulation = dateSimulation; ici mettre la date du jour, voir comment faire sr instant
-        this.interestRate = interestRate;
-        this.loanDuration = loanDuration;
-        this.monthlyRefund = monthlyRefund;
-        this.debtRate = debtRate;
-        this.dateEnd = dateEnd;
-        this.officer = officer;
-    }
+    public LoanProposal(){}
 
     public LoanProposal(Instant dateSimulation, double interestRate, int loanDuration, double monthlyRefund, double debtRate, Instant dateEnd, Officer officer) {
         this.dateSimulation = dateSimulation;
@@ -44,10 +35,7 @@ public class LoanProposal {
         this.officer = officer;
     }
 
-    public LoanProposal() {
-
-    }
-
+    /*Getter & Setter*/
     public Instant getDateSimulation() {
         return dateSimulation;
     }
@@ -103,6 +91,4 @@ public class LoanProposal {
     public void setOfficer(Officer officer) {
         this.officer = officer;
     }
-
-
 }
