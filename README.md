@@ -27,7 +27,29 @@ Phase 2: proposer une simulation de financement
 - vérifier validité avis imposition
 
 Phase 3 :
+##Interfaces
+```
+broker1->buyer: rest:get:partner_bank_list
+buyer->broker1: rest:post:project_description
+broker1->buyer: smtp:jusft_upload_link
+buyer->broker1: rest:post:justif_file
 
+broker2->buyer: rest:get:partner_bank_list
+buyer->broker2: rest:post:project_description
+broker2->buyer: smtp:jusft_upload_link
+buyer->broker2: rest:post:justif_file
+
+broker1->bank1.1: jms:send_file
+bank1.1->broker1: jms:ok_loan_proposal
+broker1->bank1.2: jms:send_file
+bank1.2->broker1: jms:ok_loan_proposal
+broker1->broker1: service_best_proposal
+broker1->bank1.1: jms:you_have_been_selected
+bank1.1->broker1: jms:here's my callback
+
+broker1->buyer: smtp:loan_proposal_best_bank
+```
+![](seqDiagram.png)
 ## Schéma relationnel
 ### Bank System
 ![](bank_system_Relat.jpg)
