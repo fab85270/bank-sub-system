@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="coutanceau_db@mysql.miage.dev" uuid="f5fd4172-58ab-48a9-a9f4-f1534f4de4a4">
+    <data-source source="LOCAL" name="bodo_db@mysql.miage.dev" uuid="27b09e59-a422-4267-8296-722d3cb9476e">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://mysql.miage.dev:80/coutanceau_db</jdbc-url>
+      <jdbc-url>jdbc:mysql://mysql.miage.dev:80/bodo_db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

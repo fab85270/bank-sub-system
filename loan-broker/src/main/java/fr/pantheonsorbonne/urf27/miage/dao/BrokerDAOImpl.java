@@ -30,6 +30,7 @@ public class BrokerDAOImpl implements BrokerDAO{
 
     @Override
     public Broker findMatchingBroker(String email) throws BorrowerNotFoundException{
+        System.out.println("couc");
         try{
             Broker b = (Broker) em.createQuery("Select b from Broker b where b.email=:email").setParameter("email",email).getSingleResult();
             return b;
