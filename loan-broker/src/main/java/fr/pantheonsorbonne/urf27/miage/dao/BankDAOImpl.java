@@ -33,7 +33,7 @@ public class BankDAOImpl implements BankDAO{
 
     @Override
     @Transactional
-    public Bank createNewBank(String name, Address address, Broker idBroker){
+    public void createNewBank(String name, Address address, Broker idBroker){
 
         /*Une banque ne pourra être ajoutée que si elle n'existe pas (selon son name)*/
 
@@ -42,9 +42,6 @@ public class BankDAOImpl implements BankDAO{
         if (numOfBank==0){ //Bank doesn't exist
             Bank bank = new Bank(name,address,idBroker);
             em.persist(bank);
-            return bank;
-        }else{
-
         }
     }
 
