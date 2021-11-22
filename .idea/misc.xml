@@ -6,6 +6,7 @@
     <file type="Quarkus" url="file://$PROJECT_DIR$/loan-commons" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/loan-master" />
   </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>

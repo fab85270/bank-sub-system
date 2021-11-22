@@ -13,6 +13,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+
       <module name="bank-sub-system" target="1.5" />
       <module name="bank-sub-system-2" target="1.5" />
       <module name="loan-bank" target="11" />
@@ -28,5 +29,11 @@
       <module name="loan-commons" options="-parameters" />
       <module name="loan-master" options="-parameters" />
     </option>
+  </component>
+      <module name="wrapper (1)" target="1.5" />
+      <module name="wrapper (2)" target="1.5" />
+      <module name="wrapper (3)" target="1.5" />
+      <module name="wrapper (4)" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

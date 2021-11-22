@@ -14,7 +14,6 @@ public class LoanProposal {
     private Long idLoanSimulation;
 
     @OneToOne(optional = false) //Une LoanSimulation concerne un dossier
-    @JoinColumn(name = "idDossier", nullable = false)
     private Dossier dossier;
 
     @Column(name = "dateSimulation", nullable = false)
