@@ -13,6 +13,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="bank-sub-system" target="1.5" />
       <module name="bank-sub-system-2" target="1.5" />
       <module name="loan-bank" target="11" />
       <module name="loan-broker" target="11" />
