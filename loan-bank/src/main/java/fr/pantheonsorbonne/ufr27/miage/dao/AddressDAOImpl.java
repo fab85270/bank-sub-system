@@ -13,13 +13,13 @@ public class AddressDAOImpl implements AddressDAO{
     EntityManager em;
 
     @Override
-    public Address findAdress(long idAddress){
+    public Address findAddress(long idAddress){
         Address a = (Address) em.createQuery("Select a from Address a where a.idAddress=:idAddress").setParameter("idAddress", idAddress).getSingleResult();
         return a;
     }
     @Override
     @Transactional
-    public Address createNewAdress(int idAddress, String streetName, int streetNumber, long postalCode, String city, String complementaryAddress){
+    public Address createNewAddress(int idAddress, String streetName, int streetNumber, long postalCode, String city, String complementaryAddress){
         Address a = new Address(idAddress, streetName, streetNumber,postalCode,city,complementaryAddress);
         em.persist(a);
         return a;
