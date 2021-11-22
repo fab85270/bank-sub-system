@@ -28,8 +28,7 @@ public class Address {
     public Address() {
     }
 
-    public Address(Integer idAddress, String streetName, int streetNumber, long postalCode, String city, String complementaryAddress) {
-        this.idAddress = idAddress;
+    public Address(String streetName, int streetNumber, long postalCode, String city, String complementaryAddress) {
         this.streetName = streetName;
         this.streetNumber = streetNumber;
         this.postalCode = postalCode;
@@ -39,10 +38,6 @@ public class Address {
 
     public Integer getIdAddress() {
         return idAddress;
-    }
-
-    public void setIdAddress(Integer idAddress) {
-        this.idAddress = idAddress;
     }
 
     public String getStreetName() {

@@ -28,22 +28,17 @@ public class Project {
     public Project() {
     }
 
-    public Project(Integer idProject, String projectDescription, Instant estimatedStartDate, Instant estimatedDeadline, double demandedValue) {
-        this.idProject = idProject;
+    public Project(String projectDescription, Instant estimatedStartDate, Instant estimatedDeadline, double demandedValue) {
         this.projectDescription = projectDescription;
         this.estimatedStartDate = estimatedStartDate;
         this.estimatedDeadline = estimatedDeadline;
         this.demandedValue = demandedValue;
-//                Monetary.getDefaultAmountFactory()
-//            .setCurrency(Monetary.getCurrency("EUR")).setNumber(demandedValue).create();;
+        //Monetary.getDefaultAmountFactory()
+        //.setCurrency(Monetary.getCurrency("EUR")).setNumber(demandedValue).create();;
     }
 
     public Integer getIdProject() {
         return idProject;
-    }
-
-    public void setIdProject(Integer idProject) {
-        this.idProject = idProject;
     }
 
     public String getProjectDescription() {

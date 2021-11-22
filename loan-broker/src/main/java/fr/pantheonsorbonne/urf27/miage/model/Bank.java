@@ -10,7 +10,7 @@ public class Bank {
     @Column(name = "idBank", nullable = false)
     private Integer idBank;
 
-    @Column(name = "bankName", nullable = false, length = 45)
+    @Column(name = "bankName", nullable = false, length = 45, unique = true)
     private String name;
 
     @OneToOne(optional = true)
@@ -25,11 +25,14 @@ public class Bank {
     public Bank() {
     }
 
+    public Bank(String name, Address idAddress, Broker idBroker){
+        this.name = name;
+        this.idAddress = idAddress;
+        this.idBroker = idBroker;
+    }
+
     public Broker getIdBroker() {
         return idBroker;
     }
 
-    public void setIdBroker(Broker idBroker) {
-        this.idBroker = idBroker;
-    }
 }

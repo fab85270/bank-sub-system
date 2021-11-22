@@ -25,7 +25,7 @@ public interface BorrowerDAO {
     void deleteBorrower(String mail);
 
     /*Crée un nouveau borrower*/
-    void createNewBorrower(String name, Instant birthdate, Project project, Gender gender, String mail, Broker broker);
+    void createNewBorrower(String firstName, String lastName, Instant birthdate, Project idProject, Gender gender, String email, Broker idBroker);
 
 
 

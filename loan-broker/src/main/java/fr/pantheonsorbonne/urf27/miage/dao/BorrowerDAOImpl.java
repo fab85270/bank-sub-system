@@ -52,12 +52,12 @@ public class BorrowerDAOImpl implements BorrowerDAO{
 
     @Override
     @Transactional
-    public void createNewBorrower(String name, Instant birthdate, Project project, Gender gender, String mail, Broker broker){
+    public void createNewBorrower(String firstName, String lastName, Instant birthdate, Project idProject, Gender gender, String email, Broker idBroker){
 
-        int numOfBorrowers = em.createQuery("Select b from Borrower b where b.email=:email").setParameter("email",mail).getResultList().size();
+        int numOfBorrowers = em.createQuery("Select b from Borrower b where b.email=:email").setParameter("email",email).getResultList().size();
 
         if(numOfBorrowers==0){ //Borrower doesnt exists
-            Borrower borrower = new Borrower(name,birthdate,project,gender,mail,broker);
+            Borrower borrower = new Borrower(firstName,lastName,birthdate,idProject,gender,email,idBroker);
             em.persist(borrower);
         }
     }

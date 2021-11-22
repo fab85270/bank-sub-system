@@ -29,7 +29,7 @@ public class Borrower {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     @Email
     private String email;
 
@@ -48,8 +48,7 @@ public class Borrower {
         this.idBroker = idBroker;
     }
 
-    public Borrower(Integer idBorrower, String firstName, String lastName, Instant birthdate, Project idProject, Gender gender, String email, Broker idBroker) {
-        this.idBorrower = idBorrower;
+    public Borrower(String firstName, String lastName, Instant birthdate, Project idProject, Gender gender, String email, Broker idBroker) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
@@ -63,9 +62,6 @@ public class Borrower {
         return idBorrower;
     }
 
-    public void setIdBorrower(Integer idBorrower) {
-        this.idBorrower = idBorrower;
-    }
 
     public String getFirstName() {
         return firstName;
