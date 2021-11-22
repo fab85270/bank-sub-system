@@ -36,7 +36,6 @@ public class BankDAOImpl implements BankDAO{
     public void createNewBank(String name, Address address, Broker idBroker){
 
         /*Une banque ne pourra être ajoutée que si elle n'existe pas (selon son name)*/
-
         int numOfBank = em.createQuery("Select b from Bank b where b.name=:name").setParameter("name",name).getResultList().size();
 
         if (numOfBank==0){ //Bank doesn't exist

@@ -13,7 +13,7 @@ public interface BrokerDAO {
 
     Broker findMatchingBroker(String mail) throws EntityNotFoundException;
 
-    Broker createNewBroker(String name, String email, Collection<Bank> banks, Collection<Borrower> borrowers);
+    void createNewBroker(String name, String email, Collection<Bank> banks, Collection<Borrower> borrowers);
 
     List<Broker> listBroker();
 

@@ -20,10 +20,14 @@ public class BrokerDAOImpl implements BrokerDAO{
 
     @Override
     @Transactional
-    public Broker createNewBroker(String name, String email, Collection<Bank> banks, Collection<Borrower> borrowers){
-        Broker b = new Broker(name,email,banks,borrowers);
-        em.persist(b);
-        return b;
+    public void createNewBroker(String name, String email, Collection<Bank> banks, Collection<Borrower> borrowers){
+
+        /*Un Broker ne pourra être ajouté si il existe en bdd*/
+        int numOfBroker = em.createQuery("Select b from Broker b where b.email=:email").setParameter("email",email).getResultList().size();
+
+        if(numOfBroker==0) {
+            em.persist(new Broker(name, email, banks, borrowers));
+        }
     }
 
     @Override
