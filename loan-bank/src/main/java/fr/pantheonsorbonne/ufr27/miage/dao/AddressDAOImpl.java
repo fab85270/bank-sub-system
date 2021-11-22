@@ -1,9 +1,11 @@
 package fr.pantheonsorbonne.ufr27.miage.dao;
 
 import fr.pantheonsorbonne.ufr27.miage.model.Address;
+import fr.pantheonsorbonne.ufr27.miage.exception.entityNotFound;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -13,9 +15,13 @@ public class AddressDAOImpl implements AddressDAO{
     EntityManager em;
 
     @Override
-    public Address findAddress(long idAddress){
-        Address a = (Address) em.createQuery("Select a from Address a where a.idAddress=:idAddress").setParameter("idAddress", idAddress).getSingleResult();
-        return a;
+    public Address findAddress(long idAddress) throws entityNotFound{
+        try {
+            Address a = (Address) em.createQuery("Select a from Address a where a.idAddress=:idAddress").setParameter("idAddress", idAddress).getSingleResult();
+            return a;
+        }catch(NoResultException e){
+            throw new entityNotFound();
+        }
     }
     @Override
     @Transactional
@@ -24,4 +30,5 @@ public class AddressDAOImpl implements AddressDAO{
         em.persist(a);
         return a;
     }
+
 }
