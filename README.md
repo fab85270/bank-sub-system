@@ -27,6 +27,14 @@ Phase 2: proposer une simulation de financement
 - vérifier validité avis imposition
 
 Phase 3 :
+
+-Génération de la simulation d'emprunt qui sera envoyée par la suite à l'Acquéreur.
+
+## Amelioration possible
+Possiblement 
+- Transformer le JSON en PDF pour l'envoie au client
+
+test
 ##Interfaces
 ```
 broker1->buyer: rest:get:partner_bank_list
