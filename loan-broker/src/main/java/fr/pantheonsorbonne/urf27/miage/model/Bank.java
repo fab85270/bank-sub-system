@@ -10,7 +10,8 @@ public class Bank {
     @Column(name = "idBank", nullable = false)
     private long idBank;
 
-    @Column(name = "bankName", nullable = false, length = 45)
+    /*Deux banques ne peuvent avoir le même nom */
+    @Column(name = "bankName", unique =true,nullable = false, length = 45)
     private String name;
 
     @OneToOne(optional = true)
@@ -23,6 +24,11 @@ public class Bank {
 
 
     public Bank() {
+    }
+    public Bank(String name,Address address,Broker idBroker){
+        this.name = name;
+        this.idAddress = address;
+        this.idBroker = idBroker;
     }
 
     public Broker getIdBroker() {

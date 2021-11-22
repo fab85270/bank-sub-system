@@ -1,12 +1,10 @@
 package fr.pantheonsorbonne.urf27.miage.dao;
 
-import fr.pantheonsorbonne.urf27.miage.exception.BorrowerNotFoundException;
+import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Broker;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -29,13 +27,13 @@ public class BrokerDAOImpl implements BrokerDAO{
     }
 
     @Override
-    public Broker findMatchingBroker(String email) throws BorrowerNotFoundException{
+    public Broker findMatchingBroker(String email) throws EntityNotFoundException {
         System.out.println("couc");
         try{
             Broker b = (Broker) em.createQuery("Select b from Broker b where b.email=:email").setParameter("email",email).getSingleResult();
             return b;
         } catch(NoResultException e){
-            throw new BorrowerNotFoundException();
+            throw new EntityNotFoundException();
         }
     }
 
@@ -57,7 +55,7 @@ public class BrokerDAOImpl implements BrokerDAO{
 
     @Override
     @Transactional
-    public void addBankBroker(String mail, Bank bank) throws BorrowerNotFoundException {
+    public void addBankBroker(String mail, Bank bank) throws EntityNotFoundException {
         /*Récupération du broker concerné selon le mail indiqué en paramètre*/
         Collection bankCollection = this.findMatchingBroker(mail).getBanks();
 
@@ -78,7 +76,7 @@ public class BrokerDAOImpl implements BrokerDAO{
 
     @Override
     @Transactional
-    public void addBorrowerBroker(String mail, Borrower borrower) throws BorrowerNotFoundException{
+    public void addBorrowerBroker(String mail, Borrower borrower) throws EntityNotFoundException {
         /*Récupération du broker concerné selon le mail indiqué en paramètre*/
         Collection borrowersCollection = this.findMatchingBroker(mail).getBorrowers();
 
