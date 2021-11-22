@@ -62,7 +62,12 @@ public class BankDAOImpl implements BankDAO{
 
         //Bank b = this.findMatchingBank(nameBank).getIdBroker();
 
+    }
 
+    @Override
+    @Transactional
+    public List<Bank> listBanks(){
+        return em.createQuery("Select b from Bank b").getResultList();
     }
 
 

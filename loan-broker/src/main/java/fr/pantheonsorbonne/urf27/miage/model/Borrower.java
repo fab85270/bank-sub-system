@@ -45,13 +45,13 @@ public class Borrower {
         this.idBroker = idBroker;
     }
 
-    public Borrower(long idBorrower, String name, Instant birthdate, Project idProject, Gender gender, String email) {
-        this.idBorrower = idBorrower;
+    public Borrower( String name, Instant birthdate, Project idProject, Gender gender, String email,Broker idBroker) {
         this.name = name;
         this.birthdate = birthdate;
         this.idProject = idProject;
         this.gender = gender;
         this.email = email;
+        this.idBroker = idBroker;
     }
 
     public long getIdBorrower() {
