@@ -8,7 +8,7 @@ public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idBank", nullable = false)
-    private long idBank;
+    private Integer idBank;
 
     @Column(name = "bankName", nullable = false, length = 45)
     private String name;

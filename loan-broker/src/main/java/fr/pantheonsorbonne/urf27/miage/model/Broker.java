@@ -10,7 +10,7 @@ public class Broker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idBroker", nullable = false)
-    private long idBroker;
+    private Integer idBroker;
 
     @Column(name = "name", nullable = false)
     private String name;

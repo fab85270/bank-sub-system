@@ -10,7 +10,7 @@ public class Borrower {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idBorrower", nullable = false)
-    private long idBorrower;
+    private Integer idBorrower;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -45,7 +45,7 @@ public class Borrower {
         this.idBroker = idBroker;
     }
 
-    public Borrower(long idBorrower, String name, Instant birthdate, Project idProject, Gender gender, String email) {
+    public Borrower(Integer idBorrower, String name, Instant birthdate, Project idProject, Gender gender, String email) {
         this.idBorrower = idBorrower;
         this.name = name;
         this.birthdate = birthdate;
@@ -54,11 +54,11 @@ public class Borrower {
         this.email = email;
     }
 
-    public long getIdBorrower() {
+    public Integer getIdBorrower() {
         return idBorrower;
     }
 
-    public void setIdBorrower(long idBorrower) {
+    public void setIdBorrower(Integer idBorrower) {
         this.idBorrower = idBorrower;
     }
 

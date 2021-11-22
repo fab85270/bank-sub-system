@@ -8,7 +8,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idAddress", nullable = false)
-    private long idAddress;
+    private Integer idAddress;
 
     @Column(name = "streetName", nullable = false)
     private String streetName;
@@ -28,7 +28,7 @@ public class Address {
     public Address() {
     }
 
-    public Address(int idAddress, String streetName, int streetNumber, long postalCode, String city, String complementaryAddress) {
+    public Address(Integer idAddress, String streetName, int streetNumber, long postalCode, String city, String complementaryAddress) {
         this.idAddress = idAddress;
         this.streetName = streetName;
         this.streetNumber = streetNumber;
@@ -37,11 +37,11 @@ public class Address {
         this.complementaryAddress = complementaryAddress;
     }
 
-    public long getIdAddress() {
+    public Integer getIdAddress() {
         return idAddress;
     }
 
-    public void setIdAddress(int idAddress) {
+    public void setIdAddress(Integer idAddress) {
         this.idAddress = idAddress;
     }
 
