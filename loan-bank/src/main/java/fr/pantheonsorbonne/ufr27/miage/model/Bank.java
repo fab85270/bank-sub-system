@@ -7,9 +7,9 @@ public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idBank", nullable = false)
-    private long idBank;
+    private Integer idBank;
 
-    @Column(name = "bankName", nullable = false)
+    @Column(name = "bankName", nullable = false, unique=true)
     private String bankName;
 
     @OneToOne(optional = true)
@@ -18,12 +18,8 @@ public class Bank {
 
     /*Getter & Setter*/
 
-    public long getIdBank() {
+    public Integer getIdBank() {
         return idBank;
-    }
-
-    public void setIdBank(long idBank) {
-        this.idBank = idBank;
     }
 
     public String getBankName() {
@@ -45,8 +41,7 @@ public class Bank {
     /*Constructeur*/
     public Bank(){}
 
-    public Bank(long idBank, String bankName, Address idAddress) {
-        this.idBank = idBank;
+    public Bank( String bankName, Address idAddress) {
         this.bankName = bankName;
         this.idAddress = idAddress;
     }
