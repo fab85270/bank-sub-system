@@ -12,8 +12,11 @@ public class Borrower {
     @Column(name = "idBorrower", nullable = false)
     private Integer idBorrower;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "firstName", nullable = false)
+    private String firstName;
+
+    @Column(name = "lastName", nullable = false)
+    private String lastName;
 
     @Column(name = "birthdate", nullable = false)
     private Instant birthdate;
@@ -45,13 +48,15 @@ public class Borrower {
         this.idBroker = idBroker;
     }
 
-    public Borrower(Integer idBorrower, String name, Instant birthdate, Project idProject, Gender gender, String email) {
+    public Borrower(Integer idBorrower, String firstName, String lastName, Instant birthdate, Project idProject, Gender gender, String email, Broker idBroker) {
         this.idBorrower = idBorrower;
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.birthdate = birthdate;
         this.idProject = idProject;
         this.gender = gender;
         this.email = email;
+        this.idBroker = idBroker;
     }
 
     public Integer getIdBorrower() {
@@ -62,12 +67,20 @@ public class Borrower {
         this.idBorrower = idBorrower;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Instant getBirthdate() {

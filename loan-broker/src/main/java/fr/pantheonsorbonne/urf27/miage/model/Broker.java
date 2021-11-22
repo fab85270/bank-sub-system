@@ -12,8 +12,11 @@ public class Broker {
     @Column(name = "idBroker", nullable = false)
     private Integer idBroker;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "firstName", nullable = false)
+    private String firstName;
+
+    @Column(name = "lastName", nullable = false)
+    private String lastName;
 
     @OneToMany(mappedBy = "idBroker")
     private Collection<Bank> banks;
