@@ -3,7 +3,7 @@ package fr.pantheonsorbonne.ufr27.miage.dto;
 public class Officer {
     /* Variables privées propres à une Officer*/
 
-    private Long id;
+    private Integer id;
 
     private String firstName;
 
@@ -16,7 +16,7 @@ public class Officer {
     /*Constructeur*/
     public Officer(){}
 
-    public Officer(Long id, String firstName, String lastName, String email, long telNumber) {
+    public Officer(Integer id, String firstName, String lastName, String email, long telNumber) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -26,11 +26,11 @@ public class Officer {
 
     /*Getter & Setter*/
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

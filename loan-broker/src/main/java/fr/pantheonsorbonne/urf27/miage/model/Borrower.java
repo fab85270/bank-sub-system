@@ -10,7 +10,7 @@ public class Borrower {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idBorrower", nullable = false)
-    private long idBorrower;
+    private Integer idBorrower;
 
     @Column(name = "name", nullable = false)
     private String name;

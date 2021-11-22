@@ -11,7 +11,7 @@ public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idProject", nullable = false)
-    private long idProject;
+    private Integer idProject;
 
     @Column(name = "description", nullable = false)
     private String projectDescription;
@@ -28,7 +28,7 @@ public class Project {
     public Project() {
     }
 
-    public Project(long idProject, String projectDescription, Instant estimatedStartDate, Instant estimatedDeadline, double demandedValue) {
+    public Project(Integer idProject, String projectDescription, Instant estimatedStartDate, Instant estimatedDeadline, double demandedValue) {
         this.idProject = idProject;
         this.projectDescription = projectDescription;
         this.estimatedStartDate = estimatedStartDate;
@@ -38,11 +38,11 @@ public class Project {
 //            .setCurrency(Monetary.getCurrency("EUR")).setNumber(demandedValue).create();;
     }
 
-    public long getIdProject() {
+    public Integer getIdProject() {
         return idProject;
     }
 
-    public void setIdProject(long idProject) {
+    public void setIdProject(Integer idProject) {
         this.idProject = idProject;
     }
 
