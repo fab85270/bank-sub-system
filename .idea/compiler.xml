@@ -12,6 +12,13 @@
         <module name="loan-master" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bank-sub-system-2" target="1.5" />
+      <module name="loan-bank" target="11" />
+      <module name="loan-broker" target="11" />
+      <module name="loan-commons" target="11" />
+      <module name="loan-master" target="11" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
