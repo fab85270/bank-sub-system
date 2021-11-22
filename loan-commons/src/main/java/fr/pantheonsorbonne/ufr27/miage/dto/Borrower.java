@@ -1,57 +1,47 @@
-package fr.pantheonsorbonne.urf27.miage.model;
+package fr.pantheonsorbonne.ufr27.miage.dto;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.time.Instant;
 
-@Entity
 public class Borrower {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idBorrower", nullable = false)
     private Integer idBorrower;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    private String firstName;
 
-    @Column(name = "birthdate", nullable = false)
+    private String lastName;
+
     private Instant birthdate;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idProject", nullable = false)
-    private Project idProject;
+    private int idProject;
 
-    @Column(name="gender", nullable = false)
-    @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @Column(name = "email", nullable = false)
-    @Email
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "idBroker")
-    private Broker idBroker;
+    private int idBroker;
 
     public Borrower() {
     }
 
-    public Broker getIdBroker() {
-        return idBroker;
-    }
-
-    public void setIdBroker(Broker idBroker) {
-        this.idBroker = idBroker;
-    }
-
-    public Borrower(Integer idBorrower, String name, Instant birthdate, Project idProject, Gender gender, String email) {
+    public Borrower(Integer idBorrower, String firstName, String lastName, Instant birthdate, int idProject, Gender gender, String email, int idBroker) {
         this.idBorrower = idBorrower;
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.birthdate = birthdate;
         this.idProject = idProject;
         this.gender = gender;
         this.email = email;
+        this.idBroker = idBroker;
+    }
+
+    public int getIdBroker() {
+        return idBroker;
+    }
+
+    public void setIdBroker(int idBroker) {
+        this.idBroker = idBroker;
     }
 
     public Integer getIdBorrower() {
@@ -62,12 +52,20 @@ public class Borrower {
         this.idBorrower = idBorrower;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Instant getBirthdate() {
@@ -78,11 +76,11 @@ public class Borrower {
         this.birthdate = birthdate;
     }
 
-    public Project getIdProject() {
+    public int getIdProject() {
         return idProject;
     }
 
-    public void setIdProject(Project idProject) {
+    public void setIdProject(int idProject) {
         this.idProject = idProject;
     }
 

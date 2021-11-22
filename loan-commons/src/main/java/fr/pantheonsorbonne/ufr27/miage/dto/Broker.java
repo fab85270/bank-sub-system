@@ -1,24 +1,18 @@
-package fr.pantheonsorbonne.urf27.miage.model;
+package fr.pantheonsorbonne.ufr27.miage.dto;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Collection;
 
-@Entity
 public class Broker {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idBroker", nullable = false)
     private Integer idBroker;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    private String firstName;
 
-    @OneToMany(mappedBy = "idBroker")
-    private Collection<Bank> banks;
+    private String lastName;
 
-    @OneToMany(mappedBy = "idBroker")
+//    private Collection<Bank> banks;
+
     private Collection<Borrower> borrowers;
 
     public Broker() {

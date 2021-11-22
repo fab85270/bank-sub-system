@@ -1,28 +1,17 @@
-package fr.pantheonsorbonne.urf27.miage.model;
+package fr.pantheonsorbonne.ufr27.miage.dto;
 
-import javax.money.Monetary;
-import javax.money.MonetaryAmount;
-import javax.persistence.*;
 import java.time.Instant;
 
-@Entity
 public class Project {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idProject", nullable = false)
     private Integer idProject;
 
-    @Column(name = "description", nullable = false)
     private String projectDescription;
 
-    @Column(name = "estimatedStartDate", nullable = false)
     private Instant estimatedStartDate;
 
-    @Column(name = "estimatedDeadline", nullable = false)
     private Instant estimatedDeadline;
 
-    @Column(name = "demandedValue", nullable = false)
     private double demandedValue;
 
     public Project() {
