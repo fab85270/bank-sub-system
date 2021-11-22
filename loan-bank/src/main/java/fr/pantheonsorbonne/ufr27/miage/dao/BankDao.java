@@ -4,7 +4,11 @@ import fr.pantheonsorbonne.ufr27.miage.model.Address;
 import fr.pantheonsorbonne.ufr27.miage.model.Bank;
 
 public interface BankDao {
-    Bank findBank(long idBank);
+    Bank findMatchingBank(String bankName);
 
-    Bank addBank(long idBank, String bankName, Address idAddress);
+    void createNewBank(String bankName, Address address, Broker idBroker);
+
+    void clearBanks();
+
+    void clearBank(String bankName);
 }
