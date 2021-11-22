@@ -17,10 +17,9 @@ import java.time.Instant;
 import java.util.List;
 
 @ApplicationScoped //Injection d'objets durant la durée de l'application
-
 public class BorrowerDAOImpl implements BorrowerDAO{
 
-    @PersistenceContext(name = "mysql") //Ajout du context de persistence nommé "mySql"
+    @PersistenceContext(name = "mysql") //Ajout du context de persistence connect à la base de donnée "mySql"
     EntityManager em;
 
     @Override
