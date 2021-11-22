@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09e07650-7ec5-4e0b-9dd4-78edbb7e89d4" name="Default Changelist" comment="modif readme">
-      <change afterPath="$PROJECT_DIR$/loan-commons/src/main/java/fr/pantheonsorbonne/ufr27/miage/dto/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loan-commons/src/main/java/fr/pantheonsorbonne/ufr27/miage/dto/Bank.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loan-commons/src/main/java/fr/pantheonsorbonne/ufr27/miage/dto/Borrower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loan-commons/src/main/java/fr/pantheonsorbonne/ufr27/miage/dto/Broker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loan-commons/src/main/java/fr/pantheonsorbonne/ufr27/miage/dto/Gender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loan-commons/src/main/java/fr/pantheonsorbonne/ufr27/miage/dto/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2021_13_07__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2021_13_07__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2021_13_07__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2021_13_07__Default_Changelist_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22_11_2021_14_33__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22_11_2021_14_33__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_13_43__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_13_43__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_13_43__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_13_43__Default_Changelist_1.xml" afterDir="false" />
+    <list default="true" id="d3c0003a-cc2d-4754-8323-6c966b4b56fb" name="Changes" comment="DAO Bank">
+      <change afterPath="$PROJECT_DIR$/loan-bank/src/main/java/fr/pantheonsorbonne/ufr27/miage/dao/BankDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loan-bank/src/main/java/fr/pantheonsorbonne/ufr27/miage/dao/BankDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/fr/pantheonsorbonne/ufr27/miage/dao/AddressDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/fr/pantheonsorbonne/ufr27/miage/dao/AddressDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/fr/pantheonsorbonne/ufr27/miage/dao/AddressDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/fr/pantheonsorbonne/ufr27/miage/dao/AddressDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/fr/pantheonsorbonne/ufr27/miage/model/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/fr/pantheonsorbonne/ufr27/miage/model/Bank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Borrower.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Borrower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Broker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -67,25 +59,42 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../projetExemple/miage-2021-jee-project" />
-    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../exempleProjet/miage-2021-jee-project" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="fr.pantheonsorbonne.ufr27.miage.dto" />
-    </key>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="09e07650-7ec5-4e0b-9dd4-78edbb7e89d4" name="Default Changelist" comment="" />
+      <changelist id="d3c0003a-cc2d-4754-8323-6c966b4b56fb" name="Changes" comment="" />
       <created>1636708538517</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636708538517</updated>
+      <workItem from="1637570274942" duration="2683000" />
+      <workItem from="1637574145970" duration="1026000" />
+      <workItem from="1637580868597" duration="580000" />
     </task>
     <task id="LOCAL-00001" summary="modif readme">
       <created>1637491279335</created>
@@ -108,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637493212788</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="DAO Bank">
+      <created>1637571907019</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1637571907019</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +145,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="modif readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="modif readme" />
+    <MESSAGE value="DAO Bank" />
+    <option name="LAST_COMMIT_MESSAGE" value="DAO Bank" />
   </component>
 </project>
