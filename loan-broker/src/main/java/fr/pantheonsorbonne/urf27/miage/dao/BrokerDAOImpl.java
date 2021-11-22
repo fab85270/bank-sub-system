@@ -43,15 +43,6 @@ public class BrokerDAOImpl implements BrokerDAO{
         return em.createQuery("Select b from Broker b").getResultList();
     }
 
-    @Override
-    @Transactional
-    public void createBaseBrokers(){
-        int numOfBrokers = em.createQuery("Select b from Broker b").getResultList().size();
-        if(numOfBrokers==0){
-            em.persist(new Broker("Julien","phiphi@hotmail.fr"));
-            em.persist(new Broker("Manuela","ManuPayet@yahoo.fr"));
-        }
-    }
 
     @Override
     @Transactional

@@ -30,26 +30,21 @@ public class BankDAOImpl implements BankDAO{
         }
     }
 
-    @Override
-    @Transactional
-    public void createBaseBanks(){
-        int numOfBanks = em.createQuery("Select b from Bank b").getResultList().size();
-        if(numOfBanks==0) { //Cas table Bank vide
-            /*Ici faire l'insertion?*/
-        }
-    }
 
     @Override
     @Transactional
     public Bank createNewBank(String name, Address address, Broker idBroker){
-        /*Une banque ne pourra être ajoutée que si elle n'existe pas*/
+
+        /*Une banque ne pourra être ajoutée que si elle n'existe pas (selon son name)*/
 
         int numOfBank = em.createQuery("Select b from Bank b where b.name=:name").setParameter("name",name).getResultList().size();
 
-        if (numOfBank==0){ //Cas ou la banque existe pas déja
+        if (numOfBank==0){ //Bank doesn't exist
             Bank bank = new Bank(name,address,idBroker);
             em.persist(bank);
             return bank;
+        }else{
+
         }
     }
 

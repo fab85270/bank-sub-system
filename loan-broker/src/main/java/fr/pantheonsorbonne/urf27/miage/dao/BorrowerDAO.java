@@ -15,9 +15,6 @@ public interface BorrowerDAO {
   //  @Transactional
     //Borrower createNewBorrower(String name, Instant birthdate, Project project, Gender gender,String mail,Broker broker);
 
-    /* Création de la table contenant l'ensemble des borrowers à l'initialisation du projet */
-    @Transactional
-    void createBaseBorrower();
 
     /*Obtenir la liste de tous les borrowers */
 

@@ -30,16 +30,6 @@ public class BorrowerDAOImpl implements BorrowerDAO{
 
     @Override
     @Transactional
-    public void createBaseBorrower(){
-        int numOfBorrowers = em.createQuery("Select b from Borrower b").getResultList().size();
-        if(numOfBorrowers==0) { //Cas table Borrowers vide
-           // Borrower bob = new Borrower("Bob","26/06/1985",1,Gender.MALE,"bob@gmail.com",new Broker());
-        }
-        }
-
-
-    @Override
-    @Transactional
     public List<Borrower> listBorrower(){
         return em.createQuery("Select b from Borrower b").getResultList();
     }

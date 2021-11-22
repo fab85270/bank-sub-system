@@ -17,8 +17,6 @@ public interface BrokerDAO {
 
     List<Broker> listBroker();
 
-    void createBaseBrokers();
-
     void addBankBroker(String mail,Bank bank) throws EntityNotFoundException;
 
     void addBorrowerBroker(String mail,Borrower borrower) throws EntityNotFoundException;

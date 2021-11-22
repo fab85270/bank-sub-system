@@ -9,7 +9,6 @@ public interface BankDAO {
 
     Bank findMatchingBank(String name) throws EntityNotFoundException;
 
-    void createBaseBanks();
 
     Bank createNewBank(String name, Address address,Broker idBroker);
 
