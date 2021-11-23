@@ -20,7 +20,7 @@ public class BankDaoImpl implements BankDao {
             Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankName=:bankName").setParameter("bankName",bankName).getSingleResult();
             return b;
         }catch(NoResultException e) {
-            throw new entityNotFoundException();
+            throw new entityNotFoundException(); //Déclaration d'une exception métier
         }
     }
 
