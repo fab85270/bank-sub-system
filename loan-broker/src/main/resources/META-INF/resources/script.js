@@ -27,7 +27,7 @@ function controle(){
         xmlhttp.send(JSON.stringify(_data));
     }else{
         if(!isDateDepart){window.alert("Error : la date de départ doit être supérieur à "+date.getFullYear()+" et comporter 4 chiffres")}
-        if(!isDateFin){window.alert("Error : la date de fin doit être supérieur à 2021 et comporter 4 chiffres")}
+        if(!isDateFin){window.alert("Error : la date de fin doit être supérieur à "+dateDepart+" et comporter 4 chiffres")}
         if(!isDateValide){window.alert("Error : la date de départ doit être supérieur à la date de fin")}
         if(!isSommeVoulu){window.alert("Error : la somme doit être supérieur à 0")}
     }

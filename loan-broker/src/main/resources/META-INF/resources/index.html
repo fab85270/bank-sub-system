@@ -2,29 +2,59 @@
     <head>
         <script src="./script.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+            body{
+                background-color: antiquewhite;
+            }
+            .contenair{
+
+            }
+            .formulaire{
+                margin: auto;
+                width: 50%;
+            }
+            .presentation{
+                padding-bottom: 40px;
+            }
+            .presentation h1,h3{
+                text-align: center;
+            }
+            .form-check{
+                text-align: center;
+            }
+        </style>
     </head>
 
     <body>
-        <form id="myForm">
-            <div class="form-group">
-                <label for="description">Description de votre projet</label>
-                <input type="text" class="form-control" id="description" placeholder="Description" required="required">
+        <div class="contenair">
+
+            <div class="presentation">
+                <h1>Formulaire de proposition</h1>
+                <h3>Veuillez rentrez les informations nécessaires à la réalisation de votre projet rêvé !</h3>
             </div>
-            <div class="form-group">
-                <label for="dateDepart">Année de début du projet</label>
-                <input type="number" class="form-control" id="dateDepart" pattern = "^[0-9]{4}$" placeholder="Annee" required="required">
+            <div class="formulaire">
+                <form id="myForm">
+                    <div class="form-group">
+                        <label for="description">Description de votre projet</label>
+                        <input type="text" class="form-control" id="description" placeholder="Description" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="dateDepart">Année de début du projet</label>
+                        <input type="number" class="form-control" id="dateDepart" pattern = "^[0-9]{4}$" placeholder="Annee" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="dateFin">Année de fin du projet</label>
+                        <input type="number" class="form-control" id="dateFin" aria-describedby="emailHelp" placeholder="Annee">
+                    </div>
+                    <div class="form-group">
+                        <label for="sommeVoulu">Somme désirée</label>
+                        <input type="number" class="form-control" id="sommeVoulu" aria-describedby="emailHelp" placeholder="Somme" required="required">
+                    </div>
+                    <div class="form-check">
+                        <input type="button" class="form-check-input" id="boutton" value="Envoyer !" onclick="controle()">
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="dateFin">Année de fin du projet</label>
-                <input type="number" class="form-control" id="dateFin" aria-describedby="emailHelp" placeholder="Annee">
-            </div>
-            <div class="form-group">
-                <label for="sommeVoulu">Somme désirée</label>
-                <input type="number" class="form-control" id="sommeVoulu" aria-describedby="emailHelp" placeholder="Somme" required="required">
-            </div>
-            <div class="form-check">
-                <input type="button" class="form-check-input" id="boutton" value="Envoyer !" onclick="controle()">
-            </div>
-        </form>
+        </div>
     </body>
 </html>
