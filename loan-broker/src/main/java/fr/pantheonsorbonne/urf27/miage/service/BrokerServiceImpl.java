@@ -1,16 +1,13 @@
 package fr.pantheonsorbonne.urf27.miage.service;
 
 //import fr.pantheonsorbonne.ufr27.miage.dto.*;
-import fr.pantheonsorbonne.urf27.miage.dao.BrokerDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
-import fr.pantheonsorbonne.urf27.miage.model.Broker;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collection;
-import java.util.List;
 
 @ApplicationScoped
 public class BrokerServiceImpl implements BrokerService {

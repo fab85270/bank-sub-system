@@ -3,7 +3,6 @@ package fr.pantheonsorbonne.urf27.miage.dao;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Address;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
-import fr.pantheonsorbonne.urf27.miage.model.Broker;
 
 import java.util.List;
 
@@ -11,7 +10,7 @@ public interface BankDAO {
 
     Bank findMatchingBank(String name) throws EntityNotFoundException;
 
-    void createNewBank(String name, Address address,Broker idBroker);
+    void createNewBank(String name, Address address);
 
     void createNewBank(Bank bank);
 
@@ -19,7 +18,7 @@ public interface BankDAO {
 
     void clearBank(String name);
 
-    void addBrokerBank(String nameBank,Broker broker)  throws EntityNotFoundException;
+    void addBrokerBank(String nameBank)  throws EntityNotFoundException;
 
     List<Bank> listBanks();
 }

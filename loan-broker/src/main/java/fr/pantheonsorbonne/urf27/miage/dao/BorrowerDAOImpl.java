@@ -3,7 +3,6 @@ package fr.pantheonsorbonne.urf27.miage.dao;
 
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Borrower;
-import fr.pantheonsorbonne.urf27.miage.model.Broker;
 import fr.pantheonsorbonne.urf27.miage.model.Gender;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 
@@ -52,13 +51,13 @@ public class BorrowerDAOImpl implements BorrowerDAO{
 
     @Override
     @Transactional
-    public void createNewBorrower(String firstName, String lastName, Instant birthdate, Project idProject, Gender gender, String email, Broker idBroker){
+    public void createNewBorrower(String firstName, String lastName, Instant birthdate, Project idProject, Gender gender, String email){
 
         int numOfBorrowers = em.createQuery("Select b from Borrower b where b.email=:email").setParameter("email",email).getResultList().size();
 
         if(numOfBorrowers==0){ //Borrower doesnt exists
-            Borrower borrower = new Borrower(firstName,lastName,birthdate,idProject,gender,email,idBroker);
-            em.persist(borrower);
+           // Borrower borrower = new Borrower(firstName,lastName,birthdate,idProject,gender,email,idBroker);
+           // em.persist(borrower);
         }
     }
 

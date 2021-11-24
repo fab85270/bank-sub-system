@@ -3,15 +3,12 @@ package fr.pantheonsorbonne.urf27.miage.dao;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Address;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
-import fr.pantheonsorbonne.urf27.miage.model.Borrower;
-import fr.pantheonsorbonne.urf27.miage.model.Broker;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.util.Collection;
 import java.util.List;
 
 @ApplicationScoped
@@ -33,13 +30,13 @@ public class BankDAOImpl implements BankDAO {
 
     @Override
     @Transactional
-    public void createNewBank(String name, Address address, Broker broker) {
+    public void createNewBank(String name, Address address) {
         /*Une banque ne pourra être ajoutée que si elle n'existe pas (selon son name)*/
         int numOfBank = em.createQuery("Select b from Bank b where b.bankName=:name").setParameter("name", name).getResultList().size();
 
         if (numOfBank == 0) { //Bank doesn't exist
-            Bank bank = new Bank(name, address, broker);
-            em.persist(bank);
+            //Bank bank = new Bank(name, address, broker);
+            //em.persist(bank);
         }
     }
 
@@ -63,7 +60,7 @@ public class BankDAOImpl implements BankDAO {
 
     @Override
     @Transactional
-    public void addBrokerBank(String nameBank, Broker broker) throws EntityNotFoundException {
+    public void addBrokerBank(String nameBank) throws EntityNotFoundException {
         /*Récupération de la Bank concerné selon son nom indiqué en paramètre*/
 
         //Bank b = this.findMatchingBank(nameBank).getIdBroker();

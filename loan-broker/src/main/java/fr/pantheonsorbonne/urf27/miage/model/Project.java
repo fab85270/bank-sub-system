@@ -10,35 +10,41 @@ public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idProject", nullable = false)
-    private Integer idProject;
+    @Column(name = "projectId", nullable = false)
+    private Integer projectId;
 
-    @Column(name = "description", nullable = false)
+    @OneToOne(optional = true)
+    @JoinColumn(name = "realEstateId", nullable = false)
+    private RealEstate realEstateId;
+
+    @Column(name = "description")
     private String projectDescription;
 
-    @Column(name = "estimatedStartDate", nullable = false)
-    private Instant estimatedStartDate;
+    @Column(name = "proposalDate", nullable = false)
+    private Instant proposalDate;
 
-    @Column(name = "estimatedDeadline", nullable = false)
-    private Instant estimatedDeadline;
+    @Column(name = "expirationDate", nullable = false)
+    private Instant expirationDate;
 
     @Column(name = "demandedValue", nullable = false)
-    private double demandedValue;
+    private double requiredValue;
+
+    @Column(name = "durationMax", nullable = false)
+    private int durationMax;
 
     public Project() {
     }
 
-    public Project(String projectDescription, Instant estimatedStartDate, Instant estimatedDeadline, double demandedValue) {
+    public Project(String projectDescription, Instant proposalDate, Instant expirationDate, double requiredValue, int durationMax) {
         this.projectDescription = projectDescription;
-        this.estimatedStartDate = estimatedStartDate;
-        this.estimatedDeadline = estimatedDeadline;
-        this.demandedValue = demandedValue;
-        //Monetary.getDefaultAmountFactory()
-        //.setCurrency(Monetary.getCurrency("EUR")).setNumber(demandedValue).create();;
+        this.proposalDate = proposalDate;
+        this.expirationDate = expirationDate;
+        this.requiredValue = requiredValue;
+        this.durationMax = durationMax;
     }
 
-    public Integer getIdProject() {
-        return idProject;
+    public Integer getProjectId() {
+        return projectId;
     }
 
     public String getProjectDescription() {
@@ -49,27 +55,35 @@ public class Project {
         this.projectDescription = projectDescription;
     }
 
-    public Instant getEstimatedStartDate() {
-        return estimatedStartDate;
+    public Instant getProposalDate() {
+        return proposalDate;
     }
 
-    public void setEstimatedStartDate(Instant estimatedStartDate) {
-        this.estimatedStartDate = estimatedStartDate;
+    public void setProposalDate(Instant proposalDate) {
+        this.proposalDate = proposalDate;
     }
 
-    public Instant getEstimatedDeadline() {
-        return estimatedDeadline;
+    public Instant getExpirationDate() {
+        return expirationDate;
     }
 
-    public void setEstimatedDeadline(Instant estimatedDeadline) {
-        this.estimatedDeadline = estimatedDeadline;
+    public void setExpirationDate(Instant expirationDate) {
+        this.expirationDate = expirationDate;
     }
 
-    public double getDemandedValue() {
-        return demandedValue;
+    public double getrequiredValue() {
+        return requiredValue;
     }
 
-    public void setDemandedValue(double demandedValue) {
-        this.demandedValue = demandedValue;
+    public void setrequiredValue(double requiredValue) {
+        this.requiredValue = requiredValue;
+    }
+
+    public int getDurationMax() {
+        return durationMax;
+    }
+
+    public void setDurationMax(int durationMax) {
+        this.durationMax = durationMax;
     }
 }
