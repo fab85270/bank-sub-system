@@ -5,6 +5,8 @@ import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Broker;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -13,67 +15,84 @@ import java.util.Collection;
 import java.util.List;
 import java.lang.Override;
 
-public class BrokerDAOImpl implements BrokerDAO{
+@ApplicationScoped
+public class BrokerDAOImpl implements BrokerDAO {
 
     @PersistenceContext(name = "mysql")
     EntityManager em;
 
+    @Inject
+    BankDAOImpl bankDAO;
+
     @Override
     @Transactional
-    public void createNewBroker(String firstName, String lastName, String email, Collection<Bank> banks, Collection<Borrower> borrowers){
+    public Broker createNewBroker(String firstName, String lastName, String email, Collection<Bank> banks, Collection<Borrower> borrowers) {
 
         /*Un Broker ne pourra être ajouté si il existe en bdd*/
-        int numOfBroker = em.createQuery("Select b from Broker b where b.email=:email").setParameter("email",email).getResultList().size();
+        int numOfBroker = em.createQuery("Select b from Broker b where b.email=:email")
+                .setParameter("email", email)
+                .getResultList()
+                .size();
 
-        if(numOfBroker==0) {
-            em.persist(new Broker(firstName,lastName, email, banks, borrowers));
+        Broker broker = null;
+        if (numOfBroker == 0) {
+            broker = new Broker(firstName, lastName, email, banks, borrowers);
+            em.persist(broker);
         }
+        return broker;
     }
 
     @Override
-    public Broker findMatchingBroker(String email) throws EntityNotFoundException {
-        System.out.println("couc");
-        try{
-            Broker b = (Broker) em.createQuery("Select b from Broker b where b.email=:email").setParameter("email",email).getSingleResult();
-            return b;
-        } catch(NoResultException e){
+    @Transactional
+    public Broker createNewBroker(String firstName, String lastName, String email) {
+        Broker broker = new Broker(firstName, lastName, email);
+        em.persist(broker);
+        return broker;
+    }
+
+    @Override
+    @Transactional
+    public Broker createNewBroker(Broker broker) {
+        em.persist(broker);
+        return broker;
+    }
+
+    @Override
+    @Transactional
+    public Broker getBrokerByEmail(String email) throws EntityNotFoundException {
+        try {
+            return (Broker) em.createQuery("Select b from Broker b where b.email=:email").setParameter("email", email).getSingleResult();
+
+        } catch (NoResultException e) {
             throw new EntityNotFoundException();
         }
     }
 
     @Override
     @Transactional
-    public List<Broker> listBroker(){
-        return em.createQuery("Select b from Broker b").getResultList();
+    public Broker getBrokerById(int id) throws EntityNotFoundException {
+        try {
+            return em.find(Broker.class, id);
+        } catch (NoResultException e) {
+            throw new EntityNotFoundException();
+        }
     }
 
 
-    @Override
-    @Transactional
-    public void addBankBroker(String mail, Bank bank) throws EntityNotFoundException {
-        /*Récupération du broker concerné selon le mail indiqué en paramètre*/
-        Collection bankCollection = this.findMatchingBroker(mail).getBanks();
-
-        /*Ajoût de la bank dans la Collection de banks du broker */
-
-        bankCollection.add(bank);
-
-        /*Ajout des modifications dans la base de données */
-
-        /*Comment faire UPDATE ? */
-
-        //em.createQuery("Update Broker SET banks =: bankCollection where email=:mail").setParameter("bankCollection",bankCollection,"email",mail).executeUpdate();
-
-
-
-
-    }
+//    @Override
+//    @Transactional
+//    public void addBankBroker(String mail, Bank bank) throws EntityNotFoundException {
+//        /*Récupération du broker concerné selon le mail indiqué en paramètre*/
+//        bankDAO.createNewBank(bank);
+//        findMatchingBroker(mail).getBanks().add(bank);
+//
+//    }
 
     @Override
     @Transactional
     public void addBorrowerBroker(String mail, Borrower borrower) throws EntityNotFoundException {
         /*Récupération du broker concerné selon le mail indiqué en paramètre*/
-        Collection borrowersCollection = this.findMatchingBroker(mail).getBorrowers();
+        Collection borrowersCollection = getBrokerByEmail(mail).getBorrowers();
 
         /*Ajoût de la bank dans la Collection de banks du broker */
 
@@ -84,13 +103,13 @@ public class BrokerDAOImpl implements BrokerDAO{
 
     @Override
     @Transactional
-    public void clearBrokers(){
+    public void clearBrokers() {
         em.createQuery("delete from Broker").executeUpdate();
     }
 
     @Override
     @Transactional
-    public void clearBroker(String mail){
-        em.createQuery("delete from Broker b where b.email =:mail").setParameter("mail",mail).executeUpdate();
+    public void clearBroker(String mail) {
+        em.createQuery("delete from Broker b where b.email =:mail").setParameter("mail", mail).executeUpdate();
     }
 }

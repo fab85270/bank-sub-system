@@ -13,6 +13,8 @@ public interface BankDAO {
 
     void createNewBank(String name, Address address,Broker idBroker);
 
+    void createNewBank(Bank bank);
+
     void clearBanks();
 
     void clearBank(String name);

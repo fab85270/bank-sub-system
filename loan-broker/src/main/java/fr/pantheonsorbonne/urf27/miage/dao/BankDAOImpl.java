@@ -15,17 +15,17 @@ import java.util.Collection;
 import java.util.List;
 
 @ApplicationScoped
-public class BankDAOImpl implements BankDAO{
+public class BankDAOImpl implements BankDAO {
 
     @PersistenceContext(name = "mysql") //Ajout du context de persistence connect à la base de donnée "mySql"
     EntityManager em;
 
     @Override
     public Bank findMatchingBank(String name) throws EntityNotFoundException {
-        try{
-            Bank b = (Bank) em.createQuery("Select b from Bank b where b.name=:name").setParameter("name",name).getSingleResult();
+        try {
+            Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankName=:name").setParameter("name", name).getSingleResult();
             return b;
-        }catch(NoResultException e) {
+        } catch (NoResultException e) {
             throw new EntityNotFoundException();
         }
     }
@@ -33,30 +33,37 @@ public class BankDAOImpl implements BankDAO{
 
     @Override
     @Transactional
-    public void createNewBank(String name, Address address, Broker idBroker){
-
+    public void createNewBank(String name, Address address, Broker broker) {
         /*Une banque ne pourra être ajoutée que si elle n'existe pas (selon son name)*/
-        int numOfBank = em.createQuery("Select b from Bank b where b.name=:name").setParameter("name",name).getResultList().size();
+        int numOfBank = em.createQuery("Select b from Bank b where b.bankName=:name").setParameter("name", name).getResultList().size();
 
-        if (numOfBank==0){ //Bank doesn't exist
-            Bank bank = new Bank(name,address,idBroker);
+        if (numOfBank == 0) { //Bank doesn't exist
+            Bank bank = new Bank(name, address, broker);
             em.persist(bank);
         }
     }
 
     @Override
     @Transactional
-    public void clearBanks(){ em.createQuery("delete from Bank ").executeUpdate();}
-
-    @Override
-    @Transactional
-    public void clearBank(String name){
-        em.createQuery("delete from Bank b where b.name=:name").setParameter("name",name).executeUpdate();
+    public void createNewBank(Bank bank) {
+        em.persist(bank);
     }
 
     @Override
     @Transactional
-    public void addBrokerBank(String nameBank,Broker broker)  throws EntityNotFoundException{
+    public void clearBanks() {
+        em.createQuery("delete from Bank ").executeUpdate();
+    }
+
+    @Override
+    @Transactional
+    public void clearBank(String name) {
+        em.createQuery("delete from Bank b where b.bankName=:name").setParameter("name", name).executeUpdate();
+    }
+
+    @Override
+    @Transactional
+    public void addBrokerBank(String nameBank, Broker broker) throws EntityNotFoundException {
         /*Récupération de la Bank concerné selon son nom indiqué en paramètre*/
 
         //Bank b = this.findMatchingBank(nameBank).getIdBroker();
@@ -65,7 +72,7 @@ public class BankDAOImpl implements BankDAO{
 
     @Override
     @Transactional
-    public List<Bank> listBanks(){
+    public List<Bank> listBanks() {
         return em.createQuery("Select b from Bank b").getResultList();
     }
 

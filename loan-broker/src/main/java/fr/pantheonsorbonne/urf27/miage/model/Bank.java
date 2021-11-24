@@ -11,7 +11,7 @@ public class Bank {
     private Integer idBank;
 
     @Column(name = "bankName", nullable = false, length = 45, unique = true)
-    private String name;
+    private String bankName;
 
     @OneToOne(optional = true)
     @JoinColumn(name = "idAddress", nullable = true)
@@ -26,8 +26,28 @@ public class Bank {
     }
 
     public Bank(String name, Address idAddress, Broker idBroker){
-        this.name = name;
+        this.bankName = name;
         this.idAddress = idAddress;
+        this.idBroker = idBroker;
+    }
+
+    public String getName() {
+        return bankName;
+    }
+
+    public void setName(String name) {
+        this.bankName = name;
+    }
+
+    public Address getIdAddress() {
+        return idAddress;
+    }
+
+    public void setIdAddress(Address idAddress) {
+        this.idAddress = idAddress;
+    }
+
+    public void setIdBroker(Broker idBroker) {
         this.idBroker = idBroker;
     }
 

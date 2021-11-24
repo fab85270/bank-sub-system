@@ -30,6 +30,10 @@ public class Broker {
     public Broker() {
     }
 
+    public Integer getIdBroker() {
+        return idBroker;
+    }
+
     public String getFirstName() {
         return firstName;
     }

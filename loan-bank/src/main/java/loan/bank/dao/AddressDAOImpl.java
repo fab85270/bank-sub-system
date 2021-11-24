@@ -1,7 +1,7 @@
-package fr.pantheonsorbonne.ufr27.miage.dao;
+package loan.bank.dao;
 
-import fr.pantheonsorbonne.ufr27.miage.model.Address;
-import fr.pantheonsorbonne.ufr27.miage.exception.entityNotFound;
+import loan.bank.model.Address;
+import loan.bank.exception.entityNotFound;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;

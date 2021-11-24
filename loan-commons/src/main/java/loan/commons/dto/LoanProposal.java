@@ -1,4 +1,4 @@
-package fr.pantheonsorbonne.ufr27.miage.dto;
+package loan.commons.dto;
 
 import java.time.Instant;
 

@@ -11,13 +11,16 @@ import java.util.List;
 
 public interface BrokerDAO {
 
-    Broker findMatchingBroker(String mail) throws EntityNotFoundException;
+    Broker getBrokerByEmail(String mail) throws EntityNotFoundException;
+    Broker getBrokerById(int id) throws EntityNotFoundException;
 
-    void createNewBroker(String firstName, String lastName, String email, Collection<Bank> banks, Collection<Borrower> borrowers);
+    Broker createNewBroker(String firstName, String lastName, String email, Collection<Bank> banks, Collection<Borrower> borrowers);
 
-    List<Broker> listBroker();
+    Broker createNewBroker(String firstName, String lastName, String email);
 
-    void addBankBroker(String mail,Bank bank) throws EntityNotFoundException;
+    Broker createNewBroker(Broker broker);
+
+//    void addBankBroker(String mail,Bank bank) throws EntityNotFoundException;
 
     void addBorrowerBroker(String mail,Borrower borrower) throws EntityNotFoundException;
 

@@ -1,4 +1,4 @@
-package fr.pantheonsorbonne.ufr27.miage.exception;
+package loan.bank.exception;
 
 public class entityNotFound extends Exception{
     public static class entityNotFoundException extends Throwable {

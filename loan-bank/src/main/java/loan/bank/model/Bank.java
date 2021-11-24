@@ -1,4 +1,4 @@
-package fr.pantheonsorbonne.ufr27.miage.model;
+package loan.bank.model;
 
 import javax.persistence.*;
 
