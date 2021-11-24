@@ -1,7 +1,6 @@
 package loan.bank.dao;
 
 import loan.bank.model.Address;
-import loan.bank.model.Bank;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;

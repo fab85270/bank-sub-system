@@ -1,2 +1,4 @@
-package loan.bank.model;public class Borrower {
+package loan.bank.model;
+
+public class Borrower {
 }
