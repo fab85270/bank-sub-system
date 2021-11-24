@@ -42,6 +42,8 @@ public class LoanProposal {
     @Column(name = "loanDurationMonth", nullable = false)
     private int loanDurationMonth;
 
+    public LoanProposal(){}
+
     public LoanProposal(Bank bankId, Instant dateProposal, Instant endDate, long validationNumber, boolean isValid,
                         double loanAmount, String description, double interestRate, int loanDurationMonth) {
         this.bankId = bankId;
