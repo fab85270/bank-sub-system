@@ -15,8 +15,8 @@ public class BrokerServiceImpl implements BrokerService {
     @PersistenceContext
     EntityManager em;
 
-    @Inject
-    BrokerDAOImpl brokerDAO;
+//    @Inject
+//    BrokerDAOImpl brokerDAO;
 
 //    @Override
 //    public Broker createBroker(Broker broker) {
@@ -26,7 +26,9 @@ public class BrokerServiceImpl implements BrokerService {
 
     @Override
     public Collection<Bank> getBrokersBanks(int brokerId) throws EntityNotFoundException {
-        System.out.println(brokerDAO.getBrokerById(brokerId).getBanks());
-        return brokerDAO.getBrokerById(brokerId).getBanks();
+//        System.out.println(brokerDAO.getBrokerById(brokerId).getBanks());
+//        return brokerDAO.getBrokerById(brokerId).getBanks();
+
+        return null;
     }
 }

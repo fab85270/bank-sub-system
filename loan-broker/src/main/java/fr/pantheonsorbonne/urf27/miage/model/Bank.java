@@ -26,6 +26,18 @@ public class Bank {
         this.addressId = idAddress;
     }
 
+    public Integer getBankId() {
+        return bankId;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public Address getAddressId() {
+        return addressId;
+    }
+
     public String getName() {
         return bankName;
     }

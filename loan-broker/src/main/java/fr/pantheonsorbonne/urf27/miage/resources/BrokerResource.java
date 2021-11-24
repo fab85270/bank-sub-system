@@ -51,11 +51,11 @@ public class BrokerResource {
     }
 
      */
-
-    @Path("/createBank")
-    @POST
-    @Consumes({MediaType.APPLICATION_JSON})
-    public void createBank(Bank bank) {
-        bankDAO.createNewBank(bank);
-    }
+//
+//    @Path("/createBank")
+//    @POST
+//    @Consumes({MediaType.APPLICATION_JSON})
+//    public void createBank(Bank bank) {
+//        bankDAO.createNewBank(bank);
+//    }
 }
