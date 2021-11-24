@@ -2,37 +2,25 @@ package loan.commons.dto;
 
 import java.time.Instant;
 
-public class Project {
+public class ProjectDTO {
 
-    private Integer idProject;
-
+    private int projectId;
+    private int realEstateId;
     private String projectDescription;
+    private Instant proposalDate;
+    private Instant expirationDate;
+    private double requiredValue;
+    private double durationMax;
 
-    private Instant estimatedStartDate;
-
-    private Instant estimatedDeadline;
-
-    private double demandedValue;
-
-    public Project() {
+    public ProjectDTO() {
     }
 
-    public Project(Integer idProject, String projectDescription, Instant estimatedStartDate, Instant estimatedDeadline, double demandedValue) {
-        this.idProject = idProject;
-        this.projectDescription = projectDescription;
-        this.estimatedStartDate = estimatedStartDate;
-        this.estimatedDeadline = estimatedDeadline;
-        this.demandedValue = demandedValue;
-//                Monetary.getDefaultAmountFactory()
-//            .setCurrency(Monetary.getCurrency("EUR")).setNumber(demandedValue).create();;
+    public int getRealEstateId() {
+        return realEstateId;
     }
 
-    public Integer getIdProject() {
-        return idProject;
-    }
-
-    public void setIdProject(Integer idProject) {
-        this.idProject = idProject;
+    public void setRealEstateId(int realEstateId) {
+        this.realEstateId = realEstateId;
     }
 
     public String getProjectDescription() {
@@ -43,27 +31,36 @@ public class Project {
         this.projectDescription = projectDescription;
     }
 
-    public Instant getEstimatedStartDate() {
-        return estimatedStartDate;
+    public Instant getProposalDate() {
+        return proposalDate;
     }
 
-    public void setEstimatedStartDate(Instant estimatedStartDate) {
-        this.estimatedStartDate = estimatedStartDate;
+    public void setProposalDate(Instant proposalDate) {
+        this.proposalDate = proposalDate;
     }
 
-    public Instant getEstimatedDeadline() {
-        return estimatedDeadline;
+    public Instant getExpirationDate() {
+        return expirationDate;
     }
 
-    public void setEstimatedDeadline(Instant estimatedDeadline) {
-        this.estimatedDeadline = estimatedDeadline;
+    public void setExpirationDate(Instant expirationDate) {
+        this.expirationDate = expirationDate;
     }
 
-    public double getDemandedValue() {
-        return demandedValue;
+    public double getRequiredValue() {
+        return requiredValue;
     }
 
-    public void setDemandedValue(double demandedValue) {
-        this.demandedValue = demandedValue;
+    public void setRequiredValue(double requiredValue) {
+        this.requiredValue = requiredValue;
     }
+
+    public double getDurationMax() {
+        return durationMax;
+    }
+
+    public void setDurationMax(double durationMax) {
+        this.durationMax = durationMax;
+    }
+
 }
