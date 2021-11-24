@@ -71,11 +71,11 @@ public class Project {
         this.expirationDate = expirationDate;
     }
 
-    public double getrequiredValue() {
+    public double getRequiredValue() {
         return requiredValue;
     }
 
-    public void setrequiredValue(double requiredValue) {
+    public void setRequiredValue(double requiredValue) {
         this.requiredValue = requiredValue;
     }
 

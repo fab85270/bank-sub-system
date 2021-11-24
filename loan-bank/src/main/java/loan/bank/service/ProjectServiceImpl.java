@@ -2,39 +2,50 @@ package loan.bank.service;
 
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
+import loan.bank.dao.LoanProposalDAO;
+import loan.bank.dao.ProjectDAO;
+import loan.bank.exception.LoanProposalException;
 import loan.bank.exception.ProjectException;
 
+import loan.bank.model.LoanProposal;
+import loan.bank.model.Project;
 import loan.commons.dto.LoanProposalDTO;
-import loan.commons.dto.ProjectDTO;
 
 @ApplicationScoped
 public class ProjectServiceImpl implements ProjectService {
 
 
-    @PersistenceContext
-    EntityManager em;
+    @Inject
+    ProjectDAO projectDAO;
+
+    @Inject
+    LoanProposalDAO loanProposalDAO;
+
 
     @Override
     @Transactional
     public void emitProposal(int projectId) throws ProjectException.ExpiredProjectException {
 
-        ProjectDTO project = em.find(ProjectDTO.class, projectId);
+        Project project = null;
+        try {
+            project = projectDAO.findById(projectId);
+        } catch (ProjectException.ProjectNotFoundException e) {
+            e.printStackTrace();
+        }
 
         //Verify if project is expired
         if (project.getExpirationDate().isBefore(Instant.now())) {
             throw new ProjectException.ExpiredProjectException(project.getProjectId());
         }
-        LoanProposalDTO proposal = new LoanProposalDTO();
+        LoanProposal proposal = new LoanProposal();
         proposal.setProjectId(project.getProjectId());
-        proposal.setBrokerId(project.getBrokerId());
 
-        proposal.setProposalDate(Instant.now());
+        proposal.setDateProposal(Instant.now());
         Instant date = Instant.now();
         proposal.setEndDate(date.plus(60, ChronoUnit.DAYS));
         proposal.setValid(false);
@@ -47,7 +58,7 @@ public class ProjectServiceImpl implements ProjectService {
         proposal.setLoanDurationMonth(0);
 
 
-        em.persist(proposal);
+        loanProposalDAO.post(proposal);
 
     }
 
@@ -57,31 +68,48 @@ public class ProjectServiceImpl implements ProjectService {
     @Transactional
     public void addInterestRateProposal(int proposalId, double rate) {
 
-        LoanProposalDTO proposal = em.find(LoanProposalDTO.class, proposalId);
+
+        LoanProposal proposal = null;
+        try {
+            proposal = loanProposalDAO.findbyId(proposalId);
+        } catch (LoanProposalException.LoanProposalNotFoundException e) {
+            e.printStackTrace();
+        }
 
         proposal.setInterestRate(rate);
 
-        em.persist(proposal);
+        loanProposalDAO.put(proposal);
     }
 
     @Override
     @Transactional
     public void addLoanDurationProposal(int proposalId, int duration) {
 
-        LoanProposalDTO proposal = em.find(LoanProposalDTO.class, proposalId);
+        LoanProposal proposal = null;
+        try {
+            proposal = loanProposalDAO.findbyId(proposalId);
+        } catch (LoanProposalException.LoanProposalNotFoundException e) {
+            e.printStackTrace();
+        }
         proposal.setLoanDurationMonth(duration);
 
-        em.persist(proposal);
+        loanProposalDAO.put(proposal);
     }
 
     @Override
     @Transactional
     public void validProposal(int proposalId, int duration){
 
-        LoanProposalDTO proposal = em.find(LoanProposalDTO.class, proposalId);
+        LoanProposal proposal = null;
+        try {
+            proposal = loanProposalDAO.findbyId(proposalId);
+        } catch (LoanProposalException.LoanProposalNotFoundException e) {
+            e.printStackTrace();
+        }
+
         proposal.setValid(true);
 
-        em.persist(proposal);
+        loanProposalDAO.put(proposal);
     }
 
 

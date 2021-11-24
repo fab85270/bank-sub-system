@@ -62,6 +62,14 @@ public class LoanProposal {
         return proposalId;
     }
 
+    public Project getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(Integer projectId) {
+        this.projectId = projectId;
+    }
+
     public Bank getBankId() {
         return bankId;
     }
