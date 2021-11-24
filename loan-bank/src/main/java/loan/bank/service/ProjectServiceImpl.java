@@ -9,7 +9,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
 import loan.bank.exception.ProjectException;
-import loan.bank.model.Project;
+
 import loan.commons.dto.LoanProposalDTO;
 import loan.commons.dto.ProjectDTO;
 

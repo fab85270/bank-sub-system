@@ -4,45 +4,42 @@ import javax.persistence.*;
 
 @Entity
 public class Bank {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idBank", nullable = false)
-    private Integer idBank;
+    @Column(name = "bankId", nullable = false)
+    private Integer bankId;
 
-    @Column(name = "bankName", nullable = false, unique=true)
+    @Column(name = "bankName", nullable = false, length = 45, unique = true)
     private String bankName;
 
     @OneToOne(optional = true)
-    @JoinColumn(name="idAdress", nullable = true)
-    private Address idAddress;
+    @JoinColumn(name = "addressId", nullable = true)
+    private Address addressId;
 
-    /*Getter & Setter*/
 
-    public Integer getIdBank() {
-        return idBank;
+    public Bank() {
     }
 
-    public String getBankName() {
+    public Bank(String name, Address idAddress){
+        this.bankName = name;
+        this.addressId = idAddress;
+    }
+
+    public String getName() {
         return bankName;
     }
 
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
+    public void setName(String name) {
+        this.bankName = name;
     }
 
     public Address getIdAddress() {
-        return idAddress;
+        return addressId;
     }
 
     public void setIdAddress(Address idAddress) {
-        this.idAddress = idAddress;
+        this.addressId = idAddress;
     }
 
-    /*Constructeur*/
-    public Bank(){}
-
-    public Bank( String bankName, Address idAddress) {
-        this.bankName = bankName;
-        this.idAddress = idAddress;
-    }
 }
