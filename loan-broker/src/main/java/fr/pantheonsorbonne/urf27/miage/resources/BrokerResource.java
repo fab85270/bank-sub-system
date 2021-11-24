@@ -1,11 +1,14 @@
 package fr.pantheonsorbonne.urf27.miage.resources;
 
 import fr.pantheonsorbonne.urf27.miage.dao.BankDAOImpl;
+import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
+import loan.commons.dto.ProjectDTO;
 
 import javax.inject.Inject;
+import javax.json.JsonObject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
@@ -51,11 +54,20 @@ public class BrokerResource {
     }
 
      */
-//
-//    @Path("/createBank")
-//    @POST
-//    @Consumes({MediaType.APPLICATION_JSON})
-//    public void createBank(Bank bank) {
-//        bankDAO.createNewBank(bank);
-//    }
+
+    @Path("/createBank")
+    @POST
+    @Consumes({MediaType.APPLICATION_JSON})
+    public Bank createBank(Bank bank) throws BankExceptions.BankAlreadyExists {
+        return bankDAO.createNewBank(bank);
+    }
+
+    @Path("/createProject")
+    @POST
+    @Consumes({MediaType.APPLICATION_JSON})
+    public ProjectDTO createProject(JsonObject application) {
+
+        System.out.println(application);
+        return null;
+    }
 }
