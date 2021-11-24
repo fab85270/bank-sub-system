@@ -7,28 +7,35 @@ public class Bank {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idBank", nullable = false)
-    private Integer idBank;
+    @Column(name = "bankId", nullable = false)
+    private Integer bankId;
 
     @Column(name = "bankName", nullable = false, length = 45, unique = true)
     private String bankName;
 
     @OneToOne(optional = true)
-    @JoinColumn(name = "idAddress", nullable = true)
-    private Address idAddress;
-
-    @ManyToOne
-    @JoinColumn(name = "idBroker")
-    private Broker idBroker;
+    @JoinColumn(name = "addressId", nullable = true)
+    private Address addressId;
 
 
     public Bank() {
     }
 
-    public Bank(String name, Address idAddress, Broker idBroker){
+    public Bank(String name, Address idAddress){
         this.bankName = name;
-        this.idAddress = idAddress;
-        this.idBroker = idBroker;
+        this.addressId = idAddress;
+    }
+
+    public Integer getBankId() {
+        return bankId;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public Address getAddressId() {
+        return addressId;
     }
 
     public String getName() {
@@ -40,19 +47,11 @@ public class Bank {
     }
 
     public Address getIdAddress() {
-        return idAddress;
+        return addressId;
     }
 
     public void setIdAddress(Address idAddress) {
-        this.idAddress = idAddress;
-    }
-
-    public void setIdBroker(Broker idBroker) {
-        this.idBroker = idBroker;
-    }
-
-    public Broker getIdBroker() {
-        return idBroker;
+        this.addressId = idAddress;
     }
 
 }
