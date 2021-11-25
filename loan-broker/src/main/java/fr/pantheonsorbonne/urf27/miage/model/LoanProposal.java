@@ -3,6 +3,7 @@ package fr.pantheonsorbonne.urf27.miage.model;
 import javax.persistence.*;
 import java.time.Instant;
 
+@Entity
 public class LoanProposal {
 
     @Id
@@ -53,6 +54,10 @@ public class LoanProposal {
         this.description = description;
         this.interestRate = interestRate;
         this.loanDurationMonth = loanDurationMonth;
+    }
+
+    public LoanProposal() {
+
     }
 
     public Integer getProposalId() {

@@ -86,4 +86,20 @@ public class Project {
     public void setDurationMax(int durationMax) {
         this.durationMax = durationMax;
     }
+
+    public RealEstate getRealEstateId() {
+        return realEstateId;
+    }
+
+    public void setRealEstateId(RealEstate realEstateId) {
+        this.realEstateId = realEstateId;
+    }
+
+    public double getRequiredValue() {
+        return requiredValue;
+    }
+
+    public void setRequiredValue(double requiredValue) {
+        this.requiredValue = requiredValue;
+    }
 }

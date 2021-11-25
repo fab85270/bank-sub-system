@@ -5,6 +5,7 @@ import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
+import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
 import loan.commons.dto.ProjectDTO;
 
 import javax.inject.Inject;
@@ -26,6 +27,8 @@ public class BrokerResource {
     @Inject
     BrokerServiceImpl brokerService;
 
+    @Inject
+    ProjectServiceImpl projectService;
     /*
     @Path(("/test"))
     @GET
@@ -65,9 +68,10 @@ public class BrokerResource {
     @Path("/createProject")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public ProjectDTO createProject(JsonObject application) {
-
-        System.out.println(application);
+    public ProjectDTO createProject(ProjectDTO project) {
+//        projectService.createProject(project.getRealEstateId(), project.getProjectDescription(), project.getRequiredValue(),
+//                project.getDurationMax());
+//        System.out.println(project);
         return null;
     }
 }

@@ -13,7 +13,6 @@ public class RealEstate {
     @JoinColumn(name="addressId",nullable = false)
     private Address addressId;
 
-
     @Column(name = "surface", nullable = false)
     private double surface;
 
