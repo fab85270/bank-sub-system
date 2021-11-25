@@ -12,9 +12,6 @@ public class LoanProposalDTO {
     Instant proposalDate;
     Instant endDate;
     Boolean isValid;
-
-
-
     double loanAmount;
     String description;
     double interestRate;
