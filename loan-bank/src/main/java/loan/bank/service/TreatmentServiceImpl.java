@@ -1,6 +1,7 @@
 package loan.bank.service;
 
 import loan.bank.dao.BorrowerDao;
+import loan.bank.exception.ProjectException;
 import loan.bank.exception.entityNotFound;
 import loan.bank.model.Borrower;
 import loan.bank.model.LoanProposal;
@@ -29,12 +30,40 @@ public class TreatmentServiceImpl implements TreatmentService{
         }
         return false;
     }
+    public static double getInterestRate(double salary, double amount, String classeAge){
+
+        if (classeAge == "jeune"){
+            if(salary >= 0.15*amount && salary >= 0.15*amount){
+
+            }
+        }
+        return interestRate;
+
+
+    }
+
+    public static int getDurationLoan(int durationWanted){
+        /* Définition de */
+        /**/
+
+
+    }
+
+
+
 
 
     @Override
-    public LoanProposalDTO emitLoanProposal(ProjectDTO projetdto) throws entityNotFound.entityNotFoundException{
+    public LoanProposalDTO emitLoanProposal(ProjectDTO projectdto) throws entityNotFound.entityNotFoundException, ProjectException.ExpiredProjectException {
+
+
+        //Verify if project is expired
+        if (projectdto.getExpirationDate().isBefore(Instant.now())) {
+            throw new ProjectException.ExpiredProjectException(projectdto.getProjectId());
+        }
+
         Borrower borrower = null;
-        borrower = borrowerDao.findMatchingBorrower(projetdto.getBorrowerId());
+        borrower = borrowerDao.findMatchingBorrower(projectdto.getBorrowerId());
 
         /*Définition de l'âge du borrower selon sa date de naissance */
 
@@ -42,12 +71,13 @@ public class TreatmentServiceImpl implements TreatmentService{
         int birthDate = borrower.getBirthdate().atZone(ZoneId.systemDefault()).toLocalDate().getYear();
         int age = year - birthDate;
         double salary = borrower.getAnnualSalary();
-        double amount = projetdto.getRequiredValue();
+        double amount = projectdto.getRequiredValue();
 
 
         if(isBetween(age, 18, 25) && suficientSalary(salary, amount) && borrower.getDebtRatio() < 35){
 
-            //1er cas
+
+            LoanProposal proposal = new LoanProposal(Instant.now(), projectdto.getExpirationDate(),0,  false, amount, projectdto.getProjectDescription(), getInterestRate(salary, amount), getDurationLoan(projectdto.getDurationMax()));
 
         }else if(isBetween(age, 26, 35)&& suficientSalary(salary, amount) && borrower.getDebtRatio() < 35){
 
