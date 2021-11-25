@@ -43,11 +43,6 @@ public class BankDAOImpl implements BankDAO {
         }
     }
 
-    @Override
-    @Transactional
-    public void createNewBank(Bank bank) {
-        em.persist(bank);
-    }
 
     @Override
     @Transactional
