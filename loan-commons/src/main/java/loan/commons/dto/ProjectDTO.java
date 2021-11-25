@@ -7,6 +7,7 @@ public class ProjectDTO {
      int projectId;
      int realEstateId;
      int brokerId;
+     int borrowerId;
      String projectDescription;
      Instant proposalDate;
      Instant expirationDate;
@@ -14,6 +15,14 @@ public class ProjectDTO {
      double durationMax;
 
     public ProjectDTO() {
+    }
+    
+    public int getBorrowerId() {
+        return borrowerId;
+    }
+
+    public void setBorrowerId(int borrowerId) {
+        this.borrowerId = borrowerId;
     }
 
     public int getProjectId() {

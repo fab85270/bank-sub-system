@@ -13,29 +13,28 @@ public class RealEstate {
     @JoinColumn(name="addressId",nullable = false)
     private Address addressId;
 
-
     @Column(name = "surface", nullable = false)
     private double surface;
 
-    @Column(name = "constructionYear", nullable = false)
-    private Integer constructionYear;
+    @Column(name = "constructionYear", nullable = false, length = 4)
+    private int constructionYear;
 
     @Column(name = "price", nullable = false)
     private double price;
 
-    @Column(name = "numberOfParts", nullable = false)
-    private Integer numberOfParts;
+    @Column(name = "numberOfRooms", nullable = false)
+    private int numberOfRooms;
 
     /*Constructeur*/
 
     public RealEstate(){}
 
-    public RealEstate(Address idAddress, double surface, Integer constructionYear, double price, Integer numberOfParts) {
+    public RealEstate(Address idAddress, double surface, int constructionYear, double price, int numberOfRooms) {
         this.addressId = idAddress;
         this.surface = surface;
         this.constructionYear = constructionYear;
         this.price = price;
-        this.numberOfParts = numberOfParts;
+        this.numberOfRooms = numberOfRooms;
     }
 
     public Integer getRealEstateId() {
@@ -58,11 +57,11 @@ public class RealEstate {
         this.surface = surface;
     }
 
-    public Integer getConstructionYear() {
+    public int getConstructionYear() {
         return constructionYear;
     }
 
-    public void setConstructionYear(Integer constructionYear) {
+    public void setConstructionYear(int constructionYear) {
         this.constructionYear = constructionYear;
     }
 
@@ -74,11 +73,11 @@ public class RealEstate {
         this.price = price;
     }
 
-    public Integer getNumberOfParts() {
-        return numberOfParts;
+    public int getNumberOfParts() {
+        return numberOfRooms;
     }
 
-    public void setNumberOfParts(Integer numberOfParts) {
-        this.numberOfParts = numberOfParts;
+    public void setNumberOfParts(int numberOfParts) {
+        this.numberOfRooms = numberOfParts;
     }
 }

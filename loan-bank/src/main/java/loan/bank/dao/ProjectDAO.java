@@ -12,11 +12,11 @@ public interface ProjectDAO {
     //Get
     Project findById(int id) throws  ProjectException.ProjectNotFoundException;
 
-    //Post
+    //Post => Create
     @Transactional
     Project post(Project project);
 
-    //Post
+    //Put => Update
     @Transactional
     Project put(Project project);
 }

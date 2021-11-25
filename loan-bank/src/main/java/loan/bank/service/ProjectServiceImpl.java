@@ -14,7 +14,6 @@ import loan.bank.exception.ProjectException;
 
 import loan.bank.model.LoanProposal;
 import loan.bank.model.Project;
-import loan.commons.dto.LoanProposalDTO;
 
 @ApplicationScoped
 public class ProjectServiceImpl implements ProjectService {
@@ -43,7 +42,7 @@ public class ProjectServiceImpl implements ProjectService {
             throw new ProjectException.ExpiredProjectException(project.getProjectId());
         }
         LoanProposal proposal = new LoanProposal();
-        proposal.setProjectId(project.getProjectId());
+        proposal.setProjectId(project);
 
         proposal.setDateProposal(Instant.now());
         Instant date = Instant.now();

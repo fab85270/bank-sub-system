@@ -19,14 +19,14 @@ public class LoanProposalDOAImpl implements LoanProposalDAO{
     @Override
     public LoanProposal findbyId(int id) throws LoanProposalException.LoanProposalNotFoundException {
         try {
-            LoanProposal proposal = (LoanProposal) em.createQuery("Select proposal from LoanProposal proposal where proposal.id=:id").setParameter("id", id).getSingleResult();
+            LoanProposal proposal = (LoanProposal) em.createQuery("Select proposal from  proposal where proposal.proposalId=:id").setParameter("id", id).getSingleResult();
             return proposal;
         } catch (NoResultException e) {
             throw new LoanProposalException.LoanProposalNotFoundException(id);
         }
     }
 
-    //Post
+    //Post => Update
     @Override
     @Transactional
     public LoanProposal post(LoanProposal proposal) {
@@ -34,7 +34,7 @@ public class LoanProposalDOAImpl implements LoanProposalDAO{
         return proposal;
     }
 
-    //Post
+    //Put => Create
     @Override
     @Transactional
     public LoanProposal put(LoanProposal proposal) {

@@ -17,8 +17,14 @@ public class Project {
     @JoinColumn(name = "realEstateId", nullable = false)
     private RealEstate realEstateId;
 
-    @Column(name = "description")
-    private String projectDescription;
+    //Plusieurs projets peuvent être attribué à un seul et même borrower
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "borrowerId", nullable = false)
+    private Borrower borrowerId;
+
+    @OneToOne(optional = true)
+    @JoinColumn(name = "brokerId", nullable = false)
+    private Broker brokerId;
 
     @Column(name = "proposalDate", nullable = false)
     private Instant proposalDate;
@@ -26,11 +32,14 @@ public class Project {
     @Column(name = "expirationDate", nullable = false)
     private Instant expirationDate;
 
-    @Column(name = "demandedValue", nullable = false)
-    private double requiredValue;
+    @Column(name = "projectDescription")
+    private String projectDescription;
 
     @Column(name = "durationMax", nullable = false)
     private int durationMax;
+
+    @Column(name = "requiredValue", nullable = false)
+    private double requiredValue;
 
     public Project() {
     }

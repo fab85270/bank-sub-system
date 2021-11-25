@@ -1,7 +1,6 @@
 package loan.bank.service;
 
 import loan.bank.exception.ProjectException;
-import loan.commons.dto.LoanProposalDTO;
 
 import javax.transaction.Transactional;
 

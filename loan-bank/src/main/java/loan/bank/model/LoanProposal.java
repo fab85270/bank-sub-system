@@ -3,6 +3,7 @@ package loan.bank.model;
 import javax.persistence.*;
 import java.time.Instant;
 
+@Entity
 public class LoanProposal {
 
     @Id
@@ -13,10 +14,6 @@ public class LoanProposal {
     @ManyToOne(optional = true)
     @JoinColumn(name = "projectId", nullable = true)
     private Project projectId;
-
-    @ManyToOne(optional = true)
-    @JoinColumn(name = "bankId", nullable = true)
-    private Bank bankId;
 
     @Column(name = "dateProposal", nullable = false)
     private Instant dateProposal;
@@ -42,9 +39,8 @@ public class LoanProposal {
     @Column(name = "loanDurationMonth", nullable = false)
     private int loanDurationMonth;
 
-    public LoanProposal(Bank bankId, Instant dateProposal, Instant endDate, long validationNumber, boolean isValid,
+    public LoanProposal(Instant dateProposal, Instant endDate, long validationNumber, boolean isValid,
                         double loanAmount, String description, double interestRate, int loanDurationMonth) {
-        this.bankId = bankId;
         this.dateProposal = dateProposal;
         this.endDate = endDate;
         this.validationNumber = validationNumber;
@@ -66,16 +62,8 @@ public class LoanProposal {
         return projectId;
     }
 
-    public void setProjectId(Integer projectId) {
+    public void setProjectId(Project projectId) {
         this.projectId = projectId;
-    }
-
-    public Bank getBankId() {
-        return bankId;
-    }
-
-    public void setBankId(Bank bankId) {
-        this.bankId = bankId;
     }
 
     public Instant getDateProposal() {

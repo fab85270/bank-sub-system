@@ -45,22 +45,11 @@ public class Borrower {
     @Column(name = "phoneNumber", nullable = false, length = 10)
     private Integer phoneNumber;
 
-    @Column(name = "requiredInterest", nullable = false)
-    private double requiredInterest;
-
-    @Column(name = "requiredDuration", nullable = false)
-    private int requiredDuration;
-
-    @Column(name = "monthlyRefund", nullable = false)
-    private double monthlyRefund;
-
     @Column(name = "debtRatio", nullable = false)
     private double debtRatio;
 
     public Borrower() {
     }
-
-
 
     public Borrower(String firstName, String lastName, Instant birthdate, Gender gender, String email) {
         this.firstName = firstName;
