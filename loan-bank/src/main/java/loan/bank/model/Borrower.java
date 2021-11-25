@@ -46,7 +46,7 @@ public class Borrower {
     private Integer phoneNumber;
 
     @Column(name = "debtRatio", nullable = false)
-    private double debtRatio;
+    private double debtRatio; //taux d'endettement
 
     public Borrower() {
     }
@@ -97,5 +97,49 @@ public class Borrower {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public double getAnnualSalary() {
+        return annualSalary;
+    }
+
+    public void setAnnualSalary(double annualSalary) {
+        this.annualSalary = annualSalary;
+    }
+
+    public Integer getBorrowerId() {
+        return borrowerId;
+    }
+
+    public Address getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Address addressId) {
+        this.addressId = addressId;
+    }
+
+    public double getFirstDeposit() {
+        return firstDeposit;
+    }
+
+    public void setFirstDeposit(double firstDeposit) {
+        this.firstDeposit = firstDeposit;
+    }
+
+    public Integer getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Integer phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public double getDebtRatio() {
+        return debtRatio;
+    }
+
+    public void setDebtRatio(double debtRatio) {
+        this.debtRatio = debtRatio;
     }
 }
