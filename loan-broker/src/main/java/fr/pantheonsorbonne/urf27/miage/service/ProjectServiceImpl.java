@@ -8,6 +8,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Collection;
 
 @ApplicationScoped
 public class ProjectServiceImpl implements ProjectService {
@@ -21,6 +22,11 @@ public class ProjectServiceImpl implements ProjectService {
     public Project getProject(int projectId) throws EntityNotFoundException{
         System.out.println(projectDAO.getProjectById(projectId).getProjectDescription());
         return projectDAO.getProjectById(projectId);
+    }
+
+    @Override
+    public Collection<Project> getAllProject() throws EntityNotFoundException{
+        return projectDAO.getAllProject();
     }
 
 }

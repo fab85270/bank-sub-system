@@ -31,5 +31,16 @@ function controle(){
         //if(!isDateDepart){window.alert("Error : la date de départ doit être supérieur à "+date.getFullYear()};
         if(!isSommeVoulu){window.alert("Error : la somme doit être supérieur à 0")}
     }
+}
+
+function manageProject(){
+    let _data
+
+    let xmlhttp = new XMLHttpRequest();
+    xhr.open('GET', "/getProject");
+    xhr.send();
+    xhr.onload = function (){
+        _data = xhr.response;
+    }
 
 }

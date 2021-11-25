@@ -1,5 +1,7 @@
 package fr.pantheonsorbonne.urf27.miage.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.money.Monetary;
 import javax.money.MonetaryAmount;
 import javax.persistence.*;
@@ -25,6 +27,9 @@ public class Project {
     @Column(name = "demandedValue", nullable = false)
     private double demandedValue;
 
+    @Column(name = "isDelivered", nullable = false)
+    private boolean isDelivered;
+
     public Project() {
     }
 
@@ -33,14 +38,16 @@ public class Project {
         this.estimatedStartDate = estimatedStartDate;
         this.estimatedDeadline = estimatedDeadline;
         this.demandedValue = demandedValue;
+        this.isDelivered = false;
         //Monetary.getDefaultAmountFactory()
-        //.setCurrency(Monetary.getCurrency("EUR")).setNumber(demandedValue).create();;
+        //setCurrency(Monetary.getCurrency("EUR")).setNumber(demandedValue).create();;
     }
 
     public Integer getIdProject() {
         return idProject;
     }
 
+    @JsonProperty("Description")
     public String getProjectDescription() {
         return projectDescription;
     }
@@ -49,6 +56,7 @@ public class Project {
         this.projectDescription = projectDescription;
     }
 
+    @JsonProperty("StartDate")
     public Instant getEstimatedStartDate() {
         return estimatedStartDate;
     }
@@ -57,6 +65,7 @@ public class Project {
         this.estimatedStartDate = estimatedStartDate;
     }
 
+    @JsonProperty("DeadLine")
     public Instant getEstimatedDeadline() {
         return estimatedDeadline;
     }
@@ -65,11 +74,20 @@ public class Project {
         this.estimatedDeadline = estimatedDeadline;
     }
 
+    @JsonProperty("DemandedValue")
     public double getDemandedValue() {
         return demandedValue;
     }
 
     public void setDemandedValue(double demandedValue) {
         this.demandedValue = demandedValue;
+    }
+
+    public boolean isDelivered() {
+        return isDelivered;
+    }
+
+    public void setDelivered(boolean delivered) {
+        isDelivered = delivered;
     }
 }

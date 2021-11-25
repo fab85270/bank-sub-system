@@ -67,10 +67,11 @@ public class BrokerResource {
     }
 
 
-    @Path("/getProject/{id}")
+
+    @Path("/getProject")
     @GET
-    @Consumes({MediaType.APPLICATION_JSON})
-    public Project getProject(@PathParam("id") int idProject) throws EntityNotFoundException {
-        return projectService.getProject(idProject);
+    @Produces({MediaType.APPLICATION_JSON})
+    public Collection<Project> getProject() throws EntityNotFoundException {
+        return projectService.getAllProject();
     }
 }
