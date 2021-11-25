@@ -9,13 +9,11 @@ public interface LoanProposalDAO {
 
 
     //Get
-    LoanProposal findbyId(int id) throws LoanProposalException.LoanProposalNotFoundException;
+    LoanProposal findMatchingLoanProposal(int id) throws LoanProposalException.LoanProposalNotFoundException;
 
     //Post
-    @Transactional
     LoanProposal post(LoanProposal proposal);
 
     //Post
-    @Transactional
     LoanProposal put(LoanProposal proposal);
 }

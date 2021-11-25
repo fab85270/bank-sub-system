@@ -70,7 +70,7 @@ public class ProjectServiceImpl implements ProjectService {
 
         LoanProposal proposal = null;
         try {
-            proposal = loanProposalDAO.findbyId(proposalId);
+            proposal = loanProposalDAO.findMatchingLoanProposal(proposalId);
         } catch (LoanProposalException.LoanProposalNotFoundException e) {
             e.printStackTrace();
         }
@@ -86,7 +86,7 @@ public class ProjectServiceImpl implements ProjectService {
 
         LoanProposal proposal = null;
         try {
-            proposal = loanProposalDAO.findbyId(proposalId);
+            proposal = loanProposalDAO.findMatchingLoanProposal(proposalId);
         } catch (LoanProposalException.LoanProposalNotFoundException e) {
             e.printStackTrace();
         }
@@ -101,7 +101,7 @@ public class ProjectServiceImpl implements ProjectService {
 
         LoanProposal proposal = null;
         try {
-            proposal = loanProposalDAO.findbyId(proposalId);
+            proposal = loanProposalDAO.findMatchingLoanProposal(proposalId);
         } catch (LoanProposalException.LoanProposalNotFoundException e) {
             e.printStackTrace();
         }

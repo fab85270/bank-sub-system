@@ -1,6 +1,7 @@
 package loan.bank.dao;
 
 import loan.bank.exception.LoanProposalException;
+import loan.bank.model.Borrower;
 import loan.bank.model.LoanProposal;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -17,10 +18,10 @@ public class LoanProposalDOAImpl implements LoanProposalDAO{
 
     //Get
     @Override
-    public LoanProposal findbyId(int id) throws LoanProposalException.LoanProposalNotFoundException {
+    public LoanProposal findMatchingLoanProposal(int id) throws LoanProposalException.LoanProposalNotFoundException {
         try {
-            LoanProposal proposal = (LoanProposal) em.createQuery("Select proposal from  proposal where proposal.proposalId=:id").setParameter("id", id).getSingleResult();
-            return proposal;
+            LoanProposal l = (LoanProposal) em.createQuery("SELECT b FROM LoanProposal b where b.proposalId=:id").setParameter("id",id).getSingleResult();
+            return l;
         } catch (NoResultException e) {
             throw new LoanProposalException.LoanProposalNotFoundException(id);
         }
