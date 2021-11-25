@@ -6,7 +6,7 @@ import loan.commons.dto.ProjectDTO;
 
 public interface TreatmentService {
     //Faudra vérifier le reçu
-    LoanProposalDTO emmitLoanProposal(ProjectDTO projetdto) throws entityNotFound;
+    LoanProposalDTO emitLoanProposal(ProjectDTO projetdto) throws entityNotFound.entityNotFoundException;
 
     //On a rien compris (voir schéma tableau)
     void receiveProject();

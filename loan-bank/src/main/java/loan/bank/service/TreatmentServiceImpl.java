@@ -14,7 +14,8 @@ public class TreatmentServiceImpl implements TreatmentService{
     @Inject
     BorrowerDao borrowerDao;
     @Override
-    public LoanProposalDTO emmitLoanProposal(ProjectDTO projetdto) throws entityNotFound {
+
+    public LoanProposalDTO emitLoanProposal(ProjectDTO projetdto) throws entityNotFound.entityNotFoundException{
         Borrower borrower = null;
         borrower = borrowerDao.findMatchingBorrower(projetdto.getBorrowerId());
 
