@@ -5,7 +5,7 @@ import java.time.Instant;
 public class ProjectDTO {
 
     private int projectId;
-    private int realEstateId;
+    private RealEstateDTO realEstateId;
     private String projectDescription;
     private Instant proposalDate;
     private Instant expirationDate;
@@ -15,11 +15,19 @@ public class ProjectDTO {
     public ProjectDTO() {
     }
 
-    public int getRealEstateId() {
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
+
+    public RealEstateDTO getRealEstateId() {
         return realEstateId;
     }
 
-    public void setRealEstateId(int realEstateId) {
+    public void setRealEstateId(RealEstateDTO realEstateId) {
         this.realEstateId = realEstateId;
     }
 
@@ -63,4 +71,16 @@ public class ProjectDTO {
         this.durationMax = durationMax;
     }
 
+    @Override
+    public String toString() {
+        return "ProjectDTO{" +
+                "projectId=" + projectId +
+                ", realEstateId=" + realEstateId +
+                ", projectDescription='" + projectDescription + '\'' +
+                ", proposalDate=" + proposalDate +
+                ", expirationDate=" + expirationDate +
+                ", requiredValue=" + requiredValue +
+                ", durationMax=" + durationMax +
+                '}';
+    }
 }

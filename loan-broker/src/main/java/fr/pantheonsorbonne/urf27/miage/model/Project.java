@@ -20,6 +20,10 @@ public class Project {
     @Column(name = "description")
     private String projectDescription;
 
+    @OneToOne(optional = true, cascade = CascadeType.ALL)
+    @JoinColumn(name = "borrowerId")
+    private Borrower borrowerId;
+
     @Column(name = "proposalDate", nullable = false)
     private Instant proposalDate;
 

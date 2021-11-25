@@ -1,4 +1,4 @@
-package fr.pantheonsorbonne.ufr27.miage.dto;
+package loan.bank.model;
 
 import javax.persistence.*;
 
@@ -35,7 +35,7 @@ public class Officer {
     /*Getter & Setter*/
 
     public Integer getId() {
-        return id;
+        return idOfficer;
     }
 
     public String getFirstName() {
