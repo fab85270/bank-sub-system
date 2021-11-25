@@ -6,9 +6,9 @@ public class LoanProposalDTO {
 
     /*Attributs privés propres à la classe Loan Proposal*/
 
-    int proposalId;
-    int projectId;
-    int brokerId;
+
+    ProjectSendByBrokerDTO projectDTO;
+    BrokerDTO brokerDTO;
     Instant proposalDate;
     Instant endDate;
     Boolean isValid;
@@ -21,21 +21,6 @@ public class LoanProposalDTO {
     }
 
 
-    public int getBrokerId() {
-        return brokerId;
-    }
-
-    public void setBrokerId(int brokerId) {
-        this.brokerId = brokerId;
-    }
-
-    public int getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(int projectId) {
-        this.projectId = projectId;
-    }
 
     public Instant getProposalDate() {
         return proposalDate;
@@ -94,4 +79,15 @@ public class LoanProposalDTO {
     }
 
 
+    public ProjectSendByBrokerDTO getProjectDTO() {
+        return projectDTO;
+    }
+
+    public void setProjectDTO(ProjectSendByBrokerDTO projectDTO) {
+        this.projectDTO = projectDTO;
+    }
+
+    public void setBrokerDTO(BrokerDTO brokerDTO) {
+        this.brokerDTO = brokerDTO;
+    }
 }

@@ -6,12 +6,11 @@ import loan.bank.exception.entityNotFound;
 import loan.bank.model.Borrower;
 import loan.bank.model.LoanProposal;
 import loan.commons.dto.LoanProposalDTO;
-import loan.commons.dto.ProjectDTO;
+import loan.commons.dto.ProjectSendByBrokerDTO;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.time.Instant;
-import java.time.Year;
 import java.time.ZoneId;
 
 @ApplicationScoped
@@ -34,7 +33,7 @@ public class TreatmentServiceImpl implements TreatmentService{
 
         if (classeAge == "jeune"){
             if(salary >= 0.15*amount && salary >= 0.15*amount){
-
+                double interestRate = 00;
             }
         }
         return interestRate;
@@ -54,7 +53,7 @@ public class TreatmentServiceImpl implements TreatmentService{
 
 
     @Override
-    public LoanProposalDTO emitLoanProposal(ProjectDTO projectdto) throws entityNotFound.entityNotFoundException, ProjectException.ExpiredProjectException {
+    public LoanProposalDTO emitLoanProposal(ProjectSendByBrokerDTO projectdto) throws entityNotFound.entityNotFoundException, ProjectException.ExpiredProjectException {
 
 
         //Verify if project is expired
