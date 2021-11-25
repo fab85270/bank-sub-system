@@ -11,8 +11,6 @@ public class ProjectSendByBrokerDTO {
     Instant proposalDate;
     Instant expirationDate;
 
-
-
     RealEstateDTO realEstateId;
     BorrowerDTO borrowerId;
     BrokerDTO brokerId;

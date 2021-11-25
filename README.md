@@ -1,3 +1,7 @@
+# INFO PROJET
+On peut renvoyer une entité => LoanProposal DTO pas forcément utile
+    => On peut envoyer DTO ou Entité
+
 # bank-sub-system
 
 Objectifs du système à modéliser : Obtention de financements.
