@@ -1,7 +1,7 @@
 package loan.bank.model;
 
 import javax.persistence.*;
-import java.time.Instant;
+
 
 @Entity
 public class Broker {
