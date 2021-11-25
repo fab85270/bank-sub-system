@@ -13,8 +13,8 @@ public class Project {
     @Column(name = "projectId", nullable = false)
     private Integer projectId;
 
-    @OneToOne(optional = true)
-    @JoinColumn(name = "realEstateId", nullable = false)
+    @OneToOne(optional = true, cascade = CascadeType.ALL)
+    @JoinColumn(name = "realEstateId")
     private RealEstate realEstateId;
 
     @Column(name = "description")
@@ -101,5 +101,18 @@ public class Project {
 
     public void setRequiredValue(double requiredValue) {
         this.requiredValue = requiredValue;
+    }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "projectId=" + projectId +
+                ", realEstateId=" + realEstateId +
+                ", projectDescription='" + projectDescription + '\'' +
+                ", proposalDate=" + proposalDate +
+                ", expirationDate=" + expirationDate +
+                ", requiredValue=" + requiredValue +
+                ", durationMax=" + durationMax +
+                '}';
     }
 }

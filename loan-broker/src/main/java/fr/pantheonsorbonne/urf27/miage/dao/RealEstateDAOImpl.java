@@ -7,6 +7,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import javax.ws.rs.core.Context;
 
 @ApplicationScoped
@@ -17,12 +18,14 @@ public class RealEstateDAOImpl implements RealEstateDAO {
 
 
     @Override
+    @Transactional
     public RealEstate createRealEstate(RealEstate realEstate) {
         em.persist(realEstate);
         return realEstate;
     }
 
     @Override
+    @Transactional
     public RealEstate createRealEstate(Address address, double surface, int constructionYear, double price, int numberOfParts) {
         RealEstate realEstate = new RealEstate(address, surface, constructionYear, price, numberOfParts);
         em.persist(realEstate);

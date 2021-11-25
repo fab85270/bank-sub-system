@@ -6,11 +6,11 @@ import javax.persistence.*;
 public class RealEstate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "realEstateId", nullable = false)
+    @Column(name = "realEstateId")
     private Integer realEstateId;
 
     @OneToOne(optional = true)
-    @JoinColumn(name="addressId",nullable = false)
+    @JoinColumn(name="addressId")
     private Address addressId;
 
     @Column(name = "surface", nullable = false)
@@ -35,6 +35,10 @@ public class RealEstate {
         this.constructionYear = constructionYear;
         this.price = price;
         this.numberOfParts = numberOfParts;
+    }
+
+    public void setRealEstateId(Integer realEstateId) {
+        this.realEstateId = realEstateId;
     }
 
     public Integer getRealEstateId() {
@@ -79,5 +83,17 @@ public class RealEstate {
 
     public void setNumberOfParts(Integer numberOfParts) {
         this.numberOfParts = numberOfParts;
+    }
+
+    @Override
+    public String toString() {
+        return "RealEstate{" +
+                "realEstateId=" + realEstateId +
+                ", addressId=" + addressId +
+                ", surface=" + surface +
+                ", constructionYear=" + constructionYear +
+                ", price=" + price +
+                ", numberOfParts=" + numberOfParts +
+                '}';
     }
 }

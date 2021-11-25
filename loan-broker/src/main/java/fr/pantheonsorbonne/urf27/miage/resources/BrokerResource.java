@@ -4,6 +4,7 @@ import fr.pantheonsorbonne.urf27.miage.dao.BankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
+import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
 import loan.commons.dto.ProjectDTO;
@@ -68,9 +69,10 @@ public class BrokerResource {
     @Path("/createProject")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public ProjectDTO createProject(ProjectDTO project) {
-//        projectService.createProject(project.getRealEstateId(), project.getProjectDescription(), project.getRequiredValue(),
-//                project.getDurationMax());
+    public ProjectDTO createProject(Project project) {
+//        System.out.println(project.getRealEstateId());
+        projectService.createProject(project.getRealEstateId(), project.getProjectDescription(), project.getRequiredValue(),
+                project.getDurationMax());
 //        System.out.println(project);
         return null;
     }
