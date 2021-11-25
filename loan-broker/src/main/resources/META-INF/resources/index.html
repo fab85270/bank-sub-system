@@ -39,16 +39,25 @@
                         <input type="text" class="form-control" id="description" placeholder="Description" required="required">
                     </div>
                     <div class="form-group">
-                        <label for="dateDepart">Année de début du projet</label>
-                        <input type="number" class="form-control" id="dateDepart" pattern = "^[0-9]{4}$" placeholder="Annee" required="required">
+                        <label for="dateDepart">Date de début du projet</label>
+                        <input type="date" class="form-control" id="dateDepart" pattern = "^[0-9]{4}$" placeholder="Annee" required="required">
                     </div>
                     <div class="form-group">
-                        <label for="dateFin">Année de fin du projet</label>
-                        <input type="number" class="form-control" id="dateFin" aria-describedby="emailHelp" placeholder="Annee">
+                        <label for="dateFin">Date de fin du projet</label>
+                        <input type="date" class="form-control" id="dateFin" aria-describedby="emailHelp" placeholder="Annee">
                     </div>
                     <div class="form-group">
                         <label for="sommeVoulu">Somme désirée</label>
                         <input type="number" class="form-control" id="sommeVoulu" aria-describedby="emailHelp" placeholder="Somme" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="workStatut">Type de contrat</label>
+                        <select id="workStatut" name="workStatut">
+                            <option value="CDI">CDI</option>
+                            <option value="CDD">CDD</option>
+                            <option value="Other">Autre</option>
+                            <option value="NONE">Aucun</option>
+                        </select>
                     </div>
                     <div class="form-check">
                         <input type="button" class="form-check-input" id="boutton" value="Envoyer !" onclick="controle()">

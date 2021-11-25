@@ -27,7 +27,7 @@ public class BankDaoImpl implements BankDao {
     @Transactional
     public void createNewBank(String bankName, Address address, Broker idBroker){
 
-        /Une banque ne pourra être ajoutée que si elle n'existe pas (selon son name)/
+        /*Une banque ne pourra être ajoutée que si elle n'existe pas (selon son name)*/
 
         int numOfBank = em.createQuery("Select b from Bank b where b.bankName=:bankName").setParameter("bankName",bankName).getResultList().size();
 

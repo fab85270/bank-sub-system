@@ -5,6 +5,7 @@ import fr.pantheonsorbonne.urf27.miage.dao.BrokerDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.model.Broker;
+import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
 
 import javax.inject.Inject;
@@ -49,13 +50,22 @@ public class BrokerResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public void createBroker(Broker broker) {
         brokerDAO.createNewBroker(broker);
-
     }
+
+
 
     @Path("/createBank")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public void createBank(Bank bank) {
         bankDAO.createNewBank(bank);
+    }
+
+
+    @Path("/getProject")
+    @GET
+    @Consumes({MediaType.APPLICATION_JSON})
+    public Project getProject(Project project) {
+
     }
 }
