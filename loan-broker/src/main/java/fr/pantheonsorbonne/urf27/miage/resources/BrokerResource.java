@@ -2,11 +2,14 @@ package fr.pantheonsorbonne.urf27.miage.resources;
 
 import fr.pantheonsorbonne.urf27.miage.dao.BankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.BrokerDAOImpl;
+import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.model.Broker;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
+import fr.pantheonsorbonne.urf27.miage.service.ProjectService;
+import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -23,6 +26,8 @@ public class BrokerResource {
     @Inject
     BankDAOImpl bankDAO;
 
+    @Inject
+    ProjectServiceImpl projectService;
 
     @Inject
     BankDAOImpl bankService;
@@ -62,10 +67,10 @@ public class BrokerResource {
     }
 
 
-    @Path("/getProject")
+    @Path("/getProject/{id}")
     @GET
     @Consumes({MediaType.APPLICATION_JSON})
-    public Project getProject(Project project) {
-
+    public Project getProject(@PathParam("id") int idProject) throws EntityNotFoundException {
+        return projectService.getProject(idProject);
     }
 }
