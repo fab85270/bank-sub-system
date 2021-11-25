@@ -19,12 +19,22 @@ public class TreatmentServiceImpl implements TreatmentService{
         Borrower borrower = null;
         borrower = borrowerDao.findMatchingBorrower(projetdto.getBorrowerId());
 
+        //realEstae = realEstatedao.findatchEstate(projetdto.getRealEstateId());
 
         /*
         Verifier les infos du borrower
-            Son salaire
+            Son salaire annuel doit être égal à 15 % de son emprunt.
             Sa date de naissance
-            Son taux d'endetement => Corresponds au crédit déjà possédé
+            Son taux d'endettement => il doit être maximal de 35%
+
+
+
+            Durée maximum rentabilité => 25 ans
+
+        //On va sauvegarder la proposition
+        //MAPPER Pour passer d'un DTO à un entity
+
+
          */
 
         return null;
