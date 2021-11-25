@@ -35,5 +35,5 @@ public class TreatmentServiceImpl implements TreatmentService{
     public void receiveProject(){}
 
     @Override
-    public void cancelationLoanProposal(){}
+    public void deleteLoanProposal(){}
 }

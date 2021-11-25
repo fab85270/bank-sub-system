@@ -1,7 +1,5 @@
 package loan.bank.model;
 
-import javax.money.Monetary;
-import javax.money.MonetaryAmount;
 import javax.persistence.*;
 import java.time.Instant;
 

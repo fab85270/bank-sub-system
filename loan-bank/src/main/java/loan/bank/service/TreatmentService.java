@@ -11,6 +11,6 @@ public interface TreatmentService {
     //On a rien compris (voir schéma tableau)
     void receiveProject();
 
-    void cancelationLoanProposal();
+    void deleteLoanProposal();
 
 }

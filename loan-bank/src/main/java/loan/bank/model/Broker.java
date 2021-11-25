@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 @Entity
 public class Broker {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "brokerId", nullable = false)
