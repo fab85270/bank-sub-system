@@ -107,6 +107,14 @@ public class Project {
         this.requiredValue = requiredValue;
     }
 
+    public Borrower getBorrowerId() {
+        return borrowerId;
+    }
+
+    public void setBorrowerId(Borrower borrowerId) {
+        this.borrowerId = borrowerId;
+    }
+
     @Override
     public String toString() {
         return "Project{" +
