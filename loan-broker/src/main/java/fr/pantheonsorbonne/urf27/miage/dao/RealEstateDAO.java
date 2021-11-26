@@ -7,5 +7,5 @@ public interface RealEstateDAO {
 
     public RealEstate createRealEstate(RealEstate realEstate);
 
-    public RealEstate createRealEstate(Address address, double surface, int constructionYear, double price, int numberOfParts);
+    public RealEstate createRealEstate(Address address, double surface, int constructionYear, double price, int numberOfRooms);
 }

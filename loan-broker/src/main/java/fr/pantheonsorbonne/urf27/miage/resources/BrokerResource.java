@@ -30,34 +30,13 @@ public class BrokerResource {
 
     @Inject
     ProjectServiceImpl projectService;
-    /*
-    @Path(("/test"))
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Broker test() {
-        return brokerDAO.createNewBroker("Anxhela", "Joti", "ab@gmail.com");
-    }
-
-     */
 
     @Path("/getBankPartners/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Collection<Bank> getBankPartners(@PathParam("id") int id) throws EntityNotFoundException {
-//        brokerDAO.createNewBroker("Anxhela", "Joti", "ab@gmail.com");
         return brokerService.getBrokersBanks(id);
     }
-
-    /*
-    @Path("/createBroker")
-    @POST
-    @Consumes({MediaType.APPLICATION_JSON})
-    public void createBroker(Broker broker) {
-        brokerDAO.createNewBroker(broker);
-
-    }
-
-     */
 
     @Path("/createBank")
     @POST
@@ -70,10 +49,8 @@ public class BrokerResource {
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public ProjectDTO createProject(Project project) {
-//        System.out.println(project.getRealEstateId());
         projectService.createProject(project.getRealEstateId(), project.getProjectDescription(), project.getRequiredValue(),
                 project.getDurationMax());
-//        System.out.println(project);
         return null;
     }
 }

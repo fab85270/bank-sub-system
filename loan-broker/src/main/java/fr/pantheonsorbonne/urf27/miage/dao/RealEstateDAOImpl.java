@@ -26,8 +26,8 @@ public class RealEstateDAOImpl implements RealEstateDAO {
 
     @Override
     @Transactional
-    public RealEstate createRealEstate(Address address, double surface, int constructionYear, double price, int numberOfParts) {
-        RealEstate realEstate = new RealEstate(address, surface, constructionYear, price, numberOfParts);
+    public RealEstate createRealEstate(Address address, double surface, int constructionYear, double price, int numberOfRooms) {
+        RealEstate realEstate = new RealEstate(address, surface, constructionYear, price, numberOfRooms);
         em.persist(realEstate);
         return realEstate;
     }

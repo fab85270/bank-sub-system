@@ -22,19 +22,19 @@ public class RealEstate {
     @Column(name = "price", nullable = false)
     private double price;
 
-    @Column(name = "numberOfParts", nullable = false)
-    private Integer numberOfParts;
+    @Column(name = "numberOfRooms", nullable = false)
+    private Integer numberOfRooms;
 
     /*Constructeur*/
 
     public RealEstate(){}
 
-    public RealEstate(Address idAddress, double surface, Integer constructionYear, double price, Integer numberOfParts) {
+    public RealEstate(Address idAddress, double surface, Integer constructionYear, double price, Integer numberOfRooms) {
         this.addressId = idAddress;
         this.surface = surface;
         this.constructionYear = constructionYear;
         this.price = price;
-        this.numberOfParts = numberOfParts;
+        this.numberOfRooms = numberOfRooms;
     }
 
     public void setRealEstateId(Integer realEstateId) {
@@ -77,12 +77,12 @@ public class RealEstate {
         this.price = price;
     }
 
-    public Integer getNumberOfParts() {
-        return numberOfParts;
+    public Integer getnumberOfRooms() {
+        return numberOfRooms;
     }
 
-    public void setNumberOfParts(Integer numberOfParts) {
-        this.numberOfParts = numberOfParts;
+    public void setnumberOfRooms(Integer numberOfRooms) {
+        this.numberOfRooms = numberOfRooms;
     }
 
     @Override
@@ -93,7 +93,7 @@ public class RealEstate {
                 ", surface=" + surface +
                 ", constructionYear=" + constructionYear +
                 ", price=" + price +
-                ", numberOfParts=" + numberOfParts +
+                ", numberOfRooms=" + numberOfRooms +
                 '}';
     }
 }
