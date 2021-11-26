@@ -8,6 +8,7 @@ import java.util.Collection;
 
 public interface ProjectService {
     Project getProject(int projectId) throws EntityNotFoundException;
+
     Collection<Project> getAllProject() throws EntityNotFoundException;
 
     Project getProjectTest() throws EntityNotFoundException;

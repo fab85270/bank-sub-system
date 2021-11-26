@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.time.Instant;
 import java.util.Collection;
 
 @ApplicationScoped
@@ -31,5 +32,19 @@ public class ProjectDAOImpl implements ProjectDAO{
         }catch (NoResultException e){
             throw new EntityNotFoundException();
         }
+    }
+
+    @Override
+    @Transactional
+    /*Méthode pour tester l'affichage des différents projets*/
+    public Project createNewProject(){
+
+        Instant date = Instant.now();
+
+        Project project = new Project("coucou",date,date,653.87);
+        Project project1 = new Project("Fabinou",date,date,87.98);
+        em.persist(project);
+        em.persist(project1);
+        return project;
     }
 }
