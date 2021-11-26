@@ -71,22 +71,10 @@
                 /*Envoie de cet ID par une requête POST vers notre application pour qu'elle soit traitée*/
 
                 let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-                xmlhttp.open("POST", "/broker/sendIdProject/{id}");
+                xmlhttp.open("POST", "/broker/sendIdProject");
                 xmlhttp.setRequestHeader("Content-Type", "application/json");
-                xmlhttp.send(idProject);
+                xmlhttp.send(JSON.stringify(idProject));
             }
-
-
-                /* On va écouter le click sur le bouton "Envoyer ce projet"*/
-
-
-                    /* On effectue une requête POST pour envoyer l'id du project séléctionné */
-                    /*
-                    let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-                    xmlhttp.open("POST", "/broker/sendProject");
-                    xmlhttp.setRequestHeader("Content-Type", "application/json");
-                    xmlhttp.send(idProject);
-                    }*/
 
 </script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">

@@ -75,11 +75,11 @@ public class BrokerResource {
         return projectService.getAllProject();
     }
 
-    @Path("/sendIdProject/{id}")
+    @Path("/sendIdProject")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public void sendIdProject() {
-        System.out.println();
+
     }
 
 
