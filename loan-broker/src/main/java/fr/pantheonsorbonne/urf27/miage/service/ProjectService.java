@@ -12,4 +12,6 @@ public interface ProjectService {
     Collection<Project> getAllProject() throws EntityNotFoundException;
 
     Project getProjectTest() throws EntityNotFoundException;
+
+    Project createNewProjectClient();
 }

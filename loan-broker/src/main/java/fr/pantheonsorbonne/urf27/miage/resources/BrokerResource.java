@@ -12,6 +12,8 @@ import fr.pantheonsorbonne.urf27.miage.service.ProjectService;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
 
 import javax.inject.Inject;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
@@ -67,7 +69,19 @@ public class BrokerResource {
     }
 
 
+    /*Méthode chargée de créer un nouveau projet Client suite à la saisie de ses informations dans le formulaire */
 
+    @Path("/createProjectClient")
+    @POST
+    @Consumes({MediaType.APPLICATION_JSON})
+    public void createProjectClient(JsonObject application){
+        System.out.println(application);
+    }
+
+
+    /* Les deux Méthodes afin de gérer l'affichage des différents projets qui seront présentés au broker */
+
+        /* Méthode chargée de récupérer tous les projects clients réunis dans la base de données pour les afficher ensuite */
     @Path("/getProject")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -75,11 +89,13 @@ public class BrokerResource {
         return projectService.getAllProject();
     }
 
+        /*Chargée de la reception de l'identifiant du projet séléctionné par le broker*/
     @Path("/sendIdProject")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public void sendIdProject() {
-
+    public void sendIdProject(JsonObject application) {
+        System.out.println(application);
+        //Appeler méthode pour créer DTOProject à envoyer a la banque avec (REALEstate..etout tralala)
     }
 
 

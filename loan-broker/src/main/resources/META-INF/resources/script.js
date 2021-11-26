@@ -6,7 +6,6 @@ function controle(){
     let workStatut = document.getElementById("workStatut").value;
     let date = new Date();
 
-    console.log(dateDepart);
     //On converti une valeur javascript en chaine JSON
     let isDateDepart = (dateDepart>=date.getFullYear());
     //let isDateFin = (dateFin>dateDepart && dateFin<9999);
@@ -24,7 +23,7 @@ function controle(){
         console.log(_data);
 
         let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-        xmlhttp.open("POST", "/broker/createProject");
+        xmlhttp.open("POST", "/broker/createProjectClient");
         xmlhttp.setRequestHeader("Content-Type", "application/json");
         xmlhttp.send(JSON.stringify(_data));
     }else{

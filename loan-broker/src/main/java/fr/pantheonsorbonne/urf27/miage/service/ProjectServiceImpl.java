@@ -48,5 +48,10 @@ public class ProjectServiceImpl implements ProjectService {
         return project;
     }
 
+    @Override
+    public Project createNewProjectClient(){
+        return null;
+    }
+
 }
 

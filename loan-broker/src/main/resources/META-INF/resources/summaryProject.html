@@ -1,21 +1,12 @@
 <!DOCTYPE html>
     <head>
         <script>
-            /*function fonc(idProject){
-
-                /* On effectue une requête POST pour envoyer l'id du project séléctionné */
-        /*
-                let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-                xmlhttp.open("POST", "/broker/sendProject");
-                xmlhttp.setRequestHeader("Content-Type", "application/json");
-                xmlhttp.send(idProject);
-            }
-            */
             /* Déclaration d'une variable globale*/
             let projectIdTab = [];
 
             async function myFonction() {
 
+                /*Initialisation d'un tableau vide*/
                     projectIdTab = [];
                     const response = await fetch("/broker/getProject", {
                         method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -35,13 +26,8 @@
                     /* On va clear le document au début */
                     document.getElementById('p1').innerHTML = "";
 
-                    /*Initialisation d'un tableau vide*/
-
-
-
                     for (const object in response) {
                         /* On remplit le document pour affichage*/
-                        console.log(object);
 
                         document.getElementById('p1').innerHTML +=
                             '<td> <br>Project numéro ' + object + ' : <br>' + '<br>Description : ' + response[object].projectDescription + '<br> Somme voulue : ' + response[object].demandedValue + ' euros<br>' + 'Date début souhaitée : ' + response[object].estimatedStartDate + '<br> Date de fin souhaitée : ' + response[object].estimatedDeadline + '<br> Projet délivré : ' + response[object].delivered + '<br>';
@@ -70,10 +56,14 @@
 
                 /*Envoie de cet ID par une requête POST vers notre application pour qu'elle soit traitée*/
 
+                let _data = {
+                    idProject: idProject
+                }
+
                 let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
                 xmlhttp.open("POST", "/broker/sendIdProject");
                 xmlhttp.setRequestHeader("Content-Type", "application/json");
-                xmlhttp.send(JSON.stringify(idProject));
+                xmlhttp.send(JSON.stringify(_data));
             }
 
 </script>
