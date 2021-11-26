@@ -43,6 +43,10 @@ public class Project {
         //setCurrency(Monetary.getCurrency("EUR")).setNumber(demandedValue).create();;
     }
 
+    public Project(String descri){
+        this.projectDescription = descri;
+    }
+
     public Integer getIdProject() {
         return idProject;
     }

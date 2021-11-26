@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collection;
+import java.util.ArrayList;
 
 @ApplicationScoped
 public class ProjectServiceImpl implements ProjectService {
@@ -26,7 +27,18 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Collection<Project> getAllProject() throws EntityNotFoundException{
-        return projectDAO.getAllProject();
+        /* Phase de tests seulement */
+        Collection<Project> collection = new ArrayList<>();
+        collection.add(new Project("coucou"));
+        collection.add(new Project("ca va toi?"));
+        return collection;
+       // return projectDAO.getAllProject();
+    }
+
+    @Override
+    public Project getProjectTest() throws EntityNotFoundException{
+        Project project = new Project("coucou");
+        return project;
     }
 
 }

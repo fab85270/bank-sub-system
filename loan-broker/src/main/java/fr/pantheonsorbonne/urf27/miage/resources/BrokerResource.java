@@ -74,4 +74,13 @@ public class BrokerResource {
     public Collection<Project> getProject() throws EntityNotFoundException {
         return projectService.getAllProject();
     }
+/*
+    @Path("/getProject")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public Project getProject() throws EntityNotFoundException {
+        return projectService.getProjectTest();
+    }
+*/
+
 }

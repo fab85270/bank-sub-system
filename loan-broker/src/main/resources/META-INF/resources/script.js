@@ -34,13 +34,10 @@ function controle(){
 }
 
 function manageProject(){
-    let _data
 
-    let xmlhttp = new XMLHttpRequest();
-    xhr.open('GET', "/getProject");
-    xhr.send();
-    xhr.onload = function (){
-        _data = xhr.response;
-    }
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "/broker/getProject", true);
+    xhttp.send();
 
+    //console.log(xhttp);
 }
