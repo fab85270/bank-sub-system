@@ -74,13 +74,13 @@ public class BrokerResource {
     public Collection<Project> getProject() throws EntityNotFoundException {
         return projectService.getAllProject();
     }
-/*
-    @Path("/getProject")
-    @GET
-    @Produces({MediaType.APPLICATION_JSON})
-    public Project getProject() throws EntityNotFoundException {
-        return projectService.getProjectTest();
+
+    @Path("/sendIdProject/{id}")
+    @POST
+    @Consumes({MediaType.APPLICATION_JSON})
+    public void sendIdProject() {
+        System.out.println();
     }
-*/
+
 
 }

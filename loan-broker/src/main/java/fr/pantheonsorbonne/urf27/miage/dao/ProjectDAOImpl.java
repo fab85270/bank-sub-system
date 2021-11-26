@@ -40,7 +40,7 @@ public class ProjectDAOImpl implements ProjectDAO{
     public Project createNewProject(){
 
         Instant date = Instant.now();
-
+         em.createQuery("DELETE from Project ").executeUpdate();
         Project project = new Project("coucou",date,date,653.87);
         Project project1 = new Project("Fabinou",date,date,87.98);
         em.persist(project);
