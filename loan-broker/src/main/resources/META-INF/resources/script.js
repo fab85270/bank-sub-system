@@ -39,5 +39,6 @@ function manageProject(){
     xhttp.open("GET", "/broker/getProject", true);
     xhttp.send();
 
-    //console.log(xhttp);
+    console.log(xhttp);
+    console.log(xhttp.mz);
 }
