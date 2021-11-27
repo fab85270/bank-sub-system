@@ -3,7 +3,7 @@ package fr.pantheonsorbonne.urf27.miage.dao;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.*;
 
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface BorrowerDAO {
@@ -21,7 +21,7 @@ public interface BorrowerDAO {
     void deleteBorrower(String mail);
 
     /*Crée un nouveau borrower*/
-    Borrower createNewBorrower(Address addressId, String email, String firstName, String lastName, Gender gender, Instant birthdate,
+    Borrower createNewBorrower(Address addressId, String email, String firstName, String lastName, Gender gender, LocalDate birthdate,
                                EmploymentContract employmentContract, double annualSalary, double firstDeposit, String phoneNumber,
                                double requiredInterest, int requiredDuration, double monthlyRefund, double debtRatio);
 

@@ -13,7 +13,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.time.Instant;
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 @ApplicationScoped
@@ -36,7 +36,8 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     @Transactional
-    public Project createProject(Borrower borrower, RealEstate realEstate, String projectDescription, double requiredValue, int durationMax) {
+    public Project createProject(Borrower borrower, RealEstate realEstate, String projectDescription,
+                                 LocalDate proposalDate, LocalDate projectExpirationDate , double requiredValue, int durationMax) {
         Project project = new Project();
         addressDAO.createAddress(realEstate.getAddressId());
         realEstate.setAddressId(realEstate.getAddressId());
@@ -50,8 +51,8 @@ public class ProjectServiceImpl implements ProjectService {
         project.setRealEstateId(realEstate);
         project.setProjectDescription(projectDescription);
         project.setrequiredValue(requiredValue);
-        project.setProposalDate(Instant.now());
-        project.setExpirationDate(Instant.now().plus(60, ChronoUnit.DAYS));
+        project.setProposalDate(proposalDate);
+        project.setExpirationDate(projectExpirationDate);
         project.setDurationMax(durationMax);
 
         projectDAO.createProject(project);

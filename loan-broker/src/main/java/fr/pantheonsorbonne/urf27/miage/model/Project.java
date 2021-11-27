@@ -3,7 +3,8 @@ package fr.pantheonsorbonne.urf27.miage.model;
 import javax.money.Monetary;
 import javax.money.MonetaryAmount;
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDate;
 
 @Entity
 public class Project {
@@ -25,10 +26,10 @@ public class Project {
     private Borrower borrowerId;
 
     @Column(name = "proposalDate", nullable = false)
-    private Instant proposalDate;
+    private LocalDate proposalDate;
 
     @Column(name = "expirationDate", nullable = false)
-    private Instant expirationDate;
+    private LocalDate expirationDate;
 
     @Column(name = "demandedValue", nullable = false)
     private double requiredValue;
@@ -39,7 +40,7 @@ public class Project {
     public Project() {
     }
 
-    public Project(String projectDescription, Instant proposalDate, Instant expirationDate, double requiredValue, int durationMax) {
+    public Project(String projectDescription, LocalDate proposalDate, LocalDate expirationDate, double requiredValue, int durationMax) {
         this.projectDescription = projectDescription;
         this.proposalDate = proposalDate;
         this.expirationDate = expirationDate;
@@ -59,19 +60,19 @@ public class Project {
         this.projectDescription = projectDescription;
     }
 
-    public Instant getProposalDate() {
+    public LocalDate getProposalDate() {
         return proposalDate;
     }
 
-    public void setProposalDate(Instant proposalDate) {
+    public void setProposalDate(LocalDate proposalDate) {
         this.proposalDate = proposalDate;
     }
 
-    public Instant getExpirationDate() {
+    public LocalDate getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Instant expirationDate) {
+    public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
     }
 

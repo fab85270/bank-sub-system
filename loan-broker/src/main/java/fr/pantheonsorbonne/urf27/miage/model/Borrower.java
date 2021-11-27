@@ -2,7 +2,7 @@ package fr.pantheonsorbonne.urf27.miage.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import java.time.Instant;
+import java.time.LocalDate;
 
 @Entity
 public class Borrower {
@@ -31,7 +31,7 @@ public class Borrower {
     private Gender gender;
 
     @Column(name = "birthdate", nullable = false)
-    private Instant birthdate;
+    private LocalDate birthdate;
 
     @Column(name="employmentContract", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -61,7 +61,7 @@ public class Borrower {
     public Borrower() {
     }
 
-    public Borrower(String firstName, String lastName, Instant birthdate, Gender gender, String email) {
+    public Borrower(String firstName, String lastName, LocalDate birthdate, Gender gender, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
@@ -69,7 +69,7 @@ public class Borrower {
         this.email = email;
     }
 
-    public Borrower(Address addressId, String email, String firstName, String lastName, Gender gender, Instant birthdate,
+    public Borrower(Address addressId, String email, String firstName, String lastName, Gender gender, LocalDate birthdate,
                     EmploymentContract employmentContract, double annualSalary, double firstDeposit, String phoneNumber,
                     double requiredInterest, int requiredDuration, double monthlyRefund, double debtRatio) {
         this.addressId = addressId;
@@ -136,11 +136,11 @@ public class Borrower {
         this.gender = gender;
     }
 
-    public Instant getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Instant birthdate) {
+    public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
     }
 

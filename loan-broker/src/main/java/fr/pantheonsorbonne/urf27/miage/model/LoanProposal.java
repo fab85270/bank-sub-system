@@ -1,7 +1,7 @@
 package fr.pantheonsorbonne.urf27.miage.model;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
 
 @Entity
 public class LoanProposal {
@@ -20,10 +20,10 @@ public class LoanProposal {
     private Bank bankId;
 
     @Column(name = "dateProposal", nullable = false)
-    private Instant dateProposal;
+    private LocalDate dateProposal;
 
     @Column(name = "endDate", nullable = false)
-    private Instant endDate;
+    private LocalDate endDate;
 
     @Column(name = "validationNumber", nullable = false)
     private long validationNumber;
@@ -43,7 +43,7 @@ public class LoanProposal {
     @Column(name = "loanDurationMonth", nullable = false)
     private int loanDurationMonth;
 
-    public LoanProposal(Bank bankId, Instant dateProposal, Instant endDate, long validationNumber, boolean isValid,
+    public LoanProposal(Bank bankId, LocalDate dateProposal, LocalDate endDate, long validationNumber, boolean isValid,
                         double loanAmount, String description, double interestRate, int loanDurationMonth) {
         this.bankId = bankId;
         this.dateProposal = dateProposal;
@@ -72,19 +72,19 @@ public class LoanProposal {
         this.bankId = bankId;
     }
 
-    public Instant getDateProposal() {
+    public LocalDate getDateProposal() {
         return dateProposal;
     }
 
-    public void setDateProposal(Instant dateProposal) {
+    public void setDateProposal(LocalDate dateProposal) {
         this.dateProposal = dateProposal;
     }
 
-    public Instant getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Instant endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 

@@ -4,6 +4,7 @@ import fr.pantheonsorbonne.urf27.miage.dao.BankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
+import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
@@ -13,6 +14,7 @@ import org.modelmapper.ModelMapper;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.time.LocalDate;
 import java.util.Collection;
 
 @Path("/broker")
@@ -45,8 +47,8 @@ public class BrokerResource {
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public ProjectDTO createProject(Project project) {
-        projectService.createProject(project.getBorrowerId(), project.getRealEstateId(), project.getProjectDescription(), project.getRequiredValue(),
-                project.getDurationMax());
+        projectService.createProject(project.getBorrowerId(), project.getRealEstateId(), project.getProjectDescription(),
+                project.getProposalDate(), project.getExpirationDate(), project.getRequiredValue(), project.getDurationMax());
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(project, ProjectDTO.class);
     }
