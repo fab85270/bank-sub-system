@@ -1,14 +1,15 @@
 package fr.pantheonsorbonne.urf27.miage.service;
 
 import fr.pantheonsorbonne.urf27.miage.dao.AddressDAOImpl;
+import fr.pantheonsorbonne.urf27.miage.dao.BorrowerDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.RealEstateDAOImpl;
+import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.RealEstate;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -27,14 +28,25 @@ public class ProjectServiceImpl implements ProjectService {
     @Inject
     AddressDAOImpl addressDAO;
 
+    @Inject
+    ProjectDAOImpl projectDAO;
+
+    @Inject
+    BorrowerDAOImpl borrowerDAO;
+
     @Override
     @Transactional
-    public Project createProject(RealEstate realEstate, String projectDescription, double requiredValue, int durationMax) {
+    public Project createProject(Borrower borrower, RealEstate realEstate, String projectDescription, double requiredValue, int durationMax) {
         Project project = new Project();
         addressDAO.createAddress(realEstate.getAddressId());
         realEstate.setAddressId(realEstate.getAddressId());
         realEstateDAO.createRealEstate(realEstate.getAddressId(), realEstate.getSurface(), realEstate.getConstructionYear(),
                 realEstate.getPrice(), realEstate.getnumberOfRooms());
+        System.out.println(borrower);
+        addressDAO.createAddress(borrower.getAddressId());
+        borrower.setAddressId(borrower.getAddressId());
+        borrowerDAO.createNewBorrower(borrower);
+        project.setBorrowerId(borrower);
         project.setRealEstateId(realEstate);
         project.setProjectDescription(projectDescription);
         project.setrequiredValue(requiredValue);
@@ -42,7 +54,7 @@ public class ProjectServiceImpl implements ProjectService {
         project.setExpirationDate(Instant.now().plus(60, ChronoUnit.DAYS));
         project.setDurationMax(durationMax);
 
-        em.persist(project);
+        projectDAO.createProject(project);
         return project;
     }
 }

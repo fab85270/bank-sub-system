@@ -15,26 +15,28 @@ public class BankDaoImpl implements BankDao {
     EntityManager em;
 
     @Override
-    public Bank findMatchingBank(String bankName) throws EntityNotFound {
-        try{
+    public Bank findMatchingBank(String bankName)
+//            throws EntityNotFound
+    {
+//        try{
             Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankName=:bankName").setParameter("bankName",bankName).getSingleResult();
             return b;
-        }catch(NoResultException e) {
-            throw new entityNotFoundException();
-        }
+//        }catch(NoResultException e) {
+//            throw new entityNotFoundException();
+//        }
     }
 
     @Override
     @Transactional
-    public void createNewBank(String bankName, Address address, Broker idBroker){
+    public void createNewBank(String bankName, Address address){
 
-        /Une banque ne pourra être ajoutée que si elle n'existe pas (selon son name)/
+//        /Une banque ne pourra être ajoutée que si elle n'existe pas (selon son name)/
 
         int numOfBank = em.createQuery("Select b from Bank b where b.bankName=:bankName").setParameter("bankName",bankName).getResultList().size();
 
         if (numOfBank==0){ //Bank doesn't exist
-            Bank bank = new Bank(bankName,address,idBroker);
-            em.persist(bank);
+//            Bank bank = new Bank(bankName,address,idBroker);
+//            em.persist(bank);
         }
     }
 

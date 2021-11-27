@@ -4,31 +4,26 @@ import java.time.Instant;
 
 public class ProjectDTO {
 
-    private int projectId;
-    private RealEstateDTO realEstateId;
     private String projectDescription;
     private Instant proposalDate;
-    private Instant expirationDate;
-    private double requiredValue;
-    private double durationMax;
+    private Instant projectExpirationDate;
+    private double projectRequiredValue;
+    private double projectDurationMax;
+    private RealEstateDTO realEstate;
+    private BorrowerDTO borrowerId;
 
     public ProjectDTO() {
     }
 
-    public int getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(int projectId) {
-        this.projectId = projectId;
-    }
-
-    public RealEstateDTO getRealEstateId() {
-        return realEstateId;
-    }
-
-    public void setRealEstateId(RealEstateDTO realEstateId) {
-        this.realEstateId = realEstateId;
+    public ProjectDTO(String projectDescription, Instant proposalDate, Instant projectExpirationDate,
+                      double projectRequiredValue, double projectDurationMax, RealEstateDTO realEstate, BorrowerDTO borrowerId) {
+        this.projectDescription = projectDescription;
+        this.proposalDate = proposalDate;
+        this.projectExpirationDate = projectExpirationDate;
+        this.projectRequiredValue = projectRequiredValue;
+        this.projectDurationMax = projectDurationMax;
+        this.realEstate = realEstate;
+        this.borrowerId = borrowerId;
     }
 
     public String getProjectDescription() {
@@ -47,40 +42,56 @@ public class ProjectDTO {
         this.proposalDate = proposalDate;
     }
 
-    public Instant getExpirationDate() {
-        return expirationDate;
+    public Instant getProjectExpirationDate() {
+        return projectExpirationDate;
     }
 
-    public void setExpirationDate(Instant expirationDate) {
-        this.expirationDate = expirationDate;
+    public void setProjectExpirationDate(Instant projectExpirationDate) {
+        this.projectExpirationDate = projectExpirationDate;
     }
 
-    public double getRequiredValue() {
-        return requiredValue;
+    public double getProjectRequiredValue() {
+        return projectRequiredValue;
     }
 
-    public void setRequiredValue(double requiredValue) {
-        this.requiredValue = requiredValue;
+    public void setProjectRequiredValue(double projectRequiredValue) {
+        this.projectRequiredValue = projectRequiredValue;
     }
 
-    public double getDurationMax() {
-        return durationMax;
+    public double getProjectDurationMax() {
+        return projectDurationMax;
     }
 
-    public void setDurationMax(double durationMax) {
-        this.durationMax = durationMax;
+    public void setProjectDurationMax(double projectDurationMax) {
+        this.projectDurationMax = projectDurationMax;
+    }
+
+    public RealEstateDTO getRealEstate() {
+        return realEstate;
+    }
+
+    public void setRealEstate(RealEstateDTO realEstate) {
+        this.realEstate = realEstate;
+    }
+
+    public BorrowerDTO getBorrowerId() {
+        return borrowerId;
+    }
+
+    public void setBorrowerId(BorrowerDTO borrowerId) {
+        this.borrowerId = borrowerId;
     }
 
     @Override
     public String toString() {
         return "ProjectDTO{" +
-                "projectId=" + projectId +
-                ", realEstateId=" + realEstateId +
-                ", projectDescription='" + projectDescription + '\'' +
+                "projectDescription='" + projectDescription + '\'' +
                 ", proposalDate=" + proposalDate +
-                ", expirationDate=" + expirationDate +
-                ", requiredValue=" + requiredValue +
-                ", durationMax=" + durationMax +
+                ", projectExpirationDate=" + projectExpirationDate +
+                ", projectRequiredValue=" + projectRequiredValue +
+                ", projectDurationMax=" + projectDurationMax +
+                ", realEstate=" + realEstate +
+                ", borrowerDTO=" + borrowerId +
                 '}';
     }
 }

@@ -2,8 +2,6 @@ package loan.commons.dto;
 
 public class AddressDTO {
 
-    private Integer idAddress;
-
     private String streetName;
 
     private int streetNumber;
@@ -23,10 +21,6 @@ public class AddressDTO {
         this.postalCode = postalCode;
         this.city = city;
         this.complementaryAddress = complementaryAddress;
-    }
-
-    public Integer getIdAddress() {
-        return idAddress;
     }
 
     public String getStreetName() {
@@ -72,7 +66,6 @@ public class AddressDTO {
     @Override
     public String toString() {
         return "AddressDTO{" +
-                "idAddress=" + idAddress +
                 ", streetName='" + streetName + '\'' +
                 ", streetNumber=" + streetNumber +
                 ", postalCode=" + postalCode +

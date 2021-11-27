@@ -2,9 +2,7 @@ package fr.pantheonsorbonne.urf27.miage.dao;
 
 
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
-import fr.pantheonsorbonne.urf27.miage.model.Borrower;
-import fr.pantheonsorbonne.urf27.miage.model.Gender;
-import fr.pantheonsorbonne.urf27.miage.model.Project;
+import fr.pantheonsorbonne.urf27.miage.model.*;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
@@ -15,17 +13,17 @@ import java.time.Instant;
 import java.util.List;
 
 @ApplicationScoped //Injection d'objets durant la durée de l'application
-public class BorrowerDAOImpl implements BorrowerDAO{
+public class BorrowerDAOImpl implements BorrowerDAO {
 
     @PersistenceContext(name = "mysql") //Ajout du context de persistence connect à la base de donnée "mySql"
     EntityManager em;
 
     @Override
     public Borrower findMatchingBorrower(String email) throws EntityNotFoundException {
-        try{
-            Borrower b = (Borrower) em.createQuery("Select b from Borrower b where b.email=:email").setParameter("email",email).getSingleResult();
+        try {
+            Borrower b = (Borrower) em.createQuery("Select b from Borrower b where b.email=:email").setParameter("email", email).getSingleResult();
             return b;
-        }catch(NoResultException e) {
+        } catch (NoResultException e) {
             throw new EntityNotFoundException();
         }
     }
@@ -33,32 +31,51 @@ public class BorrowerDAOImpl implements BorrowerDAO{
 
     @Override
     @Transactional
-    public List<Borrower> listBorrower(){
+    public List<Borrower> listBorrower() {
         return em.createQuery("Select b from Borrower b").getResultList();
     }
 
     @Override
     @Transactional
-    public void deleteBorrower(String email){
-        em.createQuery("delete from Borrower b where b.email=:email").setParameter("email",email).executeUpdate();
+    public void deleteBorrower(String email) {
+        em.createQuery("delete from Borrower b where b.email=:email").setParameter("email", email).executeUpdate();
     }
 
     @Override
     @Transactional
-    public void clearBorrowers(){
+    public void clearBorrowers() {
         em.createQuery("delete from Borrower b").executeUpdate();
     }
 
     @Override
     @Transactional
-    public void createNewBorrower(String firstName, String lastName, Instant birthdate, Project idProject, Gender gender, String email){
+    public Borrower createNewBorrower(Address addressId, String email, String firstName, String lastName, Gender gender, Instant birthdate,
+                                      EmploymentContract employmentContract, double annualSalary, double firstDeposit, String phoneNumber,
+                                      double requiredInterest, int requiredDuration, double monthlyRefund, double debtRatio) {
 
-        int numOfBorrowers = em.createQuery("Select b from Borrower b where b.email=:email").setParameter("email",email).getResultList().size();
+        int numOfBorrowers = em.createQuery("Select b from Borrower b where b.email=:email").setParameter("email", email).getResultList().size();
 
-        if(numOfBorrowers==0){ //Borrower doesnt exists
-           // Borrower borrower = new Borrower(firstName,lastName,birthdate,idProject,gender,email,idBroker);
-           // em.persist(borrower);
+        Borrower borrower = null;
+        if (numOfBorrowers == 0) { //Borrower doesnt exists
+            borrower = new Borrower(addressId, email, firstName, lastName, gender, birthdate,
+                    employmentContract, annualSalary, firstDeposit, phoneNumber, requiredInterest,
+                    requiredDuration, monthlyRefund, debtRatio);
+            em.persist(borrower);
         }
+        return borrower;
     }
+
+    @Override
+    @Transactional
+    public Borrower createNewBorrower(Borrower borrower) {
+
+        int numOfBorrowers = em.createQuery("Select b from Borrower b where b.email=:email").setParameter("email", borrower.getEmail()).getResultList().size();
+
+        if (numOfBorrowers == 0) { //Borrower doesnt exists
+            em.persist(borrower);
+        }
+        return borrower;
+    }
+
 
 }

@@ -8,9 +8,9 @@ import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
 import loan.commons.dto.ProjectDTO;
+import org.modelmapper.ModelMapper;
 
 import javax.inject.Inject;
-import javax.json.JsonObject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
@@ -20,10 +20,6 @@ public class BrokerResource {
 
     @Inject
     BankDAOImpl bankDAO;
-
-
-    @Inject
-    BankDAOImpl bankService;
 
     @Inject
     BrokerServiceImpl brokerService;
@@ -49,8 +45,9 @@ public class BrokerResource {
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public ProjectDTO createProject(Project project) {
-        projectService.createProject(project.getRealEstateId(), project.getProjectDescription(), project.getRequiredValue(),
+        projectService.createProject(project.getBorrowerId(), project.getRealEstateId(), project.getProjectDescription(), project.getRequiredValue(),
                 project.getDurationMax());
-        return null;
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(project, ProjectDTO.class);
     }
 }
