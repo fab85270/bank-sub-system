@@ -26,8 +26,6 @@ public class BorrowerDTO {
 
     private double requiredInterest;
 
-    private int requiredDuration;
-
     private double monthlyRefund;
 
     private double debtRatio;
@@ -35,7 +33,9 @@ public class BorrowerDTO {
     public BorrowerDTO() {
     }
 
-    public BorrowerDTO(AddressDTO addressId, String email, String firstName, String lastName, String gender, LocalDate birthdate, String employmentContract, double annualSalary, double firstDeposit, String phoneNumber, double requiredInterest, int requiredDuration, double monthlyRefund, double debtRatio) {
+    public BorrowerDTO(AddressDTO addressId, String email, String firstName, String lastName, String gender,
+                       LocalDate birthdate, String employmentContract, double annualSalary, double firstDeposit,
+                       String phoneNumber, double requiredInterest, double monthlyRefund, double debtRatio) {
         this.addressId = addressId;
         this.email = email;
         this.firstName = firstName;
@@ -47,7 +47,6 @@ public class BorrowerDTO {
         this.firstDeposit = firstDeposit;
         this.phoneNumber = phoneNumber;
         this.requiredInterest = requiredInterest;
-        this.requiredDuration = requiredDuration;
         this.monthlyRefund = monthlyRefund;
         this.debtRatio = debtRatio;
     }
@@ -140,14 +139,6 @@ public class BorrowerDTO {
         this.requiredInterest = requiredInterest;
     }
 
-    public int getRequiredDuration() {
-        return requiredDuration;
-    }
-
-    public void setRequiredDuration(int requiredDuration) {
-        this.requiredDuration = requiredDuration;
-    }
-
     public double getMonthlyRefund() {
         return monthlyRefund;
     }
@@ -178,7 +169,6 @@ public class BorrowerDTO {
                 ", firstDeposit=" + firstDeposit +
                 ", phoneNumber=" + phoneNumber +
                 ", requiredInterest=" + requiredInterest +
-                ", requiredDuration=" + requiredDuration +
                 ", monthlyRefund=" + monthlyRefund +
                 ", debtRatio=" + debtRatio +
                 '}';
