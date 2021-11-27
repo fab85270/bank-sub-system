@@ -93,18 +93,17 @@ public class BrokerResource {
 
         /*Definition d'un formatteur */
 
-        if(dateDepart instanceof CharSequence){
+        if(dateDepart instanceof CharSequence) {
             System.out.println("couc");
-
+        }
 
         System.out.println(dateDepart);
         //2020-09-28
-        Instant.parse()ee
-        LocalDate date = LocalDate.parse(dateDepart);
-        Instant instant = date.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
+
+      //  LocalDate date = LocalDate.parse(dateDepart);
+       // Instant instant = date.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
 
 
-        //System.out.println(instant);
 
         System.out.println(application);
     }
