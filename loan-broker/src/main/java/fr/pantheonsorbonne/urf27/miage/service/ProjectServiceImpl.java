@@ -8,6 +8,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.time.Instant;
 import java.util.Collection;
 import java.util.ArrayList;
@@ -46,13 +47,16 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    @Transactional
     public Project createNewProjectClient(){
         return null;
     }
 
     @Override
+    @Transactional
     public void changeIsDelivered(int projectID) throws EntityNotFoundException{
-
+        /*Appel d'une méthode DAO pour effectuer les modifications (update) sur le projet client envoyé à la banque */
+        projectDAO.changeIsDelivered(projectID);
     }
 
 }
