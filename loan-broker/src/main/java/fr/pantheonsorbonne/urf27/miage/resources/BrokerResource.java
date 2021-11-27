@@ -11,6 +11,7 @@ import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectService;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
 
+import loan.commons.dto.DummyDTO;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -81,31 +82,8 @@ public class BrokerResource {
     @Path("/createProjectClient")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public void createProjectClient(JsonObject application){
-        /* Récupération de tous les éléments du formulaire sous formt JSONObject */
-
-        String description = application.get("description").toString();
-        String workStatut = application.get("workStatut").toString();
-        //int demandedValue = Integer.parseInt(application.get("sommeVoulu").toString()); //Somme voulue
-
-
-        CharSequence dateDepart = application.get("dateDepart").toString();
-
-        /*Definition d'un formatteur */
-
-        if(dateDepart instanceof CharSequence) {
-            System.out.println("couc");
-        }
-
-        System.out.println(dateDepart);
-        //2020-09-28
-
-      //  LocalDate date = LocalDate.parse(dateDepart);
-       // Instant instant = date.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
-
-
-
-        System.out.println(application);
+    public void createProjectClient(DummyDTO application){
+        System.out.println(application.toString());
     }
 
 

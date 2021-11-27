@@ -1,2 +1,15 @@
-package loan.commons.dto;public class LocalDateAdapter {
+package loan.commons.dto;
+
+import javax.xml.bind.annotation.adapters.XmlAdapter;
+import java.time.LocalDate;
+
+//https://stackoverflow.com/questions/36156741/marshalling-localdate-using-jaxb
+public class LocalDateAdapter extends XmlAdapter<String, LocalDate> {
+    public LocalDate unmarshal(String v) throws Exception {
+        return LocalDate.parse(v);
+    }
+
+    public String marshal(LocalDate v) throws Exception {
+        return v.toString();
+    }
 }
