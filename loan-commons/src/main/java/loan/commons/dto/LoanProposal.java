@@ -1,12 +1,12 @@
 package loan.commons.dto;
 
-import java.time.Instant;
+import java.time.LocalDate;
 
 public class LoanProposal {
 
     /*Attributs privés propres à la classe Loan Proposal*/
 
-    private Instant dateSimulation;
+    private LocalDate dateSimulation;
 
     private double interestRate; // En %
 
@@ -17,7 +17,7 @@ public class LoanProposal {
     //Il existe aussi le taux endettement (généralement 33% en france).
     private double debtRate; // En %
 
-    private Instant dateEnd;
+    private LocalDate dateEnd;
 
     //Une LoanSimulation concerne un un seul employé de banque.
     private Officer officer;
@@ -25,7 +25,7 @@ public class LoanProposal {
     /*Constructeurs de la classe LoanProposal */
     public LoanProposal(){}
 
-    public LoanProposal(Instant dateSimulation, double interestRate, int loanDuration, double monthlyRefund, double debtRate, Instant dateEnd, Officer officer) {
+    public LoanProposal(LocalDate dateSimulation, double interestRate, int loanDuration, double monthlyRefund, double debtRate, LocalDate dateEnd, Officer officer) {
         this.dateSimulation = dateSimulation;
         this.interestRate = interestRate;
         this.loanDuration = loanDuration;
@@ -36,11 +36,11 @@ public class LoanProposal {
     }
 
     /*Getter & Setter*/
-    public Instant getDateSimulation() {
+    public LocalDate getDateSimulation() {
         return dateSimulation;
     }
 
-    public void setDateSimulation(Instant dateSimulation) {
+    public void setDateSimulation(LocalDate dateSimulation) {
         this.dateSimulation = dateSimulation;
     }
 
@@ -76,11 +76,11 @@ public class LoanProposal {
         this.debtRate = debtRate;
     }
 
-    public Instant getDateEnd() {
+    public LocalDate getDateEnd() {
         return dateEnd;
     }
 
-    public void setDateEnd(Instant dateEnd) {
+    public void setDateEnd(LocalDate dateEnd) {
         this.dateEnd = dateEnd;
     }
 

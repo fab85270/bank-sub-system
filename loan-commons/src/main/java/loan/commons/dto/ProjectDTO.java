@@ -1,12 +1,12 @@
 package loan.commons.dto;
 
-import java.time.Instant;
+import java.time.LocalDate;
 
 public class ProjectDTO {
 
     private String projectDescription;
-    private Instant proposalDate;
-    private Instant projectExpirationDate;
+    private LocalDate projectProposalDate;
+    private LocalDate projectExpirationDate;
     private double projectRequiredValue;
     private double projectDurationMax;
     private RealEstateDTO realEstate;
@@ -15,10 +15,10 @@ public class ProjectDTO {
     public ProjectDTO() {
     }
 
-    public ProjectDTO(String projectDescription, Instant proposalDate, Instant projectExpirationDate,
+    public ProjectDTO(String projectDescription, LocalDate proposalDate, LocalDate projectExpirationDate,
                       double projectRequiredValue, double projectDurationMax, RealEstateDTO realEstate, BorrowerDTO borrowerId) {
         this.projectDescription = projectDescription;
-        this.proposalDate = proposalDate;
+        this.projectProposalDate = proposalDate;
         this.projectExpirationDate = projectExpirationDate;
         this.projectRequiredValue = projectRequiredValue;
         this.projectDurationMax = projectDurationMax;
@@ -34,19 +34,19 @@ public class ProjectDTO {
         this.projectDescription = projectDescription;
     }
 
-    public Instant getProposalDate() {
-        return proposalDate;
+    public LocalDate getProposalDate() {
+        return projectProposalDate;
     }
 
-    public void setProposalDate(Instant proposalDate) {
-        this.proposalDate = proposalDate;
+    public void setProposalDate(LocalDate proposalDate) {
+        this.projectProposalDate = proposalDate;
     }
 
-    public Instant getProjectExpirationDate() {
+    public LocalDate getProjectExpirationDate() {
         return projectExpirationDate;
     }
 
-    public void setProjectExpirationDate(Instant projectExpirationDate) {
+    public void setProjectExpirationDate(LocalDate projectExpirationDate) {
         this.projectExpirationDate = projectExpirationDate;
     }
 
@@ -86,7 +86,7 @@ public class ProjectDTO {
     public String toString() {
         return "ProjectDTO{" +
                 "projectDescription='" + projectDescription + '\'' +
-                ", proposalDate=" + proposalDate +
+                ", proposalDate=" + projectProposalDate +
                 ", projectExpirationDate=" + projectExpirationDate +
                 ", projectRequiredValue=" + projectRequiredValue +
                 ", projectDurationMax=" + projectDurationMax +
