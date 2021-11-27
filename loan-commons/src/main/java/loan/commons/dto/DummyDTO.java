@@ -10,7 +10,7 @@ public class DummyDTO {
     @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     LocalDate dateFin;
     double sommeVoulu;
-    String workStatut;
+    ContratType workStatut;
 
 
     public String getDescription() {
@@ -45,11 +45,11 @@ public class DummyDTO {
         this.sommeVoulu = sommeVoulu;
     }
 
-    public String getWorkStatut() {
+    public ContratType getWorkStatut() {
         return workStatut;
     }
 
-    public void setWorkStatut(String workStatut) {
+    public void setWorkStatut(ContratType workStatut) {
         this.workStatut = workStatut;
     }
 

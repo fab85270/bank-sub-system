@@ -12,6 +12,7 @@ import fr.pantheonsorbonne.urf27.miage.service.ProjectService;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
 
 import loan.commons.dto.DummyDTO;
+
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -68,7 +69,6 @@ public class BrokerResource {
     }
 
 
-
     @Path("/createBank")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
@@ -82,14 +82,15 @@ public class BrokerResource {
     @Path("/createProjectClient")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public void createProjectClient(DummyDTO application){
+    public void createProjectClient(DummyDTO application) {
+
         System.out.println(application.toString());
     }
 
 
     /* Les deux Méthodes afin de gérer l'affichage des différents projets qui seront présentés au broker */
 
-        /* Méthode chargée de récupérer tous les projects clients réunis dans la base de données pour les afficher ensuite */
+    /* Méthode chargée de récupérer tous les projects clients réunis dans la base de données pour les afficher ensuite */
     @Path("/getProject")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -97,7 +98,7 @@ public class BrokerResource {
         return projectService.getAllProject();
     }
 
-        /*Chargée de la reception de l'identifiant du projet séléctionné par le broker*/
+    /*Chargée de la reception de l'identifiant du projet séléctionné par le broker*/
     @Path("/sendIdProject")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
@@ -108,9 +109,9 @@ public class BrokerResource {
 
         /* Une fois envoyé, l'attribut isDelivered du projet devra changer d'état*/
 
-       projectService.changeIsDelivered(idProject);
+        projectService.changeIsDelivered(idProject);
 
-       /* TODO / CREER LE CREATION DU PROJETDTOCLIENT A ENVOYER A LA BANQUE (REALESTATE.. et tout) */
+        /* TODO / CREER LE CREATION DU PROJETDTOCLIENT A ENVOYER A LA BANQUE (REALESTATE.. et tout) */
 
     }
 
