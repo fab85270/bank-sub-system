@@ -38,11 +38,15 @@
                         projectIdTab.push(response[object].idProject);
 
                     }
+
             }
 
             function saisieProject(){
+                console.log(projectIdTab);
                 /* Récupération de la valeur saisie */
                 let projectSaisie = document.getElementById("projectSaisie").value;
+
+                console.log("Votre saiise est de : "+projectSaisie);
 
                 /*Gestion des cas d'erreurs de saisies */
 

@@ -10,8 +10,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.ArrayList;
+import loan.commons.dto.ContratType;
 
 @ApplicationScoped
 public class ProjectServiceImpl implements ProjectService {
@@ -23,39 +25,27 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project getProject(int projectId) throws EntityNotFoundException{
-        System.out.println(projectDAO.getProjectById(projectId).getProjectDescription());
         return projectDAO.getProjectById(projectId);
     }
 
     @Override
     public Collection<Project> getAllProject() throws EntityNotFoundException{
-
-        /* Phase de tests seulement */
-
-    /* Création d'un rapide base de données */
-
-
-        Project e = projectDAO.createNewProject();
-
         return projectDAO.getAllProject();
     }
 
-    @Override
-    public Project getProjectTest() throws EntityNotFoundException{
-        Project project = new Project("coucou");
-        return project;
-    }
+
 
     @Override
     @Transactional
-    public Project createNewProjectClient(){
-        return null;
+    public void createNewProjectClient(String description, LocalDate dateDebut, LocalDate dateFin, double sommeVoulu, ContratType contrat){
+        projectDAO.createNewProject(description,dateDebut,dateFin,sommeVoulu,contrat);
     }
 
     @Override
     @Transactional
     public void changeIsDelivered(int projectID) throws EntityNotFoundException{
         /*Appel d'une méthode DAO pour effectuer les modifications (update) sur le projet client envoyé à la banque */
+        System.out.println("Essai bis : "+projectID);
         projectDAO.changeIsDelivered(projectID);
     }
 
