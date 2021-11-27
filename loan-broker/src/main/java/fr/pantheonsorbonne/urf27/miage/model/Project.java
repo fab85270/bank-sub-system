@@ -3,42 +3,53 @@ package fr.pantheonsorbonne.urf27.miage.model;
 import javax.money.Monetary;
 import javax.money.MonetaryAmount;
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDate;
 
 @Entity
 public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idProject", nullable = false)
-    private Integer idProject;
+    @Column(name = "projectId", nullable = false)
+    private Integer projectId;
 
-    @Column(name = "description", nullable = false)
+    @OneToOne(optional = true, cascade = CascadeType.ALL)
+    @JoinColumn(name = "realEstateId")
+    private RealEstate realEstateId;
+
+    @Column(name = "description")
     private String projectDescription;
 
-    @Column(name = "estimatedStartDate", nullable = false)
-    private Instant estimatedStartDate;
+    @OneToOne(optional = true, cascade = CascadeType.ALL)
+    @JoinColumn(name = "borrowerId")
+    private Borrower borrowerId;
 
-    @Column(name = "estimatedDeadline", nullable = false)
-    private Instant estimatedDeadline;
+    @Column(name = "proposalDate", nullable = false)
+    private LocalDate proposalDate;
+
+    @Column(name = "expirationDate", nullable = false)
+    private LocalDate expirationDate;
 
     @Column(name = "demandedValue", nullable = false)
-    private double demandedValue;
+    private double requiredValue;
+
+    @Column(name = "durationMax", nullable = false)
+    private int durationMax;
 
     public Project() {
     }
 
-    public Project(String projectDescription, Instant estimatedStartDate, Instant estimatedDeadline, double demandedValue) {
+    public Project(String projectDescription, LocalDate proposalDate, LocalDate expirationDate, double requiredValue, int durationMax) {
         this.projectDescription = projectDescription;
-        this.estimatedStartDate = estimatedStartDate;
-        this.estimatedDeadline = estimatedDeadline;
-        this.demandedValue = demandedValue;
-        //Monetary.getDefaultAmountFactory()
-        //.setCurrency(Monetary.getCurrency("EUR")).setNumber(demandedValue).create();;
+        this.proposalDate = proposalDate;
+        this.expirationDate = expirationDate;
+        this.requiredValue = requiredValue;
+        this.durationMax = durationMax;
     }
 
-    public Integer getIdProject() {
-        return idProject;
+    public Integer getProjectId() {
+        return projectId;
     }
 
     public String getProjectDescription() {
@@ -49,27 +60,72 @@ public class Project {
         this.projectDescription = projectDescription;
     }
 
-    public Instant getEstimatedStartDate() {
-        return estimatedStartDate;
+    public LocalDate getProposalDate() {
+        return proposalDate;
     }
 
-    public void setEstimatedStartDate(Instant estimatedStartDate) {
-        this.estimatedStartDate = estimatedStartDate;
+    public void setProposalDate(LocalDate proposalDate) {
+        this.proposalDate = proposalDate;
     }
 
-    public Instant getEstimatedDeadline() {
-        return estimatedDeadline;
+    public LocalDate getExpirationDate() {
+        return expirationDate;
     }
 
-    public void setEstimatedDeadline(Instant estimatedDeadline) {
-        this.estimatedDeadline = estimatedDeadline;
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
     }
 
-    public double getDemandedValue() {
-        return demandedValue;
+    public double getrequiredValue() {
+        return requiredValue;
     }
 
-    public void setDemandedValue(double demandedValue) {
-        this.demandedValue = demandedValue;
+    public void setrequiredValue(double requiredValue) {
+        this.requiredValue = requiredValue;
+    }
+
+    public int getDurationMax() {
+        return durationMax;
+    }
+
+    public void setDurationMax(int durationMax) {
+        this.durationMax = durationMax;
+    }
+
+    public RealEstate getRealEstateId() {
+        return realEstateId;
+    }
+
+    public void setRealEstateId(RealEstate realEstateId) {
+        this.realEstateId = realEstateId;
+    }
+
+    public double getRequiredValue() {
+        return requiredValue;
+    }
+
+    public void setRequiredValue(double requiredValue) {
+        this.requiredValue = requiredValue;
+    }
+
+    public Borrower getBorrowerId() {
+        return borrowerId;
+    }
+
+    public void setBorrowerId(Borrower borrowerId) {
+        this.borrowerId = borrowerId;
+    }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "projectId=" + projectId +
+                ", \nrealEstateId=" + realEstateId +
+                ", \nprojectDescription='" + projectDescription + '\'' +
+                ", \nproposalDate=" + proposalDate +
+                ", \nexpirationDate=" + expirationDate +
+                ", \nrequiredValue=" + requiredValue +
+                ", \ndurationMax=" + durationMax +
+                '}';
     }
 }

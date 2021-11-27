@@ -1,7 +1,7 @@
 package fr.pantheonsorbonne.urf27.miage.model;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
 
 
 @Entity
@@ -21,13 +21,13 @@ public class Dossier { //Dossier client qui sera ensuite tranmis aux banques pou
     private double Net2yearsIncome; //Revenus annuel net des deux dernières années.
 
     @Column(name = "createDate", nullable = false)
-    private Instant creationDate;
+    private LocalDate creationDate;
 
     @Column(name = "completed", nullable = true)
     private Boolean completed;
 
     @Column(name = "lastModified", nullable = true)
-    private Instant lastModified;
+    private LocalDate lastModified;
 
     @Column(name = "priceProperty", nullable = false)
     private double priceProperty;
@@ -50,7 +50,7 @@ public class Dossier { //Dossier client qui sera ensuite tranmis aux banques pou
     public Dossier(double netMonthlyIncome, double net2yearsIncome,double priceProperty, double downPayment) {
         NetMonthlyIncome = netMonthlyIncome;
         Net2yearsIncome = net2yearsIncome;
-        //this.creationDate = ; ici mettre la date du jour actuelle (voir documentation de instant)
+        //this.creationDate = ; ici mettre la date du jour actuelle (voir documentation de LocalDate)
         this.completed = false;
        // this.lastModified = lastModified; mettre à zero
         this.priceProperty = priceProperty;
@@ -71,11 +71,11 @@ public class Dossier { //Dossier client qui sera ensuite tranmis aux banques pou
         this.completed = completed;
     }
 
-    public Instant getCreationDate() {
+    public LocalDate getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Instant creationDate) {
+    public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
 
@@ -87,11 +87,11 @@ public class Dossier { //Dossier client qui sera ensuite tranmis aux banques pou
         this.idDossier = idDossier;
     }
 
-    public Instant getLastModified() {
+    public LocalDate getLastModified() {
         return lastModified;
     }
 
-    public void setLastModified(Instant lastModified) {
+    public void setLastModified(LocalDate lastModified) {
         this.lastModified = lastModified;
     }
 

@@ -1,7 +1,7 @@
 package fr.pantheonsorbonne.urf27.miage.model;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
 
 @Entity
 public class Officer{

@@ -7,7 +7,7 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idAddress", nullable = false)
+    @Column(name = "idAddress")
     private Integer idAddress;
 
     @Column(name = "streetName", nullable = false)
@@ -78,5 +78,17 @@ public class Address {
 
     public void setComplementaryAddress(String complementaryAddress) {
         this.complementaryAddress = complementaryAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "idAddress=" + idAddress +
+                ", streetName='" + streetName + '\'' +
+                ", streetNumber=" + streetNumber +
+                ", postalCode=" + postalCode +
+                ", city='" + city + '\'' +
+                ", complementaryAddress='" + complementaryAddress + '\'' +
+                '}';
     }
 }

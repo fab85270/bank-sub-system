@@ -1,13 +1,9 @@
 package fr.pantheonsorbonne.urf27.miage.dao;
 
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
-import fr.pantheonsorbonne.urf27.miage.model.Borrower;
-import fr.pantheonsorbonne.urf27.miage.model.Broker;
-import fr.pantheonsorbonne.urf27.miage.model.Gender;
-import fr.pantheonsorbonne.urf27.miage.model.Project;
+import fr.pantheonsorbonne.urf27.miage.model.*;
 
-import javax.transaction.Transactional;
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface BorrowerDAO {
@@ -25,8 +21,10 @@ public interface BorrowerDAO {
     void deleteBorrower(String mail);
 
     /*Crée un nouveau borrower*/
-    void createNewBorrower(String firstName, String lastName, Instant birthdate, Project idProject, Gender gender, String email, Broker idBroker);
+    Borrower createNewBorrower(Address addressId, String email, String firstName, String lastName, Gender gender, LocalDate birthdate,
+                               EmploymentContract employmentContract, double annualSalary, double firstDeposit, String phoneNumber,
+                               double requiredInterest, int requiredDuration, double monthlyRefund, double debtRatio);
 
-
+    Borrower createNewBorrower(Borrower borrower);
 
 }
