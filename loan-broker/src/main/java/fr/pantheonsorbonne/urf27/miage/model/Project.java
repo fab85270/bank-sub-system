@@ -120,12 +120,12 @@ public class Project {
     public String toString() {
         return "Project{" +
                 "projectId=" + projectId +
-                ", realEstateId=" + realEstateId +
-                ", projectDescription='" + projectDescription + '\'' +
-                ", proposalDate=" + proposalDate +
-                ", expirationDate=" + expirationDate +
-                ", requiredValue=" + requiredValue +
-                ", durationMax=" + durationMax +
+                ", \nrealEstateId=" + realEstateId +
+                ", \nprojectDescription='" + projectDescription + '\'' +
+                ", \nproposalDate=" + proposalDate +
+                ", \nexpirationDate=" + expirationDate +
+                ", \nrequiredValue=" + requiredValue +
+                ", \ndurationMax=" + durationMax +
                 '}';
     }
 }

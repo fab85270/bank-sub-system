@@ -49,9 +49,6 @@ public class Borrower {
     @Column(name = "requiredInterest", nullable = false)
     private double requiredInterest;
 
-    @Column(name = "requiredDuration", nullable = false)
-    private int requiredDuration;
-
     @Column(name = "monthlyRefund", nullable = false)
     private double monthlyRefund;
 
@@ -71,7 +68,7 @@ public class Borrower {
 
     public Borrower(Address addressId, String email, String firstName, String lastName, Gender gender, LocalDate birthdate,
                     EmploymentContract employmentContract, double annualSalary, double firstDeposit, String phoneNumber,
-                    double requiredInterest, int requiredDuration, double monthlyRefund, double debtRatio) {
+                    double requiredInterest, double monthlyRefund, double debtRatio) {
         this.addressId = addressId;
         this.email = email;
         this.firstName = firstName;
@@ -82,8 +79,6 @@ public class Borrower {
         this.annualSalary = annualSalary;
         this.firstDeposit = firstDeposit;
         this.phoneNumber = phoneNumber;
-        this.requiredInterest = requiredInterest;
-        this.requiredDuration = requiredDuration;
         this.monthlyRefund = monthlyRefund;
         this.debtRatio = debtRatio;
     }
@@ -184,14 +179,6 @@ public class Borrower {
         this.requiredInterest = requiredInterest;
     }
 
-    public int getRequiredDuration() {
-        return requiredDuration;
-    }
-
-    public void setRequiredDuration(int requiredDuration) {
-        this.requiredDuration = requiredDuration;
-    }
-
     public double getMonthlyRefund() {
         return monthlyRefund;
     }
@@ -223,7 +210,6 @@ public class Borrower {
                 ", firstDeposit=" + firstDeposit +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", requiredInterest=" + requiredInterest +
-                ", requiredDuration=" + requiredDuration +
                 ", monthlyRefund=" + monthlyRefund +
                 ", debtRatio=" + debtRatio +
                 '}';

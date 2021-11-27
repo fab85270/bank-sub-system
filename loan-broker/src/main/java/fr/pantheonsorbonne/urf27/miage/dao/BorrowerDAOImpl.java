@@ -58,8 +58,7 @@ public class BorrowerDAOImpl implements BorrowerDAO {
         Borrower borrower = null;
         if (numOfBorrowers == 0) { //Borrower doesnt exists
             borrower = new Borrower(addressId, email, firstName, lastName, gender, birthdate,
-                    employmentContract, annualSalary, firstDeposit, phoneNumber, requiredInterest,
-                    requiredDuration, monthlyRefund, debtRatio);
+                    employmentContract, annualSalary, firstDeposit, phoneNumber, requiredInterest, monthlyRefund, debtRatio);
             em.persist(borrower);
         }
         return borrower;

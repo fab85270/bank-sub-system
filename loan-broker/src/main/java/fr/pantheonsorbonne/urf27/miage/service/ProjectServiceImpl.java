@@ -41,9 +41,7 @@ public class ProjectServiceImpl implements ProjectService {
         Project project = new Project();
         addressDAO.createAddress(realEstate.getAddressId());
         realEstate.setAddressId(realEstate.getAddressId());
-        realEstateDAO.createRealEstate(realEstate.getAddressId(), realEstate.getSurface(), realEstate.getConstructionYear(),
-                realEstate.getPrice(), realEstate.getnumberOfRooms());
-        System.out.println(borrower);
+        realEstateDAO.createRealEstate(realEstate);
         addressDAO.createAddress(borrower.getAddressId());
         borrower.setAddressId(borrower.getAddressId());
         borrowerDAO.createNewBorrower(borrower);

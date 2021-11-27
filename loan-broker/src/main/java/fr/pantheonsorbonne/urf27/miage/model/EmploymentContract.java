@@ -4,5 +4,5 @@ public enum EmploymentContract {
     CDI,
     CDD,
     OTHER,
-    EMPTY
+    NONE
 }

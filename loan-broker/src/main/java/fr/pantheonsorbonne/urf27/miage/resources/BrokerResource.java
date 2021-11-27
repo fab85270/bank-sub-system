@@ -47,6 +47,7 @@ public class BrokerResource {
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public ProjectDTO createProject(Project project) {
+        System.out.println(project);
         projectService.createProject(project.getBorrowerId(), project.getRealEstateId(), project.getProjectDescription(),
                 project.getProposalDate(), project.getExpirationDate(), project.getRequiredValue(), project.getDurationMax());
         ModelMapper modelMapper = new ModelMapper();
