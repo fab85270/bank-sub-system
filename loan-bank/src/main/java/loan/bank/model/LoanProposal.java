@@ -26,7 +26,7 @@ public class LoanProposal {
     private Instant dateFin;
 
     @Column(name = "Number", nullable = false)
-    private String ;
+    private String number;
 
 
 
