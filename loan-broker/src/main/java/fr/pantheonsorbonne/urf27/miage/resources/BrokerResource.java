@@ -95,6 +95,7 @@ public class BrokerResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public void sendIdProject(JsonObject application) {
         System.out.println(application);
+        //projectService.changeIsDelivered(application.);
         //Appeler méthode pour créer DTOProject à envoyer a la banque avec (REALEstate..etout tralala)
     }
 

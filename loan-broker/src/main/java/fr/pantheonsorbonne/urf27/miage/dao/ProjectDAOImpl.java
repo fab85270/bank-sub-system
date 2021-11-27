@@ -28,7 +28,7 @@ public class ProjectDAOImpl implements ProjectDAO{
     @Override
     public Collection<Project> getAllProject() throws EntityNotFoundException{
         try{
-            return (Collection<Project>) em.createQuery("Select p from Project p ").getResultList();
+            return (Collection<Project>) em.createQuery("Select p from Project p Where p.isDelivered=false").getResultList();
         }catch (NoResultException e){
             throw new EntityNotFoundException();
         }
@@ -46,5 +46,13 @@ public class ProjectDAOImpl implements ProjectDAO{
         em.persist(project);
         em.persist(project1);
         return project;
+    }
+
+    /*
+    Methode modifiant la valeur de isDelivered afin de le passer à true une fois l'envoie du projet client valide par
+    le Brojer, ainsi il n'est plus affiche dans la liste de projet en cours
+     */
+    public void changeIsDelivered(int idProject) throws EntityNotFoundException{
+        em.createQuery("UPDATE Project p SET p.isDelivered=true WHERE p.idProject=:idProject").setParameter("idProject",idProject).executeUpdate();
     }
 }

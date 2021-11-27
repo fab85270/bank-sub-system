@@ -12,4 +12,6 @@ public interface ProjectDAO {
     Collection<Project> getAllProject() throws EntityNotFoundException;
 
     Project createNewProject();
+
+    void changeIsDelivered(int projectID) throws EntityNotFoundException;
 }

@@ -14,4 +14,6 @@ public interface ProjectService {
     Project getProjectTest() throws EntityNotFoundException;
 
     Project createNewProjectClient();
+
+    void changeIsDelivered(int projectID) throws EntityNotFoundException;
 }

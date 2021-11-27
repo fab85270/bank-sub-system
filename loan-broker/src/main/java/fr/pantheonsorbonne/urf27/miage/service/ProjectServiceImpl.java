@@ -37,9 +37,6 @@ public class ProjectServiceImpl implements ProjectService {
         Project e = projectDAO.createNewProject();
 
         return projectDAO.getAllProject();
-
-
-
     }
 
     @Override
@@ -51,6 +48,11 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Project createNewProjectClient(){
         return null;
+    }
+
+    @Override
+    public void changeIsDelivered(int projectID) throws EntityNotFoundException{
+
     }
 
 }
