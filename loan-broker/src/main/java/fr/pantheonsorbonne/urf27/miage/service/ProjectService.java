@@ -17,5 +17,7 @@ public interface ProjectService {
 
     Collection<Project> getAllProject() throws EntityNotFoundException;
 
+    void changeIsDelivered(int projectID) throws EntityNotFoundException;
+
 
 }

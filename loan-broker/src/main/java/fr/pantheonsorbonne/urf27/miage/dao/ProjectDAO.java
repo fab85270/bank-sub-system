@@ -11,4 +11,6 @@ public interface ProjectDAO {
 
     Collection<Project> getAllProject() throws EntityNotFoundException, fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 
+    void changeIsDelivered(int projectID) throws EntityNotFoundException, fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
+
 }

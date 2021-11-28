@@ -22,4 +22,6 @@ public interface BankDAO {
 
     Collection<Bank> getBanks();
 
+    void createBankTest();
+
 }

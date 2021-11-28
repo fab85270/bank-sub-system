@@ -33,4 +33,15 @@ public class ProjectDAOImpl implements ProjectDAO {
         }
     }
 
+    /*
+   Methode modifiant la valeur de isDelivered afin de le passer à true une fois l'envoie du projet client valide par
+   le Brojer, ainsi il n'est plus affiche dans la liste de projet en cours
+    */
+    @Override
+    @Transactional
+    public void changeIsDelivered(int idProject) throws EntityNotFoundException{
+        System.out.println("ID du projet est : "+ idProject);
+        em.createQuery("UPDATE Project p SET p.isDelivered=true WHERE p.projectId=:idProject").setParameter("idProject",idProject).executeUpdate();
+    }
+
 }

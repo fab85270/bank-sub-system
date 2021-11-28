@@ -1,14 +1,17 @@
 package fr.pantheonsorbonne.urf27.miage.resources;
 
+import fr.pantheonsorbonne.urf27.miage.dao.BankDAO;
 import fr.pantheonsorbonne.urf27.miage.dao.BankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
+import fr.pantheonsorbonne.urf27.miage.model.Address;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
 import loan.commons.dto.ProjectDTO;
+import loan.commons.dto.SelectProjetBankDTO;
 import org.modelmapper.ModelMapper;
 
 import javax.inject.Inject;
@@ -49,8 +52,10 @@ public class BrokerResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public ProjectDTO createProject(Project project) {
 
+        bankDAO.createBankTest();
         projectService.createProject(project.getBorrowerId(), project.getRealEstateId(), project.getProjectDescription(),
                 project.getProposalDate(), project.getExpirationDate(), project.getRequiredValue(), project.getDurationMax());
+
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(project, ProjectDTO.class);
     }
@@ -71,26 +76,34 @@ public class BrokerResource {
     @Produces({MediaType.APPLICATION_JSON})
     public Collection<Bank> getBanks() throws EntityNotFoundException {
         return bankDAO.getBanks();
+
     }
 
-
-    /*Chargée de la reception de l'identifiant du projet séléctionné par le broker*/
-    /*@Path("/sendIdProject")
+    /*Chargée de la reception de l'identifiant du projet et de la banque séléctionnée par le broker*/
+    @Path("/sendIdProject")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public void sendIdProject(SelectProjetBankDTO application) throws EntityNotFoundException {
 
+        /*Affichage de l'object JSON obtenu */
+        System.out.println(application.toString());
+
         /* Récupération de l'ID du projetClient retenu par le broker*/
 
-        //int idProject = application.getIdProject();
+        int idProject = application.getIdProject();
+
+        /* Récupération de l'ID de la banque retenue par le broker */
+
+        int idBank = application.getIdBank();
 
         /* Une fois envoyé, l'attribut isDelivered du projet Client devra changer d'état => est envoyé*/
 
-        /*projectService.changeIsDelivered(idProject);
+        projectService.changeIsDelivered(idProject);
 
         /* Création d'un projet DTO afin de pouvoir l'envoyer par la suite (il possède Estate.. et tout) */
 
         //TODO A FAIRE
 
-   // }
+        // }
+    }
 }

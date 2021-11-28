@@ -34,6 +34,8 @@ public class BankDAOImpl implements BankDAO {
     @Override
     @Transactional
     public Bank createNewBank(String name, Address address) throws BankExceptions.BankAlreadyExists {
+
+
         /*Une banque ne pourra être ajoutée que si elle n'existe pas (selon son name)*/
         int numOfBank = em.createQuery("Select b from Bank b where b.bankName=:name")
                 .setParameter("name", name)
@@ -62,6 +64,23 @@ public class BankDAOImpl implements BankDAO {
 
     @Override
     @Transactional
+    public void createBankTest() {
+
+        Address a = new Address("ueeeez",7,23,"e","e");
+        em.persist(a);
+        Bank b = new Bank("Credit Mutueleeee",a);
+        em.persist(b);
+
+        Address a1 = new Address("ueeeeee",7,23,"e","e");
+        em.persist(a1);
+        Bank b1 = new Bank("Credit agricoleeeee",a);
+        em.persist(b1);
+
+    }
+
+
+    @Override
+    @Transactional
     public void clearBanks() {
         em.createQuery("delete from Bank ").executeUpdate();
     }
@@ -74,7 +93,7 @@ public class BankDAOImpl implements BankDAO {
 
     @Override
     public Collection<Bank> getBanks() {
-        return em.createQuery("Select b from Bank b").getResultList();
+        return (Collection<Bank>) em.createQuery("Select b from Bank b").getResultList();
     }
 
 

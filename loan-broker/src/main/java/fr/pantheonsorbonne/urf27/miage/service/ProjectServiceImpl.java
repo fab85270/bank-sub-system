@@ -67,4 +67,12 @@ public class ProjectServiceImpl implements ProjectService {
     public Collection<Project> getAllProject() throws EntityNotFoundException {
         return projectDAO.getAllProject();
     }
+
+    @Override
+    @Transactional
+    public void changeIsDelivered(int projectID) throws EntityNotFoundException{
+        /*Appel d'une méthode DAO pour effectuer les modifications (update) sur le projet client envoyé à la banque */
+        System.out.println("Essai bis : "+projectID);
+        projectDAO.changeIsDelivered(projectID);
+    }
 }
