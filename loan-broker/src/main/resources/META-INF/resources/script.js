@@ -33,32 +33,32 @@ function controle() {
     let monthlyRefund = document.getElementById("monthlyRefund").value;
     let debtRatio = document.getElementById("debtRatio").value;
 
-    let todaySDate = Date.now();
+    let todaySDate = new Date(Date.now());
     const regex = new RegExp(/^[0-9]{10}$/);
 
     /*Vérification saisie*/
     let isSommeValid = requiredValue>0;
     let isRequiredValueValid = requiredValue>0;
     let isDurationMaxValid = durationMax>0;
-    let isProposalDateValid = proposalDate>todaySDate;
+    //let isProposalDateValid = proposalDate>todaySDate;
     let isExpirationDateValid = expirationDate>proposalDate;
     let isSurfaceValid = surface>0;
     let isConstructionYearValid = constructionYear>0
     let isPriceValid = price>0;
     let isNumberOfRoomsValid = numberOfRooms>0;
     let isStreetNumberRealEstateValid = streetNumberRealEstate>0;
-    let isPostalCodeRealEstateValid = postalCodeRealEstate >0 && postalCodeRealEstate<9999;
+    let isPostalCodeRealEstateValid = postalCodeRealEstate >0 && postalCodeRealEstate<99999;
     let isStreetNumberBorrowerValid = streetNumberBorrower>0;
     let isPostalCodeBorrowerValid = postalCodeBorrower>0;
-    let isBirthdateValid = birthdate<todaySDate;
+    //let isBirthdateValid = birthdate<todaySDate;
     let isAnnualSalaryValud = annualSalary>0;
     let isFirstDepositValid = firstDeposit>0;
     let isRequiredInterestValid = requiredInterest>0;
     let isMonthlyRefundValid = monthlyRefund>0;
     let isDebtRatioValid = debtRatio>0;
 
-    if(isSommeValid && isRequiredValueValid && isDurationMaxValid && isProposalDateValid && isExpirationDateValid && isSurfaceValid && isConstructionYearValid && isPriceValid &&
-        isNumberOfRoomsValid && isStreetNumberRealEstateValid && isPostalCodeRealEstateValid && isStreetNumberBorrowerValid && isPostalCodeBorrowerValid && isBirthdateValid &&
+    if(isSommeValid && isRequiredValueValid && isDurationMaxValid  && isExpirationDateValid && isSurfaceValid && isConstructionYearValid && isPriceValid &&
+        isNumberOfRoomsValid && isStreetNumberRealEstateValid && isPostalCodeRealEstateValid && isStreetNumberBorrowerValid && isPostalCodeBorrowerValid &&
         isAnnualSalaryValud && isFirstDepositValid && isRequiredInterestValid && isMonthlyRefundValid && isDebtRatioValid){
         let _data = {
 
@@ -109,11 +109,6 @@ function controle() {
         xmlhttp.open("POST", "/broker/createProject");
         xmlhttp.setRequestHeader("Content-Type", "application/json");
         xmlhttp.send(JSON.stringify(_data));
-        // }else{
-        //if(!isDateDepart){window.alert("Error : la date de départ doit être supérieur à "+date.getFullYear()};
-        if (!requiredValue) {
-            window.alert("Error : la somme doit être supérieur à 0")
-        }
     }
 
     // }
