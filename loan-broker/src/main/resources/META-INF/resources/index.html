@@ -1,194 +1,210 @@
 <!DOCTYPE html>
-<head>
-    <script src="./script.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="shortcut icon" href="#" />
-    <style>
-        body{
-            background-color: antiquewhite;
-        }
-        .contenair{
+    <head>
+        <script src="./script.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="shortcut icon" href="#" />
+        <style>
+            body{
+                background-color: antiquewhite;
+            }
+            .contenair{
 
-        }
-        .formulaire{
-            margin: auto;
-            width: 50%;
-        }
-        .presentation{
-            padding-bottom: 40px;
-        }
-        .presentation h1,h3{
-            text-align: center;
-        }
-        .form-check{
-            text-align: center;
-        }
-        table{
-            background-color: black;
-        }
-    </style>
-</head>
+            }
+            .formulaire{
+                margin: auto;
+                width: 50%;
+            }
+            .presentation{
+                padding-bottom: 40px;
+            }
+            .presentation h1,h3{
+                text-align: center;
+            }
+            .form-check{
+                text-align: center;
+            }
+            table
+            {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th /* Mettre une bordure sur les td ET les th */
+            {
+                padding-left: 10px;
+                padding-right: 10px;
+                border: 1px solid black;
+            }
+            #envoie{
+                padding-bottom: 10px;
+                padding-top: 10px;
+            }
+        </style>
+    </head>
 
-<body>
-<div class="contenair">
+    <body>
+        <div class="contenair">
 
-    <div class="presentation">
-        <h1>Formulaire de proposition</h1>
-        <h3>Veuillez rentrer les informations nécessaires à la réalisation de votre projet rêvé !</h3>
-    </div>
-    <div class="formulaire">
-        <form id="myForm">
-            <table>
-                <tr>
-                    <h3>Information du prêt</h3>
-                    <div class="form-group">
-                        <label for="projectrescription">Description de votre projet</label>
-                        <input type="text" class="form-control" id="projectrescription" placeholder="Description du projet" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="requiredValue">Somme à emprunter</label>
-                        <input type="number" class="form-control" id="requiredValue" placeholder="Somme" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="durationMax">Durée maximal de l'emprunt</label>
-                        <input type="number" class="form-control" id="durationMax" placeholder="Durée" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="requiredInterest">Intêret maximal</label>
-                        <input type="number" class="form-control" id="requiredInterest" placeholder="Intêret" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="monthlyRefund">Remboursement mensuel</label>
-                        <input type="number" class="form-control" id="monthlyRefund" placeholder="Remboursement" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="proposalDate">Date de debut emprunt souhaitée</label>
-                        <input type="date" class="form-control" id="proposalDate" placeholder="Date de debut emprunt souhaitée" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="expirationDate">Fin date d'emprunt souhaitée</label>
-                        <input type="date" class="form-control" id="expirationDate" placeholder="Fin date d'emprunt souhaitée" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="debtRatio">Votre taux d'endetement</label>
-                        <input type="number" class="form-control" id="debtRatio" placeholder="taux d'endetement" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="firstreposit">Dépot de départ voulu</label>
-                        <input type="number" class="form-control" id="firstreposit" placeholder="Dépot" required="required">
-                    </div>
-                </tr>
-                <tr>
-                    <h3>Information du bien</h3>
-                    <div class="form-group">
-                        <label for="surface">Surface du bien</label>
-                        <input type="number" class="form-control" id="surface" placeholder="Description" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="constructionYear">constructionYear</label>
-                        <input type="number" class="form-control" id="constructionYear" placeholder="constructionYear" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Prix du bien</label>
-                        <input type="number" class="form-control" id="price" placeholder="Prix" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="numberOfRooms">Nombre de piece du bien</label>
-                        <input type="number" class="form-control" id="numberOfRooms" placeholder="Nombre" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="streetNameRealEstate">Rue du bien</label>
-                        <input type="text" class="form-control" id="streetNameRealEstate" placeholder="Rue" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="streetNumberRealEstate">Numéro de rue du bien</label>
-                        <input type="number" class="form-control" id="streetNumberRealEstate" placeholder="Numéro" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="postalCodeRealEstate">Code postal du bien</label>
-                        <input type="number" class="form-control" id="postalCodeRealEstate" placeholder="Code postal" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="cityRealEstate">Ville du bien</label>
-                        <input type="text" class="form-control" id="cityRealEstate" placeholder="Ville" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="complementaryAddressRealEstate">Information complémentaire</label>
-                        <input type="text" class="form-control" id="complementaryAddressRealEstate" placeholder="Information" required="required">
-                    </div>
-                </tr>
-                <tr>
-                    <h3>Vos coordonées</h3>
-                    <div class="form-group">
-                        <label for="firstName">Votre nom</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="nom" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Votre prénom</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="prénom" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Votre mail</label>
-                        <input type="email" class="form-control" id="email" placeholder="mail" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="gender">Sexe</label>
-                        <select id="gender" name="workStatut">
-                            <option value="MALE">Male</option>
-                            <option value="FEMALE">Female</option>
-                            <option value="OTHER">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="birthdate">Date de naissance</label>
-                        <input type="date" class="form-control" id="birthdate" placeholder="Date" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="streetNameBorrower">Rue</label>
-                        <input type="text" class="form-control" id="streetNameBorrower" placeholder="Rue" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="streetNumberBorrower">Numéro de rue</label>
-                        <input type="number" class="form-control" id="streetNumberBorrower" placeholder="Numéro" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="postalCodeBorrower">Code Postal</label>
-                        <input type="number" class="form-control" id="postalCodeBorrower" placeholder="Code Postal" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="cityBorrower">Ville</label>
-                        <input type="text" class="form-control" id="cityBorrower" placeholder="Ville" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="complementaryAddressBorrower">Information complémentaire</label>
-                        <input type="text" class="form-control" id="complementaryAddressBorrower" placeholder="Information" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="employmentContract">Type de contrat</label>
-                        <select id="employmentContract" name="employmentContract">
-                            <option value="CDI">CDI</option>
-                            <option value="CDD">CDD</option>
-                            <option value="OTHER">Autre</option>
-                            <option value="NONE">Aucun</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="annualSalary">Salaire annuel</label>
-                        <input type="number" class="form-control" id="annualSalary" placeholder="Salaire" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="phoneNumber">Votre numéro de téléphone</label>
-                        <input type="number" class="form-control" id="phoneNumber" placeholder="téléphone" required="required">
-                    </div>
-                </tr>
-                <tr>
-                    <div class="form-check">
+            <div class="presentation">
+                <h1>Formulaire de proposition</h1>
+                <h3>Veuillez rentrer les informations nécessaires à la réalisation de votre projet rêvé !</h3>
+            </div>
+            <div class="formulaire">
+                <form id="myForm">
+                    <table>
+                        <tr>
+                            <th>
+                            <h3>Information du prêt</h3>
+                            <div class="form-group">
+                                <label for="projectDescription">Description de votre projet</label>
+                                <input type="text" class="form-control" id="projectDescription" placeholder="Description du projet" required="required" value="Mon projet est super chouette">
+                            </div>
+                            <div class="form-group">
+                                <label for="requiredValue">Somme à emprunter</label>
+                                <input type="number" class="form-control" id="requiredValue" placeholder="Somme" required="required" value="120000">
+                            </div>
+                            <div class="form-group">
+                                <label for="durationMax">Durée maximal de l'emprunt (mois)</label>
+                                <input type="number" class="form-control" id="durationMax" placeholder="Durée" required="required" value="120">
+                            </div>
+                            <div class="form-group">
+                                <label for="requiredInterest">Intêret maximal</label>
+                                <input type="number" class="form-control" id="requiredInterest" placeholder="Intêret" required="required" value="0.05">
+                            </div>
+                            <div class="form-group">
+                                <label for="monthlyRefund">Remboursement mensuel</label>
+                                <input type="number" class="form-control" id="monthlyRefund" placeholder="Remboursement" required="required" value="1000">
+                            </div>
+                            <div class="form-group">
+                                <label for="proposalDate">Date de debut emprunt souhaitée</label>
+                                <input type="date" class="form-control" id="proposalDate" placeholder="Date de debut emprunt souhaitée" required="required" value="2022-01-01">
+                            </div>
+                            <div class="form-group">
+                                <label for="expirationDate">Fin date d'emprunt souhaitée</label>
+                                <input type="date" class="form-control" id="expirationDate" placeholder="Fin date d'emprunt souhaitée" required="required" value="2032-01-01">
+                            </div>
+                            <div class="form-group">
+                                <label for="firstDeposit">Dépot de départ maximum</label>
+                                <input type="number" class="form-control" id="firstDeposit" placeholder="Dépot" required="required" value="15000">
+                            </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                            <h3>Information du bien</h3>
+                            <div class="form-group">
+                                <label for="surface">Surface du bien en m2</label>
+                                <input type="number" class="form-control" id="surface" placeholder="Description" required="required" value="45">
+                            </div>
+                            <div class="form-group">
+                                <label for="constructionYear">constructionYear</label>
+                                <input type="number" class="form-control" id="constructionYear" placeholder="constructionYear" required="required" value="2011">
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Prix du bien</label>
+                                <input type="number" class="form-control" id="price" placeholder="Prix" required="required" value="105000">
+                            </div>
+                            <div class="form-group">
+                                <label for="numberOfRooms">Nombre de piece du bien</label>
+                                <input type="number" class="form-control" id="numberOfRooms" placeholder="Nombre" required="required" value="4">
+                            </div>
+                            <div class="form-group">
+                                <label for="streetNameRealEstate">Rue du bien</label>
+                                <input type="text" class="form-control" id="streetNameRealEstate" placeholder="Rue" required="required" value="Rue du general de gaule">
+                            </div>
+                            <div class="form-group">
+                                <label for="streetNumberRealEstate">Numéro de rue du bien</label>
+                                <input type="number" class="form-control" id="streetNumberRealEstate" placeholder="Numéro" required="required" value="14">
+                            </div>
+                            <div class="form-group">
+                                <label for="postalCodeRealEstate">Code postal du bien</label>
+                                <input type="number" class="form-control" id="postalCodeRealEstate" placeholder="Code postal" required="required" value="94800">
+                            </div>
+                            <div class="form-group">
+                                <label for="cityRealEstate">Ville du bien</label>
+                                <input type="text" class="form-control" id="cityRealEstate" placeholder="Ville" required="required" value="Villejuif">
+                            </div>
+                            <div class="form-group">
+                                <label for="complementaryAddressRealEstate">Information complémentaire</label>
+                                <input type="text" class="form-control" id="complementaryAddressRealEstate" placeholder="Information" value="appartement 503">
+                            </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                            <h3>Vos coordonées</h3>
+                            <div class="form-group">
+                                <label for="firstName">Votre nom</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="nom" required="required" value="Bob">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Votre prénom</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="prénom" required="required" value="Dylan">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Votre mail</label>
+                                <input type="email" class="form-control" id="email" placeholder="mail" required="required" value="bob-dylan@gmail.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Sexe</label>
+                                <select id="gender" name="workStatut">
+                                    <option value="MALE">Male</option>
+                                    <option value="FEMALE">Female</option>
+                                    <option value="OTHER">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="birthdate">Date de naissance</label>
+                                <input type="date" class="form-control" id="birthdate" placeholder="Date" required="required" value="1995-10-09">
+                            </div>
+                            <div class="form-group">
+                                <label for="streetNameBorrower">Rue</label>
+                                <input type="text" class="form-control" id="streetNameBorrower" placeholder="Rue" required="required" value="rue Albert Camus">
+                            </div>
+                            <div class="form-group">
+                                <label for="streetNumberBorrower">Numéro de rue</label>
+                                <input type="number" class="form-control" id="streetNumberBorrower" placeholder="Numéro" required="required" 9>
+                            </div>
+                            <div class="form-group">
+                                <label for="postalCodeBorrower">Code Postal</label>
+                                <input type="number" class="form-control" id="postalCodeBorrower" placeholder="Code Postal" required="required" 44210>
+                            </div>
+                            <div class="form-group">
+                                <label for="cityBorrower">Ville</label>
+                                <input type="text" class="form-control" id="cityBorrower" placeholder="Ville" required="required" value="Pornic">
+                            </div>
+                            <div class="form-group">
+                                <label for="complementaryAddressBorrower">Information complémentaire</label>
+                                <input type="text" class="form-control" id="complementaryAddressBorrower" placeholder="Information">
+                            </div>
+                            <div class="form-group">
+                                <label for="employmentContract">Type de contrat</label>
+                                <select id="employmentContract" name="employmentContract">
+                                    <option value="CDI">CDI</option>
+                                    <option value="CDD">CDD</option>
+                                    <option value="OTHER">Autre</option>
+                                    <option value="NONE">Aucun</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="annualSalary">Salaire annuel</label>
+                                <input type="number" class="form-control" id="annualSalary" placeholder="Salaire" required="required" value="36000">
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Votre numéro de téléphone</label>
+                                <input type="number" class="form-control" id="phoneNumber" placeholder="téléphone" required="required" value="0612764843">
+                            </div>
+                            <div class="form-group">
+                                <label for="debtRatio">Votre taux d'endetement</label>
+                                <input type="number" class="form-control" id="debtRatio" placeholder="taux d'endetement" required="required" value="0.19">
+                            </div>
+                            </th>
+                        </tr>
+                    </table>
+                    <div class="form-check" id="envoie">
                         <input type="button" class="form-check-input" id="boutton" value="Envoyer !" onclick="controle()">
                     </div>
-                </tr>
-            </table>
-        </form>
-    </div>
-</div>
-</body>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>

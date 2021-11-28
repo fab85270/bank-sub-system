@@ -33,61 +33,89 @@ function controle() {
     let monthlyRefund = document.getElementById("monthlyRefund").value;
     let debtRatio = document.getElementById("debtRatio").value;
 
+    let todaySDate = Date.now();
+    const regex = new RegExp(/^[0-9]{10}$/);
 
-    let _data = {
+    /*Vérification saisie*/
+    let isSommeValid = requiredValue>0;
+    let isRequiredValueValid = requiredValue>0;
+    let isDurationMaxValid = durationMax>0;
+    let isProposalDateValid = proposalDate>todaySDate;
+    let isExpirationDateValid = expirationDate>proposalDate;
+    let isSurfaceValid = surface>0;
+    let isConstructionYearValid = constructionYear>0
+    let isPriceValid = price>0;
+    let isNumberOfRoomsValid = numberOfRooms>0;
+    let isStreetNumberRealEstateValid = streetNumberRealEstate>0;
+    let isPostalCodeRealEstateValid = postalCodeRealEstate >0 && postalCodeRealEstate<9999;
+    let isStreetNumberBorrowerValid = streetNumberBorrower>0;
+    let isPostalCodeBorrowerValid = postalCodeBorrower>0;
+    let isBirthdateValid = birthdate<todaySDate;
+    let isAnnualSalaryValud = annualSalary>0;
+    let isFirstDepositValid = firstDeposit>0;
+    let isRequiredInterestValid = requiredInterest>0;
+    let isMonthlyRefundValid = monthlyRefund>0;
+    let isDebtRatioValid = debtRatio>0;
 
-        "projectDescription": projectDescription,
-        "requiredValue": requiredValue,
-        "durationMax": durationMax,
-        "proposalDate": proposalDate,
-        "expirationDate": expirationDate,
-        "realEstateId": {
-            "surface": surface,
-            "constructionYear": constructionYear,
-            "price": price,
-            "numberOfRooms": numberOfRooms,
-            "addressId": {
-                "streetName": streetNameRealEstate,
-                "streetNumber": streetNumberRealEstate,
-                "postalCode": postalCodeRealEstate,
-                "city": cityRealEstate,
-                "complementaryAddress": complementaryAddressRealEstate
+    if(isSommeValid && isRequiredValueValid && isDurationMaxValid && isProposalDateValid && isExpirationDateValid && isSurfaceValid && isConstructionYearValid && isPriceValid &&
+        isNumberOfRoomsValid && isStreetNumberRealEstateValid && isPostalCodeRealEstateValid && isStreetNumberBorrowerValid && isPostalCodeBorrowerValid && isBirthdateValid &&
+        isAnnualSalaryValud && isFirstDepositValid && isRequiredInterestValid && isMonthlyRefundValid && isDebtRatioValid){
+        let _data = {
+
+            "projectDescription": projectDescription,
+            "requiredValue": requiredValue,
+            "durationMax": durationMax,
+            "proposalDate": proposalDate,
+            "expirationDate": expirationDate,
+            "realEstateId": {
+                "surface": surface,
+                "constructionYear": constructionYear,
+                "price": price,
+                "numberOfRooms": numberOfRooms,
+                "addressId": {
+                    "streetName": streetNameRealEstate,
+                    "streetNumber": streetNumberRealEstate,
+                    "postalCode": postalCodeRealEstate,
+                    "city": cityRealEstate,
+                    "complementaryAddress": complementaryAddressRealEstate
+                },
             },
-        },
-        "borrowerId": {
-            "addressId": {
-                "streetName": streetNameBorrower,
-                "streetNumber": streetNumberBorrower,
-                "postalCode": postalCodeBorrower,
-                "city": cityBorrower,
-                "complementaryAddress": complementaryAddressBorrower
-            },
-            "email": email,
-            "firstName": firstName,
-            "lastName": lastName,
-            "gender": gender,
-            "birthdate": birthdate,
-            "employmentContract": employmentContract,
-            "annualSalary": annualSalary,
-            "firstDeposit": firstDeposit,
-            "phoneNumber": phoneNumber,
-            "requiredInterest": requiredInterest,
-            "monthlyRefund": monthlyRefund,
-            "debtRatio": debtRatio
+            "borrowerId": {
+                "addressId": {
+                    "streetName": streetNameBorrower,
+                    "streetNumber": streetNumberBorrower,
+                    "postalCode": postalCodeBorrower,
+                    "city": cityBorrower,
+                    "complementaryAddress": complementaryAddressBorrower
+                },
+                "email": email,
+                "firstName": firstName,
+                "lastName": lastName,
+                "gender": gender,
+                "birthdate": birthdate,
+                "employmentContract": employmentContract,
+                "annualSalary": annualSalary,
+                "firstDeposit": firstDeposit,
+                "phoneNumber": phoneNumber,
+                "requiredInterest": requiredInterest,
+                "monthlyRefund": monthlyRefund,
+                "debtRatio": debtRatio
+            }
+        }
+
+        console.log(_data);
+
+        let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+        xmlhttp.open("POST", "/broker/createProject");
+        xmlhttp.setRequestHeader("Content-Type", "application/json");
+        xmlhttp.send(JSON.stringify(_data));
+        // }else{
+        //if(!isDateDepart){window.alert("Error : la date de départ doit être supérieur à "+date.getFullYear()};
+        if (!requiredValue) {
+            window.alert("Error : la somme doit être supérieur à 0")
         }
     }
 
-    console.log(_data);
-
-    let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-    xmlhttp.open("POST", "/broker/createProject");
-    xmlhttp.setRequestHeader("Content-Type", "application/json");
-    xmlhttp.send(JSON.stringify(_data));
-    // }else{
-    //if(!isDateDepart){window.alert("Error : la date de départ doit être supérieur à "+date.getFullYear()};
-    if (!requiredValue) {
-        window.alert("Error : la somme doit être supérieur à 0")
-    }
     // }
 }
 

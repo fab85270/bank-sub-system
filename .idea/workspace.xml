@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0003a-cc2d-4754-8323-6c966b4b56fb" name="Changes" comment="Delete Master">
+    <list default="true" id="d3c0003a-cc2d-4754-8323-6c966b4b56fb" name="Changes" comment="rajout isDelivered">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Project.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638057746748</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="rajout isDelivered">
+      <created>1638058710679</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1638058710679</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,7 +222,8 @@
     <MESSAGE value="projectdto" />
     <MESSAGE value="dto commons" />
     <MESSAGE value="Delete Master" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete Master" />
+    <MESSAGE value="rajout isDelivered" />
+    <option name="LAST_COMMIT_MESSAGE" value="rajout isDelivered" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
