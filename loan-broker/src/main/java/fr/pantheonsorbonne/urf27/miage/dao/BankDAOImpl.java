@@ -10,7 +10,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.Collection;
 import java.util.List;
+import java.util.Collection;
 
 @ApplicationScoped
 public class BankDAOImpl implements BankDAO {
@@ -71,8 +73,7 @@ public class BankDAOImpl implements BankDAO {
     }
 
     @Override
-    @Transactional
-    public List<Bank> getBanks() {
+    public Collection<Bank> getBanks() {
         return em.createQuery("Select b from Bank b").getResultList();
     }
 

@@ -32,7 +32,7 @@ function controle() {
     let requiredInterest = document.getElementById("requiredInterest").value;
     let monthlyRefund = document.getElementById("monthlyRefund").value;
     let debtRatio = document.getElementById("debtRatio").value;
-
+    let isDelivered = false;
 
     let _data = {
 
@@ -41,6 +41,7 @@ function controle() {
         "durationMax": durationMax,
         "proposalDate": proposalDate,
         "expirationDate": expirationDate,
+        "isDelivered":isDelivered,
         "realEstateId": {
             "surface": surface,
             "constructionYear": constructionYear,

@@ -4,6 +4,7 @@ import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Address;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
+import java.util.Collection;
 
 import java.util.List;
 
@@ -19,5 +20,6 @@ public interface BankDAO {
 
     void clearBank(String name);
 
-    List<Bank> getBanks();
+    Collection<Bank> getBanks();
+
 }

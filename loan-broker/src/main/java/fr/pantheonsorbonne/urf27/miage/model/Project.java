@@ -28,6 +28,9 @@ public class Project {
     @Column(name = "proposalDate", nullable = false)
     private LocalDate proposalDate;
 
+    @Column(name = "isDelivered")
+    private Boolean isDelivered;
+
     @Column(name = "expirationDate", nullable = false)
     private LocalDate expirationDate;
 
@@ -46,6 +49,7 @@ public class Project {
         this.expirationDate = expirationDate;
         this.requiredValue = requiredValue;
         this.durationMax = durationMax;
+        this.isDelivered = false;
     }
 
     public Integer getProjectId() {
@@ -127,5 +131,13 @@ public class Project {
                 ", \nrequiredValue=" + requiredValue +
                 ", \ndurationMax=" + durationMax +
                 '}';
+    }
+
+    public Boolean getDelivered() {
+        return isDelivered;
+    }
+
+    public void setDelivered(Boolean delivered) {
+        isDelivered = delivered;
     }
 }

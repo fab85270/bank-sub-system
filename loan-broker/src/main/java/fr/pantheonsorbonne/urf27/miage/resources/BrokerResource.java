@@ -43,14 +43,54 @@ public class BrokerResource {
         return bankDAO.createNewBank(bank);
     }
 
+
     @Path("/createProject")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public ProjectDTO createProject(Project project) {
-        System.out.println(project);
+
         projectService.createProject(project.getBorrowerId(), project.getRealEstateId(), project.getProjectDescription(),
                 project.getProposalDate(), project.getExpirationDate(), project.getRequiredValue(), project.getDurationMax());
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(project, ProjectDTO.class);
     }
+
+    /* Les deux Méthodes afin de gérer l'affichage des différents projets qui seront présentés au broker */
+
+    /* Méthode chargée de récupérer tous les projects clients réunis dans la base de données pour les afficher ensuite */
+
+    @Path("/getProject")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public Collection<Project> getProject() throws EntityNotFoundException {
+        return projectService.getAllProject();
+    }
+
+    @Path("/getBanks")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public Collection<Bank> getBanks() throws EntityNotFoundException {
+        return bankDAO.getBanks();
+    }
+
+
+    /*Chargée de la reception de l'identifiant du projet séléctionné par le broker*/
+    /*@Path("/sendIdProject")
+    @POST
+    @Consumes({MediaType.APPLICATION_JSON})
+    public void sendIdProject(SelectProjetBankDTO application) throws EntityNotFoundException {
+
+        /* Récupération de l'ID du projetClient retenu par le broker*/
+
+        //int idProject = application.getIdProject();
+
+        /* Une fois envoyé, l'attribut isDelivered du projet Client devra changer d'état => est envoyé*/
+
+        /*projectService.changeIsDelivered(idProject);
+
+        /* Création d'un projet DTO afin de pouvoir l'envoyer par la suite (il possède Estate.. et tout) */
+
+        //TODO A FAIRE
+
+   // }
 }
