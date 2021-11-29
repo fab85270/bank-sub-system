@@ -1,7 +1,7 @@
 package fr.pantheonsorbonne.urf27.miage.model;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
 
 @Entity
 public class User {
@@ -35,11 +35,11 @@ public class User {
     private Address address;
 
     @Column(nullable = false)
-    private Instant birthDate;
+    private LocalDate birthDate;
 
     /*Constructeurs de la classe Java */
 
-    public User(String firstName, String lastName, String mail, Gender gender, Address address, Instant birthDate) {
+    public User(String firstName, String lastName, String mail, Gender gender, Address address, LocalDate birthDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.mail = mail;
@@ -60,11 +60,11 @@ public class User {
         this.address = address;
     }
 
-    public Instant getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Instant birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

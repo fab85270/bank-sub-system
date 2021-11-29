@@ -1,6 +1,6 @@
 package loan.commons.dto;
 
-import java.time.Instant;
+import java.time.LocalDate;
 
 public class BorrowerDTO {
     AddressDTO idAddres;
@@ -8,7 +8,7 @@ public class BorrowerDTO {
     String firstName;
     String lastName;
     GenderDTO gender;
-    Instant birthdate;
+    LocalDate birthdate;
     double annualSalary;
     EmploymentContractDTO employmentContract;
     double firstDeposit;
@@ -18,7 +18,7 @@ public class BorrowerDTO {
     double monthlyRefund;
     double debtRatio;
 
-    public BorrowerDTO(AddressDTO idAddres, String email, String firstName, String lastName, GenderDTO gender, Instant birthdate, double annualSalary,
+    public BorrowerDTO(AddressDTO idAddres, String email, String firstName, String lastName, GenderDTO gender, LocalDate birthdate, double annualSalary,
                        EmploymentContractDTO employmentContract, double firstDeposit, int phoneNumber, double requiredInterest, double requiredDuration,
                        double monthlyRefund, double debtRatio) {
         this.idAddres = idAddres;
@@ -78,11 +78,11 @@ public class BorrowerDTO {
         this.gender = gender;
     }
 
-    public Instant getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Instant birthdate) {
+    public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
     }
 

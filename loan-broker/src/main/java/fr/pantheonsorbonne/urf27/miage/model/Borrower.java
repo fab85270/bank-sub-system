@@ -2,7 +2,7 @@ package fr.pantheonsorbonne.urf27.miage.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import java.time.Instant;
+import java.time.LocalDate;
 
 @Entity
 public class Borrower {
@@ -19,7 +19,7 @@ public class Borrower {
     private String lastName;
 
     @Column(name = "birthdate", nullable = false)
-    private Instant birthdate;
+    private LocalDate birthdate;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idProject", nullable = false)
@@ -48,7 +48,7 @@ public class Borrower {
         this.idBroker = idBroker;
     }
 
-    public Borrower(String firstName, String lastName, Instant birthdate, Project idProject, Gender gender, String email, Broker idBroker) {
+    public Borrower(String firstName, String lastName, LocalDate birthdate, Project idProject, Gender gender, String email, Broker idBroker) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
@@ -79,11 +79,11 @@ public class Borrower {
         this.lastName = lastName;
     }
 
-    public Instant getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Instant birthdate) {
+    public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
     }
 

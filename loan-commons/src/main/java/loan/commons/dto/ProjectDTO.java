@@ -2,7 +2,7 @@ package loan.commons.dto;
 
 import java.time.LocalDate;
 
-public class ProjectSentByBrokerDTO {
+public class ProjectDTO {
 
     private String projectDescription;
     private LocalDate projectProposalDate;
@@ -13,10 +13,10 @@ public class ProjectSentByBrokerDTO {
     private BorrowerDTO borrowerId;
 
 
-    public ProjectSentByBrokerDTO() {
+    public ProjectDTO() {
     }
 
-    public ProjectSentByBrokerDTO(String projectDescription, LocalDate projectProposalDate, LocalDate projectExpirationDate, double projectRequiredValue, int projectDurationMax, RealEstateDTO realEstate, BorrowerDTO borrowerId) {
+    public ProjectDTO(String projectDescription, LocalDate projectProposalDate, LocalDate projectExpirationDate, double projectRequiredValue, int projectDurationMax, RealEstateDTO realEstate, BorrowerDTO borrowerId) {
         this.projectDescription = projectDescription;
         this.projectProposalDate = projectProposalDate;
         this.projectExpirationDate = projectExpirationDate;

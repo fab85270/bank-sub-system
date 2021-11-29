@@ -1,16 +1,16 @@
 package loan.commons.dto;
 
-import java.time.Instant;
+import java.time.LocalDate;
 
 public class LoanProposalDTO {
 
     /*Attributs privés propres à la classe Loan Proposal*/
 
 
-    ProjectSendByBrokerDTO projectDTO;
+    ProjectDTO projectDTO;
     BrokerDTO brokerDTO;
-    Instant proposalDate;
-    Instant endDate;
+    LocalDate proposalDate;
+    LocalDate endDate;
     Boolean isValid;
     double loanAmount;
     String description;
@@ -22,19 +22,19 @@ public class LoanProposalDTO {
 
 
 
-    public Instant getProposalDate() {
+    public LocalDate getProposalDate() {
         return proposalDate;
     }
 
-    public void setProposalDate(Instant proposalDate) {
+    public void setProposalDate(LocalDate proposalDate) {
         this.proposalDate = proposalDate;
     }
 
-    public Instant getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Instant endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
@@ -79,11 +79,11 @@ public class LoanProposalDTO {
     }
 
 
-    public ProjectSendByBrokerDTO getProjectDTO() {
+    public ProjectDTO getProjectDTO() {
         return projectDTO;
     }
 
-    public void setProjectDTO(ProjectSendByBrokerDTO projectDTO) {
+    public void setProjectDTO(ProjectDTO projectDTO) {
         this.projectDTO = projectDTO;
     }
 

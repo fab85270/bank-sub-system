@@ -4,64 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0003a-cc2d-4754-8323-6c966b4b56fb" name="Changes" comment="Formulaire">
-      <change afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/Broker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/idee.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_arc_arc_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_agroal_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_arc_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_bootstrap_app_model_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_bootstrap_core_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_bootstrap_gradle_resolver_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_bootstrap_maven_resolver_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_bootstrap_runner_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_builder_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_caffeine_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_class_change_agent_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_core_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_core_deployment_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_credentials_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_datasource_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_datasource_common_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_development_mode_spi_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_devtools_utilities_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_hibernate_orm_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_ide_launcher_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_jackson_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_jdbc_mysql_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_jsonp_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_jsonp_deployment_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_junit5_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_mutiny_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_narayana_jta_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_netty_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_resteasy_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_resteasy_common_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_resteasy_server_common_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_security_runtime_spi_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_smallrye_context_propagation_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_test_common_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_vertx_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_vertx_http_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_vertx_http_dev_console_runtime_spi_2_4_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_6_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_graalvm_5_6_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="d3c0003a-cc2d-4754-8323-6c966b4b56fb" name="Changes" comment="dto commons">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2021_13_07__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2021_13_07__Default_Changelist_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_13_43__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_13_43__Default_Changelist_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/LoanProposalDOAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/LoanProposalDOAImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/ProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/ProjectDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/Bank.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/Borrower.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/Borrower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/LoanProposal.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/LoanProposal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/RealEstate.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/RealEstate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/BorrowerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/BorrowerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/BorrowerDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/BorrowerDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Borrower.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Borrower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/resources/BrokerResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/resources/BrokerResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-commons/src/main/java/loan/commons/dto/BorrowerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-commons/src/main/java/loan/commons/dto/BorrowerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-commons/src/main/java/loan/commons/dto/LoanProposalDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-commons/src/main/java/loan/commons/dto/LoanProposalDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loan-commons/src/main/java/loan/commons/dto/ProjectDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-commons/src/main/java/loan/commons/dto/ProjectDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-master/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Dossier.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-master/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Dossier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-master/src/main/java/fr/pantheonsorbonne/urf27/miage/model/LoanProposal.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-master/src/main/java/fr/pantheonsorbonne/urf27/miage/model/LoanProposal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-master/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Officer.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-master/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Officer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-master/src/main/java/fr/pantheonsorbonne/urf27/miage/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-master/src/main/java/fr/pantheonsorbonne/urf27/miage/model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -3,7 +3,7 @@ package fr.pantheonsorbonne.urf27.miage.model;
 import javax.money.Monetary;
 import javax.money.MonetaryAmount;
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
 
 @Entity
 public class Project {
@@ -17,10 +17,10 @@ public class Project {
     private String projectDescription;
 
     @Column(name = "estimatedStartDate", nullable = false)
-    private Instant estimatedStartDate;
+    private LocalDate estimatedStartDate;
 
     @Column(name = "estimatedDeadline", nullable = false)
-    private Instant estimatedDeadline;
+    private LocalDate estimatedDeadline;
 
     @Column(name = "demandedValue", nullable = false)
     private double demandedValue;
@@ -28,7 +28,7 @@ public class Project {
     public Project() {
     }
 
-    public Project(String projectDescription, Instant estimatedStartDate, Instant estimatedDeadline, double demandedValue) {
+    public Project(String projectDescription, LocalDate estimatedStartDate, LocalDate estimatedDeadline, double demandedValue) {
         this.projectDescription = projectDescription;
         this.estimatedStartDate = estimatedStartDate;
         this.estimatedDeadline = estimatedDeadline;
@@ -49,19 +49,19 @@ public class Project {
         this.projectDescription = projectDescription;
     }
 
-    public Instant getEstimatedStartDate() {
+    public LocalDate getEstimatedStartDate() {
         return estimatedStartDate;
     }
 
-    public void setEstimatedStartDate(Instant estimatedStartDate) {
+    public void setEstimatedStartDate(LocalDate estimatedStartDate) {
         this.estimatedStartDate = estimatedStartDate;
     }
 
-    public Instant getEstimatedDeadline() {
+    public LocalDate getEstimatedDeadline() {
         return estimatedDeadline;
     }
 
-    public void setEstimatedDeadline(Instant estimatedDeadline) {
+    public void setEstimatedDeadline(LocalDate estimatedDeadline) {
         this.estimatedDeadline = estimatedDeadline;
     }
 

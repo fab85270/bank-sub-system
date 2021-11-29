@@ -7,7 +7,7 @@ import fr.pantheonsorbonne.urf27.miage.model.Gender;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 
 import javax.transaction.Transactional;
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface BorrowerDAO {
@@ -25,7 +25,7 @@ public interface BorrowerDAO {
     void deleteBorrower(String mail);
 
     /*Crée un nouveau borrower*/
-    void createNewBorrower(String firstName, String lastName, Instant birthdate, Project idProject, Gender gender, String email, Broker idBroker);
+    void createNewBorrower(String firstName, String lastName, LocalDate birthdate, Project idProject, Gender gender, String email, Broker idBroker);
 
 
 

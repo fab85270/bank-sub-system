@@ -12,7 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 
 @ApplicationScoped //Injection d'objets durant la durée de l'application
@@ -52,7 +52,7 @@ public class BorrowerDAOImpl implements BorrowerDAO{
 
     @Override
     @Transactional
-    public void createNewBorrower(String firstName, String lastName, Instant birthdate, Project idProject, Gender gender, String email, Broker idBroker){
+    public void createNewBorrower(String firstName, String lastName, LocalDate birthdate, Project idProject, Gender gender, String email, Broker idBroker){
 
         int numOfBorrowers = em.createQuery("Select b from Borrower b where b.email=:email").setParameter("email",email).getResultList().size();
 

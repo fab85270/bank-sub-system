@@ -56,6 +56,6 @@ public class BrokerResource {
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public void createBank(Bank bank) {
-        bankDAO.createNewBank(bank);
+//        bankDAO.createNewBank(bank);
     }
 }
