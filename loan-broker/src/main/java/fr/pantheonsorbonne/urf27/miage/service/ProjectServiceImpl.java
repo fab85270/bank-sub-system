@@ -75,4 +75,11 @@ public class ProjectServiceImpl implements ProjectService {
         System.out.println("Essai bis : "+projectID);
         projectDAO.changeIsDelivered(projectID);
     }
+
+    @Override
+    @Transactional
+    public Boolean mailUsed(String mail) throws EntityNotFoundException{
+      return borrowerDAO.mailUsed(mail);
+
+    }
 }

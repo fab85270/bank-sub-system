@@ -52,7 +52,7 @@ public class BrokerResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public ProjectDTO createProject(Project project) {
 
-        bankDAO.createBankTest();
+       // bankDAO.createBankTest();
         projectService.createProject(project.getBorrowerId(), project.getRealEstateId(), project.getProjectDescription(),
                 project.getProposalDate(), project.getExpirationDate(), project.getRequiredValue(), project.getDurationMax());
 
@@ -69,6 +69,15 @@ public class BrokerResource {
     @Produces({MediaType.APPLICATION_JSON})
     public Collection<Project> getProject() throws EntityNotFoundException {
         return projectService.getAllProject();
+    }
+
+
+    @Path("/mailUsed/{mail}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public Boolean mailUsed(@PathParam("mail") String mail) throws EntityNotFoundException {
+        System.out.println(mail);
+        return projectService.mailUsed(mail);
     }
 
     @Path("/getBanks")

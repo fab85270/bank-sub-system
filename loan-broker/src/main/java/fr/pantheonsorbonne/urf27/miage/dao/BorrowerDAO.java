@@ -27,4 +27,6 @@ public interface BorrowerDAO {
 
     Borrower createNewBorrower(Borrower borrower);
 
+    Boolean mailUsed(String mail);
+
 }

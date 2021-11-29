@@ -19,5 +19,7 @@ public interface ProjectService {
 
     void changeIsDelivered(int projectID) throws EntityNotFoundException;
 
+    Boolean mailUsed(String mail) throws EntityNotFoundException;
+
 
 }

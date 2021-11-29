@@ -73,7 +73,7 @@ public class BankDAOImpl implements BankDAO {
 
         Address a1 = new Address("ueeeeee",7,23,"e","e");
         em.persist(a1);
-        Bank b1 = new Bank("Credit agricoleeeee",a);
+        Bank b1 = new Bank("Credit agricoleeeee",a1);
         em.persist(b1);
 
     }
