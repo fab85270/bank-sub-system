@@ -3,96 +3,91 @@ package loan.bank.service;
 import loan.bank.dao.BorrowerDao;
 import loan.bank.exception.ProjectException;
 import loan.bank.exception.entityNotFound;
-import loan.bank.model.Borrower;
 import loan.bank.model.LoanProposal;
+import loan.commons.dto.BorrowerDTO;
 import loan.commons.dto.LoanProposalDTO;
-import loan.commons.dto.ProjectSendByBrokerDTO;
+import loan.commons.dto.ProjectDTO;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.time.Instant;
-import java.time.ZoneId;
+import java.time.LocalDate;
+import java.time.Period;
 
 @ApplicationScoped
 
-public class TreatmentServiceImpl implements TreatmentService{
+public class TreatmentServiceImpl implements TreatmentService {
     @Inject
     BorrowerDao borrowerDao;
 
-    public static boolean isBetween(int x, int lower, int upper){
-        return lower <= x && x<= upper;
+    public static boolean isBetween(int x, int lower, int upper) {
+        return lower <= x && x <= upper;
     }
 
-    public static boolean suficientSalary(double salary, double amount){
-        if(salary >= 0.15*amount){
+    public static boolean suficientSalary(double salary, double amount) {
+        if (salary >= 0.15 * amount) {
             return true;
         }
         return false;
     }
-    public static double getInterestRate(double salary, double amount, String classeAge){
 
-        if (classeAge == "jeune"){
-            if(salary >= 0.15*amount && salary >= 0.15*amount){
+    public static double getInterestRate(double salary, double amount, String classeAge) {
+
+        if (classeAge == "jeune") {
+            if (salary >= 0.15 * amount && salary >= 0.15 * amount) {
                 double interestRate = 00;
             }
         }
-        return interestRate;
-
+//        return interestRate;
+        return 0;
 
     }
 
-    public static int getDurationLoan(int durationWanted){
+    public static int getDurationLoan(int durationWanted) {
         /* Définition de */
         /**/
-
-
+        return 0;
     }
-
-
-
 
 
     @Override
-    public LoanProposalDTO emitLoanProposal(ProjectSendByBrokerDTO projectdto) throws entityNotFound.entityNotFoundException, ProjectException.ExpiredProjectException {
+    public LoanProposalDTO emitLoanProposal(ProjectDTO projectdto) throws entityNotFound.entityNotFoundException, ProjectException.ExpiredProjectException {
 
 
         //Verify if project is expired
-        if (projectdto.getExpirationDate().isBefore(Instant.now())) {
-            throw new ProjectException.ExpiredProjectException(projectdto.getProjectId());
+        if (projectdto.getProjectExpirationDate().isBefore(LocalDate.now())) {
+//            throw new ProjectException.ExpiredProjectException(projectdto.getProjectId());
         }
 
-        Borrower borrower = null;
-        borrower = borrowerDao.findMatchingBorrower(projectdto.getBorrowerId());
+        BorrowerDTO borrower = projectdto.getBorrowerId();
+//        borrower = borrowerDao.findMatchingBorrower(projectdto.getBorrowerId().get);
 
         /*Définition de l'âge du borrower selon sa date de naissance */
 
-        int year = Instant.now().atZone(ZoneId.systemDefault()).toLocalDate().getYear();
-        int birthDate = borrower.getBirthdate().atZone(ZoneId.systemDefault()).toLocalDate().getYear();
-        int age = year - birthDate;
+        int age = Period.between(borrower.getBirthdate(), LocalDate.now()).getYears();
+
         double salary = borrower.getAnnualSalary();
-        double amount = projectdto.getRequiredValue();
+        double amount = projectdto.getProjectRequiredValue();
 
 
-        if(isBetween(age, 18, 25) && suficientSalary(salary, amount) && borrower.getDebtRatio() < 35){
-
-
-            LoanProposal proposal = new LoanProposal(Instant.now(), projectdto.getExpirationDate(),0,  false, amount, projectdto.getProjectDescription(), getInterestRate(salary, amount), getDurationLoan(projectdto.getDurationMax()));
-
-        }else if(isBetween(age, 26, 35)&& suficientSalary(salary, amount) && borrower.getDebtRatio() < 35){
+        if (isBetween(age, 18, 25) && suficientSalary(salary, amount) && borrower.getDebtRatio() < 35) {
+            LoanProposal proposal = new LoanProposal(LocalDate.now(), projectdto.getProjectExpirationDate(),
+                    0, false, amount, projectdto.getProjectDescription(),
+                    getInterestRate(salary, amount, "jeune"), getDurationLoan(projectdto.getProjectDurationMax()));
+        } else if (isBetween(age, 26, 35) && suficientSalary(salary, amount) && borrower.getDebtRatio() < 35) {
 
             //2eme cas
 
-        }else if(isBetween(age, 35, 50)&& suficientSalary(salary, amount) && borrower.getDebtRatio() < 35){
+        } else if (isBetween(age, 35, 50) && suficientSalary(salary, amount) && borrower.getDebtRatio() < 35) {
 
             //3eme cas
 
-        } else if(isBetween(age, 50, 70)&& suficientSalary(salary, amount) && borrower.getDebtRatio() < 35){
+        } else if (isBetween(age, 50, 70) && suficientSalary(salary, amount) && borrower.getDebtRatio() < 35) {
 
             //4eme cas
 
         } else {
             /*Refuser la demande du projet  => affichage de formulaire sortant à l'écran ? A voir comment faire si c possible..*/
-           // System.out.println("Demande refusée, vous n'êtes pas éligible");
+            // System.out.println("Demande refusée, vous n'êtes pas éligible");
 
         }
 
@@ -145,8 +140,10 @@ public class TreatmentServiceImpl implements TreatmentService{
 
     //TODO
     @Override
-    public void receiveProject(){}
+    public void receiveProject() {
+    }
 
     @Override
-    public void deleteLoanProposal(){}
+    public void deleteLoanProposal() {
+    }
 }

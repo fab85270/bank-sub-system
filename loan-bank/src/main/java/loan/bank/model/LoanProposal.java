@@ -1,7 +1,7 @@
 package loan.bank.model;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
 
 @Entity
 public class LoanProposal {
@@ -16,10 +16,10 @@ public class LoanProposal {
     private Project projectId;
 
     @Column(name = "dateProposal", nullable = false)
-    private Instant dateProposal;
+    private LocalDate dateProposal;
 
     @Column(name = "endDate", nullable = false)
-    private Instant endDate;
+    private LocalDate endDate;
 
     @Column(name = "validationNumber", nullable = false)
     private long validationNumber;
@@ -39,7 +39,7 @@ public class LoanProposal {
     @Column(name = "loanDurationMonth", nullable = false)
     private int loanDurationMonth;
 
-    public LoanProposal(Instant dateProposal, Instant endDate, long validationNumber, boolean isValid,
+    public LoanProposal(LocalDate dateProposal, LocalDate endDate, long validationNumber, boolean isValid,
                         double loanAmount, String description, double interestRate, int loanDurationMonth) {
         this.dateProposal = dateProposal;
         this.endDate = endDate;
@@ -66,19 +66,19 @@ public class LoanProposal {
         this.projectId = projectId;
     }
 
-    public Instant getDateProposal() {
+    public LocalDate getDateProposal() {
         return dateProposal;
     }
 
-    public void setDateProposal(Instant dateProposal) {
+    public void setDateProposal(LocalDate dateProposal) {
         this.dateProposal = dateProposal;
     }
 
-    public Instant getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Instant endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 

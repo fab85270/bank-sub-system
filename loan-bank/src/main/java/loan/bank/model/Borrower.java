@@ -5,7 +5,7 @@ import org.javamoney.moneta.Money;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import java.time.Instant;
+import java.time.LocalDate;
 
 @Entity
 public class Borrower {
@@ -34,7 +34,7 @@ public class Borrower {
     private Gender gender;
 
     @Column(name = "birthdate", nullable = false)
-    private Instant birthdate;
+    private LocalDate birthdate;
 
     @Column(name = "annualSalary", nullable = false)
     private double annualSalary;
@@ -51,7 +51,7 @@ public class Borrower {
     public Borrower() {
     }
 
-    public Borrower(String firstName, String lastName, Instant birthdate, Gender gender, String email) {
+    public Borrower(String firstName, String lastName, LocalDate birthdate, Gender gender, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
@@ -75,11 +75,11 @@ public class Borrower {
         this.lastName = lastName;
     }
 
-    public Instant getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Instant birthdate) {
+    public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
     }
 

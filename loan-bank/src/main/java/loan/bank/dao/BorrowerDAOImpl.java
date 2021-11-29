@@ -15,11 +15,10 @@ public class BorrowerDAOImpl implements BorrowerDao {
     EntityManager em;
 
     @Override
-    public Borrower findMatchingBorrower(int borrowerId) throws entityNotFound.entityNotFoundException{
-        try{
-            Borrower b = (Borrower) em.createQuery("SELECT b FROM Borrower b where b.borrowerId=:borrowerId").setParameter("borrowerId",borrowerId).getSingleResult();
-            return b;
-        }catch(NoResultException e){
+    public Borrower findMatchingBorrower(int borrowerId) throws entityNotFound.entityNotFoundException {
+        try {
+            return (Borrower) em.find(Borrower.class, borrowerId);
+        } catch (NoResultException e) {
             throw new entityNotFound.entityNotFoundException(borrowerId);
         }
     }

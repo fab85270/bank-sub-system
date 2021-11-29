@@ -4,7 +4,7 @@ package loan.bank.service;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import java.time.Instant;
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 import loan.bank.dao.LoanProposalDAO;
@@ -14,6 +14,7 @@ import loan.bank.exception.ProjectException;
 
 import loan.bank.model.LoanProposal;
 import loan.bank.model.Project;
+import loan.commons.dto.ProjectDTO;
 
 @ApplicationScoped
 public class ProjectServiceImpl implements ProjectService {
@@ -38,14 +39,14 @@ public class ProjectServiceImpl implements ProjectService {
         }
 
         //Verify if project is expired
-        if (project.getExpirationDate().isBefore(Instant.now())) {
+        if (project.getExpirationDate().isBefore(LocalDate.now())) {
             throw new ProjectException.ExpiredProjectException(project.getProjectId());
         }
         LoanProposal proposal = new LoanProposal();
         proposal.setProjectId(project);
 
-        proposal.setDateProposal(Instant.now());
-        Instant date = Instant.now();
+        proposal.setDateProposal(LocalDate.now());
+        LocalDate date = LocalDate.now();
         proposal.setEndDate(date.plus(60, ChronoUnit.DAYS));
         proposal.setValid(false);
         proposal.setLoanAmount(project.getRequiredValue());
@@ -60,7 +61,6 @@ public class ProjectServiceImpl implements ProjectService {
         loanProposalDAO.post(proposal);
 
     }
-
 
 
     @Override
@@ -97,7 +97,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     @Transactional
-    public void validProposal(int proposalId, int duration){
+    public void validProposal(int proposalId, int duration) {
 
         LoanProposal proposal = null;
         try {
@@ -111,6 +111,12 @@ public class ProjectServiceImpl implements ProjectService {
         loanProposalDAO.put(proposal);
     }
 
+    @Override
+    @Transactional
+    public ProjectDTO analyseProject(ProjectDTO projectDTO) {
+        System.out.println(projectDTO);
+        return projectDTO;
+    }
 
 
 }
