@@ -1,5 +1,6 @@
 package fr.pantheonsorbonne.urf27.miage.resources;
 
+import fr.pantheonsorbonne.urf27.miage.camel.gateways.ProjectGateway;
 import fr.pantheonsorbonne.urf27.miage.dao.BankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
@@ -29,6 +30,9 @@ public class BrokerResource {
     @Inject
     ProjectServiceImpl projectService;
 
+    @Inject
+    ProjectGateway projectGateway;
+
     @Path("/getBankPartners/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -52,5 +56,14 @@ public class BrokerResource {
                 project.getProposalDate(), project.getExpirationDate(), project.getRequiredValue(), project.getDurationMax());
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(project, ProjectDTO.class);
+    }
+
+    @Path("/selectProject/{id}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public ProjectDTO selectProject(@PathParam("id") int id){
+        System.out.println(projectService.getProject(id));
+        projectGateway.sendProjectToBank(projectService.getProject(id));
+        return null;
     }
 }
