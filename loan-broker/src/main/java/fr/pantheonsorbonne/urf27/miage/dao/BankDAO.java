@@ -12,6 +12,8 @@ public interface BankDAO {
 
     Bank findMatchingBank(String name) throws EntityNotFoundException;
 
+    Bank findBank(int idBank) throws EntityNotFoundException;
+
     Bank createNewBank(String name, Address address) throws BankExceptions.BankAlreadyExists;
 
     Bank createNewBank(Bank bank) throws BankExceptions.BankAlreadyExists;

@@ -30,6 +30,16 @@ public class BankDAOImpl implements BankDAO {
         }
     }
 
+    @Override
+    public Bank findBank(int idBank) throws EntityNotFoundException{
+        try {
+            Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankId=:idBank").setParameter("idBank", idBank).getSingleResult();
+            return b;
+        } catch (NoResultException e) {
+            throw new EntityNotFoundException();
+        }
+    }
+
 
     @Override
     @Transactional

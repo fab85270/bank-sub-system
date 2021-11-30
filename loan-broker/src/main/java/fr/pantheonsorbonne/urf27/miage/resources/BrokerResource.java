@@ -1,13 +1,14 @@
 package fr.pantheonsorbonne.urf27.miage.resources;
 
-import fr.pantheonsorbonne.urf27.miage.dao.BankDAO;
 import fr.pantheonsorbonne.urf27.miage.dao.BankDAOImpl;
+import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAO;
+import fr.pantheonsorbonne.urf27.miage.dao.ProjectSentBankDAO;
+import fr.pantheonsorbonne.urf27.miage.dao.ProjectSentBankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
-import fr.pantheonsorbonne.urf27.miage.model.Address;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
-import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
+import fr.pantheonsorbonne.urf27.miage.model.ProjectSentBank;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
 import loan.commons.dto.ProjectDTO;
@@ -17,15 +18,20 @@ import org.modelmapper.ModelMapper;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.time.LocalDate;
 import java.util.Collection;
 
 @Path("/broker")
 public class BrokerResource {
 
     @Inject
+    ProjectSentBankDAOImpl projectSentBankDAO;
+
+    @Inject
     BankDAOImpl bankDAO;
 
+    @Inject
+    ProjectDAO projectDAO;
+    
     @Inject
     BrokerServiceImpl brokerService;
 
@@ -52,7 +58,7 @@ public class BrokerResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public ProjectDTO createProject(Project project) {
 
-       // bankDAO.createBankTest();
+        bankDAO.createBankTest();
         projectService.createProject(project.getBorrowerId(), project.getRealEstateId(), project.getProjectDescription(),
                 project.getProposalDate(), project.getExpirationDate(), project.getRequiredValue(), project.getDurationMax());
 
@@ -105,9 +111,19 @@ public class BrokerResource {
 
         int idBank = application.getIdBank();
 
+
+        /* Récupération des objets associés aux ID de project et le nom de la Bank */
+
+        Bank b = bankDAO.findBank(idBank);
+        Project p = projectDAO.findProject(idProject);
+
+        /* Instancier la classe ProjectSentBank selon le project envoyé à une banque donnée */
+
+        ProjectSentBank project = projectSentBankDAO.create
+
         /* Une fois envoyé, l'attribut isDelivered du projet Client devra changer d'état => est envoyé*/
 
-        projectService.changeIsDelivered(idProject);
+        //projectService.changeIsDelivered(idProject);
 
         /* Création d'un projet DTO afin de pouvoir l'envoyer par la suite (il possède Estate.. et tout) */
 

@@ -1,6 +1,7 @@
 package fr.pantheonsorbonne.urf27.miage.dao;
 
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
+import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -42,6 +43,16 @@ public class ProjectDAOImpl implements ProjectDAO {
     public void changeIsDelivered(int idProject) throws EntityNotFoundException{
         System.out.println("ID du projet est : "+ idProject);
         em.createQuery("UPDATE Project p SET p.isDelivered=true WHERE p.projectId=:idProject").setParameter("idProject",idProject).executeUpdate();
+    }
+
+    @Override
+    public Project findProject(int idProject) throws EntityNotFoundException {
+        try {
+           Project p = (Project) em.createQuery("Select p from Project p where p.projectId=:idProject").setParameter("idProject", idProject).getSingleResult();
+            return p;
+        } catch (NoResultException e) {
+            throw new EntityNotFoundException();
+        }
     }
 
 }
