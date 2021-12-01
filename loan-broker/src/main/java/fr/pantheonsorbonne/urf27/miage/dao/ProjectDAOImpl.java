@@ -28,7 +28,7 @@ public class ProjectDAOImpl implements ProjectDAO {
     @Override
     public Collection<Project> getAllProject() throws EntityNotFoundException {
         try{
-            return (Collection<Project>) em.createQuery("Select p from Project p Where p.isDelivered=false").getResultList();
+            return (Collection<Project>) em.createQuery("Select p from Project p").getResultList();
         }catch (NoResultException e){
             throw new EntityNotFoundException();
         }
