@@ -7,7 +7,6 @@ import fr.pantheonsorbonne.urf27.miage.dao.RealEstateDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.RealEstate;
-import jdk.jfr.StackTrace;
 import loan.commons.dto.ProjectDTO;
 import org.modelmapper.ModelMapper;
 
@@ -17,7 +16,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 @ApplicationScoped
 public class ProjectServiceImpl implements ProjectService {
@@ -66,6 +64,13 @@ public class ProjectServiceImpl implements ProjectService {
         System.out.println(em.find(Project.class, id));
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(em.find(Project.class, id), ProjectDTO.class);
+    }
+
+    @Override
+    @Transactional
+    public String test(ProjectDTO projectDTO){
+        System.out.println(projectDTO);
+        return projectDTO.toString();
     }
 
 }
