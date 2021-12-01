@@ -1,12 +1,11 @@
 package fr.pantheonsorbonne.urf27.miage.resources;
 
+import fr.pantheonsorbonne.urf27.miage.camel.gateways.ProjectGateway;
 import fr.pantheonsorbonne.urf27.miage.dao.BankDAOImpl;
-import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAO;
-import fr.pantheonsorbonne.urf27.miage.dao.ProjectSentBankDAO;
-import fr.pantheonsorbonne.urf27.miage.dao.ProjectSentBankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
+import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.ProjectSentBank;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
@@ -18,6 +17,7 @@ import org.modelmapper.ModelMapper;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.time.LocalDate;
 import java.util.Collection;
 
 @Path("/broker")
@@ -37,6 +37,9 @@ public class BrokerResource {
 
     @Inject
     ProjectServiceImpl projectService;
+
+    @Inject
+    ProjectGateway projectGateway;
 
     @Path("/getBankPartners/{id}")
     @GET
@@ -65,6 +68,16 @@ public class BrokerResource {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(project, ProjectDTO.class);
     }
+
+    @Path("/selectProject/{id}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public ProjectDTO selectProject(@PathParam("id") int id){
+        System.out.println(projectService.getProject(id));
+        projectGateway.sendProjectToBank(projectService.getProject(id));
+        return null;
+    }
+}
 
     /* Les deux Méthodes afin de gérer l'affichage des différents projets qui seront présentés au broker */
 

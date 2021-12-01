@@ -1,11 +1,20 @@
 package loan.commons.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 import java.time.LocalDate;
 
 public class ProjectDTO {
 
     private String projectDescription;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate projectProposalDate;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate projectExpirationDate;
     private double projectRequiredValue;
     private double projectDurationMax;
@@ -15,10 +24,10 @@ public class ProjectDTO {
     public ProjectDTO() {
     }
 
-    public ProjectDTO(String projectDescription, LocalDate proposalDate, LocalDate projectExpirationDate,
+    public ProjectDTO(String projectDescription, LocalDate projectProposalDate, LocalDate projectExpirationDate,
                       double projectRequiredValue, double projectDurationMax, RealEstateDTO realEstate, BorrowerDTO borrowerId) {
         this.projectDescription = projectDescription;
-        this.projectProposalDate = proposalDate;
+        this.projectProposalDate = projectProposalDate;
         this.projectExpirationDate = projectExpirationDate;
         this.projectRequiredValue = projectRequiredValue;
         this.projectDurationMax = projectDurationMax;
@@ -34,12 +43,12 @@ public class ProjectDTO {
         this.projectDescription = projectDescription;
     }
 
-    public LocalDate getProposalDate() {
+    public LocalDate getProjectProposalDate() {
         return projectProposalDate;
     }
 
-    public void setProposalDate(LocalDate proposalDate) {
-        this.projectProposalDate = proposalDate;
+    public void setProjectProposalDate(LocalDate projectProposalDate) {
+        this.projectProposalDate = projectProposalDate;
     }
 
     public LocalDate getProjectExpirationDate() {

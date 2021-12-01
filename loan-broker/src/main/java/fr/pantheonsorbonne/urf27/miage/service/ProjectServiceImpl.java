@@ -9,6 +9,9 @@ import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.RealEstate;
 import java.util.Collection;
+import jdk.jfr.StackTrace;
+import loan.commons.dto.ProjectDTO;
+import org.modelmapper.ModelMapper;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -60,6 +63,16 @@ public class ProjectServiceImpl implements ProjectService {
         projectDAO.createProject(project);
         return project;
     }
+
+    @Override
+    @Transactional
+    public ProjectDTO getProject(int id) {
+        System.out.println(em.find(Project.class, id));
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(em.find(Project.class, id), ProjectDTO.class);
+    }
+
+}
 
     /* Méthode chargée d'obtenir tous les projets */
 

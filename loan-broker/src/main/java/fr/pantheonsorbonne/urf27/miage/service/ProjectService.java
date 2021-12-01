@@ -5,6 +5,7 @@ import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.RealEstate;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
+import loan.commons.dto.ProjectDTO;
 
 import javax.inject.Inject;
 import java.time.LocalDate;
@@ -17,6 +18,8 @@ public interface ProjectService {
 
     Collection<Project> getAllProject() throws EntityNotFoundException;
 
+    ProjectDTO getProject(int id);
+}
     void changeIsDelivered(int projectID) throws EntityNotFoundException;
 
     Boolean mailUsed(String mail) throws EntityNotFoundException;
