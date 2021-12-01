@@ -72,7 +72,6 @@ public class ProjectServiceImpl implements ProjectService {
         return modelMapper.map(em.find(Project.class, id), ProjectDTO.class);
     }
 
-}
 
     /* Méthode chargée d'obtenir tous les projets */
 

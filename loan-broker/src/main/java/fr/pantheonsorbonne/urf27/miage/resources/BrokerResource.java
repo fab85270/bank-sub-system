@@ -10,6 +10,8 @@ import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.ProjectSentBank;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
+import fr.pantheonsorbonne.urf27.miage.dao.ProjectSentBankDAOImpl;
+import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAO;
 import loan.commons.dto.ProjectDTO;
 import loan.commons.dto.SelectProjetBankDTO;
 import org.modelmapper.ModelMapper;
@@ -77,7 +79,6 @@ public class BrokerResource {
         projectGateway.sendProjectToBank(projectService.getProject(id));
         return null;
     }
-}
 
     /* Les deux Méthodes afin de gérer l'affichage des différents projets qui seront présentés au broker */
 

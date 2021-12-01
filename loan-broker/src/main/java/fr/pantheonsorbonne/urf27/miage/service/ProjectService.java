@@ -19,7 +19,7 @@ public interface ProjectService {
     Collection<Project> getAllProject() throws EntityNotFoundException;
 
     ProjectDTO getProject(int id);
-}
+
     void changeIsDelivered(int projectID) throws EntityNotFoundException;
 
     Boolean mailUsed(String mail) throws EntityNotFoundException;
