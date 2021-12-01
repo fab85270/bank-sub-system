@@ -1,6 +1,6 @@
-package fr.pantheonsorbonne.urf27.miage.camel.gateways;
+package loan.bank.camel;
 
-import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
+import loan.bank.service.ProjectService;
 import loan.commons.dto.ProjectDTO;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
@@ -13,18 +13,19 @@ import javax.inject.Inject;
 @ApplicationScoped
 public class CamelRoutes extends RouteBuilder {
 
-
     @Inject
-    ProjectServiceImpl projectService;
+    ProjectService projectService;
 
     @Inject
     CamelContext camelContext;
 
     @Override
-    public void configure() {
-
-        from("direct:cli")
-                .marshal().json()
-                .to("jms:queue/bank");
+    public void configure() throws Exception {
+        camelContext.setTracing(true);
+        from("jms:queue/bank")
+                .unmarshal().json(ProjectDTO.class)
+                .bean(projectService, "analyseProject")
+                .marshal()
+                .json();
     }
 }

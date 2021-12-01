@@ -5,7 +5,6 @@ import fr.pantheonsorbonne.urf27.miage.dao.BankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
-import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.ProjectSentBank;
 import fr.pantheonsorbonne.urf27.miage.service.BankService;
@@ -21,7 +20,6 @@ import org.modelmapper.ModelMapper;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.time.LocalDate;
 import java.util.Collection;
 
 @Path("/broker")
