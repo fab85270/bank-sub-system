@@ -1,4 +1,4 @@
-package fr.pantheonsorbonne.urf27.miage.model;
+package loan.bank.model;
 
 public enum EmploymentContract {
     CDI,
