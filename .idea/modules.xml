@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/loan-bank/loan-bank.iml" filepath="$PROJECT_DIR$/loan-bank/loan-bank.iml" />
       <module fileurl="file://$PROJECT_DIR$/loan-broker/loan-broker.iml" filepath="$PROJECT_DIR$/loan-broker/loan-broker.iml" />
       <module fileurl="file://$PROJECT_DIR$/loan-commons/loan-commons.iml" filepath="$PROJECT_DIR$/loan-commons/loan-commons.iml" />
-      <module fileurl="file://$PROJECT_DIR$/loan-master/loan-master.iml" filepath="$PROJECT_DIR$/loan-master/loan-master.iml" />
     </modules>
   </component>
 </project>

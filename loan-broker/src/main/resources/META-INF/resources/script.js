@@ -1,4 +1,4 @@
-function controle() {
+async function controle() {
     let projectDescription = document.getElementById("projectDescription").value;
     let requiredValue = document.getElementById("requiredValue").value; //Somme désirée par l'utilisateur
     let durationMax = document.getElementById("durationMax").value; //Durée maximale souhaitée par l'utilisateur
@@ -32,62 +32,88 @@ function controle() {
     let requiredInterest = document.getElementById("requiredInterest").value;
     let monthlyRefund = document.getElementById("monthlyRefund").value;
     let debtRatio = document.getElementById("debtRatio").value;
+    let isDelivered = false;
 
+    /* Vérification que l'adresse mail saisie n'existe pas déja */
 
-    let _data = {
+    /*On construit l'URL selon le mail saisit par l'utilisateur */
 
-        "projectDescription": projectDescription,
-        "requiredValue": requiredValue,
-        "durationMax": durationMax,
-        "proposalDate": proposalDate,
-        "expirationDate": expirationDate,
-        "realEstateId": {
-            "surface": surface,
-            "constructionYear": constructionYear,
-            "price": price,
-            "numberOfRooms": numberOfRooms,
-            "addressId": {
-                "streetName": streetNameRealEstate,
-                "streetNumber": streetNumberRealEstate,
-                "postalCode": postalCodeRealEstate,
-                "city": cityRealEstate,
-                "complementaryAddress": complementaryAddressRealEstate
-            },
+    let url = "/broker/mailUsed/"+email;
+
+    const responseMail = await fetch(url, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
         },
-        "borrowerId": {
-            "addressId": {
-                "streetName": streetNameBorrower,
-                "streetNumber": streetNumberBorrower,
-                "postalCode": postalCodeBorrower,
-                "city": cityBorrower,
-                "complementaryAddress": complementaryAddressBorrower
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
+    }).then(res => res.json());
+
+    /* Gestion de l'erreur de saisie d'un mail déja existant*/
+    if(responseMail) {
+        window.alert("Error : ce mail existe déja");
+    } else {
+
+        /* Création au format JSON des informations saisies par l'utilisateur*/
+
+        let _data = {
+
+            "projectDescription": projectDescription,
+            "requiredValue": requiredValue,
+            "durationMax": durationMax,
+            "proposalDate": proposalDate,
+            "expirationDate": expirationDate,
+            "isDelivered": isDelivered,
+            "realEstateId": {
+                "surface": surface,
+                "constructionYear": constructionYear,
+                "price": price,
+                "numberOfRooms": numberOfRooms,
+                "addressId": {
+                    "streetName": streetNameRealEstate,
+                    "streetNumber": streetNumberRealEstate,
+                    "postalCode": postalCodeRealEstate,
+                    "city": cityRealEstate,
+                    "complementaryAddress": complementaryAddressRealEstate
+                },
             },
-            "email": email,
-            "firstName": firstName,
-            "lastName": lastName,
-            "gender": gender,
-            "birthdate": birthdate,
-            "employmentContract": employmentContract,
-            "annualSalary": annualSalary,
-            "firstDeposit": firstDeposit,
-            "phoneNumber": phoneNumber,
-            "requiredInterest": requiredInterest,
-            "monthlyRefund": monthlyRefund,
-            "debtRatio": debtRatio
+            "borrowerId": {
+                "addressId": {
+                    "streetName": streetNameBorrower,
+                    "streetNumber": streetNumberBorrower,
+                    "postalCode": postalCodeBorrower,
+                    "city": cityBorrower,
+                    "complementaryAddress": complementaryAddressBorrower
+                },
+                "email": email,
+                "firstName": firstName,
+                "lastName": lastName,
+                "gender": gender,
+                "birthdate": birthdate,
+                "employmentContract": employmentContract,
+                "annualSalary": annualSalary,
+                "firstDeposit": firstDeposit,
+                "phoneNumber": phoneNumber,
+                "requiredInterest": requiredInterest,
+                "monthlyRefund": monthlyRefund,
+                "debtRatio": debtRatio
+            }
+        }
+
+        console.log(_data);
+
+        let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+        xmlhttp.open("POST", "/broker/createProject");
+        xmlhttp.setRequestHeader("Content-Type", "application/json");
+        xmlhttp.send(JSON.stringify(_data));
+        // }else{
+        //if(!isDateDepart){window.alert("Error : la date de départ doit être supérieur à "+date.getFullYear()};
+        if (!requiredValue) {
+            window.alert("Error : la somme doit être supérieur à 0")
         }
     }
-
-    console.log(_data);
-
-    let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-    xmlhttp.open("POST", "/broker/createProject");
-    xmlhttp.setRequestHeader("Content-Type", "application/json");
-    xmlhttp.send(JSON.stringify(_data));
-    // }else{
-    //if(!isDateDepart){window.alert("Error : la date de départ doit être supérieur à "+date.getFullYear()};
-    if (!requiredValue) {
-        window.alert("Error : la somme doit être supérieur à 0")
-    }
-    // }
 }
-

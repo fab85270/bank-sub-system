@@ -4,48 +4,58 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0003a-cc2d-4754-8323-6c966b4b56fb" name="Changes" comment="DAO Bank">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_bind_jaxb_core_2_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_rest_client_jsonb_2_4_1_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_browse_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_cluster_3_13_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_controlbus_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_core_3_13_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_dataformat_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_dataset_3_13_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_direct_3_13_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_directvm_3_13_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_health_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_jackson_2_14_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_language_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_log_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_mock_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_ref_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_rest_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_saga_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_scheduler_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_seda_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_stub_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_timer_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_validator_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_vm_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_xml_io_util_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_xml_jaxb_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_xml_jaxp_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_xpath_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_camel_camel_xslt_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2021_13_07_[Default_Changelist]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2021_13_07__Default_Changelist_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_13_43_[Default_Changelist]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_13_43__Default_Changelist_1.xml" beforeDir="false" />
+    <list default="true" id="d3c0003a-cc2d-4754-8323-6c966b4b56fb" name="Changes" comment="Verif">
+      <change afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectSentBankDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectSentBankDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/ProjectSentBank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loan-commons/src/main/java/loan/commons/dto/SelectProjetBankDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_arc_arc_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_agroal_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_arc_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_bootstrap_core_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_bootstrap_maven_resolver_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_builder_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_caffeine_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_core_deployment_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_credentials_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_datasource_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_hibernate_orm_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_ide_launcher_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_jackson_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_jsonb_2_4_1_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_jsonp_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_jsonp_deployment_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_junit5_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_resteasy_common_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_resteasy_jsonb_2_4_1_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_security_runtime_spi_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_quarkus_quarkus_vertx_http_2_4_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_json_bind_jakarta_json_bind_api_1_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_yasson_1_0_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_6_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_graalvm_5_6_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_resteasy_resteasy_json_binding_provider_4_7_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_resteasy_resteasy_json_p_provider_4_7_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_modelmapper_modelmapper_2_4_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/CamelRoutes.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/CamelRoutes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/CamelRoutes.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/CamelRoutes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/BankDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/BankDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/BankDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/BankDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/BorrowerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/BorrowerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/BorrowerDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/BorrowerDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/RealEstateDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/RealEstateDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/RealEstateDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/RealEstateDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/resources/BrokerResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/resources/BrokerResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/summaryProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/summaryProject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loan-commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +65,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -64,7 +74,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="broker-service" />
+        <entry key="$PROJECT_DIR$" value="interfaceSendBank" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -107,6 +117,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -234,7 +245,28 @@
       <option name="project" value="LOCAL" />
       <updated>1637858922195</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Delete Master">
+      <created>1638057746748</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1638057746748</updated>
+    </task>
+    <task id="LOCAL-00009" summary="rajout isDelivered">
+      <created>1638058710679</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1638058710679</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Verif">
+      <created>1638062049290</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1638062049290</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,7 +290,10 @@
     <MESSAGE value="DAO Bank" />
     <MESSAGE value="projectdto" />
     <MESSAGE value="dto commons" />
-    <option name="LAST_COMMIT_MESSAGE" value="dto commons" />
+    <MESSAGE value="Delete Master" />
+    <MESSAGE value="rajout isDelivered" />
+    <MESSAGE value="Verif" />
+    <option name="LAST_COMMIT_MESSAGE" value="Verif" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

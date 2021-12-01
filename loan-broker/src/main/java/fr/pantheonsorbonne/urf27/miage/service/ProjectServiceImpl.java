@@ -4,9 +4,14 @@ import fr.pantheonsorbonne.urf27.miage.dao.AddressDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.BorrowerDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.RealEstateDAOImpl;
+import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.RealEstate;
+
+import java.util.Collection;
+import jdk.jfr.StackTrace;
+
 import loan.commons.dto.ProjectDTO;
 import org.modelmapper.ModelMapper;
 
@@ -38,7 +43,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     @Transactional
     public Project createProject(Borrower borrower, RealEstate realEstate, String projectDescription,
-                                 LocalDate proposalDate, LocalDate projectExpirationDate, double requiredValue, int durationMax) {
+                                 LocalDate proposalDate, LocalDate projectExpirationDate , double requiredValue, int durationMax) {
         Project project = new Project();
         addressDAO.createAddress(realEstate.getAddressId());
         realEstate.setAddressId(realEstate.getAddressId());
@@ -54,6 +59,8 @@ public class ProjectServiceImpl implements ProjectService {
         project.setExpirationDate(projectExpirationDate);
         project.setDurationMax(durationMax);
 
+        project.setDelivered(false);
+
         projectDAO.createProject(project);
         return project;
     }
@@ -66,11 +73,25 @@ public class ProjectServiceImpl implements ProjectService {
         return modelMapper.map(em.find(Project.class, id), ProjectDTO.class);
     }
 
+    /* Méthode chargée d'obtenir tous les projets */
+
     @Override
-    @Transactional
-    public String test(ProjectDTO projectDTO){
-        System.out.println(projectDTO);
-        return projectDTO.toString();
+    public Collection<Project> getAllProject() throws EntityNotFoundException {
+        return projectDAO.getAllProject();
     }
 
+    @Override
+    @Transactional
+    public void changeIsDelivered(int projectID) throws EntityNotFoundException{
+        /*Appel d'une méthode DAO pour effectuer les modifications (update) sur le projet client envoyé à la banque */
+        System.out.println("Essai bis : "+projectID);
+        projectDAO.changeIsDelivered(projectID);
+    }
+
+    @Override
+    @Transactional
+    public Boolean mailUsed(String mail) throws EntityNotFoundException{
+        return borrowerDAO.mailUsed(mail);
+
+    }
 }

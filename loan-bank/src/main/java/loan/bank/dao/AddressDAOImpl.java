@@ -20,7 +20,7 @@ public class AddressDAOImpl implements AddressDAO{
             Address a = (Address) em.createQuery("Select a from Address a where a.idAddress=:idAddress").setParameter("idAddress", idAddress).getSingleResult();
             return a;
         }catch(NoResultException e){
-            throw new entityNotFound();
+            throw new entityNotFound(); //Déclaration d'une exception métier
         }
     }
     @Override

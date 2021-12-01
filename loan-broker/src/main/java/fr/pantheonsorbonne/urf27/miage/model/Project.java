@@ -37,6 +37,9 @@ public class Project {
     @Column(name = "durationMax", nullable = false)
     private int durationMax;
 
+    @Column(name = "isDelivered", nullable = false)
+    private boolean isDelivered;
+
     public Project() {
     }
 
@@ -46,6 +49,7 @@ public class Project {
         this.expirationDate = expirationDate;
         this.requiredValue = requiredValue;
         this.durationMax = durationMax;
+        this.isDelivered = false;
     }
 
     public Integer getProjectId() {
@@ -114,6 +118,14 @@ public class Project {
 
     public void setBorrowerId(Borrower borrowerId) {
         this.borrowerId = borrowerId;
+    }
+
+    public boolean isDelivered() {
+        return isDelivered;
+    }
+
+    public void setDelivered(boolean delivered) {
+        isDelivered = delivered;
     }
 
     @Override
