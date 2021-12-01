@@ -4,8 +4,8 @@ import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.RealEstate;
+import loan.commons.dto.ProjectDTO;
 
-import javax.inject.Inject;
 import java.time.LocalDate;
 
 public interface ProjectService {
@@ -14,4 +14,5 @@ public interface ProjectService {
                           LocalDate proposalDate, LocalDate projectExpirationDate , double requiredValue, int durationMax);
 
 
+    ProjectDTO getProject(int id);
 }
