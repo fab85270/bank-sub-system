@@ -29,9 +29,6 @@ public class BrokerResource {
     ProjectSentBankServiceImpl projectSentBankService;
 
     @Inject
-    ProjectDAO projectDAO;
-
-    @Inject
     BankService bankService;
 
     @Inject
@@ -115,7 +112,7 @@ public class BrokerResource {
 
         /* On récupère les objets associés aux identifiants obtenus */
         Bank b = bankService.findBank(idBank);
-        Project p = projectDAO.findProject(idProject);
+        Project p = projectService.findProject(idProject);
 
         /* On recherche ainsi si le projet à déja été envoyée à cette banque séléctionnée */
 
@@ -144,7 +141,7 @@ public class BrokerResource {
         /* Récupération des objets associés aux ID de project et le nom de la Bank */
 
         Bank b = bankService.findBank(idBank);
-        Project p = projectDAO.findProject(idProject);
+        Project p = projectService.findProject(idProject);
 
 
         /* Instancier la classe ProjectSentBank selon le project envoyé à une banque donnée */

@@ -94,4 +94,9 @@ public class ProjectServiceImpl implements ProjectService {
         return borrowerDAO.mailUsed(mail);
 
     }
+
+    @Override
+    public Project findProject(int idProject) throws EntityNotFoundException {
+        return projectDAO.findProject(idProject);
+    }
 }

@@ -23,5 +23,7 @@ public interface ProjectService {
 
     Boolean mailUsed(String mail) throws EntityNotFoundException;
 
+    Project findProject(int idProject) throws EntityNotFoundException;
+
 
 }
