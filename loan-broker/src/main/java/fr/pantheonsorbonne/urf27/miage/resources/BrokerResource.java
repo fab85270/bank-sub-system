@@ -9,6 +9,7 @@ import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.ProjectSentBank;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
+import fr.pantheonsorbonne.urf27.miage.service.ProjectSentBankServiceImpl;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.ProjectSentBankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAO;
@@ -26,7 +27,7 @@ import java.util.Collection;
 public class BrokerResource {
 
     @Inject
-    ProjectSentBankDAOImpl projectSentBankDAO;
+    ProjectSentBankServiceImpl projectSentBankService;
 
     @Inject
     BankDAOImpl bankDAO;
@@ -119,7 +120,7 @@ public class BrokerResource {
 
         /* On recherche ainsi si le projet à déja été envoyée à cette banque séléctionnée */
 
-        return projectSentBankDAO.isSent(p,b);
+        return projectSentBankService.isSent(b,p);
 
     }
 
@@ -149,7 +150,7 @@ public class BrokerResource {
 
         /* Instancier la classe ProjectSentBank selon le project envoyé à une banque donnée */
 
-        projectSentBankDAO.createSentBankProject(p,b);
+        projectSentBankService.createSentBankProject(p,b);
 
         /* Une fois envoyé, l'attribut isDelivered du projet Client devra changer d'état => est envoyé*/
 
