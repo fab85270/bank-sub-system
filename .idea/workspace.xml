@@ -87,6 +87,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/idee.txt" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
@@ -119,8 +122,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.google.cloudcode.ide_session_index" value="20211127_0001" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.google.cloudcode.ide_session_index" value="20211201_0000" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../camel-01" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -136,6 +139,12 @@
       <recent name="C:\Users\jotia\Desktop\M1 MIAGE\INF2\bank-sub-system\loan-broker" />
       <recent name="C:\Users\jotia\Desktop\M1 MIAGE\INF2\bank-sub-system\loan-commons\target" />
       <recent name="C:\Users\maxen\OneDrive\Documents\fac\Informatique\S7\Framework composants métiers et web service\projetBanque\bank-sub-system\loan-bank\src\main\java\fr\pantheonsorbonne\ufr27\miage\model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jotia\Desktop\M1 MIAGE\INF2\bank-sub-system\loan-bank\target\data\test" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="loan.bank.model" />
     </key>
   </component>
   <component name="RunManager">
@@ -182,6 +191,10 @@
       <workItem from="1637940024900" duration="2434000" />
       <workItem from="1638004027134" duration="252000" />
       <workItem from="1638004316066" duration="10806000" />
+      <workItem from="1638300346349" duration="341000" />
+      <workItem from="1638300706841" duration="487000" />
+      <workItem from="1638301228318" duration="17731000" />
+      <workItem from="1638347579759" duration="9979000" />
     </task>
     <task id="LOCAL-00001" summary="modif readme">
       <created>1637491279335</created>
