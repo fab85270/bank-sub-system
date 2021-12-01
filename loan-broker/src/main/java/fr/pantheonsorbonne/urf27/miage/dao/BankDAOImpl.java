@@ -107,6 +107,4 @@ public class BankDAOImpl implements BankDAO {
     public Collection<Bank> getBanks() {
         return (Collection<Bank>) em.createQuery("Select b from Bank b").getResultList();
     }
-
-
 }
