@@ -8,6 +8,7 @@ import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.ProjectSentBank;
+import fr.pantheonsorbonne.urf27.miage.service.BankService;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectSentBankServiceImpl;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
@@ -30,10 +31,10 @@ public class BrokerResource {
     ProjectSentBankServiceImpl projectSentBankService;
 
     @Inject
-    BankDAOImpl bankDAO;
+    ProjectDAO projectDAO;
 
     @Inject
-    ProjectDAO projectDAO;
+    BankService bankService;
 
     @Inject
     BrokerServiceImpl brokerService;
@@ -54,8 +55,8 @@ public class BrokerResource {
     @Path("/createBank")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public Bank createBank(Bank bank) throws BankExceptions.BankAlreadyExists {
-        return bankDAO.createNewBank(bank);
+    public Bank createBank(Bank bank) throws EntityNotFoundException, BankExceptions.BankAlreadyExists {
+        return bankService.createBank(bank);
     }
 
 
@@ -64,7 +65,7 @@ public class BrokerResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public ProjectDTO createProject(Project project) {
 
-        bankDAO.createBankTest();
+        //bankService.createBankTest();
         projectService.createProject(project.getBorrowerId(), project.getRealEstateId(), project.getProjectDescription(),
                 project.getProposalDate(), project.getExpirationDate(), project.getRequiredValue(), project.getDurationMax());
 
@@ -105,7 +106,7 @@ public class BrokerResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Collection<Bank> getBanks() throws EntityNotFoundException {
-        return bankDAO.getBanks();
+        return bankService.getBanks();
 
     }
 
@@ -115,7 +116,7 @@ public class BrokerResource {
     public Boolean isSent(@PathParam("bank") int idBank, @PathParam("projet") int idProject) throws EntityNotFoundException {
 
         /* On récupère les objets associés aux identifiants obtenus */
-        Bank b = bankDAO.findBank(idBank);
+        Bank b = bankService.findBank(idBank);
         Project p = projectDAO.findProject(idProject);
 
         /* On recherche ainsi si le projet à déja été envoyée à cette banque séléctionnée */
@@ -144,7 +145,7 @@ public class BrokerResource {
 
         /* Récupération des objets associés aux ID de project et le nom de la Bank */
 
-        Bank b = bankDAO.findBank(idBank);
+        Bank b = bankService.findBank(idBank);
         Project p = projectDAO.findProject(idProject);
 
 
