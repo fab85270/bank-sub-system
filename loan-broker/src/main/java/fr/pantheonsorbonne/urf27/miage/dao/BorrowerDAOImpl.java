@@ -76,5 +76,18 @@ public class BorrowerDAOImpl implements BorrowerDAO {
         return borrower;
     }
 
+    @Override
+    public Boolean mailUsed(String mail){
+
+        /* On cherche si un borrowers est déja crée à cette email renseigné */
+        int numOfBorrowers = em.createQuery("Select b from Borrower b where b.email=:email").setParameter("email", mail).getResultList().size();
+
+        /* Si aucun borrower ne possède cet mail, il pourra ainsi être utilisé */
+        if (numOfBorrowers == 0) { //Borrower doesnt exists
+            return false;
+        }
+        return true;
+    }
+
 
 }

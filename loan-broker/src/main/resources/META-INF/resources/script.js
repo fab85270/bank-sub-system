@@ -1,4 +1,4 @@
-function controle() {
+async function controle() {
     let projectDescription = document.getElementById("projectDescription").value;
     let requiredValue = document.getElementById("requiredValue").value; //Somme désirée par l'utilisateur
     let durationMax = document.getElementById("durationMax").value; //Durée maximale souhaitée par l'utilisateur
@@ -32,34 +32,34 @@ function controle() {
     let requiredInterest = document.getElementById("requiredInterest").value;
     let monthlyRefund = document.getElementById("monthlyRefund").value;
     let debtRatio = document.getElementById("debtRatio").value;
+    let isDelivered = false;
 
-    let todaySDate = new Date(Date.now());
-    const regex = new RegExp(/^[0-9]{10}$/);
+    /* Vérification que l'adresse mail saisie n'existe pas déja */
 
-    /*Vérification saisie*/
-    let isSommeValid = requiredValue>0;
-    let isRequiredValueValid = requiredValue>0;
-    let isDurationMaxValid = durationMax>0;
-    //let isProposalDateValid = proposalDate>todaySDate;
-    let isExpirationDateValid = expirationDate>proposalDate;
-    let isSurfaceValid = surface>0;
-    let isConstructionYearValid = constructionYear>0
-    let isPriceValid = price>0;
-    let isNumberOfRoomsValid = numberOfRooms>0;
-    let isStreetNumberRealEstateValid = streetNumberRealEstate>0;
-    let isPostalCodeRealEstateValid = postalCodeRealEstate >0 && postalCodeRealEstate<99999;
-    let isStreetNumberBorrowerValid = streetNumberBorrower>0;
-    let isPostalCodeBorrowerValid = postalCodeBorrower>0;
-    //let isBirthdateValid = birthdate<todaySDate;
-    let isAnnualSalaryValud = annualSalary>0;
-    let isFirstDepositValid = firstDeposit>0;
-    let isRequiredInterestValid = requiredInterest>0;
-    let isMonthlyRefundValid = monthlyRefund>0;
-    let isDebtRatioValid = debtRatio>0;
+    /*On construit l'URL selon le mail saisit par l'utilisateur */
 
-    if(isSommeValid && isRequiredValueValid && isDurationMaxValid  && isExpirationDateValid && isSurfaceValid && isConstructionYearValid && isPriceValid &&
-        isNumberOfRoomsValid && isStreetNumberRealEstateValid && isPostalCodeRealEstateValid && isStreetNumberBorrowerValid && isPostalCodeBorrowerValid &&
-        isAnnualSalaryValud && isFirstDepositValid && isRequiredInterestValid && isMonthlyRefundValid && isDebtRatioValid){
+    let url = "/broker/mailUsed/"+email;
+
+    const responseMail = await fetch(url, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
+    }).then(res => res.json());
+
+    /* Gestion de l'erreur de saisie d'un mail déja existant*/
+    if(responseMail) {
+        window.alert("Error : ce mail existe déja");
+    } else {
+
+        /* Création au format JSON des informations saisies par l'utilisateur*/
+
         let _data = {
 
             "projectDescription": projectDescription,
@@ -67,6 +67,7 @@ function controle() {
             "durationMax": durationMax,
             "proposalDate": proposalDate,
             "expirationDate": expirationDate,
+            "isDelivered": isDelivered,
             "realEstateId": {
                 "surface": surface,
                 "constructionYear": constructionYear,
@@ -109,8 +110,10 @@ function controle() {
         xmlhttp.open("POST", "/broker/createProject");
         xmlhttp.setRequestHeader("Content-Type", "application/json");
         xmlhttp.send(JSON.stringify(_data));
+        // }else{
+        //if(!isDateDepart){window.alert("Error : la date de départ doit être supérieur à "+date.getFullYear()};
+        if (!requiredValue) {
+            window.alert("Error : la somme doit être supérieur à 0")
+        }
     }
-
-    // }
 }
-

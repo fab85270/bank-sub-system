@@ -11,6 +11,5 @@
         <module>loan-bank</module>
         <module>loan-broker</module>
         <module>loan-commons</module>
-        <module>loan-master</module>
     </modules>
 </project>

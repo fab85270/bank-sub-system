@@ -22,5 +22,12 @@
       <jdbc-url>jdbc:mysql://mysql.miage.dev:80/joti_db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="losego_db@mysql.miage.dev" uuid="20b79991-088a-4896-bc34-2834af860f7a">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://mysql.miage.dev:80/losego_db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
