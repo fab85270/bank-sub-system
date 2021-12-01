@@ -9,7 +9,6 @@
         <module name="loan-commons" />
         <module name="loan-bank" />
         <module name="loan-broker" />
-        <module name="loan-master" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -1,43 +1,26 @@
-package fr.pantheonsorbonne.urf27.miage.model;
+package loan.commons.dto;
 
-import javax.persistence.*;
+public class AddressDTO {
 
-@Entity
-public class Address {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idAddress")
-    private Integer idAddress;
-
-    @Column(name = "streetName", nullable = false)
     private String streetName;
 
-    @Column(name = "streetNumber", nullable = false)
     private int streetNumber;
 
-    @Column(name = "postalCode", nullable = false)
     private long postalCode;
 
-    @Column(name = "city", nullable = false)
     private String city;
 
-    @Column(name = "complementaryAddress")
     private String complementaryAddress;
 
-    public Address() {
+    public AddressDTO() {
     }
 
-    public Address(String streetName, int streetNumber, long postalCode, String city, String complementaryAddress) {
+    public AddressDTO(String streetName, int streetNumber, long postalCode, String city, String complementaryAddress) {
         this.streetName = streetName;
         this.streetNumber = streetNumber;
         this.postalCode = postalCode;
         this.city = city;
         this.complementaryAddress = complementaryAddress;
-    }
-
-    public Integer getIdAddress() {
-        return idAddress;
     }
 
     public String getStreetName() {
@@ -82,8 +65,7 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Address{" +
-                "idAddress=" + idAddress +
+        return "AddressDTO{" +
                 ", streetName='" + streetName + '\'' +
                 ", streetNumber=" + streetNumber +
                 ", postalCode=" + postalCode +

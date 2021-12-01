@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0003a-cc2d-4754-8323-6c966b4b56fb" name="Changes" comment="DAO Bank">
-      <change afterPath="$PROJECT_DIR$/Broker_system_Relat.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker_system_Relat.jpg" beforeDir="false" />
+    <list default="true" id="d3c0003a-cc2d-4754-8323-6c966b4b56fb" name="Changes" comment="Verif">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -25,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="bank-service" />
+        <entry key="$PROJECT_DIR$" value="broker-service" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,16 +70,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.google.cloudcode.ide_session_index" value="20211127_0001" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="jpb.dbDrivers" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jotia\Desktop\M1 MIAGE\INF2\bank-sub-system\loan-broker" />
+      <recent name="C:\Users\jotia\Desktop\M1 MIAGE\INF2\bank-sub-system\loan-commons\target" />
       <recent name="C:\Users\maxen\OneDrive\Documents\fac\Informatique\S7\Framework composants métiers et web service\projetBanque\bank-sub-system\loan-bank\src\main\java\fr\pantheonsorbonne\ufr27\miage\model" />
     </key>
   </component>
@@ -114,8 +121,18 @@
       <workItem from="1637601039662" duration="23000" />
       <workItem from="1637601080901" duration="1532000" />
       <workItem from="1637602668997" duration="1499000" />
-      <workItem from="1637608598170" duration="845000" />
-      <workItem from="1637696901564" duration="281000" />
+      <workItem from="1637616158906" duration="6240000" />
+      <workItem from="1637663913944" duration="3948000" />
+      <workItem from="1637677711136" duration="4689000" />
+      <workItem from="1637695700994" duration="18465000" />
+      <workItem from="1637787763846" duration="5882000" />
+      <workItem from="1637793748088" duration="10038000" />
+      <workItem from="1637830244239" duration="4780000" />
+      <workItem from="1637846451150" duration="11383000" />
+      <workItem from="1637874635360" duration="1264000" />
+      <workItem from="1637940024900" duration="2434000" />
+      <workItem from="1638004027134" duration="252000" />
+      <workItem from="1638004316066" duration="10806000" />
     </task>
     <task id="LOCAL-00001" summary="modif readme">
       <created>1637491279335</created>
@@ -152,7 +169,42 @@
       <option name="project" value="LOCAL" />
       <updated>1637602800773</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="projectdto">
+      <created>1637781392964</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1637781392964</updated>
+    </task>
+    <task id="LOCAL-00007" summary="dto commons">
+      <created>1637858922195</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1637858922195</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Delete Master">
+      <created>1638057746748</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1638057746748</updated>
+    </task>
+    <task id="LOCAL-00009" summary="rajout isDelivered">
+      <created>1638058710679</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1638058710679</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Verif">
+      <created>1638062049290</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1638062049290</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +226,15 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="modif readme" />
     <MESSAGE value="DAO Bank" />
-    <option name="LAST_COMMIT_MESSAGE" value="DAO Bank" />
+    <MESSAGE value="projectdto" />
+    <MESSAGE value="dto commons" />
+    <MESSAGE value="Delete Master" />
+    <MESSAGE value="rajout isDelivered" />
+    <MESSAGE value="Verif" />
+    <option name="LAST_COMMIT_MESSAGE" value="Verif" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

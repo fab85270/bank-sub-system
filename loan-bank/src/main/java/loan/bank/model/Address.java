@@ -1,4 +1,4 @@
-package fr.pantheonsorbonne.urf27.miage.model;
+package loan.bank.model;
 
 import javax.persistence.*;
 
@@ -7,8 +7,8 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idAddress")
-    private Integer idAddress;
+    @Column(name = "idBank", nullable = false)
+    private long idAddress;
 
     @Column(name = "streetName", nullable = false)
     private String streetName;
@@ -28,7 +28,8 @@ public class Address {
     public Address() {
     }
 
-    public Address(String streetName, int streetNumber, long postalCode, String city, String complementaryAddress) {
+    public Address(int idAddress, String streetName, int streetNumber, long postalCode, String city, String complementaryAddress) {
+        this.idAddress = idAddress;
         this.streetName = streetName;
         this.streetNumber = streetNumber;
         this.postalCode = postalCode;
@@ -36,8 +37,12 @@ public class Address {
         this.complementaryAddress = complementaryAddress;
     }
 
-    public Integer getIdAddress() {
+    public long getIdAddress() {
         return idAddress;
+    }
+
+    public void setIdAddress(int idAddress) {
+        this.idAddress = idAddress;
     }
 
     public String getStreetName() {
@@ -78,17 +83,5 @@ public class Address {
 
     public void setComplementaryAddress(String complementaryAddress) {
         this.complementaryAddress = complementaryAddress;
-    }
-
-    @Override
-    public String toString() {
-        return "Address{" +
-                "idAddress=" + idAddress +
-                ", streetName='" + streetName + '\'' +
-                ", streetNumber=" + streetNumber +
-                ", postalCode=" + postalCode +
-                ", city='" + city + '\'' +
-                ", complementaryAddress='" + complementaryAddress + '\'' +
-                '}';
     }
 }
