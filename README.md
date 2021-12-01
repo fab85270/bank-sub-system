@@ -1,8 +1,10 @@
 # bank-sub-system
 
-Objectifs du système à modéliser : Obtention de financements.
+##Objectifs du système à modéliser : 
+Communication entre un client, un broker et une banque en vue d'obtention d'un
+financement pour l'obtention d'un bien immobilier.
 
-On propose de modéliser un système d'acquisition (MASTER) d'un emprunt (loan) pouvant supporter plusieurs banques (bank)
+On propose de modéliser un système d'acquisition d'un emprunt pouvant supporter plusieurs banques (bank)
 ainsi que plusieurs courtiers (broker).
 Le système master, gère 
 
@@ -10,25 +12,34 @@ Le système master, gère
 Le courtier(broker) se caractérise d'intermédiaire entre la banque et l'acquéreur afin d'obtenir un emprunt au meilleur
 taux selon le projet. Son rôle est de recevoir le dossier du client, déterminer avec le client quels sont les organismes 
 de crédit à contacter parmi ceux partenaires au broker. Suite à cela, après été reçu par mail, le dossier client sera
-aux organismes de crédit séléctionnés.
+envoyé aux organismes de crédit séléctionnés.
 
-La banque/organisme de crédit(bank), propose une simulation de financement pour le projet dédié.
+La banque/organisme de crédit(bank), propose une simulation de financement (loan proposal) pour le projet dédié.
 
 Lors de l'obtention d'une option de financement, on a plusieurs phases
 
-Phase 1: collecte et envoie d'informations valides aux organismes de crédit concernés : 
+###Phase 1 : 
+Le client renseigne ses informations sur lui et le prêt dans un formulaire.
+http://localhost:8080/
 
-- Rassembler et vérifier l'ensemble des pièces justificatives du dossier (broker)
-- Déterminer les organismes de crédit à contacter (broker)
+Le projet est constitué, ainsi le broker peut voir tous ceux qu'on lui a proposé
 
-Phase 2: proposer une simulation de financement
+Il choisit quel projet envoyé à quelle banque et l'envoie.
 
-- vérifier validité des rélevés de comptes en interne.
-- vérifier validité avis imposition
+http://localhost:8080/ProjectSummary.html
 
-Phase 3 :
+###Phase 2 :
+La bank reçoit sur une queue:JMS les différents projets qu'on lui propose, il les affiche et les analyse
+Selon des règles métiers précises.
 
--Génération de la simulation d'emprunt qui sera envoyée par la suite à l'Acquéreur.
+Les projets qui sont acceptés sont transformées en loanProposal et sont renvoyées au Broker
+
+###Phase 3 :
+Le Broker reçoit les loan proposals (les projets qui ont été validés par la banque)
+
+Il choisit parmis ses loan proposals celle qu'il considère comme la meilleure
+
+Puis envoie un email au Client avec la meilleure loanProposal
 
 ## Amelioration possible
 Possiblement 
@@ -60,6 +71,6 @@ broker1->buyer: smtp:loan_proposal_best_bank
 ![](seqDiagram.png)
 ## Schéma relationnel
 ### Bank System
-![](bank_system_Relat.jpg)
+![](bank_system_Relat.png)
 ### Broker System
-![](broker_system_Relat.jpg)
+![](broker_system_Relat.png)
