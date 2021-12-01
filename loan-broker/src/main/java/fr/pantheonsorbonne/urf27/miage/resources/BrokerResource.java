@@ -58,7 +58,7 @@ public class BrokerResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public ProjectDTO createProject(Project project) {
 
-        bankDAO.createBankTest();
+        //bankDAO.createBankTest();
         projectService.createProject(project.getBorrowerId(), project.getRealEstateId(), project.getProjectDescription(),
                 project.getProposalDate(), project.getExpirationDate(), project.getRequiredValue(), project.getDurationMax());
 
@@ -94,6 +94,21 @@ public class BrokerResource {
 
     }
 
+    @Path("/isSent/{bank}/{projet}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public Boolean isSent(@PathParam("bank") int idBank, @PathParam("projet") int idProject) throws EntityNotFoundException {
+
+        /* On récupère les objets associés aux identifiants obtenus */
+        Bank b = bankDAO.findBank(idBank);
+        Project p = projectDAO.findProject(idProject);
+
+        /* On recherche ainsi si le projet à déja été envoyée à cette banque séléctionnée */
+
+        return projectSentBankDAO.isSent(p,b);
+
+    }
+
     /*Chargée de la reception de l'identifiant du projet et de la banque séléctionnée par le broker*/
     @Path("/sendIdProject")
     @POST
@@ -116,10 +131,11 @@ public class BrokerResource {
 
         Bank b = bankDAO.findBank(idBank);
         Project p = projectDAO.findProject(idProject);
+        
 
         /* Instancier la classe ProjectSentBank selon le project envoyé à une banque donnée */
 
-        ProjectSentBank project = projectSentBankDAO.create
+        projectSentBankDAO.createSentBankProject(p,b);
 
         /* Une fois envoyé, l'attribut isDelivered du projet Client devra changer d'état => est envoyé*/
 

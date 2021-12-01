@@ -7,8 +7,8 @@ public class ProjectSentBank {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "proposalId", nullable = false)
-    private Integer proposalId;
+    @Column(name = "projectSentBankId", nullable = false)
+    private Integer projectSentBankId;
 
     @ManyToOne(optional = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "bankId")
@@ -19,10 +19,11 @@ public class ProjectSentBank {
     private Project projectId;
 
     public ProjectSentBank(Project projectId, Bank bankId) {
-        this.proposalId = proposalId;
+        this.bankId = bankId;
         this.projectId = projectId;
     }
     public ProjectSentBank(){};
+
 
     public Bank getBankId() {
         return bankId;
@@ -38,5 +39,17 @@ public class ProjectSentBank {
 
     public void setProjectId(Project projectId) {
         this.projectId = projectId;
+    }
+
+    public Integer getProjectSentBankId() {
+        return projectSentBankId;
+    }
+
+    @Override
+    public String toString() {
+        return "ProjectSentBank{" +
+                "bankId=" + bankId +
+                ", projectId=" + projectId +
+                '}';
     }
 }

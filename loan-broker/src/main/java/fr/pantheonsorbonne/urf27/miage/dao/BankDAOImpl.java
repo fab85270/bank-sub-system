@@ -4,6 +4,7 @@ import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Address;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
+import fr.pantheonsorbonne.urf27.miage.model.Project;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
@@ -32,12 +33,13 @@ public class BankDAOImpl implements BankDAO {
 
     @Override
     public Bank findBank(int idBank) throws EntityNotFoundException{
-        try {
-            Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankId=:idBank").setParameter("idBank", idBank).getSingleResult();
-            return b;
-        } catch (NoResultException e) {
-            throw new EntityNotFoundException();
-        }
+            try {
+                Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankId=:idBank").setParameter("idBank", idBank).getSingleResult();
+                return b;
+            } catch (NoResultException e) {
+                throw new EntityNotFoundException();
+            }
+
     }
 
 

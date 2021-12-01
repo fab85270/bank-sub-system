@@ -5,7 +5,9 @@ import fr.pantheonsorbonne.urf27.miage.model.*;
 
 public interface ProjectSentBankDAO {
 
-    ProjectSentBank createSentBankProject(Project project, Bank bank);
+    void createSentBankProject(Project project, Bank bank);
+
+    boolean isSent(Project idProject, Bank idBank);
 
 
 }

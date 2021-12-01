@@ -54,4 +54,11 @@ public class Bank {
         this.addressId = idAddress;
     }
 
+    @Override
+    public String toString() {
+        return "Bank{" +
+                "bankName='" + bankName + '\'' +
+                ", addressId=" + addressId +
+                '}';
+    }
 }

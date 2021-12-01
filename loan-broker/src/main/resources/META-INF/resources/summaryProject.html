@@ -30,7 +30,7 @@
                     /* Récupération de toutes les banques associées au broker */
 
 
-                const responseBank = await fetch("/broker/getBanks", {
+                    const responseBank = await fetch("/broker/getBanks", {
                     method: 'GET', // *GET, POST, PUT, DELETE, etc.
                     mode: 'cors', // no-cors, *cors, same-origin
                     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -83,24 +83,40 @@
 
             }
 
-            function saisieProject(){
-                console.log("Tableau de project est "+projectIdTab);
-                console.log("Tableau de banque est "+bankIdTab)
+            async function saisieProject() {
+                console.log("Tableau de project est " + projectIdTab);
+                console.log("Tableau de banque est " + bankIdTab)
+
 
                 /* Récupération des valeurs saisies */
                 let projectSaisie = document.getElementById("projectSaisie").value;
                 let bankSaisie = document.getElementById("bankSaisie").value;
 
-                console.log("Votre saiise project est de : "+projectSaisie);
-                console.log("Votre saiise bank est de : "+projectSaisie);
+                console.log("Votre saiise project est de : " + projectSaisie);
+                console.log("Votre saiise bank est de : " + projectSaisie);
 
                 /*Gestion des cas d'erreurs de saisies */
 
-                if(projectSaisie > projectIdTab.length-1){window.alert("Error : Veuillez saisir un numéro associé à un projet existant")}
-                if(projectSaisie < 0){window.alert("Error : Le numéro de projet saisit doit être supérieur à 0")}
-                if(projectIdTab.length ==0){window.alert("Error : Vous n'avez aucun project qui vous est associé")}
-                if(bankSaisie > bankIdTab.length-1){window.alert("Error : Veuillez saisir un numéro associé à une bank existante")}
-                if(bankSaisie < 0){window.alert("Error : Le numéro de la banque saisie doit être supérieur à 0")}
+                if (projectSaisie > projectIdTab.length - 1) {
+                    window.alert("Error : Veuillez saisir un numéro associé à un projet existant")
+                } else {
+                    if (projectSaisie < 0) {
+                        window.alert("Error : Le numéro de projet saisit doit être supérieur à 0")
+                    }else {
+                        if (projectIdTab.length == 0) {
+                            window.alert("Error : Vous n'avez aucun project qui vous est associé")
+                        } else {
+                            if (bankSaisie > bankIdTab.length - 1) {
+                                window.alert("Error : Veuillez saisir un numéro associé à une bank existante")
+                            } else {
+                                if (bankSaisie < 0) {
+                                    window.alert("Error : Le numéro de la banque saisie doit être supérieur à 0")
+                                }
+                            }
+                        }
+                    }
+                }
+
 
                 //Gérer le cas de la saisie d'une chaine de caractère avec regexp javascript ?
 
@@ -109,19 +125,42 @@
                 let idProject = projectIdTab[projectSaisie];
                 let idBank = bankIdTab[bankSaisie];
 
-                console.log("Le projet est de eeeee:"+idProject);
+                /* Vérification si la banque à qui on désire envoyer le project ne l'a pas deja reçu*/
 
-                /*Envoie de cet ID par une requête POST vers notre application pour qu'elle soit traitée*/
+                /* Elaboration d'une url */
+                let url = "/broker/isSent/"+idBank+"/"+idProject;
+                const responseFree = await fetch(url, {
+                    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                    mode: 'cors', // no-cors, *cors, same-origin
+                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: 'same-origin', // include, *same-origin, omit
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    redirect: 'follow', // manual, *follow, error
+                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
+                }).then(res1 => res1.json());
 
-                let _data = {
-                    idProject: idProject,
-                    idBank: idBank
+                if(responseFree){
+                    window.alert("Error : Vous avez déja envoyé ce projet à cette banque");
                 }
+                else {
 
-                let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-                xmlhttp.open("POST", "/broker/sendIdProject");
-                xmlhttp.setRequestHeader("Content-Type", "application/json");
-                xmlhttp.send(JSON.stringify(_data));
+                    console.log("Le projet est de eeeee:" + idProject);
+
+                    /*Envoie de cet ID par une requête POST vers notre application pour qu'elle soit traitée*/
+
+                    let _data = {
+                        idProject: idProject,
+                        idBank: idBank
+                    }
+
+                    let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+                    xmlhttp.open("POST", "/broker/sendIdProject");
+                    xmlhttp.setRequestHeader("Content-Type", "application/json");
+                    xmlhttp.send(JSON.stringify(_data));
+                }
             }
 
 </script>
