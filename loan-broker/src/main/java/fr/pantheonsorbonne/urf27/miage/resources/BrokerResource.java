@@ -5,12 +5,10 @@ import fr.pantheonsorbonne.urf27.miage.dao.BankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
+import fr.pantheonsorbonne.urf27.miage.model.LoanProposal;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.ProjectSentBank;
-import fr.pantheonsorbonne.urf27.miage.service.BankService;
-import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
-import fr.pantheonsorbonne.urf27.miage.service.ProjectSentBankServiceImpl;
-import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
+import fr.pantheonsorbonne.urf27.miage.service.*;
 import fr.pantheonsorbonne.urf27.miage.dao.ProjectSentBankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAO;
 import loan.commons.dto.ProjectDTO;
@@ -39,6 +37,9 @@ public class BrokerResource {
 
     @Inject
     ProjectServiceImpl projectService;
+
+    @Inject
+    LoanProposalService loanProposalService;
 
     @Inject
     ProjectGateway projectGateway;
@@ -91,6 +92,12 @@ public class BrokerResource {
         return projectService.getAllProject();
     }
 
+    @Path("/getLoanProposal/{id}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public  Collection<LoanProposal> getLoanProposal(@PathParam("id") int id) throws EntityNotFoundException{
+        return loanProposalService.getAllLoanProposal(id);
+    }
 
     @Path("/mailUsed/{mail}")
     @GET
