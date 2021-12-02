@@ -35,13 +35,12 @@ async function controle() {
     let isDelivered = false;
 
     /* Vérification que l'adresse mail saisie n'existe pas déja */
-
     /*On construit l'URL selon le mail saisit par l'utilisateur */
 
-    let url = "/broker/mailUsed/"+email;
+    let url = "/mail/"+email;
 
     const responseMail = await fetch(url, {
-        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        method: 'HEAD', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
@@ -51,13 +50,13 @@ async function controle() {
         },
         redirect: 'follow', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
-    }).then(res => res.json());
+    });
 
-    /* Gestion de l'erreur de saisie d'un mail déja existant*/
-    if(responseMail) {
-        window.alert("Error : ce mail existe déja");
-    } else {
-
+    //Message d'erreur contenu dans le header de la requete
+    if(responseMail.status!=404){
+        window.alert("Error : l'email est deja present")
+    }
+    console.log(responseMail.status);
         /* Création au format JSON des informations saisies par l'utilisateur*/
 
         let _data = {
@@ -107,7 +106,7 @@ async function controle() {
         console.log(_data);
 
         let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-        xmlhttp.open("POST", "/broker/createProject");
+        xmlhttp.open("POST", "/project/project");
         xmlhttp.setRequestHeader("Content-Type", "application/json");
         xmlhttp.send(JSON.stringify(_data));
         // }else{
@@ -115,5 +114,4 @@ async function controle() {
         if (!requiredValue) {
             window.alert("Error : la somme doit être supérieur à 0")
         }
-    }
 }

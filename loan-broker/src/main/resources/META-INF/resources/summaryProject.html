@@ -13,7 +13,7 @@
             bankIdTab = [];
 
             /* Récupération de tous les projets associés à ce broker */
-            const response = await fetch("/broker/getProject", {
+            const response = await fetch("/project/projects", {
                 method: 'GET', // *GET, POST, PUT, DELETE, etc.
                 mode: 'cors', // no-cors, *cors, same-origin
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -30,7 +30,7 @@
             /* Récupération de toutes les banques associées au broker */
 
 
-            const responseBank = await fetch("/broker/getBanks", {
+            const responseBank = await fetch("/bank/banks", {
                 method: 'GET', // *GET, POST, PUT, DELETE, etc.
                 mode: 'cors', // no-cors, *cors, same-origin
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -128,9 +128,9 @@
             /* Vérification si la banque à qui on désire envoyer le project ne l'a pas deja reçu*/
 
             /* Elaboration d'une url */
-            let url = "/broker/isSent/"+idBank+"/"+idProject;
+            let url = "/project/"+idBank+"/"+idProject;
             const responseFree = await fetch(url, {
-                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                method: 'HEAD', // *GET, POST, PUT, DELETE, etc.
                 mode: 'cors', // no-cors, *cors, same-origin
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
                 credentials: 'same-origin', // include, *same-origin, omit
@@ -140,13 +140,12 @@
                 },
                 redirect: 'follow', // manual, *follow, error
                 referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
-            }).then(res1 => res1.json());
+            });
 
-            if(responseFree){
+            console.log(responseFree.status)
+            if(responseFree.status!=404){
                 window.alert("Error : Vous avez déja envoyé ce projet à cette banque");
-            }
-            else {
-
+            }else {
                 console.log("Le projet est de eeeee:" + idProject);
 
                 /*Envoie de cet ID par une requête POST vers notre application pour qu'elle soit traitée*/
