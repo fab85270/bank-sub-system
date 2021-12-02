@@ -29,5 +29,12 @@
       <jdbc-url>jdbc:mysql://mysql.miage.dev:80/losego_db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="bodo_db@mysql.miage.dev" uuid="ba16cdbb-3d39-40a0-90ce-c6346cdd3594">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://mysql.miage.dev:80/bodo_db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
