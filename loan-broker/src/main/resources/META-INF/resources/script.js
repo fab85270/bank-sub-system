@@ -38,7 +38,6 @@ async function controle() {
     /*On construit l'URL selon le mail saisit par l'utilisateur */
 
     let url = "/mail/"+email;
-
     const responseMail = await fetch(url, {
         method: 'HEAD', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
@@ -55,63 +54,63 @@ async function controle() {
     //Message d'erreur contenu dans le header de la requete
     if(responseMail.status!=404){
         window.alert("Error : l'email est deja present")
-    }
-    console.log(responseMail.status);
-    /* Création au format JSON des informations saisies par l'utilisateur*/
+    }else {
+        /* Création au format JSON des informations saisies par l'utilisateur*/
 
-    let _data = {
+        let _data = {
 
-        "projectDescription": projectDescription,
-        "requiredValue": requiredValue,
-        "durationMax": durationMax,
-        "proposalDate": proposalDate,
-        "expirationDate": expirationDate,
-        "isDelivered": isDelivered,
-        "realEstateId": {
-            "surface": surface,
-            "constructionYear": constructionYear,
-            "price": price,
-            "numberOfRooms": numberOfRooms,
-            "addressId": {
-                "streetName": streetNameRealEstate,
-                "streetNumber": streetNumberRealEstate,
-                "postalCode": postalCodeRealEstate,
-                "city": cityRealEstate,
-                "complementaryAddress": complementaryAddressRealEstate
+            "projectDescription": projectDescription,
+            "requiredValue": requiredValue,
+            "durationMax": durationMax,
+            "proposalDate": proposalDate,
+            "expirationDate": expirationDate,
+            "isDelivered": isDelivered,
+            "realEstateId": {
+                "surface": surface,
+                "constructionYear": constructionYear,
+                "price": price,
+                "numberOfRooms": numberOfRooms,
+                "addressId": {
+                    "streetName": streetNameRealEstate,
+                    "streetNumber": streetNumberRealEstate,
+                    "postalCode": postalCodeRealEstate,
+                    "city": cityRealEstate,
+                    "complementaryAddress": complementaryAddressRealEstate
+                },
             },
-        },
-        "borrowerId": {
-            "addressId": {
-                "streetName": streetNameBorrower,
-                "streetNumber": streetNumberBorrower,
-                "postalCode": postalCodeBorrower,
-                "city": cityBorrower,
-                "complementaryAddress": complementaryAddressBorrower
-            },
-            "email": email,
-            "firstName": firstName,
-            "lastName": lastName,
-            "gender": gender,
-            "birthdate": birthdate,
-            "employmentContract": employmentContract,
-            "annualSalary": annualSalary,
-            "firstDeposit": firstDeposit,
-            "phoneNumber": phoneNumber,
-            "requiredInterest": requiredInterest,
-            "monthlyRefund": monthlyRefund,
-            "debtRatio": debtRatio
+            "borrowerId": {
+                "addressId": {
+                    "streetName": streetNameBorrower,
+                    "streetNumber": streetNumberBorrower,
+                    "postalCode": postalCodeBorrower,
+                    "city": cityBorrower,
+                    "complementaryAddress": complementaryAddressBorrower
+                },
+                "email": email,
+                "firstName": firstName,
+                "lastName": lastName,
+                "gender": gender,
+                "birthdate": birthdate,
+                "employmentContract": employmentContract,
+                "annualSalary": annualSalary,
+                "firstDeposit": firstDeposit,
+                "phoneNumber": phoneNumber,
+                "requiredInterest": requiredInterest,
+                "monthlyRefund": monthlyRefund,
+                "debtRatio": debtRatio
+            }
         }
-    }
 
-    console.log(_data);
+        console.log(_data);
 
-    let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-    xmlhttp.open("POST", "/project/project");
-    xmlhttp.setRequestHeader("Content-Type", "application/json");
-    xmlhttp.send(JSON.stringify(_data));
-    // }else{
-    //if(!isDateDepart){window.alert("Error : la date de départ doit être supérieur à "+date.getFullYear()};
-    if (!requiredValue) {
-        window.alert("Error : la somme doit être supérieur à 0")
+        let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+        xmlhttp.open("POST", "/project/project");
+        xmlhttp.setRequestHeader("Content-Type", "application/json");
+        xmlhttp.send(JSON.stringify(_data));
+        // }else{
+        //if(!isDateDepart){window.alert("Error : la date de départ doit être supérieur à "+date.getFullYear()};
+        if (!requiredValue) {
+            window.alert("Error : la somme doit être supérieur à 0")
+        }
     }
 }

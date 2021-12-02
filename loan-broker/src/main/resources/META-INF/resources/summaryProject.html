@@ -128,7 +128,7 @@
             /* Vérification si la banque à qui on désire envoyer le project ne l'a pas deja reçu*/
 
             /* Elaboration d'une url */
-            let url = "/project/"+idBank+"/"+idProject;
+            let url = "/project/banks/"+idBank+"/banks/"+idProject;
             const responseFree = await fetch(url, {
                 method: 'HEAD', // *GET, POST, PUT, DELETE, etc.
                 mode: 'cors', // no-cors, *cors, same-origin
@@ -156,7 +156,7 @@
                 }
 
                 let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-                xmlhttp.open("POST", "/project/project");
+                xmlhttp.open("POST", "/project/projectBank");
                 xmlhttp.setRequestHeader("Content-Type", "application/json");
                 xmlhttp.send(JSON.stringify(_data));
             }
