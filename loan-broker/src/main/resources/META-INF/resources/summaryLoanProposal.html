@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Loan Proposal</title>
+        <script>
+            let loanProposalTab = [];
+
+            async function showLoanProposal(){
+                let idDuProjet = parseInt(document.getElementById("saisieProjet").value);
+
+                loanProposalTab = [];
+                let url = "/broker/getLoanProposal/"+idDuProjet;
+                console.log(url);
+
+                const response = await fetch(url, {
+                    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                    mode: 'cors', // no-cors, *cors, same-origin
+                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: 'same-origin', // include, *same-origin, omit
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    redirect: 'follow', // manual, *follow, error
+                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
+                }).then(res=>res.json());
+
+                console.log(response);
+                document.getElementById('p1').innerHTML = "";
+
+                for(const object in response){
+                    document.getElementById('p1').innerHTML+=
+                        '<br> Projet LoanProposal '+ object
+                        +'<br><br> Information Client : '
+                        +'<br>dateProposal : '+response[object].dateProposal
+                        +'<br>Description : '+response[object].description
+                        +'<br>Date de fin : '+response[object].endDate
+                        +'<br>Taux d interet : '+response[object].interestDate
+                        +'<br>Montant proposé : '+response[object].loanAmount
+                        +'<br>Temps emprunt : '+response[object].loanDurationMonth
+                        +'<br>Identifiant validation : '+response[object].description
+                        //+'<br>Bank : '+response[object].bankId.bankName+'<br>';
+                }
+            }
+
+            async function sentLoanProposal(){
+                //Recuperer l'id Client
+                //Recupere son mot de passe
+                //Supprimer les loanProposal de la table loanProposal
+            }
+        </script>
+        <style>
+            body{
+                background-color: antiquewhite;
+            }
+            h1{
+                text-align: center;
+            }
+            .form-check{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="showLoanProposal">
+            <h1>Recapitulatif des loan proposals</h1>
+            <div class="form-check">
+                <input type="number" class="form-control" id="saisieProjet" placeholder="Saisir le numéro du projet" required="required">
+                <input type="button" class="form-check-input" id="btnProject" value="Envoyer votre choix !" onclick="showLoanProposal()">
+            </div>
+            <table>
+                <td id="p1">
+
+                </td>
+            </table>
+        </div>
+        <div class="sentLoanProposal">
+            <h1>Loan proposal à envoyer</h1>
+            <div class="form-check">
+                <input type="number" class="form-control" id="saisieLoanProposal" placeholder="Saisir le numéro de la proposition à envoyer" required="required">
+                <input type="button" class="form-check-input" id="btnLoanProposal" value="Envoyer votre choix !" onclick="sentLoanProposal()">
+            </div>
+        </div>
+    </body>
+</html>
