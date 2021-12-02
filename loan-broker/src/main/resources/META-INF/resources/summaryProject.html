@@ -30,7 +30,7 @@
                         /* On remplit le document pour affichage*/
 
                         document.getElementById('p1').innerHTML +=
-                            '<td> <br>Project numéro ' + object + ' : <br>' + '<br>Description : ' + response[object].projectDescription + '<br> Somme voulue : ' + response[object].demandedValue + ' euros<br>' + 'Date début souhaitée : ' + response[object].estimatedStartDate + '<br> Date de fin souhaitée : ' + response[object].estimatedDeadline + '<br> Projet délivré : ' + response[object].delivered + '<br>';
+                            '<td> <br>Project numéro ' + object + ' : <br>' + '<br>Description : ' + response[object].projectDescription + '<br> Somme voulue : ' + response[object].demandedValue + ' euros<br>' + 'Date de début d emprunt souhaité : ' + response[object].estimatedStartDate + '<br> Date de fin demprunt souhaitée : ' + response[object].estimatedDeadline + '<br> Projet délivré : ' + response[object].delivered + '<br>';
 
 
                         /*On stocke dans un tableau, tous les ID des différents projets qu'on recoit*/
@@ -38,15 +38,19 @@
                         projectIdTab.push(response[object].idProject);
 
                     }
+
             }
 
             function saisieProject(){
+                console.log(projectIdTab);
                 /* Récupération de la valeur saisie */
                 let projectSaisie = document.getElementById("projectSaisie").value;
 
+                console.log("Votre saiise est de : "+projectSaisie);
+
                 /*Gestion des cas d'erreurs de saisies */
 
-                if(projectSaisie > projectIdTab.length){window.alert("Error : Veillez saisir un numéro associé à un projet existant")}
+                if(projectSaisie > projectIdTab.length-1){window.alert("Error : Veillez saisir un numéro associé à un projet existant")}
                 if(projectSaisie < 0){window.alert("Error : Le numéro de projet saisit doit être supérieur à 0")}
                 if(projectIdTab.length ==0){window.alert("Error : Vous n'avez aucun project qui vous est associé")}
                 //Gérer le cas de la saisie d'une chaine de caractère avec regexp javascript ?

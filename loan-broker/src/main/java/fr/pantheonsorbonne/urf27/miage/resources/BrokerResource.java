@@ -2,29 +2,22 @@ package fr.pantheonsorbonne.urf27.miage.resources;
 
 import fr.pantheonsorbonne.urf27.miage.dao.BankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.BrokerDAOImpl;
-import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.model.Broker;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.service.BrokerServiceImpl;
-import fr.pantheonsorbonne.urf27.miage.service.ProjectService;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
+import loan.commons.dto.DummyDTO;
+import loan.commons.dto.SelectProjetBankDTO;
+import loan.commons.dto.ContratType;
 
 import javax.inject.Inject;
-import javax.json.Json;
-import javax.json.JsonObject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
+
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.temporal.ChronoField;
 import java.util.Collection;
-import java.util.List;
 
 @Path("/broker")
 public class BrokerResource {
@@ -67,7 +60,6 @@ public class BrokerResource {
     }
 
 
-
     @Path("/createBank")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
@@ -81,37 +73,26 @@ public class BrokerResource {
     @Path("/createProjectClient")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public void createProjectClient(JsonObject application){
-        /* Récupération de tous les éléments du formulaire sous formt JSONObject */
+    public void createProjectClient(DummyDTO application) {
 
-        String description = application.get("description").toString();
-        String workStatut = application.get("workStatut").toString();
-        //int demandedValue = Integer.parseInt(application.get("sommeVoulu").toString()); //Somme voulue
-
-
-        CharSequence dateDepart = application.get("dateDepart").toString();
-
-        /*Definition d'un formatteur */
-
-        if(dateDepart instanceof CharSequence) {
-            System.out.println("couc");
-        }
-
-        System.out.println(dateDepart);
-        //2020-09-28
-
-      //  LocalDate date = LocalDate.parse(dateDepart);
-       // Instant instant = date.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
+        /*On récupère toutes les données reçue depuis le formulaire */
+        String description = application.getDescription();
+        LocalDate dateDebut = application.getDateDepart();
+        LocalDate dateFin = application.getDateFin();
+        double sommeVoulu = application.getSommeVoulu();
+        ContratType contract = application.getWorkStatut();
 
 
+        /* Création du nouveau projet client suite aux informations obtenues dans le formulaire */
 
-        System.out.println(application);
+        projectService.createNewProjectClient(description, dateDebut, dateFin, sommeVoulu, contract);
+
     }
 
 
     /* Les deux Méthodes afin de gérer l'affichage des différents projets qui seront présentés au broker */
 
-        /* Méthode chargée de récupérer tous les projects clients réunis dans la base de données pour les afficher ensuite */
+    /* Méthode chargée de récupérer tous les projects clients réunis dans la base de données pour les afficher ensuite */
     @Path("/getProject")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -119,22 +100,25 @@ public class BrokerResource {
         return projectService.getAllProject();
     }
 
-        /*Chargée de la reception de l'identifiant du projet séléctionné par le broker*/
+    /*Chargée de la reception de l'identifiant du projet séléctionné par le broker*/
     @Path("/sendIdProject")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public void sendIdProject(JsonObject application) throws EntityNotFoundException {
-        System.out.println(application);
-        /* Récupération de l'ID envoyé sous format JSON et traduction en entier pour ensuite l'exploiter */
-        int idProject = Integer.parseInt(application.get("idProject").toString());
+    public void sendIdProject(SelectProjetBankDTO application) throws EntityNotFoundException {
 
-        /* Une fois envoyé, l'attribut isDelivered du projet devra changer d'état*/
+        /* Récupération de l'ID du projetClient retenu par le broker*/
+        int idProject = application.getIdProject();
 
-       projectService.changeIsDelivered(idProject);
+        /* Une fois envoyé, l'attribut isDelivered du projet Client devra changer d'état => est envoyé*/
 
-       /* TODO / CREER LE CREATION DU PROJETDTOCLIENT A ENVOYER A LA BANQUE (REALESTATE.. et tout) */
+        projectService.changeIsDelivered(idProject);
+
+        /* Création d'un projet DTO afin de pouvoir l'envoyer par la suite (il possède Estate.. et tout) */
+
+        //TODO A FAIRE
 
     }
-
-
 }
+
+
+

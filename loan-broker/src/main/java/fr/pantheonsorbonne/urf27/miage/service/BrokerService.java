@@ -12,4 +12,6 @@ public interface BrokerService {
 
     Collection<Bank> getBrokersBanks(int brokerId) throws EntityNotFoundException;
 
+
+
 }
