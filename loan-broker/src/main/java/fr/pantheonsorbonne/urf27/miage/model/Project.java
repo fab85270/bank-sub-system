@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalDate;
 
 @Entity
-public class Project {
+public class  Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

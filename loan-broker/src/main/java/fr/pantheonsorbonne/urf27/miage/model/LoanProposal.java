@@ -135,4 +135,21 @@ public class LoanProposal {
     public void setLoanDurationMonth(int loanDurationMonth) {
         this.loanDurationMonth = loanDurationMonth;
     }
+
+    @Override
+    public String toString() {
+        return "LoanProposal{" +
+                "proposalId=" + proposalId +
+                ", projectId=" + projectId +
+                ", bankId=" + bankId +
+                ", dateProposal=" + dateProposal +
+                ", endDate=" + endDate +
+                ", validationNumber=" + validationNumber +
+                ", isValid=" + isValid +
+                ", loanAmount=" + loanAmount +
+                ", description='" + description + '\'' +
+                ", interestRate=" + interestRate +
+                ", loanDurationMonth=" + loanDurationMonth +
+                '}';
+    }
 }

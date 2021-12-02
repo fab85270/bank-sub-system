@@ -7,10 +7,9 @@
             let loanProposalTab = [];
 
             async function showLoanProposal(){
-                let idDuProjet = parseInt(document.getElementById("saisieProjet").value);
 
                 loanProposalTab = [];
-                let url = "/broker/getLoanProposal/"+idDuProjet;
+                let url = "/broker/getLoanProposal/";
                 console.log(url);
 
                 const response = await fetch(url, {
@@ -41,6 +40,7 @@
                         +'<br>Temps emprunt : '+response[object].loanDurationMonth
                         +'<br>Identifiant validation : '+response[object].description
                         //+'<br>Bank : '+response[object].bankId.bankName+'<br>';
+                        +'<br>';
                 }
             }
 
@@ -66,8 +66,7 @@
         <div class="showLoanProposal">
             <h1>Recapitulatif des loan proposals</h1>
             <div class="form-check">
-                <input type="number" class="form-control" id="saisieProjet" placeholder="Saisir le numéro du projet" required="required">
-                <input type="button" class="form-check-input" id="btnProject" value="Envoyer votre choix !" onclick="showLoanProposal()">
+                <input type="button" class="form-check-input" id="btnProject" value="Affichez vos proposition !" onclick="showLoanProposal()">
             </div>
             <table>
                 <td id="p1">

@@ -93,12 +93,11 @@ public class BrokerResource {
         return projectService.getAllProject();
     }
 
-    @Path("/getLoanProposal/{idDuProjet}")
+    @Path("/getLoanProposal/")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public  Collection<LoanProposal> getLoanProposal(@PathParam("idDuProjet") int idDuProjet) throws EntityNotFoundException{
-        System.out.println("test => "+idDuProjet);
-        return loanProposalService.getAllLoanProposal(idDuProjet);
+    public  Collection<LoanProposal> getLoanProposal() throws EntityNotFoundException{
+        return loanProposalService.getAllLoanProposal();
     }
 
     @Path("/mailUsed/{mail}")

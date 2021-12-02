@@ -6,5 +6,5 @@ import fr.pantheonsorbonne.urf27.miage.model.LoanProposal;
 import java.util.Collection;
 
 public interface LoanProposalService {
-    Collection<LoanProposal> getAllLoanProposal(int idDuProjet) throws EntityNotFoundException;
+    Collection<LoanProposal> getAllLoanProposal() throws EntityNotFoundException;
 }

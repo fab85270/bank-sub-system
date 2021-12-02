@@ -20,11 +20,14 @@ public class LoanProposalDAOImpl implements LoanProposalDAO{
     EntityManager em;
 
     @Override
-    public Collection<LoanProposal> getAllLoanProposal(int idDuProjet) throws EntityNotFoundException{
+    public Collection<LoanProposal> getAllLoanProposal() throws EntityNotFoundException{
         try{
-            return (Collection<LoanProposal>) em.createQuery("select l from LoanProposal l where l.projectId=:idDuProjet").setParameter("idDuProjet",idDuProjet).getResultList();
+            Collection<LoanProposal> test = (Collection<LoanProposal>) em.createQuery("select l from LoanProposal l").getResultList();
+            //System.out.println(test);
+            return test;
         }catch (NoResultException e){
             throw new EntityNotFoundException();
+            //
         }
     }
 }
