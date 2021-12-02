@@ -1,17 +1,15 @@
 package loan.bank.service;
 
-import loan.bank.exception.ProjectException;
-import loan.bank.exception.entityNotFound;
+import loan.bank.exception.LoanProposalException;
 import loan.commons.dto.LoanProposalDTO;
-import loan.commons.dto.ProjectDTO;
+
+import java.time.LocalDate;
 
 public interface TreatmentService {
-    //Faudra vérifier le reçu
-    LoanProposalDTO emitLoanProposal(ProjectDTO projetdto) throws entityNotFound.entityNotFoundException, ProjectException.ExpiredProjectException;
 
-    //On a rien compris (voir schéma tableau)
-    void receiveProject();
 
-    void deleteLoanProposal();
+    LoanProposalDTO setLastInfos(LoanProposalDTO proposal, LocalDate birthdate, double salary, double amount, double debtRatio) throws LoanProposalException.LoanProposalRefusedException;
+
+
 
 }

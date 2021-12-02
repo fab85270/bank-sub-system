@@ -17,22 +17,22 @@ public class ProjectDTO {
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate projectExpirationDate;
     private double projectRequiredValue;
-    private double projectDurationMax;
+    private int projectDurationMax;
     private RealEstateDTO realEstate;
-    private BorrowerDTO borrowerId;
+    private BorrowerDTO borrowerDTO;
 
     public ProjectDTO() {
     }
 
     public ProjectDTO(String projectDescription, LocalDate projectProposalDate, LocalDate projectExpirationDate,
-                      double projectRequiredValue, double projectDurationMax, RealEstateDTO realEstate, BorrowerDTO borrowerId) {
+                      double projectRequiredValue, int projectDurationMax, RealEstateDTO realEstate, BorrowerDTO borrowerDTO) {
         this.projectDescription = projectDescription;
         this.projectProposalDate = projectProposalDate;
         this.projectExpirationDate = projectExpirationDate;
         this.projectRequiredValue = projectRequiredValue;
         this.projectDurationMax = projectDurationMax;
         this.realEstate = realEstate;
-        this.borrowerId = borrowerId;
+        this.borrowerDTO = borrowerDTO;
     }
 
     public String getProjectDescription() {
@@ -67,11 +67,11 @@ public class ProjectDTO {
         this.projectRequiredValue = projectRequiredValue;
     }
 
-    public double getProjectDurationMax() {
+    public int getProjectDurationMax() {
         return projectDurationMax;
     }
 
-    public void setProjectDurationMax(double projectDurationMax) {
+    public void setProjectDurationMax(int projectDurationMax) {
         this.projectDurationMax = projectDurationMax;
     }
 
@@ -83,12 +83,12 @@ public class ProjectDTO {
         this.realEstate = realEstate;
     }
 
-    public BorrowerDTO getBorrowerId() {
-        return borrowerId;
+    public BorrowerDTO getBorrowerDTO() {
+        return borrowerDTO;
     }
 
-    public void setBorrowerId(BorrowerDTO borrowerId) {
-        this.borrowerId = borrowerId;
+    public void setBorrowerDTO(BorrowerDTO borrowerDTO) {
+        this.borrowerDTO = borrowerDTO;
     }
 
     @Override
@@ -100,7 +100,7 @@ public class ProjectDTO {
                 ", projectRequiredValue=" + projectRequiredValue +
                 ", projectDurationMax=" + projectDurationMax +
                 ", realEstate=" + realEstate +
-                ", borrowerDTO=" + borrowerId +
+                ", borrowerDTO=" + borrowerDTO +
                 '}';
     }
 }

@@ -8,7 +8,6 @@ public class LoanProposalDTO {
 
 
     ProjectDTO projectDTO;
-    BrokerDTO brokerDTO;
     LocalDate proposalDate;
     LocalDate endDate;
     Boolean isValid;
@@ -16,11 +15,19 @@ public class LoanProposalDTO {
     String description;
     double interestRate;
     int loanDurationMonth;
+    String nameBank;
 
     public LoanProposalDTO() {
     }
 
 
+    public String getNameBank() {
+        return nameBank;
+    }
+
+    public void setNameBank(String nameBank) {
+        this.nameBank = nameBank;
+    }
 
     public LocalDate getProposalDate() {
         return proposalDate;
@@ -87,7 +94,4 @@ public class LoanProposalDTO {
         this.projectDTO = projectDTO;
     }
 
-    public void setBrokerDTO(BrokerDTO brokerDTO) {
-        this.brokerDTO = brokerDTO;
-    }
 }
