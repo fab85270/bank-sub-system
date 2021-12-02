@@ -156,7 +156,7 @@
                 }
 
                 let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-                xmlhttp.open("POST", "/broker/sendIdProject");
+                xmlhttp.open("POST", "/project/project");
                 xmlhttp.setRequestHeader("Content-Type", "application/json");
                 xmlhttp.send(JSON.stringify(_data));
             }
