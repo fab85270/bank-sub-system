@@ -13,6 +13,7 @@ import fr.pantheonsorbonne.urf27.miage.dao.ProjectSentBankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAO;
 import loan.commons.dto.ProjectDTO;
 import loan.commons.dto.SelectProjetBankDTO;
+import org.hibernate.internal.build.AllowSysOut;
 import org.modelmapper.ModelMapper;
 
 import javax.inject.Inject;
@@ -92,11 +93,12 @@ public class BrokerResource {
         return projectService.getAllProject();
     }
 
-    @Path("/getLoanProposal/{id}")
+    @Path("/getLoanProposal/{idDuProjet}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public  Collection<LoanProposal> getLoanProposal(@PathParam("id") int id) throws EntityNotFoundException{
-        return loanProposalService.getAllLoanProposal(id);
+    public  Collection<LoanProposal> getLoanProposal(@PathParam("idDuProjet") int idDuProjet) throws EntityNotFoundException{
+        System.out.println("test => "+idDuProjet);
+        return loanProposalService.getAllLoanProposal(idDuProjet);
     }
 
     @Path("/mailUsed/{mail}")

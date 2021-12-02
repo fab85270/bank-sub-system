@@ -22,7 +22,7 @@ public class LoanProposalServiceImpl implements LoanProposalService {
 
 
     @Override
-    public Collection<LoanProposal> getAllLoanProposal(int idProj) throws EntityNotFoundException{
-        return LoanProposalDAO.getAllLoanProposal(idProj);
+    public Collection<LoanProposal> getAllLoanProposal(int idDuProjet) throws EntityNotFoundException{
+        return LoanProposalDAO.getAllLoanProposal(idDuProjet);
     }
 }
