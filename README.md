@@ -32,7 +32,7 @@ la commande [quarkus dev] dans le terminal de commande dans le répertoire coura
 Une fois le formulaire valide et envoyé, un projet sera crée pour ce client.
 Le broker(courtier), pourra ainsi observer l'ensemble des projets qui ont été crées et qui lui ont été soumis.
 Il pourra ensuite choisir, grâce à un nouveau formulaire situé à l'adresse suite (http://localhost:8080/ProjectSummary.html),
-envoyer ce projet client à ses banques partenaires qui ont été retenues par le borrower.
+envoyer ce projet client à ses banques partenaires qui ont été retenues par le borrower(client).
 
 
 
