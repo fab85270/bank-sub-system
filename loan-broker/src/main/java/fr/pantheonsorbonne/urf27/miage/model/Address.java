@@ -36,6 +36,7 @@ public class Address {
         this.complementaryAddress = complementaryAddress;
     }
 
+    /*Getter & Setters */
     public Integer getIdAddress() {
         return idAddress;
     }

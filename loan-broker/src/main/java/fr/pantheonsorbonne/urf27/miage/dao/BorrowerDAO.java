@@ -1,6 +1,6 @@
 package fr.pantheonsorbonne.urf27.miage.dao;
 
-import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
+import fr.pantheonsorbonne.urf27.miage.exception.BorrowerException;
 import fr.pantheonsorbonne.urf27.miage.model.*;
 
 import java.time.LocalDate;
@@ -9,7 +9,7 @@ import java.util.List;
 public interface BorrowerDAO {
 
     /* Rechercher un borrower selon son mail */
-    Borrower findMatchingBorrower(String email) throws EntityNotFoundException; //Mail étant un attribut unique propre à chaque Borrower.
+    Borrower findMatchingBorrower(String email) throws BorrowerException.BorrowerNotFound; //Mail étant un attribut unique propre à chaque Borrower.
 
     /*Obtenir la liste de tous les borrowers */
     List<Borrower> listBorrower();
@@ -26,5 +26,7 @@ public interface BorrowerDAO {
                                double requiredInterest, int requiredDuration, double monthlyRefund, double debtRatio);
 
     Borrower createNewBorrower(Borrower borrower);
+
+    Boolean mailUsed(String mail);
 
 }

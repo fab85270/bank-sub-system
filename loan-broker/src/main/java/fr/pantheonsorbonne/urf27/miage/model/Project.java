@@ -52,6 +52,7 @@ public class Project {
         this.isDelivered = false;
     }
 
+    /*Getter & Setters */
     public Integer getProjectId() {
         return projectId;
     }

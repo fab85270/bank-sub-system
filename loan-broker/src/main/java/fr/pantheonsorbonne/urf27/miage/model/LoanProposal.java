@@ -60,6 +60,7 @@ public class LoanProposal {
 
     }
 
+    /*Getter & Setters */
     public Integer getProposalId() {
         return proposalId;
     }

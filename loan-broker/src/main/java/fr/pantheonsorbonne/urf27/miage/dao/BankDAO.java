@@ -1,15 +1,15 @@
 package fr.pantheonsorbonne.urf27.miage.dao;
 
 import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
-import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Address;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
-
-import java.util.List;
+import java.util.Collection;
 
 public interface BankDAO {
 
-    Bank findMatchingBank(String name) throws EntityNotFoundException;
+    Bank findMatchingBank(String name)  throws BankExceptions.BankNotFound;
+
+    Bank findBank(int idBank);
 
     Bank createNewBank(String name, Address address) throws BankExceptions.BankAlreadyExists;
 
@@ -19,5 +19,8 @@ public interface BankDAO {
 
     void clearBank(String name);
 
-    List<Bank> getBanks();
+    Collection<Bank> getBanks() throws BankExceptions.BanksNotFound;
+
+    void createBankTest() throws BankExceptions.BankAlreadyExists;
+
 }

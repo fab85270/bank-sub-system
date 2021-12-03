@@ -4,10 +4,13 @@ import fr.pantheonsorbonne.urf27.miage.dao.AddressDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.BorrowerDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.RealEstateDAOImpl;
+import fr.pantheonsorbonne.urf27.miage.exception.ProjectExceptions;
 import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.RealEstate;
-import jdk.jfr.StackTrace;
+
+import java.util.Collection;
+
 import loan.commons.dto.ProjectDTO;
 import org.modelmapper.ModelMapper;
 
@@ -17,7 +20,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 @ApplicationScoped
 public class ProjectServiceImpl implements ProjectService {
@@ -40,7 +42,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     @Transactional
     public Project createProject(Borrower borrower, RealEstate realEstate, String projectDescription,
-                                 LocalDate proposalDate, LocalDate projectExpirationDate, double requiredValue, int durationMax) {
+                                 LocalDate proposalDate, LocalDate projectExpirationDate , double requiredValue, int durationMax) {
         Project project = new Project();
         addressDAO.createAddress(realEstate.getAddressId());
         realEstate.setAddressId(realEstate.getAddressId());
@@ -56,10 +58,13 @@ public class ProjectServiceImpl implements ProjectService {
         project.setExpirationDate(projectExpirationDate);
         project.setDurationMax(durationMax);
 
+        project.setDelivered(false);
+
         projectDAO.createProject(project);
         return project;
     }
 
+    /* Méthode chargée d'obtenir un projet */
     @Override
     @Transactional
     public ProjectDTO getProject(int id) {
@@ -68,4 +73,24 @@ public class ProjectServiceImpl implements ProjectService {
         return modelMapper.map(em.find(Project.class, id), ProjectDTO.class);
     }
 
+    /* Méthode chargée d'obtenir tous les projets */
+    @Override
+    public Collection<Project> getAllProject() throws ProjectExceptions.ProjectsNotFound {
+        return projectDAO.getAllProject();
+    }
+
+
+    /*Est utilise pour savoir si un mail a deja ete utilise pour la creation d un profil de borrower*/
+    @Override
+    @Transactional
+    public Boolean mailUsed(String mail){
+        return borrowerDAO.mailUsed(mail);
+
+    }
+
+
+    @Override
+    public Project findProject(int idProject) throws ProjectExceptions.ProjectNotFoundId {
+        return projectDAO.findProject(idProject);
+    }
 }

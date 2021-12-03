@@ -1,38 +1,48 @@
 # bank-sub-system
 
 ##Objectifs du système à modéliser : 
-Communication entre un client, un broker et une banque en vue d'obtention d'un
-financement pour l'obtention d'un bien immobilier.
 
-On propose de modéliser un système d'acquisition d'un emprunt pouvant supporter plusieurs banques (bank)
-ainsi que plusieurs courtiers (broker).
-Le système master, gère 
+On propose ici de modéliser un système de gestion de l'acquisition d'un emprunt entre un Borrower(client) et une banque 
+grâce à un Broker(courtier).
+A noter que ces emprunts se feront uniquement pour l'achat de biens immobiliers ( appartements, maisons, chateaux..).
+
+Le courtier(broker) se caractérise comme un intermédiaire entre la banque et l'acquéreur afin d'obtenir un emprunt au meilleur
+taux selon un projet client.
+Son rôle est de recevoir le dossier du client; déterminer avec approbation du client, quels sont les organismes
+de crédit à contacter parmi ceux avec lesquels il est partenaire. 
 
 
-Le courtier(broker) se caractérise d'intermédiaire entre la banque et l'acquéreur afin d'obtenir un emprunt au meilleur
-taux selon le projet. Son rôle est de recevoir le dossier du client, déterminer avec le client quels sont les organismes 
-de crédit à contacter parmi ceux partenaires au broker. Suite à cela, après été reçu par mail, le dossier client sera
-envoyé aux organismes de crédit séléctionnés.
+Le système Bank, génère des propositions d'emprunts (simulation de financement) selon un projet qui lui est soumis.
+Cette proposition, pourra prendre différentes formes selon les banques et les règles métiers qu'elles fixent :
+    - tranche d'âge 
+    - Remboursement ?..
+    -> A compléter avec la logique métier que Abel a implementé.
 
-La banque/organisme de crédit(bank), propose une simulation de financement (loan proposal) pour le projet dédié.
 
-Lors de l'obtention d'une option de financement, on a plusieurs phases
 
-###Phase 1 : 
-Le client renseigne ses informations sur lui et le prêt dans un formulaire.
-http://localhost:8080/
+La réalisation d'une proposition d'emprunt s'effectue en plusieurs phases : 
 
-Le projet est constitué, ainsi le broker peut voir tous ceux qu'on lui a proposé
+###Phase 1 : Création et envoie d'un projet dans le système du broker 
 
-Il choisit quel projet envoyé à quelle banque et l'envoie.
+Le client(borrower) remplit un formulaire de création d'un projet de demande d'emprunt. Ce formulaire possède
+ses informations personnelles (adresse, nom, Prénom..), des informations sur le bien qu'il désire acquérir à la suite
+de cet emprunt. Ce formulaire, se situe au localhost du projet (http://localhost:8080/) après avoir effectué 
+la commande [quarkus dev] dans le terminal de commande dans le répertoire courant du système "loan-broker".
 
-http://localhost:8080/ProjectSummary.html
+Une fois le formulaire valide et envoyé, un projet sera crée pour ce client.
+Le broker(courtier), pourra ainsi observer l'ensemble des projets qui ont été crées et qui lui ont été soumis.
+Il pourra ensuite choisir, grâce à un nouveau formulaire situé à l'adresse suite (http://localhost:8080/ProjectSummary.html),
+envoyer ce projet client à ses banques partenaires qui ont été retenues par le borrower(client).
 
-###Phase 2 :
-La bank reçoit sur une queue:JMS les différents projets qu'on lui propose, il les affiche et les analyse
-Selon des règles métiers précises.
 
-Les projets qui sont acceptés sont transformées en loanProposal et sont renvoyées au Broker
+
+###Phase 2 : Réception du project et génération d'une proposition d'emprunt 
+
+Le Système de la bank (loan-bank) reçoit sur une queue:JMS les différents projets qu'on a décidé de lui soumettre.
+Suite à cette reception, selon les règles métiers définies pour la banque choisie par le projet, une proposition
+d'emprunt sera générée. Elle se verra transmise par la suite au courtier(broker) par le moyen d'une queue:JMS. 
+
+
 
 ###Phase 3 :
 Le Broker reçoit les loan proposals (les projets qui ont été validés par la banque)

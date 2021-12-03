@@ -26,6 +26,7 @@ public class Bank {
         this.addressId = idAddress;
     }
 
+    /*Getter & Setters */
     public Integer getBankId() {
         return bankId;
     }
