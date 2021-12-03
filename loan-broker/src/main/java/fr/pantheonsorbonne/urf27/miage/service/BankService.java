@@ -8,11 +8,11 @@ import java.util.Collection;
 
 public interface BankService {
 
-    Bank createBank(Bank bank) throws EntityNotFoundException, BankExceptions.BankAlreadyExists;
+    Bank createBank(Bank bank) throws BankExceptions.BankAlreadyExists;
 
-    Bank findBank(int idBank) throws EntityNotFoundException;
+    Bank findBank(int idBank) throws BankExceptions.BanksNotFoundId;
 
-    Collection<Bank> getBanks();
+    Collection<Bank> getBanks() throws BankExceptions.BanksNotFound;
 
-    void createBankTest();
+    void createBankTest() throws BankExceptions.BankAlreadyExists;
 }

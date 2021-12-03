@@ -5,6 +5,7 @@ import fr.pantheonsorbonne.urf27.miage.dao.BorrowerDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.RealEstateDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
+import fr.pantheonsorbonne.urf27.miage.exception.ProjectExceptions;
 import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.RealEstate;
@@ -70,6 +71,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     @Transactional
     public ProjectDTO getProject(int id) {
+
         System.out.println(em.find(Project.class, id));
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(em.find(Project.class, id), ProjectDTO.class);
@@ -77,7 +79,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     /* Méthode chargée d'obtenir tous les projets */
     @Override
-    public Collection<Project> getAllProject() throws EntityNotFoundException {
+    public Collection<Project> getAllProject() throws ProjectExceptions.ProjectsNotFound{
         return projectDAO.getAllProject();
     }
 
@@ -99,7 +101,7 @@ public class ProjectServiceImpl implements ProjectService {
 
 
     @Override
-    public Project findProject(int idProject) throws EntityNotFoundException {
+    public Project findProject(int idProject) throws ProjectExceptions.ProjectNotFoundId {
         return projectDAO.findProject(idProject);
     }
 }

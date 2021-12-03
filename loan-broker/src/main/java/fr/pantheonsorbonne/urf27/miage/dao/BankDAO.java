@@ -10,9 +10,9 @@ import java.util.List;
 
 public interface BankDAO {
 
-    Bank findMatchingBank(String name) throws EntityNotFoundException;
+    Bank findMatchingBank(String name) throws BankExceptions.BankNotFound;
 
-    Bank findBank(int idBank) throws EntityNotFoundException;
+    Bank findBank(int idBank) throws BankExceptions.BankNotFound, BankExceptions.BanksNotFoundId;
 
     Bank createNewBank(String name, Address address) throws BankExceptions.BankAlreadyExists;
 
@@ -22,8 +22,8 @@ public interface BankDAO {
 
     void clearBank(String name);
 
-    Collection<Bank> getBanks();
+    Collection<Bank> getBanks() throws BankExceptions.BanksNotFound;
 
-    void createBankTest();
+    void createBankTest() throws BankExceptions.BankAlreadyExists;
 
 }

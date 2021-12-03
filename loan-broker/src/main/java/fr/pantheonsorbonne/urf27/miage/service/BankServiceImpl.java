@@ -30,21 +30,21 @@ public class BankServiceImpl implements BankService{
     /*
     * Permet de rechercher une banque a partir de son ID
     */
-    public Bank findBank(int idBank) throws EntityNotFoundException{
+    public Bank findBank(int idBank) throws BankExceptions.BanksNotFoundId {
         return bankDAO.findBank(idBank);
     }
 
     /*
     * Renvoie toutes les banques presentes dans la BDD
     */
-    public Collection<Bank> getBanks(){
+    public Collection<Bank> getBanks() throws BankExceptions.BanksNotFound{
         return bankDAO.getBanks();
     }
 
     /*
     * Cree une liste de bank pour les tests
     */
-    public void createBankTest(){
+    public void createBankTest() throws BankExceptions.BankAlreadyExists {
         bankDAO.createBankTest();
     }
 }

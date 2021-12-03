@@ -1,7 +1,11 @@
 package fr.pantheonsorbonne.urf27.miage.resources;
 
 import fr.pantheonsorbonne.urf27.miage.camel.gateways.ProjectGateway;
+import fr.pantheonsorbonne.urf27.miage.dao.BankDAOImpl;
+import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
+import fr.pantheonsorbonne.urf27.miage.exception.ProjectExceptions;
+import fr.pantheonsorbonne.urf27.miage.model.Address;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.service.BankService;
@@ -30,6 +34,9 @@ public class ProjectResource {
     ProjectSentBankServiceImpl projectSentBankService;
 
     @Inject
+    BankDAOImpl bankdao;
+
+    @Inject
     BankService bankService;
 
     /*
@@ -54,7 +61,7 @@ public class ProjectResource {
     @Path("/projects")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public Collection<Project> getProject() throws EntityNotFoundException {
+    public Collection<Project> getProject() throws ProjectExceptions.ProjectsNotFound {
         return projectService.getAllProject();
     }
 
@@ -75,7 +82,7 @@ public class ProjectResource {
      */
     @Path("/banks/{idBank}/banks/{idProject}")
     @HEAD
-    public Response isSent(@PathParam("idBank") int idBank, @PathParam("idProject") int idProject) throws EntityNotFoundException {
+    public Response isSent(@PathParam("idBank") int idBank, @PathParam("idProject") int idProject) throws  ProjectExceptions.ProjectNotFoundId, BankExceptions.BanksNotFoundId {
 
         /* On récupère les objets associés aux identifiants obtenus */
         Bank b = bankService.findBank(idBank);
@@ -98,7 +105,7 @@ public class ProjectResource {
     @Path("/projectBank")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public void sendIdProject(SelectProjetBankDTO application) throws EntityNotFoundException {
+    public void sendIdProject(SelectProjetBankDTO application) throws ProjectExceptions.ProjectNotFoundId, BankExceptions.BanksNotFoundId {
 
         /*Affichage de l'object JSON obtenu */
         System.out.println(application.toString());

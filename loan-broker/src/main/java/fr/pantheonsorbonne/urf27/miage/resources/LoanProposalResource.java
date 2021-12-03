@@ -1,6 +1,7 @@
 package fr.pantheonsorbonne.urf27.miage.resources;
 
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
+import fr.pantheonsorbonne.urf27.miage.exception.LoanProposalExceptions;
 import fr.pantheonsorbonne.urf27.miage.model.LoanProposal;
 import fr.pantheonsorbonne.urf27.miage.service.LoanProposalService;
 
@@ -21,7 +22,7 @@ public class LoanProposalResource {
     @Path("/loanProposals/")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public Collection<LoanProposal> getLoanProposal() throws EntityNotFoundException {
+    public Collection<LoanProposal> getLoanProposal() throws LoanProposalExceptions.LoanProposalsNotFound {
         return loanProposalService.getAllLoanProposal();
     }
 }

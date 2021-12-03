@@ -1,6 +1,7 @@
 package fr.pantheonsorbonne.urf27.miage.dao;
 
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
+import fr.pantheonsorbonne.urf27.miage.exception.ProjectExceptions;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 
@@ -26,11 +27,11 @@ public class ProjectDAOImpl implements ProjectDAO {
     }
 
     @Override
-    public Collection<Project> getAllProject() throws EntityNotFoundException {
+    public Collection<Project> getAllProject() throws ProjectExceptions.ProjectsNotFound{
         try{
             return (Collection<Project>) em.createQuery("Select p from Project p").getResultList();
         }catch (NoResultException e){
-            throw new EntityNotFoundException();
+            throw new ProjectExceptions.ProjectsNotFound();
         }
     }
 
@@ -46,12 +47,12 @@ public class ProjectDAOImpl implements ProjectDAO {
     }
 
     @Override
-    public Project findProject(int idProject) throws EntityNotFoundException {
+    public Project findProject(int idProject) throws ProjectExceptions.ProjectNotFoundId {
         try {
             Project p = (Project) em.createQuery("Select p from Project p where p.projectId=:idProject").setParameter("idProject", idProject).getSingleResult();
             return p;
         } catch (NoResultException e) {
-            throw new EntityNotFoundException();
+            throw new ProjectExceptions.ProjectNotFoundId(idProject);
         }
     }
 

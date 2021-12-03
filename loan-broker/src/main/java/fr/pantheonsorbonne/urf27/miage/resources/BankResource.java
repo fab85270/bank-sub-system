@@ -27,7 +27,7 @@ public class BankResource {
     @Path("/bank")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public Bank createBank(Bank bank) throws EntityNotFoundException, BankExceptions.BankAlreadyExists {
+    public Bank createBank(Bank bank) throws BankExceptions.BankAlreadyExists {
         return bankService.createBank(bank);
     }
 
@@ -37,7 +37,7 @@ public class BankResource {
     @Path("/banks")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public Collection<Bank> getBanks() throws EntityNotFoundException {
+    public Collection<Bank> getBanks() throws BankExceptions.BanksNotFound {
         return bankService.getBanks();
 
     }

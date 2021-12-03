@@ -24,23 +24,23 @@ public class BankDAOImpl implements BankDAO {
 
     //Renvoie une banque que l on recherche pas son nom
     @Override
-    public Bank findMatchingBank(String name) throws EntityNotFoundException {
+    public Bank findMatchingBank(String name) throws BankExceptions.BankNotFound {
         try {
             Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankName=:name").setParameter("name", name).getSingleResult();
             return b;
         } catch (NoResultException e) {
-            throw new EntityNotFoundException();
+            throw new BankExceptions.BankNotFound(name);
         }
     }
 
     //Renvoie une banque que l on recherche pas son id
     @Override
-    public Bank findBank(int idBank) throws EntityNotFoundException{
+    public Bank findBank(int idBank) throws BankExceptions.BanksNotFoundId{
         try {
             Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankId=:idBank").setParameter("idBank", idBank).getSingleResult();
             return b;
         } catch (NoResultException e) {
-            throw new EntityNotFoundException();
+            throw new BankExceptions.BanksNotFoundId(idBank);
         }
 
     }
@@ -63,7 +63,6 @@ public class BankDAOImpl implements BankDAO {
             em.persist(bank);
             return bank;
         }
-
         throw new BankExceptions.BankAlreadyExists(name);
     }
 
@@ -72,6 +71,7 @@ public class BankDAOImpl implements BankDAO {
     @Override
     @Transactional
     public Bank createNewBank(Bank bank) throws BankExceptions.BankAlreadyExists {
+
         if (em.find(Bank.class, bank.getBankId()) == null) {
             em.persist(bank);
             return bank;
@@ -82,11 +82,11 @@ public class BankDAOImpl implements BankDAO {
 
     @Override
     @Transactional
-    public void createBankTest() {
+    public void createBankTest() throws BankExceptions.BankAlreadyExists {
 
         Address a = new Address("ueeeez",7,23,"e","e");
         em.persist(a);
-        Bank b = new Bank("Credit Mutueleeee",a);
+        Bank b = new Bank("LCL",a);
         em.persist(b);
 
         Address a1 = new Address("ueeeeee",7,23,"e","e");
@@ -110,7 +110,7 @@ public class BankDAOImpl implements BankDAO {
     }
 
     @Override
-    public Collection<Bank> getBanks() {
+    public Collection<Bank> getBanks() throws BankExceptions.BanksNotFound{
         return (Collection<Bank>) em.createQuery("Select b from Bank b").getResultList();
     }
 }

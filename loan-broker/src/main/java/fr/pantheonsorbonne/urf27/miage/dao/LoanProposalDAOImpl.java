@@ -2,6 +2,7 @@ package fr.pantheonsorbonne.urf27.miage.dao;
 
 import com.mysql.cj.xdevapi.AbstractDataResult;
 import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
+import fr.pantheonsorbonne.urf27.miage.exception.LoanProposalExceptions;
 import fr.pantheonsorbonne.urf27.miage.model.Address;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.model.LoanProposal;
@@ -20,13 +21,13 @@ public class LoanProposalDAOImpl implements LoanProposalDAO{
     EntityManager em;
 
     @Override
-    public Collection<LoanProposal> getAllLoanProposal() throws EntityNotFoundException{
+    public Collection<LoanProposal> getAllLoanProposal() throws LoanProposalExceptions.LoanProposalsNotFound{
         try{
             Collection<LoanProposal> test = (Collection<LoanProposal>) em.createQuery("select l from LoanProposal l").getResultList();
             //System.out.println(test);
             return test;
         }catch (NoResultException e){
-            throw new EntityNotFoundException();
+            throw new LoanProposalExceptions.LoanProposalsNotFound();
             //
         }
     }
