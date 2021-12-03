@@ -108,7 +108,7 @@ public class BrokerResource {
     @Path("/isSent/{bank}/{projet}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public Boolean isSent(@PathParam("bank") int idBank, @PathParam("projet") int idProject) throws EntityNotFoundException {
+    public Boolean isSent(@PathParam("bank") int idBank, @PathParam("projet") int idProject) throws EntityNotFoundException, BankExceptions.BankNotFound {
 
         /* On récupère les objets associés aux identifiants obtenus */
         Bank b = bankService.findBank(idBank);
@@ -124,7 +124,7 @@ public class BrokerResource {
     @Path("/sendIdProject")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public void sendIdProject(SelectProjetBankDTO application) throws EntityNotFoundException {
+    public void sendIdProject(SelectProjetBankDTO application) throws EntityNotFoundException, BankExceptions.BankNotFound {
 
         /*Affichage de l'object JSON obtenu */
         System.out.println(application.toString());

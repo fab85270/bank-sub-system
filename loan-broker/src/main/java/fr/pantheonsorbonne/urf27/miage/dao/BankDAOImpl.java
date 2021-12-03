@@ -22,23 +22,21 @@ public class BankDAOImpl implements BankDAO {
     EntityManager em;
 
     @Override
-    public Bank findMatchingBank(String name) throws EntityNotFoundException {
-        try {
-            Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankName=:name").setParameter("name", name).getSingleResult();
+    @Transactional
+    public Bank findMatchingBank(String name) throws BankExceptions.BankAlreadyExists {
+        Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankName=:name").setParameter("name", name).getSingleResult();
+        if (b != null)
             return b;
-        } catch (NoResultException e) {
-            throw new EntityNotFoundException();
-        }
+        throw new BankExceptions.BankAlreadyExists(name);
     }
 
     @Override
-    public Bank findBank(int idBank) throws EntityNotFoundException{
-        try {
-            Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankId=:idBank").setParameter("idBank", idBank).getSingleResult();
+    @Transactional
+    public Bank findBank(int idBank) throws BankExceptions.BankNotFound {
+        Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankId=:idBank").setParameter("idBank", idBank).getSingleResult();
+        if (b != null)
             return b;
-        } catch (NoResultException e) {
-            throw new EntityNotFoundException();
-        }
+        throw new BankExceptions.BankNotFound();
 
     }
 
@@ -78,14 +76,14 @@ public class BankDAOImpl implements BankDAO {
     @Transactional
     public void createBankTest() {
 
-        Address a = new Address("ueeeez",7,23,"e","e");
+        Address a = new Address("ueeeez", 7, 23, "e", "e");
         em.persist(a);
-        Bank b = new Bank("Credit Mutueleeee",a);
+        Bank b = new Bank("Credit Mutueleeee", a);
         em.persist(b);
 
-        Address a1 = new Address("ueeeeee",7,23,"e","e");
+        Address a1 = new Address("ueeeeee", 7, 23, "e", "e");
         em.persist(a1);
-        Bank b1 = new Bank("Credit agricoleeeee",a1);
+        Bank b1 = new Bank("Credit agricoleeeee", a1);
         em.persist(b1);
 
     }

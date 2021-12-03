@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 import java.util.Collection;
 
 @ApplicationScoped
-public class BankServiceImpl implements BankService{
+public class BankServiceImpl implements BankService {
 
     @PersistenceContext
     EntityManager em;
@@ -24,15 +24,15 @@ public class BankServiceImpl implements BankService{
         return bankDAO.createNewBank(bank);
     }
 
-    public Bank findBank(int idBank) throws EntityNotFoundException{
+    public Bank findBank(int idBank) throws BankExceptions.BankNotFound {
         return bankDAO.findBank(idBank);
     }
 
-    public Collection<Bank> getBanks(){
+    public Collection<Bank> getBanks() {
         return bankDAO.getBanks();
     }
 
-    public void createBankTest(){
+    public void createBankTest() {
         bankDAO.createBankTest();
     }
 }

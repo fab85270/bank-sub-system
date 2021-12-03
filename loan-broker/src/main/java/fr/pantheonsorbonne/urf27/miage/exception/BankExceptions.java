@@ -6,6 +6,11 @@ public class BankExceptions extends Exception {
         public BankAlreadyExists(String bankName) {
             super("Bank " + bankName + " already exists.");
         }
+    }
 
+    public static class BankNotFound extends Throwable {
+        public BankNotFound() {
+            super("Bank not found.");
+        }
     }
 }

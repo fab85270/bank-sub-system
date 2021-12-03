@@ -10,7 +10,7 @@ public interface BankService {
 
     Bank createBank(Bank bank) throws EntityNotFoundException, BankExceptions.BankAlreadyExists;
 
-    Bank findBank(int idBank) throws EntityNotFoundException;
+    Bank findBank(int idBank) throws EntityNotFoundException, BankExceptions.BankNotFound;
 
     Collection<Bank> getBanks();
 
