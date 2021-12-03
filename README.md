@@ -45,10 +45,11 @@ envoyer ce projet client à ses banques partenaires qui ont été retenues par l
 
 ###Phase 2 : Réception du project et génération d'une proposition d'emprunt 
 
-La bank reçoit sur une queue:JMS les différents projets qu'on lui propose, il les affiche et les analyse
-Selon des règles métiers précises.
+Le Système de la bank (loan-bank) reçoit sur une queue:JMS les différents projets qu'on a décidé de lui soumettre.
+Suite à cette reception, selon les règles métiers définies pour la banque choisie par le projet, une proposition
+d'emprunt sera générée. Elle se verra transmise par la suite au courtier(broker) par le moyen d'une queue:JMS. 
 
-Les projets qui sont acceptés sont transformées en loanProposal et sont renvoyées au Broker
+
 
 ###Phase 3 :
 Le Broker reçoit les loan proposals (les projets qui ont été validés par la banque)
