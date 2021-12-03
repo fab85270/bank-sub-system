@@ -1,9 +1,6 @@
 package fr.pantheonsorbonne.urf27.miage.service;
 
-import fr.pantheonsorbonne.urf27.miage.dao.AddressDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.ProjectSentBankDAOImpl;
-import fr.pantheonsorbonne.urf27.miage.dao.RealEstateDAOImpl;
-import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 

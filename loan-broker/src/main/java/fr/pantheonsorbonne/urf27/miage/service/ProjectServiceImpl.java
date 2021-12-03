@@ -4,13 +4,12 @@ import fr.pantheonsorbonne.urf27.miage.dao.AddressDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.BorrowerDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.dao.RealEstateDAOImpl;
-import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
+import fr.pantheonsorbonne.urf27.miage.exception.ProjectExceptions;
 import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 import fr.pantheonsorbonne.urf27.miage.model.RealEstate;
 
 import java.util.Collection;
-import jdk.jfr.StackTrace;
 
 import loan.commons.dto.ProjectDTO;
 import org.modelmapper.ModelMapper;
@@ -76,29 +75,22 @@ public class ProjectServiceImpl implements ProjectService {
 
     /* Méthode chargée d'obtenir tous les projets */
     @Override
-    public Collection<Project> getAllProject() throws EntityNotFoundException {
+    public Collection<Project> getAllProject() throws ProjectExceptions.ProjectsNotFound {
         return projectDAO.getAllProject();
     }
 
-    /*Change la valeur de isDelivered permettant de savoir si le projet a ete envoye*/
-    @Override
-    @Transactional
-    public void changeIsDelivered(int projectID) throws EntityNotFoundException{
-        /*Appel d'une méthode DAO pour effectuer les modifications (update) sur le projet client envoyé à la banque */
-        projectDAO.changeIsDelivered(projectID);
-    }
 
     /*Est utilise pour savoir si un mail a deja ete utilise pour la creation d un profil de borrower*/
     @Override
     @Transactional
-    public Boolean mailUsed(String mail) throws EntityNotFoundException{
+    public Boolean mailUsed(String mail){
         return borrowerDAO.mailUsed(mail);
 
     }
 
 
     @Override
-    public Project findProject(int idProject) throws EntityNotFoundException {
+    public Project findProject(int idProject) throws ProjectExceptions.ProjectNotFoundId {
         return projectDAO.findProject(idProject);
     }
 }

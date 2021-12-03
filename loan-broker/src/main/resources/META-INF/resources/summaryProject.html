@@ -111,54 +111,53 @@
                         } else {
                             if (bankSaisie < 0) {
                                 window.alert("Error : Le numéro de la banque saisie doit être supérieur à 0")
+                            } else {
+                                //Gérer le cas de la saisie d'une chaine de caractère avec regexp javascript ?
+
+                                /* Récupération de l'identifiant du projet associé */
+
+                                let idProject = projectIdTab[projectSaisie];
+                                let idBank = bankIdTab[bankSaisie];
+
+                                /* Vérification si la banque à qui on désire envoyer le project ne l'a pas deja reçu*/
+
+                                /* Elaboration d'une url */
+                                let url = "/project/banks/"+idBank+"/banks/"+idProject;
+                                const responseFree = await fetch(url, {
+                                    method: 'HEAD', // *GET, POST, PUT, DELETE, etc.
+                                    mode: 'cors', // no-cors, *cors, same-origin
+                                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                                    credentials: 'same-origin', // include, *same-origin, omit
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                    redirect: 'follow', // manual, *follow, error
+                                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
+                                });
+
+                                console.log(responseFree.status)
+                                if(responseFree.status!=404){
+                                    window.alert("Error : Vous avez déja envoyé ce projet à cette banque");
+                                }else {
+
+
+                                    /*Envoie de cet ID par une requête POST vers notre application pour qu'elle soit traitée*/
+
+                                    let _data = {
+                                        idProject: idProject,
+                                        idBank: idBank
+                                    }
+
+                                    let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+                                    xmlhttp.open("POST", "/project/projectBank");
+                                    xmlhttp.setRequestHeader("Content-Type", "application/json");
+                                    xmlhttp.send(JSON.stringify(_data));
+                                }
                             }
                         }
                     }
                 }
-            }
-
-
-            //Gérer le cas de la saisie d'une chaine de caractère avec regexp javascript ?
-
-            /* Récupération de l'identifiant du projet associé */
-
-            let idProject = projectIdTab[projectSaisie];
-            let idBank = bankIdTab[bankSaisie];
-
-            /* Vérification si la banque à qui on désire envoyer le project ne l'a pas deja reçu*/
-
-            /* Elaboration d'une url */
-            let url = "/project/banks/"+idBank+"/banks/"+idProject;
-            const responseFree = await fetch(url, {
-                method: 'HEAD', // *GET, POST, PUT, DELETE, etc.
-                mode: 'cors', // no-cors, *cors, same-origin
-                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                credentials: 'same-origin', // include, *same-origin, omit
-                headers: {
-                    'Content-Type': 'application/json'
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                redirect: 'follow', // manual, *follow, error
-                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
-            });
-
-            console.log(responseFree.status)
-            if(responseFree.status!=404){
-                window.alert("Error : Vous avez déja envoyé ce projet à cette banque");
-            }else {
-                console.log("Le projet est de eeeee:" + idProject);
-
-                /*Envoie de cet ID par une requête POST vers notre application pour qu'elle soit traitée*/
-
-                let _data = {
-                    idProject: idProject,
-                    idBank: idBank
-                }
-
-                let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-                xmlhttp.open("POST", "/project/projectBank");
-                xmlhttp.setRequestHeader("Content-Type", "application/json");
-                xmlhttp.send(JSON.stringify(_data));
             }
         }
 

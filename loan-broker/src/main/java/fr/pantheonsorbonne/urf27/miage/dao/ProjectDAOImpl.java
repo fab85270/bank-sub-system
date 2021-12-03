@@ -1,7 +1,6 @@
 package fr.pantheonsorbonne.urf27.miage.dao;
 
-import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
-import fr.pantheonsorbonne.urf27.miage.model.Bank;
+import fr.pantheonsorbonne.urf27.miage.exception.ProjectExceptions;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -32,35 +31,25 @@ public class ProjectDAOImpl implements ProjectDAO {
     Renvoie tous les projets présents dans la BDD
      */
     @Override
-    public Collection<Project> getAllProject() throws EntityNotFoundException {
+    public Collection<Project> getAllProject() throws ProjectExceptions.ProjectsNotFound {
         try{
             return (Collection<Project>) em.createQuery("Select p from Project p").getResultList();
         }catch (NoResultException e){
-            throw new EntityNotFoundException();
+            throw new ProjectExceptions.ProjectsNotFound();
         }
     }
 
-    /*
-   Methode modifiant la valeur de isDelivered afin de le passer à true une fois l'envoie du projet client valide par
-   le Brojer, ainsi il n'est plus affiche dans la liste de projet en cours
-    */
-    @Override
-    @Transactional
-    public void changeIsDelivered(int idProject) throws EntityNotFoundException{
-        System.out.println("ID du projet est : "+ idProject);
-        em.createQuery("UPDATE Project p SET p.isDelivered=true WHERE p.projectId=:idProject").setParameter("idProject",idProject).executeUpdate();
-    }
 
     /*
     Permet de trouver un projet avec son ID
      */
     @Override
-    public Project findProject(int idProject) throws EntityNotFoundException {
+    public Project findProject(int idProject) throws ProjectExceptions.ProjectNotFoundId {
         try {
             Project p = (Project) em.createQuery("Select p from Project p where p.projectId=:idProject").setParameter("idProject", idProject).getSingleResult();
             return p;
         } catch (NoResultException e) {
-            throw new EntityNotFoundException();
+            throw new ProjectExceptions.ProjectNotFoundId(idProject);
         }
     }
 

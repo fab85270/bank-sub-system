@@ -1,18 +1,14 @@
 package fr.pantheonsorbonne.urf27.miage.dao;
 
 import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
-import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.model.Address;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
-import fr.pantheonsorbonne.urf27.miage.model.Project;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.util.Collection;
-import java.util.List;
 import java.util.Collection;
 
 @ApplicationScoped
@@ -24,24 +20,22 @@ public class BankDAOImpl implements BankDAO {
 
     //Renvoie une banque que l on recherche pas son nom
     @Override
-    public Bank findMatchingBank(String name) throws EntityNotFoundException {
+    public Bank findMatchingBank(String name) throws BankExceptions.BankNotFound {
         try {
             Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankName=:name").setParameter("name", name).getSingleResult();
             return b;
         } catch (NoResultException e) {
-            throw new EntityNotFoundException();
+            throw new BankExceptions.BankNotFound(name);
         }
     }
 
     //Renvoie une banque que l on recherche pas son id
     @Override
-    public Bank findBank(int idBank) throws EntityNotFoundException{
-        try {
+    public Bank findBank(int idBank)
+    {
             Bank b = (Bank) em.createQuery("Select b from Bank b where b.bankId=:idBank").setParameter("idBank", idBank).getSingleResult();
             return b;
-        } catch (NoResultException e) {
-            throw new EntityNotFoundException();
-        }
+
 
     }
 
@@ -127,7 +121,7 @@ public class BankDAOImpl implements BankDAO {
     Renvoie toutes les banques présentes dans la BDD
      */
     @Override
-    public Collection<Bank> getBanks() {
+    public Collection<Bank> getBanks() throws BankExceptions.BanksNotFound {
         return (Collection<Bank>) em.createQuery("Select b from Bank b").getResultList();
     }
 }

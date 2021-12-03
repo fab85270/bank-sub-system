@@ -1,11 +1,9 @@
 package fr.pantheonsorbonne.urf27.miage.resources;
 
-import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
 import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/mail")
@@ -19,7 +17,7 @@ public class MailResource {
     */
     @Path("/{mailId}")
     @HEAD
-    public Response mailUsed(@PathParam("mailId") String mail) throws EntityNotFoundException {
+    public Response mailUsed(@PathParam("mailId") String mail){
 
         if(projectService.mailUsed(mail)){
             Response r = Response

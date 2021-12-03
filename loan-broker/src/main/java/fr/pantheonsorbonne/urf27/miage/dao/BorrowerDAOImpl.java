@@ -1,7 +1,7 @@
 package fr.pantheonsorbonne.urf27.miage.dao;
 
 
-import fr.pantheonsorbonne.urf27.miage.exception.EntityNotFoundException;
+import fr.pantheonsorbonne.urf27.miage.exception.BorrowerException;
 import fr.pantheonsorbonne.urf27.miage.model.*;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -23,12 +23,12 @@ public class BorrowerDAOImpl implements BorrowerDAO {
     Recherche un Borrower en fonction de son mail
      */
     @Override
-    public Borrower findMatchingBorrower(String email) throws EntityNotFoundException {
+    public Borrower findMatchingBorrower(String email) throws BorrowerException.BorrowerNotFound {
         try {
             Borrower b = (Borrower) em.createQuery("Select b from Borrower b where b.email=:email").setParameter("email", email).getSingleResult();
             return b;
         } catch (NoResultException e) {
-            throw new EntityNotFoundException();
+            throw new BorrowerException.BorrowerNotFound(email);
         }
     }
 
