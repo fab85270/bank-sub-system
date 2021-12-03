@@ -18,9 +18,11 @@ import java.util.Collection;
 @ApplicationScoped
 public class BankDAOImpl implements BankDAO {
 
-    @PersistenceContext(name = "mysql") //Ajout du context de persistence connect à la base de donnée "mySql"
+    //Ajout du context de persistence connect à la base de donnée "mySql"
+    @PersistenceContext(name = "mysql")
     EntityManager em;
 
+    //Renvoie une banque que l on recherche pas son nom
     @Override
     public Bank findMatchingBank(String name) throws EntityNotFoundException {
         try {
@@ -31,6 +33,7 @@ public class BankDAOImpl implements BankDAO {
         }
     }
 
+    //Renvoie une banque que l on recherche pas son id
     @Override
     public Bank findBank(int idBank) throws EntityNotFoundException{
         try {
@@ -42,7 +45,8 @@ public class BankDAOImpl implements BankDAO {
 
     }
 
-
+    //Insere une nouvelle banque dans la BDD
+    //Cree à partir de son nom et son adresse
     @Override
     @Transactional
     public Bank createNewBank(String name, Address address) throws BankExceptions.BankAlreadyExists {
@@ -63,6 +67,8 @@ public class BankDAOImpl implements BankDAO {
         throw new BankExceptions.BankAlreadyExists(name);
     }
 
+    //Insere une nouvelle banque dans la BDD
+    //Cree à partir d'une entite Bank
     @Override
     @Transactional
     public Bank createNewBank(Bank bank) throws BankExceptions.BankAlreadyExists {

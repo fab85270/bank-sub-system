@@ -21,6 +21,9 @@ public class LoanProposalServiceImpl implements LoanProposalService {
     LoanProposalDAOImpl LoanProposalDAO;
 
 
+    /*Renvoie l'entièreté des loanProposal
+    * Permet pour un broker de voir les loan proposal qu'il a recu et lesquels choisir pour un client
+    */
     @Override
     public Collection<LoanProposal> getAllLoanProposal() throws EntityNotFoundException{
         return LoanProposalDAO.getAllLoanProposal();

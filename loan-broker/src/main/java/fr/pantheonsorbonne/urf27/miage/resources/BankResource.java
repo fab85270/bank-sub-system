@@ -20,8 +20,10 @@ public class BankResource {
     @Inject
     BankService bankService;
 
+    /*
+     * Fonction permettant la creation d'une banque
+     */
 
-    //fonction permettant la creation d'une banque
     @Path("/bank")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
@@ -29,7 +31,9 @@ public class BankResource {
         return bankService.createBank(bank);
     }
 
-    //fonction permettant de retourner toutes les banques présentes dans la BDD
+    /*
+     * fonction permettant de retourner toutes les banques présentes dans la BDD
+     */
     @Path("/banks")
     @GET
     @Produces({MediaType.APPLICATION_JSON})

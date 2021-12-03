@@ -20,18 +20,30 @@ public class BankServiceImpl implements BankService{
     @Inject
     BankDAOImpl bankDAO;
 
+    /*
+    *Cree une bank
+    */
     public Bank createBank(Bank bank) throws BankExceptions.BankAlreadyExists {
         return bankDAO.createNewBank(bank);
     }
 
+    /*
+    * Permet de rechercher une banque a partir de son ID
+    */
     public Bank findBank(int idBank) throws EntityNotFoundException{
         return bankDAO.findBank(idBank);
     }
 
+    /*
+    * Renvoie toutes les banques presentes dans la BDD
+    */
     public Collection<Bank> getBanks(){
         return bankDAO.getBanks();
     }
 
+    /*
+    * Cree une liste de bank pour les tests
+    */
     public void createBankTest(){
         bankDAO.createBankTest();
     }

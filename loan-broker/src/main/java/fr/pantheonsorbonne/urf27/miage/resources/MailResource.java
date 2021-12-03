@@ -14,7 +14,9 @@ public class MailResource {
     @Inject
     ProjectServiceImpl projectService;
 
-    //MailRessource
+    /*
+    Renvoie dans le header si le mail a deja ete utilise ou non
+    */
     @Path("/{mailId}")
     @HEAD
     public Response mailUsed(@PathParam("mailId") String mail) throws EntityNotFoundException {
@@ -30,6 +32,5 @@ public class MailResource {
                     .build();
             return r;
         }
-        //return projectService.mailUsed(mail);
     }
 }

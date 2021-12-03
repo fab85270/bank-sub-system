@@ -32,6 +32,9 @@ public class ProjectResource {
     @Inject
     BankService bankService;
 
+    /*
+    Permet la creation d'un projet
+     */
     @Path("/project")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
@@ -45,6 +48,9 @@ public class ProjectResource {
         return modelMapper.map(project, ProjectDTO.class);
     }
 
+    /*
+    Permet l'affichage de tous les projets de la BDD'
+     */
     @Path("/projects")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -52,6 +58,9 @@ public class ProjectResource {
         return projectService.getAllProject();
     }
 
+    /*
+    Permet de selectionner un seul projet
+     */
     @Path("/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -61,6 +70,9 @@ public class ProjectResource {
         return null;
     }
 
+    /*
+    Renvoie dans le header si le projet a deja ete envoye aux banques
+     */
     @Path("/banks/{idBank}/banks/{idProject}")
     @HEAD
     public Response isSent(@PathParam("idBank") int idBank, @PathParam("idProject") int idProject) throws EntityNotFoundException {

@@ -17,7 +17,7 @@ public class LoanProposalResource {
     @Inject
     LoanProposalService loanProposalService;
 
-    //LoanProposalRessource
+    //Retourne tous les loanProposal present dans la BDD
     @Path("/loanProposals/")
     @GET
     @Produces({MediaType.APPLICATION_JSON})

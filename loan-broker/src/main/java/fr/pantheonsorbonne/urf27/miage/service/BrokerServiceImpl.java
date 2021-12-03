@@ -28,6 +28,7 @@ public class BrokerServiceImpl implements BrokerService {
     @Inject
     AddressDAOImpl addressDAO;
 
+    //A SUPPRIMER ???
     @Override
     @Transactional
     public Collection<Bank> getBrokersBanks(int brokerId) throws EntityNotFoundException {
@@ -37,6 +38,9 @@ public class BrokerServiceImpl implements BrokerService {
         return null;
     }
 
+    /*
+    *Cree un projet
+    */
     @Override
     @Transactional
     public Project createProject(RealEstate realEstate, String projectDescription, double requiredValue, int durationMax) {

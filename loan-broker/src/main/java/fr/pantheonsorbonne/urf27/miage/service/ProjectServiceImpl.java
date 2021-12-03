@@ -23,6 +23,7 @@ import javax.transaction.Transactional;
 import java.time.LocalDate;
 
 @ApplicationScoped
+//Couche service gerant les projets
 public class ProjectServiceImpl implements ProjectService {
 
     @PersistenceContext
@@ -65,6 +66,7 @@ public class ProjectServiceImpl implements ProjectService {
         return project;
     }
 
+    /* Méthode chargée d'obtenir un projet */
     @Override
     @Transactional
     public ProjectDTO getProject(int id) {
@@ -74,26 +76,27 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     /* Méthode chargée d'obtenir tous les projets */
-
     @Override
     public Collection<Project> getAllProject() throws EntityNotFoundException {
         return projectDAO.getAllProject();
     }
 
+    /*Change la valeur de isDelivered permettant de savoir si le projet a ete envoye*/
     @Override
     @Transactional
     public void changeIsDelivered(int projectID) throws EntityNotFoundException{
         /*Appel d'une méthode DAO pour effectuer les modifications (update) sur le projet client envoyé à la banque */
-        System.out.println("Essai bis : "+projectID);
         projectDAO.changeIsDelivered(projectID);
     }
 
+    /*Est utilise pour savoir si un mail a deja ete utilise pour la creation d un profil de borrower*/
     @Override
     @Transactional
     public Boolean mailUsed(String mail) throws EntityNotFoundException{
         return borrowerDAO.mailUsed(mail);
 
     }
+
 
     @Override
     public Project findProject(int idProject) throws EntityNotFoundException {
