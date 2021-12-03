@@ -25,27 +25,27 @@ public class TreatmentServiceImpl implements TreatmentService {
     @ConfigProperty(name = "bank.interestRate25Years")
     double interestRate25Years;
 
+    @ConfigProperty(name = "loan.bank.salaryCoefficient")
+    double salaryCoefficient;
 
-    public boolean isBetween(int x, int lower, int upper) {
+    @ConfigProperty(name = "loan.bank.minAge")
+    int minAge;
 
-        return lower <= x && x <= upper;
-    }
-
+    @ConfigProperty(name = "loan.bank.maxAge")
+    int maxAge;
 
     @Override
     @Transactional
-    public LoanProposalDTO setLastInfos(LoanProposalDTO proposal, LocalDate birthdate, double salary, double amount, double debtRatio ) throws LoanProposalException.LoanProposalRefusedException {
+    public LoanProposalDTO setLastInfos(LoanProposalDTO proposal, LocalDate birthdate, double salary, double amount, double debtRatio) throws LoanProposalException.LoanProposalRefusedException {
 
         int age = LocalDate.now().getYear() - birthdate.getYear();
-        if (isBetween(age, 18, 65) && sufficientSalary(salary, amount) && debtRatio < 35) {
+        if (isBetween(age, minAge, maxAge) && sufficientSalary(salary, amount) && debtRatio < 35) {
 
             int duration = proposal.getLoanDurationMonth();
             proposal.setInterestRate(getInterestRate(duration));
-            if (duration > 25*12){
+            if (duration > 25 * 12) {
                 proposal.setLoanDurationMonth(300);
             }
-
-
         } else {
             throw new LoanProposalException.LoanProposalRefusedException();
         }
@@ -53,25 +53,24 @@ public class TreatmentServiceImpl implements TreatmentService {
     }
 
     public boolean sufficientSalary(double salary, double amount) {
-        if (salary >= 0.15 * amount) {
-            return true;
-        }
-        return false;
+        return salary >= salaryCoefficient * amount;
     }
 
     public double getInterestRate(int durationLoan) {
 
-        if(durationLoan<= 15*12){
+        if (durationLoan <= 15 * 12) {
             return interestRate15Years;
-        }else if(durationLoan<= 20*12){
+        } else if (durationLoan <= 20 * 12) {
             return interestRate20Years;
-        }
-        else{
+        } else {
             return interestRate25Years;
         }
 
     }
 
+    public boolean isBetween(int x, int lower, int upper) {
+        return lower <= x && x <= upper;
+    }
 
 
 }

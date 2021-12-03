@@ -42,13 +42,12 @@ public class LoanProposal {
     @Column(name = "idBank", nullable = false)
     private int idBank;
 
-    @Column(name = "nameBank", nullable = false)
-    private String nameBank;
-
     public LoanProposal() {
     }
 
-    public LoanProposal(Integer proposalId, Project projectId, LocalDate dateProposal, LocalDate endDate, long validationNumber, boolean isValid, double loanAmount, String description, double interestRate, int loanDurationMonth, int idBank, String nameBank) {
+    public LoanProposal(Integer proposalId, Project projectId, LocalDate dateProposal, LocalDate endDate,
+                        long validationNumber, boolean isValid, double loanAmount, String description,
+                        double interestRate, int loanDurationMonth, int idBank) {
         this.proposalId = proposalId;
         this.projectId = projectId;
         this.dateProposal = dateProposal;
@@ -60,7 +59,6 @@ public class LoanProposal {
         this.interestRate = interestRate;
         this.loanDurationMonth = loanDurationMonth;
         this.idBank = idBank;
-        this.nameBank = nameBank;
     }
 
     public Integer getProposalId() {
@@ -147,11 +145,4 @@ public class LoanProposal {
         this.idBank = idBank;
     }
 
-    public String getNameBank() {
-        return nameBank;
-    }
-
-    public void setNameBank(String nameBank) {
-        this.nameBank = nameBank;
-    }
 }

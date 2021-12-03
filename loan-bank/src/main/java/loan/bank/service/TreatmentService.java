@@ -8,7 +8,8 @@ import java.time.LocalDate;
 public interface TreatmentService {
 
 
-    LoanProposalDTO setLastInfos(LoanProposalDTO proposal, LocalDate birthdate, double salary, double amount, double debtRatio) throws LoanProposalException.LoanProposalRefusedException;
+    LoanProposalDTO setLastInfos(LoanProposalDTO proposal, LocalDate birthdate, double salary, double amount,
+                                 double debtRatio) throws LoanProposalException.LoanProposalRefusedException;
 
 
 
