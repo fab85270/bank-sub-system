@@ -2,29 +2,22 @@
 
 ##Objectifs du système à modéliser : 
 
-On propose ici de modéliser un système de gestion de l'acquisition d'un emprunt entre un Borrower et une banque 
-à partir d'un Broker.
-Ces emprunts se feront uniquement pour l'achat de biens immobiliers ( appartements, maisons, chateaux..).
+On propose ici de modéliser un système de gestion de l'acquisition d'un emprunt entre un Borrower(client) et une banque 
+grâce à un Broker(courtier).
+A noter que ces emprunts se feront uniquement pour l'achat de biens immobiliers ( appartements, maisons, chateaux..).
 
-Le courtier(broker) se caractérise d'intermédiaire entre la banque et l'acquéreur afin d'obtenir un emprunt au meilleur
-taux selon le projet. Son rôle est de recevoir le dossier du client, déterminer avec le client quels sont les organismes
-de crédit à contacter parmi ceux partenaires au broker. 
-Suite à sa création par le biai d'une interface formulaire, le projet sera envoyé vers les banques désirées.
+Le courtier(broker) se caractérise comme un intermédiaire entre la banque et l'acquéreur afin d'obtenir un emprunt au meilleur
+taux selon un projet client.
+Son rôle est de recevoir le dossier du client; déterminer avec approbation du client, quels sont les organismes
+de crédit à contacter parmi ceux avec lesquels il est partenaire. 
+
 
 Le système Bank, génère des propositions d'emprunts (simulation de financement) selon un projet qui lui est soumis.
-Cette proposition, pourra prendre différentes formes selon chacune des banques et les modalités (exigences métier) qu'elle
-possède :
+Cette proposition, pourra prendre différentes formes selon les banques et les règles métiers qu'elles fixent :
     - tranche d'âge 
     - Remboursement ?..
     -> A compléter avec la logique métier que Abel a implementé.
 
-La simulation de financement s'effectue en plusieurs phases :
-
--Le borrower remplit le formulaire de conception d'un projet via le formulaire définit au localHost
-- Envoie de ce projet à la banque par le broket 
-- Génération d'une proposition de financement (loanProposal) par la banque qui est ensuite envoyée au Broker
-- Broker choisit ou non la proposition la plus intéressante si plusieurs sont émises de banques différentes pour un même projet
-- ? Mail vers le borrower? Vers le broker => A finir. 
 
 
 La réalisation d'une proposition d'emprunt s'effectue en plusieurs phases : 
