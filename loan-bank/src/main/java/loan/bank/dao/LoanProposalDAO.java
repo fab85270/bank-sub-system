@@ -4,12 +4,14 @@ import loan.bank.exception.LoanProposalException;
 import loan.bank.model.LoanProposal;
 
 import javax.transaction.Transactional;
+import java.util.Collection;
 
 public interface LoanProposalDAO {
 
 
     //Get
-    LoanProposal findMatchingLoanProposal(int id) throws LoanProposalException.LoanProposalNotFoundException;
+    //Permet de récupérer les loanproposal validé avec une bank en particulier
+    Collection<LoanProposal> findMatchingPastLoanProposalWithBank(String idBank) throws LoanProposalException.LoanProposalBankNotFoundException;
 
     //Post
     LoanProposal post(LoanProposal proposal);

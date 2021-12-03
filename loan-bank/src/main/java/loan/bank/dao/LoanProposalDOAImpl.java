@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.Collection;
 
 @ApplicationScoped
 public class LoanProposalDOAImpl implements LoanProposalDAO{
@@ -18,12 +19,12 @@ public class LoanProposalDOAImpl implements LoanProposalDAO{
 
     //Get
     @Override
-    public LoanProposal findMatchingLoanProposal(int id) throws LoanProposalException.LoanProposalNotFoundException {
+    public Collection<LoanProposal> findMatchingPastLoanProposalWithBank(String idBank) throws LoanProposalException.LoanProposalBankNotFoundException {
         try {
-            LoanProposal l = (LoanProposal) em.createQuery("SELECT b FROM LoanProposal b where b.proposalId=:id").setParameter("id",id).getSingleResult();
-            return l;
+            LoanProposal l = (LoanProposal) em.createQuery("SELECT b FROM LoanProposal b where b.proposalId=:bankName and b.isValid=:valid").setParameter("bankName",idBank).setParameter("valid",true).getResultList();
+            return (Collection<LoanProposal>) l;
         } catch (NoResultException e) {
-            throw new LoanProposalException.LoanProposalNotFoundException(id);
+            throw new LoanProposalException.LoanProposalBankNotFoundException(idBank);
         }
     }
 

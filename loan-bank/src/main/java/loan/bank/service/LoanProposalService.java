@@ -13,5 +13,16 @@ public interface LoanProposalService {
     LoanProposalDTO emitProposal(ProjectDTO projectDTO) throws ProjectException.ExpiredProjectException, LoanProposalException.LoanProposalRefusedException;
 
     @Transactional
+    void saveProject(ProjectDTO projectDTO) throws ProjectException.ExpiredProjectException;
+
+    @Transactional
+    void saveProposal(LoanProposalDTO proposalDTO) throws ProjectException.ExpiredProjectException;
+
+    @Transactional
+    boolean isValidProject(ProjectDTO projectDTO);
+
+    @Transactional
     LoanProposalDTO  validProposal(LoanProposalDTO loanProposalDTO) throws LoanProposalException.ExpiredLoanProposalException;
+
+
 }

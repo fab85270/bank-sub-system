@@ -8,7 +8,7 @@ public class LoanProposalDTO {
 
 
     ProjectDTO projectDTO;
-    LocalDate proposalDate;
+    LocalDate dateProposal;
     LocalDate endDate;
     Boolean isValid;
     double loanAmount;
@@ -30,11 +30,11 @@ public class LoanProposalDTO {
     }
 
     public LocalDate getProposalDate() {
-        return proposalDate;
+        return dateProposal;
     }
 
-    public void setProposalDate(LocalDate proposalDate) {
-        this.proposalDate = proposalDate;
+    public void setProposalDate(LocalDate dateProposal) {
+        this.dateProposal = dateProposal;
     }
 
     public LocalDate getEndDate() {

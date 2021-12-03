@@ -21,8 +21,6 @@ public class LoanProposal {
     @Column(name = "endDate", nullable = false)
     private LocalDate endDate;
 
-    @Column(name = "validationNumber", nullable = false)
-    private long validationNumber;
 
     @Column(name = "isValid", nullable = false)
     private boolean isValid;
@@ -39,27 +37,22 @@ public class LoanProposal {
     @Column(name = "loanDurationMonth", nullable = false)
     private int loanDurationMonth;
 
-    @Column(name = "idBank", nullable = false)
-    private int idBank;
-
     @Column(name = "nameBank", nullable = false)
     private String nameBank;
 
     public LoanProposal() {
     }
 
-    public LoanProposal(Integer proposalId, Project projectId, LocalDate dateProposal, LocalDate endDate, long validationNumber, boolean isValid, double loanAmount, String description, double interestRate, int loanDurationMonth, int idBank, String nameBank) {
+    public LoanProposal(Integer proposalId, Project projectId, LocalDate dateProposal, LocalDate endDate, boolean isValid, double loanAmount, String description, double interestRate, int loanDurationMonth, String nameBank) {
         this.proposalId = proposalId;
         this.projectId = projectId;
         this.dateProposal = dateProposal;
         this.endDate = endDate;
-        this.validationNumber = validationNumber;
         this.isValid = isValid;
         this.loanAmount = loanAmount;
         this.description = description;
         this.interestRate = interestRate;
         this.loanDurationMonth = loanDurationMonth;
-        this.idBank = idBank;
         this.nameBank = nameBank;
     }
 
@@ -89,14 +82,6 @@ public class LoanProposal {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
-    }
-
-    public long getValidationNumber() {
-        return validationNumber;
-    }
-
-    public void setValidationNumber(long validationNumber) {
-        this.validationNumber = validationNumber;
     }
 
     public boolean isValid() {
@@ -137,14 +122,6 @@ public class LoanProposal {
 
     public void setLoanDurationMonth(int loanDurationMonth) {
         this.loanDurationMonth = loanDurationMonth;
-    }
-
-    public int getIdBank() {
-        return idBank;
-    }
-
-    public void setIdBank(int idBank) {
-        this.idBank = idBank;
     }
 
     public String getNameBank() {
