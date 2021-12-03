@@ -37,6 +37,7 @@ public class RealEstate {
         this.numberOfRooms = numberOfRooms;
     }
 
+    /*Getter & Setters */
     public void setRealEstateId(Integer realEstateId) {
         this.realEstateId = realEstateId;
     }

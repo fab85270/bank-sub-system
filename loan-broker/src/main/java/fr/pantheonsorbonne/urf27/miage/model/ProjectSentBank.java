@@ -18,13 +18,14 @@ public class ProjectSentBank {
     @JoinColumn(name = "projectId")
     private Project projectId;
 
+    /*Constructeurs*/
     public ProjectSentBank(Project projectId, Bank bankId) {
         this.bankId = bankId;
         this.projectId = projectId;
     }
     public ProjectSentBank(){};
 
-
+    /*Getter & Setters */
     public Bank getBankId() {
         return bankId;
     }

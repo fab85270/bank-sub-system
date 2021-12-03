@@ -10,6 +10,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+//Cette classe sert a voir quel projet ont été envoyé à quel bank
+//Cela evite ainsi les doubles envois
 @ApplicationScoped
 public class ProjectSentBankDAOImpl implements ProjectSentBankDAO{
 
@@ -17,6 +19,9 @@ public class ProjectSentBankDAOImpl implements ProjectSentBankDAO{
     EntityManager em;
 
 
+    /*
+    Creer une nouvelle entree dans la BDD
+     */
     @Override
     @Transactional
     public void createSentBankProject(Project project, Bank bank){
@@ -31,6 +36,10 @@ public class ProjectSentBankDAOImpl implements ProjectSentBankDAO{
 
     }
 
+    /*
+    Verifie si un combo project/Bank est déjà présent dans la bdd
+    Cela permet d'éviter le double envoie du même projet à la même bank
+     */
     @Override
     public boolean isSent(Project idProject, Bank idBank){
         /* On regarde si le projet qu'on veut envoyer à la banque n'a pas déja été envoyé*/

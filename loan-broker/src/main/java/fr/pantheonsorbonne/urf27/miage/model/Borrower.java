@@ -83,6 +83,7 @@ public class Borrower {
         this.debtRatio = debtRatio;
     }
 
+    /*Getter & Setters */
     public Integer getBorrowerId() {
         return borrowerId;
     }

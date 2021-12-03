@@ -17,6 +17,9 @@ public class ProjectDAOImpl implements ProjectDAO {
     @PersistenceContext
     EntityManager em;
 
+    /*
+    Cree un nouveau projet à partir de l'entite projet
+     */
     @Override
     @Transactional
     public Project createProject(Project project) {
@@ -25,6 +28,9 @@ public class ProjectDAOImpl implements ProjectDAO {
         return project;
     }
 
+    /*
+    Renvoie tous les projets présents dans la BDD
+     */
     @Override
     public Collection<Project> getAllProject() throws EntityNotFoundException {
         try{
@@ -45,6 +51,9 @@ public class ProjectDAOImpl implements ProjectDAO {
         em.createQuery("UPDATE Project p SET p.isDelivered=true WHERE p.projectId=:idProject").setParameter("idProject",idProject).executeUpdate();
     }
 
+    /*
+    Permet de trouver un projet avec son ID
+     */
     @Override
     public Project findProject(int idProject) throws EntityNotFoundException {
         try {

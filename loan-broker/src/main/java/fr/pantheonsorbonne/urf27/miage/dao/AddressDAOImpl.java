@@ -13,6 +13,9 @@ public class AddressDAOImpl implements AddressDAO {
     @PersistenceContext
     EntityManager em;
 
+    /*
+    Cree une nouvelle adresse a partir d une entitee et l insere dans la BDD
+     */
     @Override
     @Transactional
     public Address createAddress(Address address) {
@@ -20,6 +23,9 @@ public class AddressDAOImpl implements AddressDAO {
         return address;
     }
 
+    /*
+    Cree une nouvelle adresse a partir des parametres et l insere dans la BDD
+     */
     @Override
     @Transactional
     public Address createAddress(String streetName, int streetNumber, long postalCode, String city, String complementaryAddress) {

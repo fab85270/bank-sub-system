@@ -23,7 +23,6 @@ import javax.transaction.Transactional;
 import java.time.LocalDate;
 
 @ApplicationScoped
-//Couche service gerant les projets
 public class ProjectServiceImpl implements ProjectService {
 
     @PersistenceContext

@@ -17,6 +17,9 @@ public class RealEstateDAOImpl implements RealEstateDAO {
     EntityManager em;
 
 
+    /*
+    Insere un nouveau real estate dans la BDD à partir de son entite
+     */
     @Override
     @Transactional
     public RealEstate createRealEstate(RealEstate realEstate) {
@@ -24,6 +27,9 @@ public class RealEstateDAOImpl implements RealEstateDAO {
         return realEstate;
     }
 
+    /*
+    Insere un nouveau real estate dans la BDD à partir de ses attributs
+     */
     @Override
     @Transactional
     public RealEstate createRealEstate(Address address, double surface, int constructionYear, double price, int numberOfRooms) {

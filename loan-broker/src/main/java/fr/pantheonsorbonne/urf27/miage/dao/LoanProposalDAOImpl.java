@@ -16,9 +16,13 @@ import java.util.Collection;
 
 @ApplicationScoped
 public class LoanProposalDAOImpl implements LoanProposalDAO{
+
     @PersistenceContext
     EntityManager em;
 
+    /*
+    Renvoie tous les loan proposals de la bdd
+     */
     @Override
     public Collection<LoanProposal> getAllLoanProposal() throws EntityNotFoundException{
         try{

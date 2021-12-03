@@ -15,9 +15,13 @@ import java.util.List;
 @ApplicationScoped //Injection d'objets durant la durée de l'application
 public class BorrowerDAOImpl implements BorrowerDAO {
 
-    @PersistenceContext(name = "mysql") //Ajout du context de persistence connect à la base de donnée "mySql"
+    //Ajout du context de persistence connect à la base de donnée "mySql"
+    @PersistenceContext(name = "mysql")
     EntityManager em;
 
+    /*
+    Recherche un Borrower en fonction de son mail
+     */
     @Override
     public Borrower findMatchingBorrower(String email) throws EntityNotFoundException {
         try {
@@ -29,24 +33,37 @@ public class BorrowerDAOImpl implements BorrowerDAO {
     }
 
 
+    /*
+    Renvoie une List de tous les borrowers
+     */
     @Override
     @Transactional
     public List<Borrower> listBorrower() {
         return em.createQuery("Select b from Borrower b").getResultList();
     }
 
+    /*
+    Supprime un Borrower de la bdd en l'identifiant avec un mail
+     */
     @Override
     @Transactional
     public void deleteBorrower(String email) {
         em.createQuery("delete from Borrower b where b.email=:email").setParameter("email", email).executeUpdate();
     }
 
+    /*
+    Supprimes tous les borrowers de la BDD
+     */
     @Override
     @Transactional
     public void clearBorrowers() {
         em.createQuery("delete from Borrower b").executeUpdate();
     }
 
+
+    /*
+    Creer un nouveau Borrower a l aide de ses attributs
+     */
     @Override
     @Transactional
     public Borrower createNewBorrower(Address addressId, String email, String firstName, String lastName, Gender gender, LocalDate birthdate,
@@ -64,6 +81,9 @@ public class BorrowerDAOImpl implements BorrowerDAO {
         return borrower;
     }
 
+    /*
+    Creer un nouveau Borrower a l aide de son entitee
+     */
     @Override
     @Transactional
     public Borrower createNewBorrower(Borrower borrower) {
@@ -76,6 +96,9 @@ public class BorrowerDAOImpl implements BorrowerDAO {
         return borrower;
     }
 
+    /*
+    Verifie si le mail d'un utilisateur est déjà présent dans la BDD
+     */
     @Override
     public Boolean mailUsed(String mail){
 
