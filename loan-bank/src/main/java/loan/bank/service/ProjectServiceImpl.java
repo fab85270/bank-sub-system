@@ -33,7 +33,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public boolean isProjectEligible(ProjectDTO project) {
         System.out.println(project);
-        BorrowerDTO borrower = project.getBorrowerDTO();
+        BorrowerDTO borrower = project.getBorrowerId();
         int age = LocalDate.now().getYear() - borrower.getBirthdate().getYear();
 
         return (isBetween(age, minAge, maxAge)
