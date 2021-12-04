@@ -46,8 +46,9 @@ public class CamelRoutes extends RouteBuilder {
                     exchange.getMessage().setHeader("from", "vendor@miage.dev");
                     exchange.getMessage().setHeader("contentType", "text/html");
                     exchange.getMessage().setHeader("subject", "Votre proposition d'emprunt - "+nameBank);
-                    exchange.getMessage().setBody("Bonjour Mr "+projetDTO.getBorrowerId().getLastName()+" "+projetDTO.getBorrowerId().getFirstName()+",<br><br> Votre emprunt à hauteur de "+
-                            projetDTO.getProjectRequiredValue()+"€ a ete accepte,<br>Félicitations !!"+
+                    exchange.getMessage().setBody("Bonjour Mr "+projetDTO.getBorrowerId().getLastName()+" "+projetDTO.getBorrowerId().getFirstName()+
+                            ",<br><br> Votre emprunt a hauteur de "+
+                            projetDTO.getProjectRequiredValue()+" euros a ete accepte,<br>Felicitations !!"+
                             "<br>Nous vous laissons reprendre contact avec nous afin d'effectuer les démarches administratives"+
                             "<br><br>Bien cordialement,"+
                             "<br>"+nameBank
