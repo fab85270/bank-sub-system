@@ -17,6 +17,7 @@ public class ProjectGatewayImpl implements ProjectGateway {
 
     @Override
     public void sendProjectToBank(ProjectDTO projectDTO) {
+        System.out.println(projectDTO);
         try (ProducerTemplate producer = context.createProducerTemplate()) {
             producer.sendBody("direct:cli", projectDTO);
         } catch (IOException e) {

@@ -58,8 +58,6 @@ public class ProjectServiceImpl implements ProjectService {
         project.setExpirationDate(projectExpirationDate);
         project.setDurationMax(durationMax);
 
-        project.setDelivered(false);
-
         projectDAO.createProject(project);
         return project;
     }
@@ -68,7 +66,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     @Transactional
     public ProjectDTO getProject(int id) {
-        System.out.println(em.find(Project.class, id));
+//        System.out.println(em.find(Project.class, id));
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(em.find(Project.class, id), ProjectDTO.class);
     }

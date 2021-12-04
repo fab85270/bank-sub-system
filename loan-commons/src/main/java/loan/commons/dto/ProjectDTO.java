@@ -19,20 +19,19 @@ public class ProjectDTO {
     private double projectRequiredValue;
     private int projectDurationMax;
     private RealEstateDTO realEstate;
-    private BorrowerDTO borrowerDTO;
+    private BorrowerDTO borrowerId;
 
     public ProjectDTO() {
     }
 
-    public ProjectDTO(String projectDescription, LocalDate projectProposalDate, LocalDate projectExpirationDate,
-                      double projectRequiredValue, int projectDurationMax, RealEstateDTO realEstate, BorrowerDTO borrowerDTO) {
+    public ProjectDTO(String projectDescription, LocalDate projectProposalDate, LocalDate projectExpirationDate, double projectRequiredValue, int projectDurationMax, RealEstateDTO realEstate, BorrowerDTO borrowerId) {
         this.projectDescription = projectDescription;
         this.projectProposalDate = projectProposalDate;
         this.projectExpirationDate = projectExpirationDate;
         this.projectRequiredValue = projectRequiredValue;
         this.projectDurationMax = projectDurationMax;
         this.realEstate = realEstate;
-        this.borrowerDTO = borrowerDTO;
+        this.borrowerId = borrowerId;
     }
 
     public String getProjectDescription() {
@@ -83,24 +82,24 @@ public class ProjectDTO {
         this.realEstate = realEstate;
     }
 
-    public BorrowerDTO getBorrowerDTO() {
-        return borrowerDTO;
+    public BorrowerDTO getBorrowerId() {
+        return borrowerId;
     }
 
-    public void setBorrowerDTO(BorrowerDTO borrowerDTO) {
-        this.borrowerDTO = borrowerDTO;
+    public void setBorrowerId(BorrowerDTO borrowerId) {
+        this.borrowerId = borrowerId;
     }
 
     @Override
     public String toString() {
         return "ProjectDTO{" +
                 "projectDescription='" + projectDescription + '\'' +
-                ", proposalDate=" + projectProposalDate +
+                ", projectProposalDate=" + projectProposalDate +
                 ", projectExpirationDate=" + projectExpirationDate +
                 ", projectRequiredValue=" + projectRequiredValue +
                 ", projectDurationMax=" + projectDurationMax +
                 ", realEstate=" + realEstate +
-                ", borrowerDTO=" + borrowerDTO +
+                ", borrowerId=" + borrowerId +
                 '}';
     }
 }

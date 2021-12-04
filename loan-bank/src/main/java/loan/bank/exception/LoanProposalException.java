@@ -1,9 +1,9 @@
 package loan.bank.exception;
 
 public class LoanProposalException {
-    public static class LoanProposalNotFoundException extends Throwable {
-        public LoanProposalNotFoundException(int projectId) {
-            super("La proposition de prêt "+ projectId + "n'a pas été trouvé dans la BDD " );
+    public static class LoanProposalBankNotFoundException extends Throwable {
+        public LoanProposalBankNotFoundException(int bankId) {
+            super("La banque "+ bankId + "n'a pas été trouvé" );
         }
     }
 
