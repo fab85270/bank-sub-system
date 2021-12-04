@@ -124,10 +124,6 @@ public class ProjectResource {
 
         projectSentBankService.createSentBankProject(p,b);
 
-        /* Une fois envoyé, l'attribut isDelivered du projet Client devra changer d'état => est envoyé*/
-
-        //projectService.changeIsDelivered(idProject);
-
         /* Création d'un projet DTO afin de pouvoir l'envoyer par la suite (il possède Estate.. et tout) */
 
         //TODO A FAIRE
