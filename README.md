@@ -29,19 +29,18 @@ ses informations personnelles (adresse, nom, Prénom..), des informations sur le
 de cet emprunt. Ce formulaire, se situe au localhost du projet (http://localhost:8080/) après avoir effectué 
 la commande [quarkus dev] dans le terminal de commande dans le répertoire courant du système "loan-broker".
 
-Une fois le formulaire valide et envoyé, un projet sera crée pour ce client.
+Une fois le formulaire validé et envoyé, un projet sera créé pour ce client.
 Le broker(courtier), pourra ainsi observer l'ensemble des projets qui ont été crées et qui lui ont été soumis.
 Il pourra ensuite choisir, grâce à un nouveau formulaire situé à l'adresse suite (http://localhost:8080/ProjectSummary.html),
-envoyer ce projet client à ses banques partenaires qui ont été retenues par le borrower(client).
-
+d'envoyer ce projet à ses banques partenaires.
 
 
 ###Phase 2 : Réception du project et génération d'une proposition d'emprunt 
 
-Le Système de la bank (loan-bank) reçoit sur une queue:JMS les différents projets qu'on a décidé de lui soumettre.
-Suite à cette reception, selon les règles métiers définies pour la banque choisie par le projet, une proposition
-d'emprunt sera générée. Elle se verra transmise par la suite au courtier(broker) par le moyen d'une queue:JMS. 
-
+Le Système de la bank (loan-bank) reçoit sur une queue:JMS les différents projets que le broker lui a soumis.
+Suite à cette reception, selon les règles métiers définies par la banque, une proposition
+d'emprunt sera générée si le projet corresponds à ses règles. 
+Elle se verra transmise par la suite au courtier(broker) par le moyen d'une queue:JMS. 
 
 
 ###Phase 3 :
@@ -49,13 +48,10 @@ Le Broker reçoit les loan proposals (les projets qui ont été validés par la 
 
 Il choisit parmis ses loan proposals celle qu'il considère comme la meilleure
 
-Puis envoie un email au Client avec la meilleure loanProposal
+Un message Reply est envoyé à la banque lui informant que sa banque a été choisie 
 
-## Amelioration possible
-Possiblement 
-- Transformer le JSON en PDF pour l'envoie au client
+La banque envoie donc un mail au client (borrower) avec les informations du prêts
 
-test
 ##Interfaces
 ```
 broker1->buyer: rest:get:partner_bank_list
@@ -81,6 +77,6 @@ broker1->buyer: smtp:loan_proposal_best_bank
 ![](seqDiagram.png)
 ## Schéma relationnel
 ### Bank System
-![](bank_system_Relat.png)
+![](class_bank_system.png)
 ### Broker System
-![](broker_system_Relat.png)
+![](class_broker_system.png)
