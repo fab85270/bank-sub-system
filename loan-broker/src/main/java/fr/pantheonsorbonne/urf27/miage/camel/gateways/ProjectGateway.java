@@ -8,8 +8,5 @@ public interface ProjectGateway {
 
     void sendProjectToBank(ProjectDTO projectDTO, int idBank);
 
-    void updateStatusRejected( ProjectDTO project, @Header("idBank") int idBank) throws ProjectExceptions.ProjectPublicKeyNotFound;
-
-//    String projectNotEligible(ProjectDTO message, @Header("idBank") int idBank) throws ProjectExceptions.ProjectPublicKeyNotFound;
-
+    void updateStatusRejected(ProjectDTO project, @Header("idBank") int idBank) throws ProjectExceptions.ProjectPublicKeyNotFound;
 }

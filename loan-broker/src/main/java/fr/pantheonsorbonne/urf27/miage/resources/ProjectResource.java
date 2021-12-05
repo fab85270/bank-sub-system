@@ -60,20 +60,6 @@ public class ProjectResource {
     }
 
     /*
-    Permet de selectionner un seul projet
-     */
-    /*
-    @Path("/{id}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public ProjectDTO selectProject(@PathParam("id") int id) {
-        System.out.println(projectService.getProject(id));
-        projectGateway.sendProjectToBank(projectService.getProject(id));
-        return null;
-    }
-     */
-
-    /*
     Renvoie dans le header si le projet a deja ete envoye aux banques
      */
     @Path("/banks/{idBank}/banks/{idProject}")
@@ -115,9 +101,6 @@ public class ProjectResource {
 
         projectSentBankService.createSentBankProject(p, b);
         projectGateway.sendProjectToBank(projectService.getProject(idProject), idBank);
-        //TODO A FAIRE
-
-        // }
     }
 
 }
