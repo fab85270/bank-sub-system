@@ -39,7 +39,7 @@ d'envoyer ce projet aux banques partenaires qu'ils désirent.
 
 
 ###Phase 2 : Réception du project et génération d'une proposition d'emprunt
-
+Après avoir fait un [-Dquarkus.profile=bank1] qui permet de lancer le profil de la bank 1
 Le Système de la bank (loan-bank) reçoit sur une queue:JMS les différents projets que le broker lui a soumis.
 Suite à cette reception, selon les règles métiers définies par la banque, une proposition
 d'emprunt sera générée si le projet correspond à ses règles.
@@ -53,7 +53,7 @@ Il choisit parmis ses loan proposals celle qu'il considère comme la meilleure
 
 Un message Reply est envoyé à la banque lui informant que son loan proposal a été choisi
 
-La banque envoie donc un mail au client (borrower) avec les informations du prêts
+La banque envoie donc un mail au client (borrower) avec les informations du prêt
 
 ##Interfaces
 ```
