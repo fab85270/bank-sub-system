@@ -47,7 +47,7 @@ Elle se verra transmise par la suite au courtier(broker) par le moyen d'une queu
 
 
 ###Phase 3 : Choix d'un loan Proposal
-Le Broker reçoit les loan proposals (les projets qui ont été validés par les banques)
+Le Broker reçoit les loan proposals (les projets qui ont été validés par les banques) à l'adresse (http://localhost:8080/summaryLoanProposal.html)
 
 Il choisit parmis ses loan proposals celle qu'il considère comme la meilleure
 
