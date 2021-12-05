@@ -59,8 +59,6 @@ public class ProjectServiceImpl implements ProjectService {
         project.setExpirationDate(projectExpirationDate);
         project.setDurationMax(durationMax);
 
-        project.setDelivered(false);
-
         projectDAO.createProject(project);
         return project;
     }
