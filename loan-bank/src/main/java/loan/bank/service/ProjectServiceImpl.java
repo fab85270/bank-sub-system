@@ -6,7 +6,6 @@ import loan.commons.dto.ProjectDTO;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import java.time.LocalDate;
 
 @ApplicationScoped

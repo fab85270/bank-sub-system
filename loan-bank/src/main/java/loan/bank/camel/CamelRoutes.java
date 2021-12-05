@@ -30,9 +30,9 @@ public class CamelRoutes extends RouteBuilder {
                 .marshal()
                 .json(ProjectDTO.class)
                 .setHeader("approved", simple("false"));
-//                .setBody(simple("Project not eligible"));
 
-        from("jms:queue/bank/" + idBank + "?exchangePattern=InOut")
+        from("jms:queue/bank?exchangePattern=InOut")
+                .filter(header("idBank").isEqualTo(idBank))
                 .unmarshal()
                 .json(ProjectDTO.class)
                 .bean(projectGateway, "isProjectEligible")

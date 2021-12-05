@@ -5,38 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fa9dc75-4476-4247-9f1c-659aef973106" name="Changes" comment="Verif">
-      <change afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/ProjectGatewayImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/ApprovalStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2021_13_07__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2021_13_07__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22_11_2021_14_33__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22_11_2021_14_33__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_13_43__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2021_13_43__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/CamelRoutes.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/CamelRoutes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/ProjectGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/ProjectGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/LoanProposalDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/LoanProposalDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/exception/LoanProposalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/exception/LoanProposalException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/LoanProposalServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/LoanProposalServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/ProjectGatewayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/ProjectGatewayImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/AddressDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/AddressDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/CamelRoutes.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/CamelRoutes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/ProjectGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/ProjectGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/ProjectGatewayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/ProjectGatewayImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectSentBankDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectSentBankDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectSentBankDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectSentBankDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/exception/ProjectExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/exception/ProjectExceptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Bank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/ProjectSentBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/model/ProjectSentBank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/resources/ProjectResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/resources/ProjectResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectSentBankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectSentBankService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectSentBankServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectSentBankServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/summaryProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/summaryProject.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-commons/src/main/java/loan/commons/dto/ProjectDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-commons/src/main/java/loan/commons/dto/ProjectDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +96,7 @@
       <recent name="C:\Users\maxen\OneDrive\Documents\fac\Informatique\S7\Framework composants métiers et web service\projetBanque\bank-sub-system\loan-bank\src\main\java\fr\pantheonsorbonne\ufr27\miage\model" />
     </key>
   </component>
-  <component name="RunManager" selected="Quarkus.bank1">
+  <component name="RunManager" selected="Quarkus.bank2">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -246,7 +220,7 @@
               <option name="passParentEnv" value="true" />
               <option name="runMavenInBackground" value="true" />
               <option name="skipTests" value="false" />
-              <option name="vmOptions" value="-Dquarkus.profile=bank2" />
+              <option name="vmOptions" value="-Dquarkus.profile=bank2 -Dquarkus.http.port=8082" />
             </MavenRunnerSettings>
           </option>
           <option name="myRunnerParameters">
@@ -255,7 +229,9 @@
                 <set />
               </option>
               <option name="goals">
-                <list />
+                <list>
+                  <option value="quarkus:dev" />
+                </list>
               </option>
               <option name="pomFileName" value="pom.xml" />
               <option name="profilesMap">
@@ -339,7 +315,7 @@
       <workItem from="1638004316066" duration="10806000" />
       <workItem from="1638351342869" duration="25452000" />
       <workItem from="1638616726327" duration="1588000" />
-      <workItem from="1638696541517" duration="15147000" />
+      <workItem from="1638696541517" duration="23889000" />
     </task>
     <task id="LOCAL-00001" summary="modif readme">
       <created>1637491279335</created>
