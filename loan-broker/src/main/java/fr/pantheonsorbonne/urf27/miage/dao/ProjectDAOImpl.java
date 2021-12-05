@@ -22,35 +22,44 @@ public class ProjectDAOImpl implements ProjectDAO {
     @Override
     @Transactional
     public Project createProject(Project project) {
-
         em.persist(project);
         return project;
     }
 
-    /*
-    Renvoie tous les projets présents dans la BDD
-     */
+    /*  Renvoie tous les projets présents dans la BDD */
     @Override
+    @Transactional
     public Collection<Project> getAllProject() throws ProjectExceptions.ProjectsNotFound {
-        try{
+        try {
             return (Collection<Project>) em.createQuery("Select p from Project p").getResultList();
-        }catch (NoResultException e){
+        } catch (NoResultException e) {
             throw new ProjectExceptions.ProjectsNotFound();
         }
     }
 
-
-    /*
-    Permet de trouver un projet avec son ID
-     */
+    /*Permet de trouver un projet avec son ID*/
     @Override
+    @Transactional
     public Project findProject(int idProject) throws ProjectExceptions.ProjectNotFoundId {
         try {
-            Project p = (Project) em.createQuery("Select p from Project p where p.projectId=:idProject").setParameter("idProject", idProject).getSingleResult();
-            return p;
+            return em.find(Project.class, idProject);
         } catch (NoResultException e) {
             throw new ProjectExceptions.ProjectNotFoundId(idProject);
         }
     }
+
+    @Override
+    @Transactional
+    public Project findProjectByPublicKey(String key) throws ProjectExceptions.ProjectPublicKeyNotFound {
+        try {
+            return (Project) em.createQuery("Select p from Project p where p.publicKey=:key")
+                    .setParameter("key", key)
+                    .getSingleResult();
+        } catch (NoResultException ex) {
+            throw new ProjectExceptions.ProjectPublicKeyNotFound(key);
+        }
+
+    }
+
 
 }

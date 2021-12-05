@@ -9,7 +9,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 @ApplicationScoped
-public class BorrowerDAOImpl implements BorrowerDao {
+public class BorrowerDAOImpl implements BorrowerDAO {
 
     @PersistenceContext(name = "mysql")
     EntityManager em;

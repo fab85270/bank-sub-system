@@ -9,30 +9,38 @@ import java.time.LocalDate;
 
 public class ProjectDTO {
 
+    private String publicKey;
+    private RealEstateDTO realEstateId;
     private String projectDescription;
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonSerialize(using = LocalDateSerializer.class)
-    private LocalDate projectProposalDate;
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonSerialize(using = LocalDateSerializer.class)
-    private LocalDate projectExpirationDate;
-    private double projectRequiredValue;
-    private double projectDurationMax;
-    private RealEstateDTO realEstate;
     private BorrowerDTO borrowerId;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    private LocalDate proposalDate;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    private LocalDate expirationDate;
+    private double requiredValue;
+    private int durationMax;
 
     public ProjectDTO() {
     }
 
-    public ProjectDTO(String projectDescription, LocalDate projectProposalDate, LocalDate projectExpirationDate,
-                      double projectRequiredValue, double projectDurationMax, RealEstateDTO realEstate, BorrowerDTO borrowerId) {
+    public ProjectDTO(RealEstateDTO realEstateId, String projectDescription, BorrowerDTO borrowerId, LocalDate proposalDate, LocalDate expirationDate, double requiredValue, int durationMax) {
+        this.realEstateId = realEstateId;
         this.projectDescription = projectDescription;
-        this.projectProposalDate = projectProposalDate;
-        this.projectExpirationDate = projectExpirationDate;
-        this.projectRequiredValue = projectRequiredValue;
-        this.projectDurationMax = projectDurationMax;
-        this.realEstate = realEstate;
         this.borrowerId = borrowerId;
+        this.proposalDate = proposalDate;
+        this.expirationDate = expirationDate;
+        this.requiredValue = requiredValue;
+        this.durationMax = durationMax;
+    }
+
+    public RealEstateDTO getRealEstateId() {
+        return realEstateId;
+    }
+
+    public void setRealEstateId(RealEstateDTO realEstateId) {
+        this.realEstateId = realEstateId;
     }
 
     public String getProjectDescription() {
@@ -43,46 +51,6 @@ public class ProjectDTO {
         this.projectDescription = projectDescription;
     }
 
-    public LocalDate getProjectProposalDate() {
-        return projectProposalDate;
-    }
-
-    public void setProjectProposalDate(LocalDate projectProposalDate) {
-        this.projectProposalDate = projectProposalDate;
-    }
-
-    public LocalDate getProjectExpirationDate() {
-        return projectExpirationDate;
-    }
-
-    public void setProjectExpirationDate(LocalDate projectExpirationDate) {
-        this.projectExpirationDate = projectExpirationDate;
-    }
-
-    public double getProjectRequiredValue() {
-        return projectRequiredValue;
-    }
-
-    public void setProjectRequiredValue(double projectRequiredValue) {
-        this.projectRequiredValue = projectRequiredValue;
-    }
-
-    public double getProjectDurationMax() {
-        return projectDurationMax;
-    }
-
-    public void setProjectDurationMax(double projectDurationMax) {
-        this.projectDurationMax = projectDurationMax;
-    }
-
-    public RealEstateDTO getRealEstate() {
-        return realEstate;
-    }
-
-    public void setRealEstate(RealEstateDTO realEstate) {
-        this.realEstate = realEstate;
-    }
-
     public BorrowerDTO getBorrowerId() {
         return borrowerId;
     }
@@ -91,16 +59,57 @@ public class ProjectDTO {
         this.borrowerId = borrowerId;
     }
 
+    public LocalDate getProposalDate() {
+        return proposalDate;
+    }
+
+    public void setProposalDate(LocalDate proposalDate) {
+        this.proposalDate = proposalDate;
+    }
+
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    public double getRequiredValue() {
+        return requiredValue;
+    }
+
+    public void setRequiredValue(double requiredValue) {
+        this.requiredValue = requiredValue;
+    }
+
+    public int getDurationMax() {
+        return durationMax;
+    }
+
+    public void setDurationMax(int durationMax) {
+        this.durationMax = durationMax;
+    }
+
+    public String getPublicKey() {
+        return publicKey;
+    }
+
+    public void setPublicKey(String publicKey) {
+        this.publicKey = publicKey;
+    }
+
     @Override
     public String toString() {
         return "ProjectDTO{" +
-                "projectDescription='" + projectDescription + '\'' +
-                ", proposalDate=" + projectProposalDate +
-                ", projectExpirationDate=" + projectExpirationDate +
-                ", projectRequiredValue=" + projectRequiredValue +
-                ", projectDurationMax=" + projectDurationMax +
-                ", realEstate=" + realEstate +
-                ", borrowerDTO=" + borrowerId +
+                "publicKey='" + publicKey + '\'' +
+                ", realEstateId=" + realEstateId +
+                ", projectDescription='" + projectDescription + '\'' +
+                ", borrowerId=" + borrowerId +
+                ", proposalDate=" + proposalDate +
+                ", expirationDate=" + expirationDate +
+                ", requiredValue=" + requiredValue +
+                ", durationMax=" + durationMax +
                 '}';
     }
 }

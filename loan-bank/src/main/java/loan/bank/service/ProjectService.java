@@ -1,17 +1,10 @@
 package loan.bank.service;
 
-import loan.bank.exception.ProjectException;
+import loan.bank.exception.LoanProposalException;
 import loan.commons.dto.ProjectDTO;
 
 public interface ProjectService {
 
-    void emitProposal(int projectId) throws  ProjectException.ExpiredProjectException;
+    boolean isProjectEligible(ProjectDTO projectDTO) throws LoanProposalException.LoanProposalRefusedException;
 
-    void addInterestRateProposal(int proposalId, double rate);
-
-    void addLoanDurationProposal(int proposalId, int duration);
-
-    void validProposal(int proposalId, int duration);
-
-    ProjectDTO analyseProject(ProjectDTO projectDTO);
 }

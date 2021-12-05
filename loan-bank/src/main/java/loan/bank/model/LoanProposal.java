@@ -21,11 +21,8 @@ public class LoanProposal {
     @Column(name = "endDate", nullable = false)
     private LocalDate endDate;
 
-    @Column(name = "validationNumber", nullable = false)
-    private long validationNumber;
-
-    @Column(name = "isValid", nullable = false)
-    private boolean isValid;
+    @Column(name = "isAccepted", nullable = false)
+    private boolean isAccepted;
 
     @Column(name = "loanAmount", nullable = false)
     private double loanAmount;
@@ -39,19 +36,25 @@ public class LoanProposal {
     @Column(name = "loanDurationMonth", nullable = false)
     private int loanDurationMonth;
 
-    public LoanProposal(LocalDate dateProposal, LocalDate endDate, long validationNumber, boolean isValid,
-                        double loanAmount, String description, double interestRate, int loanDurationMonth) {
+    @Column(name = "idBank", nullable = false)
+    private int idBank;
+
+    public LoanProposal() {
+    }
+
+    public LoanProposal(Integer proposalId, Project projectId, LocalDate dateProposal, LocalDate endDate,
+                        long validationNumber, boolean isAccepted, double loanAmount, String description,
+                        double interestRate, int loanDurationMonth, int idBank) {
+        this.proposalId = proposalId;
+        this.projectId = projectId;
         this.dateProposal = dateProposal;
         this.endDate = endDate;
-        this.validationNumber = validationNumber;
-        this.isValid = isValid;
+        this.isAccepted = isAccepted;
         this.loanAmount = loanAmount;
         this.description = description;
         this.interestRate = interestRate;
         this.loanDurationMonth = loanDurationMonth;
-    }
-
-    public LoanProposal() {
+        this.idBank = idBank;
     }
 
     public Integer getProposalId() {
@@ -82,20 +85,12 @@ public class LoanProposal {
         this.endDate = endDate;
     }
 
-    public long getValidationNumber() {
-        return validationNumber;
+    public boolean isAccepted() {
+        return isAccepted;
     }
 
-    public void setValidationNumber(long validationNumber) {
-        this.validationNumber = validationNumber;
-    }
-
-    public boolean isValid() {
-        return isValid;
-    }
-
-    public void setValid(boolean valid) {
-        isValid = valid;
+    public void setAccepted(boolean accepted) {
+        isAccepted = accepted;
     }
 
     public double getLoanAmount() {
@@ -129,4 +124,13 @@ public class LoanProposal {
     public void setLoanDurationMonth(int loanDurationMonth) {
         this.loanDurationMonth = loanDurationMonth;
     }
+
+    public int getIdBank() {
+        return idBank;
+    }
+
+    public void setIdBank(int idBank) {
+        this.idBank = idBank;
+    }
+
 }

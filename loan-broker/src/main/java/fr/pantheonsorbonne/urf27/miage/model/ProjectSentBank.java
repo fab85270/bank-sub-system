@@ -10,18 +10,23 @@ public class ProjectSentBank {
     @Column(name = "projectSentBankId", nullable = false)
     private Integer projectSentBankId;
 
-    @ManyToOne(optional = true, cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "bankId")
     private Bank bankId;
 
-    @ManyToOne(optional = true, cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "projectId")
     private Project projectId;
+
+    @Column(name="approvalStatus", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private ApprovalStatus approvalStatus;
 
     /*Constructeurs*/
     public ProjectSentBank(Project projectId, Bank bankId) {
         this.bankId = bankId;
         this.projectId = projectId;
+        approvalStatus = ApprovalStatus.PENDING;
     }
     public ProjectSentBank(){};
 
@@ -49,8 +54,10 @@ public class ProjectSentBank {
     @Override
     public String toString() {
         return "ProjectSentBank{" +
-                "bankId=" + bankId +
+                "projectSentBankId=" + projectSentBankId +
+                ", bankId=" + bankId +
                 ", projectId=" + projectId +
+                ", approvalStatus=" + approvalStatus +
                 '}';
     }
 }

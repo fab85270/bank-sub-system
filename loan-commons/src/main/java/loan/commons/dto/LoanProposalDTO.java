@@ -6,28 +6,62 @@ public class LoanProposalDTO {
 
     /*Attributs privés propres à la classe Loan Proposal*/
 
-
-    ProjectDTO projectDTO;
-    BrokerDTO brokerDTO;
-    LocalDate proposalDate;
-    LocalDate endDate;
-    Boolean isValid;
-    double loanAmount;
-    String description;
-    double interestRate;
-    int loanDurationMonth;
+    private ProjectDTO projectDTO;
+    private LocalDate dateProposal;
+    private LocalDate endDate;
+    private boolean isAccepted;
+    private double loanAmount;
+    private String description;
+    private double interestRate;
+    private int loanDurationMonth;
+    private int idBank;
 
     public LoanProposalDTO() {
     }
 
-
-
-    public LocalDate getProposalDate() {
-        return proposalDate;
+    public LoanProposalDTO(ProjectDTO projectDTO, LocalDate dateProposal, LocalDate endDate, boolean isAccepted,
+                           double loanAmount, String description, double interestRate, int loanDurationMonth, int idBank) {
+        this.projectDTO = projectDTO;
+        this.dateProposal = dateProposal;
+        this.endDate = endDate;
+        this.isAccepted = isAccepted;
+        this.loanAmount = loanAmount;
+        this.description = description;
+        this.interestRate = interestRate;
+        this.loanDurationMonth = loanDurationMonth;
+        this.idBank = idBank;
     }
 
-    public void setProposalDate(LocalDate proposalDate) {
-        this.proposalDate = proposalDate;
+    public LocalDate getDateProposal() {
+        return dateProposal;
+    }
+
+    public void setDateProposal(LocalDate dateProposal) {
+        this.dateProposal = dateProposal;
+    }
+
+    public boolean isAccepted() {
+        return isAccepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        isAccepted = accepted;
+    }
+
+    public int getIdBank() {
+        return idBank;
+    }
+
+    public void setIdBank(int idBank) {
+        this.idBank = idBank;
+    }
+
+    public LocalDate getProposalDate() {
+        return dateProposal;
+    }
+
+    public void setProposalDate(LocalDate dateProposal) {
+        this.dateProposal = dateProposal;
     }
 
     public LocalDate getEndDate() {
@@ -36,14 +70,6 @@ public class LoanProposalDTO {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
-    }
-
-    public Boolean getValid() {
-        return isValid;
-    }
-
-    public void setValid(Boolean valid) {
-        isValid = valid;
     }
 
     public double getLoanAmount() {
@@ -87,7 +113,4 @@ public class LoanProposalDTO {
         this.projectDTO = projectDTO;
     }
 
-    public void setBrokerDTO(BrokerDTO brokerDTO) {
-        this.brokerDTO = brokerDTO;
-    }
 }

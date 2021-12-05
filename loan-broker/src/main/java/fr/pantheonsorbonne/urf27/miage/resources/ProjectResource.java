@@ -59,18 +59,6 @@ public class ProjectResource {
     }
 
     /*
-    Permet de selectionner un seul projet
-     */
-    @Path("/{id}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public ProjectDTO selectProject(@PathParam("id") int id){
-        System.out.println(projectService.getProject(id));
-        projectGateway.sendProjectToBank(projectService.getProject(id));
-        return null;
-    }
-
-    /*
     Renvoie dans le header si le projet a deja ete envoye aux banques
      */
     @Path("/banks/{idBank}/banks/{idProject}")
@@ -81,17 +69,12 @@ public class ProjectResource {
         Bank b = bankService.findBank(idBank);
         Project p = projectService.findProject(idProject);
 
-        if(projectSentBankService.isSent(b,p)){
-            Response r = Response
-                    .status(Response.Status.FOUND)
-                    .build();
-            return r;
-        }else{
-            Response r = Response
-                    .status(Response.Status.NOT_FOUND)
-                    .build();
-            return r;
-        }
+        Response.Status status = (projectSentBankService.isSent(b, p))
+                ? Response.Status.FOUND
+                : Response.Status.NOT_FOUND;
+
+        return Response.status(status).build();
+
     }
 
     /*Chargée de la reception de l'identifiant du projet et de la banque séléctionnée par le broker*/
@@ -99,7 +82,6 @@ public class ProjectResource {
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public void sendIdProject(SelectProjetBankDTO application) throws ProjectExceptions.ProjectNotFoundId, BankExceptions.BanksNotFoundId {
-
         /*Affichage de l'object JSON obtenu */
         System.out.println(application.toString());
 
@@ -111,24 +93,15 @@ public class ProjectResource {
 
         int idBank = application.getIdBank();
 
-
         /* Récupération des objets associés aux ID de project et le nom de la Bank */
 
         Bank b = bankService.findBank(idBank);
-
         Project p = projectService.findProject(idProject);
 
+        projectSentBankService.createSentBankProject(p, b);
+        projectGateway.sendProjectToBank(projectService.getProject(idProject), idBank);
 
-        /* Instancier la classe ProjectSentBank selon le project envoyé à une banque donnée */
-
-        projectSentBankService.createSentBankProject(p,b);
-
-        /* Création d'un projet DTO afin de pouvoir l'envoyer par la suite (il possède Estate.. et tout) */
-
-        System.out.println(projectService.getProject(idProject));
-        projectGateway.sendProjectToBank(projectService.getProject(idProject));
-
-        // }
+        }
     }
 
 }

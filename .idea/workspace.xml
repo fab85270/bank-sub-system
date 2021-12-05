@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c0003a-cc2d-4754-8323-6c966b4b56fb" name="Changes" comment="Ré arangement des ressources">
+    <list default="true" id="1fa9dc75-4476-4247-9f1c-659aef973106" name="Changes" comment="Verif">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/resources/ProjectResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/resources/ProjectResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/resources/ProjectRessource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/summaryProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/summaryProject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/CamelRoutes.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/CamelRoutes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/ProjectGatewayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/ProjectGatewayImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/AddressDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/AddressDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/CamelRoutes.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/CamelRoutes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,15 +21,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="interfaceSendBank" />
+        <entry key="$PROJECT_DIR$" value="bank-service-new" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -71,13 +72,13 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="ExpandQuarkusEnvironmentOptionsPanel" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.google.cloudcode.ide_session_index" value="20211201_0000" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../camel-01" />
+    <property name="com.google.cloudcode.ide_session_index" value="20211205_0000" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -94,14 +95,8 @@
       <recent name="C:\Users\jotia\Desktop\M1 MIAGE\INF2\bank-sub-system\loan-commons\target" />
       <recent name="C:\Users\maxen\OneDrive\Documents\fac\Informatique\S7\Framework composants métiers et web service\projetBanque\bank-sub-system\loan-bank\src\main\java\fr\pantheonsorbonne\ufr27\miage\model" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jotia\Desktop\M1 MIAGE\INF2\bank-sub-system\loan-bank\target\data\test" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="loan.bank.model" />
-    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Quarkus.bank2">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -113,16 +108,189 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="quarkus dev" type="QuarkusRunConfigurationType" factoryName="Quarkus">
+    <configuration default="true" type="QuarkusRunConfigurationType" factoryName="Quarkus">
+      <module name="loan-bank" />
+      <QsMavenRunConfiguration>
+        <MavenSettings>
+          <option name="myGeneralSettings" />
+          <option name="myRunnerSettings">
+            <MavenRunnerSettings>
+              <option name="delegateBuildToMaven" value="false" />
+              <option name="environmentProperties">
+                <map />
+              </option>
+              <option name="jreName" value="#USE_PROJECT_JDK" />
+              <option name="mavenProperties">
+                <map />
+              </option>
+              <option name="passParentEnv" value="true" />
+              <option name="runMavenInBackground" value="true" />
+              <option name="skipTests" value="false" />
+              <option name="vmOptions" value="-Dquarkus.profile=bank1" />
+            </MavenRunnerSettings>
+          </option>
+          <option name="myRunnerParameters">
+            <MavenRunnerParameters>
+              <option name="profiles">
+                <set />
+              </option>
+              <option name="goals">
+                <list />
+              </option>
+              <option name="pomFileName" value="pom.xml" />
+              <option name="profilesMap">
+                <map>
+                  <entry key="bank1" value="true" />
+                </map>
+              </option>
+              <option name="resolveToWorkspace" value="false" />
+              <option name="workingDirPath" value="$PROJECT_DIR$/loan-bank" />
+            </MavenRunnerParameters>
+          </option>
+        </MavenSettings>
+        <targetMavenLocalRepo />
+      </QsMavenRunConfiguration>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="bank1" type="QuarkusRunConfigurationType" factoryName="Quarkus">
+      <module name="loan-bank" />
+      <QsMavenRunConfiguration>
+        <MavenSettings>
+          <option name="myGeneralSettings" />
+          <option name="myRunnerSettings">
+            <MavenRunnerSettings>
+              <option name="delegateBuildToMaven" value="false" />
+              <option name="environmentProperties">
+                <map />
+              </option>
+              <option name="jreName" value="#USE_PROJECT_JDK" />
+              <option name="mavenProperties">
+                <map />
+              </option>
+              <option name="passParentEnv" value="true" />
+              <option name="runMavenInBackground" value="true" />
+              <option name="skipTests" value="false" />
+              <option name="vmOptions" value="-Dquarkus.profile=bank1" />
+            </MavenRunnerSettings>
+          </option>
+          <option name="myRunnerParameters">
+            <MavenRunnerParameters>
+              <option name="profiles">
+                <set />
+              </option>
+              <option name="goals">
+                <list>
+                  <option value="quarkus:dev" />
+                </list>
+              </option>
+              <option name="pomFileName" value="pom.xml" />
+              <option name="profilesMap">
+                <map>
+                  <entry key="bank1" value="true" />
+                </map>
+              </option>
+              <option name="resolveToWorkspace" value="false" />
+              <option name="workingDirPath" value="$PROJECT_DIR$/loan-bank" />
+            </MavenRunnerParameters>
+          </option>
+        </MavenSettings>
+        <targetMavenLocalRepo />
+      </QsMavenRunConfiguration>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bank2" type="QuarkusRunConfigurationType" factoryName="Quarkus">
+      <module name="loan-bank" />
+      <QsMavenRunConfiguration>
+        <MavenSettings>
+          <option name="myGeneralSettings" />
+          <option name="myRunnerSettings">
+            <MavenRunnerSettings>
+              <option name="delegateBuildToMaven" value="false" />
+              <option name="environmentProperties">
+                <map />
+              </option>
+              <option name="jreName" value="#USE_PROJECT_JDK" />
+              <option name="mavenProperties">
+                <map />
+              </option>
+              <option name="passParentEnv" value="true" />
+              <option name="runMavenInBackground" value="true" />
+              <option name="skipTests" value="false" />
+              <option name="vmOptions" value="-Dquarkus.profile=bank2 -Dquarkus.http.port=8082" />
+            </MavenRunnerSettings>
+          </option>
+          <option name="myRunnerParameters">
+            <MavenRunnerParameters>
+              <option name="profiles">
+                <set />
+              </option>
+              <option name="goals">
+                <list>
+                  <option value="quarkus:dev" />
+                </list>
+              </option>
+              <option name="pomFileName" value="pom.xml" />
+              <option name="profilesMap">
+                <map>
+                  <entry key="bank2" value="true" />
+                </map>
+              </option>
+              <option name="resolveToWorkspace" value="false" />
+              <option name="workingDirPath" value="$PROJECT_DIR$/loan-bank" />
+            </MavenRunnerParameters>
+          </option>
+        </MavenSettings>
+        <targetMavenLocalRepo />
+      </QsMavenRunConfiguration>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="broker" type="QuarkusRunConfigurationType" factoryName="Quarkus">
+      <module name="loan-broker" />
+      <QsMavenRunConfiguration>
+        <MavenSettings>
+          <option name="myGeneralSettings" />
+          <option name="myRunnerSettings" />
+          <option name="myRunnerParameters">
+            <MavenRunnerParameters>
+              <option name="profiles">
+                <set />
+              </option>
+              <option name="goals">
+                <list>
+                  <option value="quarkus:dev" />
+                </list>
+              </option>
+              <option name="pomFileName" value="pom.xml" />
+              <option name="profilesMap">
+                <map />
+              </option>
+              <option name="resolveToWorkspace" value="false" />
+              <option name="workingDirPath" value="$PROJECT_DIR$/loan-broker" />
+            </MavenRunnerParameters>
+          </option>
+        </MavenSettings>
+        <targetMavenLocalRepo />
+      </QsMavenRunConfiguration>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Quarkus.bank2" />
+      <item itemvalue="Quarkus.broker" />
+      <item itemvalue="Quarkus.bank1" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d3c0003a-cc2d-4754-8323-6c966b4b56fb" name="Changes" comment="" />
+      <changelist id="1fa9dc75-4476-4247-9f1c-659aef973106" name="Changes" comment="Verif" />
       <created>1636708538517</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -145,10 +313,9 @@
       <workItem from="1637940024900" duration="2434000" />
       <workItem from="1638004027134" duration="252000" />
       <workItem from="1638004316066" duration="10806000" />
-      <workItem from="1638300346349" duration="341000" />
-      <workItem from="1638300706841" duration="487000" />
-      <workItem from="1638301228318" duration="17731000" />
-      <workItem from="1638347579759" duration="9979000" />
+      <workItem from="1638351342869" duration="25452000" />
+      <workItem from="1638616726327" duration="1588000" />
+      <workItem from="1638696541517" duration="23889000" />
     </task>
     <task id="LOCAL-00001" summary="modif readme">
       <created>1637491279335</created>
@@ -247,8 +414,7 @@
     <MESSAGE value="Delete Master" />
     <MESSAGE value="rajout isDelivered" />
     <MESSAGE value="Verif" />
-    <MESSAGE value="Ré arangement des ressources" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ré arangement des ressources" />
+    <option name="LAST_COMMIT_MESSAGE" value="Verif" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

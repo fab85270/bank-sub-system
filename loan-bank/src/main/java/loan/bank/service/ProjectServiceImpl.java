@@ -1,122 +1,54 @@
 package loan.bank.service;
 
+import loan.bank.exception.LoanProposalException;
+import loan.commons.dto.BorrowerDTO;
+import loan.commons.dto.ProjectDTO;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.transaction.Transactional;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-
-import loan.bank.dao.LoanProposalDAO;
-import loan.bank.dao.ProjectDAO;
-import loan.bank.exception.LoanProposalException;
-import loan.bank.exception.ProjectException;
-
-import loan.bank.model.LoanProposal;
-import loan.bank.model.Project;
-import loan.commons.dto.ProjectDTO;
 
 @ApplicationScoped
 public class ProjectServiceImpl implements ProjectService {
 
 
-    @Inject
-    ProjectDAO projectDAO;
+    @ConfigProperty(name = "loan.bank.salaryCoefficient")
+    double salaryCoefficient;
 
-    @Inject
-    LoanProposalDAO loanProposalDAO;
+    @ConfigProperty(name = "loan.bank.minAge")
+    int minAge;
 
+    @ConfigProperty(name = "loan.bank.maxAge")
+    int maxAge;
 
-    @Override
-    @Transactional
-    public void emitProposal(int projectId) throws ProjectException.ExpiredProjectException {
+    @ConfigProperty(name = "loan.bank.debtRatio")
+    double debtRatio;
 
-        Project project = null;
-        try {
-            project = projectDAO.findById(projectId);
-        } catch (ProjectException.ProjectNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        //Verify if project is expired
-        if (project.getExpirationDate().isBefore(LocalDate.now())) {
-            throw new ProjectException.ExpiredProjectException(project.getProjectId());
-        }
-        LoanProposal proposal = new LoanProposal();
-        proposal.setProjectId(project);
-
-        proposal.setDateProposal(LocalDate.now());
-        LocalDate date = LocalDate.now();
-        proposal.setEndDate(date.plus(60, ChronoUnit.DAYS));
-        proposal.setValid(false);
-        proposal.setLoanAmount(project.getRequiredValue());
-        proposal.setDescription(project.getProjectDescription());
-
-
-        //Redefined after
-        proposal.setInterestRate(0.00);
-        proposal.setLoanDurationMonth(0);
-
-
-        loanProposalDAO.post(proposal);
-
-    }
+    @ConfigProperty(name = "loan.bank.maxDuration")
+    int maxDuration;
 
 
     @Override
-    @Transactional
-    public void addInterestRateProposal(int proposalId, double rate) {
+    public boolean isProjectEligible(ProjectDTO project) throws LoanProposalException.LoanProposalRefusedException {
+        BorrowerDTO borrower = project.getBorrowerId();
+        int age = LocalDate.now().getYear() - borrower.getBirthdate().getYear();
 
+        boolean isEligible = (isBetween(age, minAge, maxAge)
+                && project.getExpirationDate().isBefore(LocalDate.now())
+                && sufficientSalary(borrower.getAnnualSalary(), project.getRequiredValue())
+                && borrower.getDebtRatio() <= debtRatio
+                && project.getDurationMax() > maxDuration);
 
-        LoanProposal proposal = null;
-        try {
-            proposal = loanProposalDAO.findMatchingLoanProposal(proposalId);
-        } catch (LoanProposalException.LoanProposalNotFoundException e) {
-            e.printStackTrace();
-        }
+        if(!isEligible) throw new LoanProposalException.LoanProposalRefusedException(project.getProjectDescription());
 
-        proposal.setInterestRate(rate);
-
-        loanProposalDAO.put(proposal);
+        return true;
     }
 
-    @Override
-    @Transactional
-    public void addLoanDurationProposal(int proposalId, int duration) {
-
-        LoanProposal proposal = null;
-        try {
-            proposal = loanProposalDAO.findMatchingLoanProposal(proposalId);
-        } catch (LoanProposalException.LoanProposalNotFoundException e) {
-            e.printStackTrace();
-        }
-        proposal.setLoanDurationMonth(duration);
-
-        loanProposalDAO.put(proposal);
+    public boolean sufficientSalary(double salary, double amount) {
+        return salary >= salaryCoefficient * amount;
     }
 
-    @Override
-    @Transactional
-    public void validProposal(int proposalId, int duration) {
-
-        LoanProposal proposal = null;
-        try {
-            proposal = loanProposalDAO.findMatchingLoanProposal(proposalId);
-        } catch (LoanProposalException.LoanProposalNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        proposal.setValid(true);
-
-        loanProposalDAO.put(proposal);
+    public boolean isBetween(int x, int lower, int upper) {
+        return lower <= x && x <= upper;
     }
-
-    @Override
-    @Transactional
-    public ProjectDTO analyseProject(ProjectDTO projectDTO) {
-        System.out.println(projectDTO);
-        return projectDTO;
-    }
-
-
 }

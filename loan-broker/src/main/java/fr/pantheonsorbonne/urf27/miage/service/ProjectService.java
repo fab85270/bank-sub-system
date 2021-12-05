@@ -23,5 +23,5 @@ public interface ProjectService {
 
     Project findProject(int idProject) throws ProjectExceptions.ProjectNotFoundId;
 
-
+    Project getProjectByPublicKey(String publicKey) throws ProjectExceptions.ProjectPublicKeyNotFound;
 }

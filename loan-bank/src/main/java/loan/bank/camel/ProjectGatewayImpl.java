@@ -1,19 +1,21 @@
 package loan.bank.camel;
 
+import loan.bank.exception.LoanProposalException;
 import loan.bank.service.ProjectServiceImpl;
 import loan.commons.dto.ProjectDTO;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-public class ProjectGatewayImpl implements ProjectGateway{
+@ApplicationScoped
+public class ProjectGatewayImpl implements ProjectGateway {
 
     @Inject
     ProjectServiceImpl projectService;
 
-    public ProjectDTO createProject(ProjectDTO projectDTO) {
-
-        return projectService.analyseProject(projectDTO);
+    @Override
+    public boolean isProjectEligible(ProjectDTO projectDTO) throws LoanProposalException.LoanProposalRefusedException {
+        return projectService.isProjectEligible(projectDTO);
     }
-
 
 }

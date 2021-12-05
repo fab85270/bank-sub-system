@@ -103,7 +103,7 @@
                 if (projectSaisie < 0) {
                     window.alert("Error : Le numéro de projet saisit doit être supérieur à 0")
                 }else {
-                    if (projectIdTab.length == 0) {
+                    if (projectIdTab.length === 0) {
                         window.alert("Error : Vous n'avez aucun project qui vous est associé")
                     } else {
                         if (bankSaisie > bankIdTab.length - 1) {
@@ -137,7 +137,7 @@
                                 });
 
                                 console.log(responseFree.status)
-                                if(responseFree.status!=404){
+                                if(responseFree.status!==404){
                                     window.alert("Error : Vous avez déja envoyé ce projet à cette banque");
                                 }else {
                                     console.log("salut mec");
@@ -147,7 +147,8 @@
 
                                     let _data = {
                                         idProject: idProject,
-                                        idBank: idBank
+                                        idBank: idBank,
+                                        approvalStatus: "PENDING"
                                     }
 
                                     let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
