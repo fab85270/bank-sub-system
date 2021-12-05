@@ -1,5 +1,6 @@
 package loan.bank.service;
 
+import loan.bank.exception.LoanProposalException;
 import loan.commons.dto.BorrowerDTO;
 import loan.commons.dto.ProjectDTO;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
@@ -21,26 +22,27 @@ public class ProjectServiceImpl implements ProjectService {
     @ConfigProperty(name = "loan.bank.maxAge")
     int maxAge;
 
-    @Inject
     @ConfigProperty(name = "loan.bank.debtRatio")
     double debtRatio;
 
-    @Inject
     @ConfigProperty(name = "loan.bank.maxDuration")
     int maxDuration;
 
 
     @Override
-    public boolean isProjectEligible(ProjectDTO project) {
-        System.out.println(project);
-        BorrowerDTO borrower = project.getBorrowerDTO();
+    public boolean isProjectEligible(ProjectDTO project) throws LoanProposalException.LoanProposalRefusedException {
+        BorrowerDTO borrower = project.getBorrowerId();
         int age = LocalDate.now().getYear() - borrower.getBirthdate().getYear();
 
-        return (isBetween(age, minAge, maxAge)
-                && project.getProjectExpirationDate().isBefore(LocalDate.now())
-                && sufficientSalary(borrower.getAnnualSalary(), project.getProjectRequiredValue())
+        boolean isEligible = (isBetween(age, minAge, maxAge)
+                && project.getExpirationDate().isBefore(LocalDate.now())
+                && sufficientSalary(borrower.getAnnualSalary(), project.getRequiredValue())
                 && borrower.getDebtRatio() <= debtRatio
-                && project.getProjectDurationMax() > maxDuration);
+                && project.getDurationMax() > maxDuration);
+
+        if(!isEligible) throw new LoanProposalException.LoanProposalRefusedException(project.getProjectDescription());
+
+        return true;
     }
 
     public boolean sufficientSalary(double salary, double amount) {

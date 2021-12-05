@@ -1,6 +1,5 @@
 package fr.pantheonsorbonne.urf27.miage.camel.gateways;
 
-import fr.pantheonsorbonne.urf27.miage.service.ProjectServiceImpl;
 import loan.commons.dto.ProjectDTO;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
@@ -13,18 +12,42 @@ import javax.inject.Inject;
 @ApplicationScoped
 public class CamelRoutes extends RouteBuilder {
 
-
     @Inject
-    ProjectServiceImpl projectService;
+    ProjectGateway projectGateway;
 
     @Inject
     CamelContext camelContext;
 
+    public int idBank;
+
     @Override
     public void configure() {
-
         from("direct:cli")
                 .marshal().json()
-                .to("jms:queue/bank");
+                .process(new Processor() {
+                    @Override
+                    public void process(Exchange exchange) throws Exception {
+                        idBank = Integer.parseInt(exchange.getMessage().getHeader("idBank").toString());
+                        System.out.println("IDBAAANK -=== " + idBank);
+                    }
+                })
+                .to("jms:queue/bank/" + 1 + "?exchangePattern=InOut")
+                .choice()
+                .when(header("approved").isEqualTo(false))
+                .unmarshal()
+                .json(ProjectDTO.class)
+                .process(new Processor() {
+                    @Override
+                    public void process(Exchange exchange) throws Exception {
+                        exchange.getMessage().setHeader("idBank", 1);
+                    }
+                })
+                .bean(projectGateway, "updateStatusRejected")
+                .process(new Processor() {
+                    @Override
+                    public void process(Exchange exchange) throws Exception {
+                        System.out.println(exchange.getMessage().getBody());
+                    }
+                });
     }
 }

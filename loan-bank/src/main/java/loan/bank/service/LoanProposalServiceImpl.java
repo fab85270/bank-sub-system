@@ -53,9 +53,9 @@ public class LoanProposalServiceImpl implements LoanProposalService {
         proposal.setProposalDate(date);
         proposal.setEndDate(date.plusMonths(maxProposalDuration));
         proposal.setAccepted(false);
-        proposal.setLoanAmount(projectDTO.getProjectRequiredValue());
+        proposal.setLoanAmount(projectDTO.getRequiredValue());
         proposal.setDescription(projectDTO.getProjectDescription());
-        proposal.setLoanDurationMonth(projectDTO.getProjectDurationMax());
+        proposal.setLoanDurationMonth(projectDTO.getDurationMax());
         proposal.setInterestRate(getInterestRate(projectDTO));
         proposal.setIdBank(bankId);
 
@@ -88,7 +88,7 @@ public class LoanProposalServiceImpl implements LoanProposalService {
     }
 
     private double getDurationInterestRate(ProjectDTO project) {
-        int duration = project.getProjectDurationMax();
+        int duration = project.getDurationMax();
         if (duration <= creditUnder15Years) {
             return interestRate15Years;
         } else if (duration <= creditUnder20Years) {

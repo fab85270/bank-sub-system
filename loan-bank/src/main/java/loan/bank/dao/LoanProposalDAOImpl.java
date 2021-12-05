@@ -26,6 +26,7 @@ public class LoanProposalDAOImpl implements LoanProposalDAO {
                                     "proposal.idBank=:idBank and proposal.isAccepted=:valid")
                             .setParameter("idBank", idBank)
                             .setParameter("valid", true).getSingleResult();
+            System.out.println("NUMBER OF ACCEPTED PROPOSALSS =====> " + nrAcceptedProposals);
             return nrAcceptedProposals;
         } catch (NoResultException e) {
             throw new LoanProposalException.LoanProposalBankNotFoundException(idBank);

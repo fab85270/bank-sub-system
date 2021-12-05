@@ -1,5 +1,7 @@
 package loan.bank.exception;
 
+import loan.commons.dto.ProjectDTO;
+
 public class LoanProposalException {
     public static class LoanProposalBankNotFoundException extends Throwable {
         public LoanProposalBankNotFoundException(int bankId) {
@@ -8,8 +10,8 @@ public class LoanProposalException {
     }
 
     public static class LoanProposalRefusedException extends Throwable {
-        public LoanProposalRefusedException() {
-            super("Aucune proposition de prêt ne peut être proposée, le client n'est pas éligible" );
+        public LoanProposalRefusedException(String description) {
+            super(description);
         }
     }
 

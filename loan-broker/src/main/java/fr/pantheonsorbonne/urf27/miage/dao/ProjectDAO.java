@@ -13,4 +13,5 @@ public interface ProjectDAO {
 
     Project findProject(int idProject) throws ProjectExceptions.ProjectNotFoundId;
 
+    Project findProjectByPublicKey(String key) throws ProjectExceptions.ProjectPublicKeyNotFound;
 }

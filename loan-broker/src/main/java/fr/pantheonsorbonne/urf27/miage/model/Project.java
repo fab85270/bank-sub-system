@@ -1,9 +1,6 @@
 package fr.pantheonsorbonne.urf27.miage.model;
 
-import javax.money.Monetary;
-import javax.money.MonetaryAmount;
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDate;
 
 @Entity
@@ -13,6 +10,9 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "projectId", nullable = false)
     private Integer projectId;
+
+    @Column(name = "publicKey")
+    private String publicKey;
 
     @OneToOne(optional = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "realEstateId")
@@ -40,7 +40,8 @@ public class Project {
     public Project() {
     }
 
-    public Project(String projectDescription, LocalDate proposalDate, LocalDate expirationDate, double requiredValue, int durationMax) {
+    public Project(String projectDescription, LocalDate proposalDate, LocalDate expirationDate, double requiredValue,
+                   int durationMax) {
         this.projectDescription = projectDescription;
         this.proposalDate = proposalDate;
         this.expirationDate = expirationDate;
@@ -117,17 +118,26 @@ public class Project {
         this.borrowerId = borrowerId;
     }
 
+    public String getPublicKey() {
+        return publicKey;
+    }
+
+    public void setPublicKey(String publicKey) {
+        this.publicKey = publicKey;
+    }
+
     @Override
     public String toString() {
         return "Project{" +
                 "projectId=" + projectId +
-                ", \nborrowerId=" + borrowerId +
-                ", \nrealEstateId=" + realEstateId +
-                ", \nprojectDescription='" + projectDescription + '\'' +
-                ", \nproposalDate=" + proposalDate +
-                ", \nexpirationDate=" + expirationDate +
-                ", \nrequiredValue=" + requiredValue +
-                ", \ndurationMax=" + durationMax +
+                ", publicKey=" + publicKey +
+                ", realEstateId=" + realEstateId +
+                ", projectDescription='" + projectDescription + '\'' +
+                ", borrowerId=" + borrowerId +
+                ", proposalDate=" + proposalDate +
+                ", expirationDate=" + expirationDate +
+                ", requiredValue=" + requiredValue +
+                ", durationMax=" + durationMax +
                 '}';
     }
 }
