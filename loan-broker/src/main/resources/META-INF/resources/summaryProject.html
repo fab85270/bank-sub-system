@@ -140,6 +140,7 @@
                                 if(responseFree.status!==404){
                                     window.alert("Error : Vous avez déja envoyé ce projet à cette banque");
                                 }else {
+                                    console.log("salut mec");
 
 
                                     /*Envoie de cet ID par une requête POST vers notre application pour qu'elle soit traitée*/
@@ -154,6 +155,7 @@
                                     xmlhttp.open("POST", "/project/projectBank");
                                     xmlhttp.setRequestHeader("Content-Type", "application/json");
                                     xmlhttp.send(JSON.stringify(_data));
+
                                 }
                             }
                         }

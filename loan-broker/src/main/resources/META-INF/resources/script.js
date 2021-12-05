@@ -32,7 +32,6 @@ async function controle() {
     let requiredInterest = document.getElementById("requiredInterest").value;
     let monthlyRefund = document.getElementById("monthlyRefund").value;
     let debtRatio = document.getElementById("debtRatio").value;
-    // let isDelivered = false;
 
     /* Vérification que l'adresse mail saisie n'existe pas déja */
     /*On construit l'URL selon le mail saisit par l'utilisateur */
