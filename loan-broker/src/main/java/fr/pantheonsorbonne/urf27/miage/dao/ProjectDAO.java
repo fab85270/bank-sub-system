@@ -9,7 +9,7 @@ public interface ProjectDAO {
 
     Project createProject(Project project);
 
-    Collection<Project> getAllProject() throws ProjectExceptions.ProjectsNotFound;
+    Collection<Object> getAllProject() throws ProjectExceptions.ProjectsNotFound;
 
     Project findProject(int idProject) throws ProjectExceptions.ProjectNotFoundId;
 

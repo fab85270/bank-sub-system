@@ -28,8 +28,6 @@
             console.log(response);
 
             /* Récupération de toutes les banques associées au broker */
-
-
             const responseBank = await fetch("/bank/banks", {
                 method: 'GET', // *GET, POST, PUT, DELETE, etc.
                 mode: 'cors', // no-cors, *cors, same-origin
@@ -47,15 +45,15 @@
 
             /* On va clear le document au début */
             document.getElementById('p1').innerHTML = "";
-
+            console.log(response[0])
             for (const object in response) {
                 /* On remplit le document pour affichage*/
 
                 document.getElementById('p1').innerHTML +=
-                    '<br>Project numéro ' + object + ' :<br><br>' + ' <strong> Informations Client :</strong> <br>' + '- Nom: ' + response[object].borrowerId.lastName + '<br> - Prénom : '+ response[object].borrowerId.firstName + '<br> - Genre : '+response[object].borrowerId.gender +'<br> - Mail : '+response[object].borrowerId.email + '<br> - Tel : '+response[object].borrowerId.phoneNumber + '<br> - Contrat de travail : '+response[object].borrowerId.employmentContract
-                    + '<br> - Salaire annuel : '+response[object].borrowerId.annualSalary + '<br> - Taux endettement : '+response[object].borrowerId.debtRatio + '<br><br><strong>Informations demande Emprunt</strong><br>- Apport du client : '+response[object].borrowerId.firstDeposit +'<br> - Somme à emprunter désirée : '+response[object].requiredValue +'<br> - Montant du remboursement mensuel désiré : '+response[object].borrowerId.monthlyRefund +'<br> - Taux intéret désiré : '+response[object].borrowerId.requiredInterest +
-                    '<br> - Description du project  : '+response[object].projectDescription+ '<br> - Date début emprunt souhaité : '+  response[object].proposalDate + '<br> - Date de fin emprunt souhaité : '+  response[object].expirationDate +'<br><br><strong>Informations sur le bien associé au projet emprunt</strong>' + '<br> - Surface (m^2) : '+  response[object].realEstateId.surface + '<br> - Nombre de chambre : '+  response[object].realEstateId.numberOfRooms +
-                    '<br> - Prix  : '+  response[object].realEstateId.price + '<br> - Année de construction : '+  response[object].realEstateId.constructionYear+'<br>-----------------<br>';
+                    '<br>Project numéro ' + object +'<br>Statut demande '+response[object][2].bankName+' : '+response[object][1]+'<br><br>' + ' <strong> Informations Client :</strong> <br>' + '- Nom: ' + response[object][0].borrowerId.lastName + '<br> - Prénom : '+ response[object][0].borrowerId.firstName + '<br> - Genre : '+response[object][0].borrowerId.gender +'<br> - Mail : '+response[object][0].borrowerId.email + '<br> - Tel : '+response[object][0].borrowerId.phoneNumber + '<br> - Contrat de travail : '+response[object][0].borrowerId.employmentContract
+                    + '<br> - Salaire annuel : '+response[object][0].borrowerId.annualSalary + '<br> - Taux endettement : '+response[object][0].borrowerId.debtRatio + '<br><br><strong>Informations demande Emprunt</strong><br>- Apport du client : '+response[object][0].borrowerId.firstDeposit +'<br> - Somme à emprunter désirée : '+response[object][0].requiredValue +'<br> - Montant du remboursement mensuel désiré : '+response[object][0].borrowerId.monthlyRefund +'<br> - Taux intéret désiré : '+response[object][0].borrowerId.requiredInterest +
+                    '<br> - Description du project  : '+response[object][0].projectDescription+ '<br> - Date début emprunt souhaité : '+  response[object][0].proposalDate + '<br> - Date de fin emprunt souhaité : '+  response[object][0].expirationDate +'<br><br><strong>Informations sur le bien associé au projet emprunt</strong>' + '<br> - Surface (m^2) : '+  response[object][0].realEstateId.surface + '<br> - Nombre de chambre : '+  response[object][0].realEstateId.numberOfRooms +
+                    '<br> - Prix  : '+  response[object][0].realEstateId.price + '<br> - Année de construction : '+  response[object][0].realEstateId.constructionYear+'<br>-----------------<br>';
 
 
                 /*On stocke dans un tableau, tous les ID des différents projets qu'on recoit*/

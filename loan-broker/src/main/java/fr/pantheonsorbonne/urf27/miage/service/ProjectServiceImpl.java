@@ -88,7 +88,7 @@ public class ProjectServiceImpl implements ProjectService {
     /* Méthode chargée d'obtenir tous les projets */
     @Override
     @Transactional
-    public Collection<Project> getAllProject() throws ProjectExceptions.ProjectsNotFound {
+    public Collection<Object> getAllProject() throws ProjectExceptions.ProjectsNotFound {
         return projectDAO.getAllProject();
     }
 
