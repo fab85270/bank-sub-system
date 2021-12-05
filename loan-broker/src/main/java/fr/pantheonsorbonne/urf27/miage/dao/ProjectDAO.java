@@ -9,9 +9,11 @@ public interface ProjectDAO {
 
     Project createProject(Project project);
 
-    Collection<Object> getAllProject() throws ProjectExceptions.ProjectsNotFound;
+    Collection<Project> getAllProject() throws ProjectExceptions.ProjectsNotFound;
 
     Project findProject(int idProject) throws ProjectExceptions.ProjectNotFoundId;
 
     Project findProjectByPublicKey(String key) throws ProjectExceptions.ProjectPublicKeyNotFound;
+
+    Collection<Object> getAllProjectSentToBank() throws ProjectExceptions.ProjectsNotFound;
 }

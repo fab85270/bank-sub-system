@@ -14,7 +14,9 @@ public interface ProjectService {
     Project createProject(Borrower borrower, RealEstate realEstate, String projectDescription,
                           LocalDate proposalDate, LocalDate projectExpirationDate , double requiredValue, int durationMax);
 
-    Collection<Object> getAllProject() throws ProjectExceptions.ProjectsNotFound;
+    Collection<Project> getAllProject() throws ProjectExceptions.ProjectsNotFound;
+
+    Collection<Object> getAllProjectSentToBank() throws ProjectExceptions.ProjectsNotFound;
 
     ProjectDTO getProject(int id);
 

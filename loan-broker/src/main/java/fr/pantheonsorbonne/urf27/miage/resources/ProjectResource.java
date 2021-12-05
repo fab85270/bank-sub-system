@@ -55,8 +55,15 @@ public class ProjectResource {
     @Path("/projects")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public Collection<Object> getProject() throws ProjectExceptions.ProjectsNotFound {
+    public Collection<Project> getProject() throws ProjectExceptions.ProjectsNotFound {
         return projectService.getAllProject();
+    }
+
+    @Path("/projectsBank")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public Collection<Object> getProjectSentToBank() throws ProjectExceptions.ProjectsNotFound {
+        return projectService.getAllProjectSentToBank();
     }
 
     /*
