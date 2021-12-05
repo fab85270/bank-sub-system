@@ -13,5 +13,4 @@ public interface BankService {
 
     Collection<Bank> getBanks() throws BankExceptions.BanksNotFound;
 
-    void createBankTest() throws BankExceptions.BankAlreadyExists;
 }

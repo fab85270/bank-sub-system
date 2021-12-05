@@ -41,7 +41,6 @@ public class ProjectResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public ProjectDTO createProject(Project project) {
 
-        //bankService.createBankTest();
         projectService.createProject(project.getBorrowerId(), project.getRealEstateId(), project.getProjectDescription(),
                 project.getProposalDate(), project.getExpirationDate(), project.getRequiredValue(), project.getDurationMax());
 
