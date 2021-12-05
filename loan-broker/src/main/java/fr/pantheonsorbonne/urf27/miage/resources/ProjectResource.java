@@ -126,7 +126,8 @@ public class ProjectResource {
 
         /* Création d'un projet DTO afin de pouvoir l'envoyer par la suite (il possède Estate.. et tout) */
 
-        //TODO A FAIRE
+        System.out.println(projectService.getProject(idProject));
+        projectGateway.sendProjectToBank(projectService.getProject(idProject));
 
         // }
     }
