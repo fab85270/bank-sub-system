@@ -75,31 +75,6 @@ public class BankDAOImpl implements BankDAO {
     }
 
     /*
-    Insere un jeu de donnée de banque dans la BDD
-     */
-    @Override
-    @Transactional
-    public void createBankTest() {
-
-        Address a = new Address("Av. Danielle Casanova",140 ,94200,"Ivry-Sur-Seine","");
-        em.persist(a);
-        Bank b = new Bank("Credit Mutuel",a);
-        em.persist(b);
-
-        Address a1 = new Address("Av. de Paris",2,94800 ,"Villejuif","2e etage");
-        em.persist(a1);
-        Bank b1 = new Bank("lcl",a1);
-        em.persist(b1);
-
-        Address a2 = new Address("Av. d'Italie",59,75013,"paris","");
-        em.persist(a2);
-        Bank b2 = new Bank("BNP Paribas",a2);
-        em.persist(b2);
-
-    }
-
-
-    /*
     Remets la BDD à zéro
      */
     @Override

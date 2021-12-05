@@ -21,6 +21,4 @@ public interface BankDAO {
 
     Collection<Bank> getBanks() throws BankExceptions.BanksNotFound;
 
-    void createBankTest() throws BankExceptions.BankAlreadyExists;
-
 }

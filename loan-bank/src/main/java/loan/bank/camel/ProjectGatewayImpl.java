@@ -18,5 +18,4 @@ public class ProjectGatewayImpl implements ProjectGateway {
         return projectService.isProjectEligible(projectDTO);
     }
 
-
 }
