@@ -17,8 +17,7 @@ public class AddressDAOImpl implements AddressDAO {
     @Override
     public Address findAddress(long idAddress) throws entityNotFound {
         try {
-            Address a = (Address) em.createQuery("Select a from Address a where a.idAddress=:idAddress").setParameter("idAddress", idAddress).getSingleResult();
-            return a;
+            return (Address) em.createQuery("Select a from Address a where a.idAddress=:idAddress").setParameter("idAddress", idAddress).getSingleResult();
         } catch (NoResultException e) {
             throw new entityNotFound(); //Déclaration d'une exception métier
         }

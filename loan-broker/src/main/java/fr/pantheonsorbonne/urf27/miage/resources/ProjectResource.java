@@ -41,7 +41,6 @@ public class ProjectResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public ProjectDTO createProject(Project project) {
 
-        //bankService.createBankTest();
         projectService.createProject(project.getBorrowerId(), project.getRealEstateId(), project.getProjectDescription(),
                 project.getProposalDate(), project.getExpirationDate(), project.getRequiredValue(), project.getDurationMax());
 
@@ -65,20 +64,6 @@ public class ProjectResource {
     public Collection<Object> getProjectSentToBank() throws ProjectExceptions.ProjectsNotFound {
         return projectService.getAllProjectSentToBank();
     }
-
-    /*
-    Permet de selectionner un seul projet
-     */
-    /*
-    @Path("/{id}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public ProjectDTO selectProject(@PathParam("id") int id) {
-        System.out.println(projectService.getProject(id));
-        projectGateway.sendProjectToBank(projectService.getProject(id));
-        return null;
-    }
-     */
 
     /*
     Renvoie dans le header si le projet a deja ete envoye aux banques
@@ -122,9 +107,8 @@ public class ProjectResource {
 
         projectSentBankService.createSentBankProject(p, b);
         projectGateway.sendProjectToBank(projectService.getProject(idProject), idBank);
-        //TODO A FAIRE
 
-        // }
+        }
     }
 
 }

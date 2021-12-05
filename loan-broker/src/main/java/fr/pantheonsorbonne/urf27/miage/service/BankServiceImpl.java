@@ -39,11 +39,4 @@ public class BankServiceImpl implements BankService{
     public Collection<Bank> getBanks() throws BankExceptions.BanksNotFound{
         return bankDAO.getBanks();
     }
-
-    /*
-    * Cree une liste de bank pour les tests
-    */
-    public void createBankTest() throws BankExceptions.BankAlreadyExists{
-        bankDAO.createBankTest();
-    }
 }

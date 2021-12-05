@@ -55,6 +55,7 @@ public class ProjectServiceImpl implements ProjectService {
         addressDAO.createAddress(realEstate.getAddressId());
         realEstate.setAddressId(realEstate.getAddressId());
         realEstateDAO.createRealEstate(realEstate);
+
         addressDAO.createAddress(borrower.getAddressId());
         borrower.setAddressId(borrower.getAddressId());
         borrowerDAO.createNewBorrower(borrower);
@@ -65,8 +66,8 @@ public class ProjectServiceImpl implements ProjectService {
         project.setProposalDate(proposalDate);
         project.setExpirationDate(projectExpirationDate);
         project.setDurationMax(durationMax);
-
         project.setPublicKey(getKeyForProject(project));
+      
         projectDAO.createProject(project);
         return project;
     }

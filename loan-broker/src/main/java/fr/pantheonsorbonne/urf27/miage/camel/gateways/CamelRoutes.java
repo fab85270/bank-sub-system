@@ -5,6 +5,7 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -29,9 +30,10 @@ public class CamelRoutes extends RouteBuilder {
                     public void process(Exchange exchange) throws Exception {
                         idBank = Integer.parseInt(exchange.getMessage().getHeader("idBank").toString());
                         System.out.println("IDBAAANK -=== " + idBank);
+                        exchange.setProperty("idBank", idBank);
                     }
                 })
-                .to("jms:queue/bank/" + 1 + "?exchangePattern=InOut")
+                .to("jms:queue/bank?exchangePattern=InOut")
                 .choice()
                 .when(header("approved").isEqualTo(false))
                 .unmarshal()
