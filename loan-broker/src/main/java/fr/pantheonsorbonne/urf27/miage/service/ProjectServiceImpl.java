@@ -93,6 +93,13 @@ public class ProjectServiceImpl implements ProjectService {
         return projectDAO.getAllProject();
     }
 
+    /* Méthode chargée d'obtenir tous les projets */
+    @Override
+    @Transactional
+    public Collection<Object> getAllProjectSentToBank() throws ProjectExceptions.ProjectsNotFound {
+        return projectDAO.getAllProjectSentToBank();
+    }
+
     /*Est utilise pour savoir si un mail a deja ete utilise pour la creation d un profil de borrower*/
     @Override
     @Transactional

@@ -58,6 +58,13 @@ public class ProjectResource {
         return projectService.getAllProject();
     }
 
+    @Path("/projectsBank")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public Collection<Object> getProjectSentToBank() throws ProjectExceptions.ProjectsNotFound {
+        return projectService.getAllProjectSentToBank();
+    }
+
     /*
     Renvoie dans le header si le projet a deja ete envoye aux banques
      */

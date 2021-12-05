@@ -16,6 +16,8 @@ public interface ProjectService {
 
     Collection<Project> getAllProject() throws ProjectExceptions.ProjectsNotFound;
 
+    Collection<Object> getAllProjectSentToBank() throws ProjectExceptions.ProjectsNotFound;
+
     ProjectDTO getProject(int id);
 
 
