@@ -37,6 +37,8 @@ public class CamelRoutes extends RouteBuilder {
                 .json(ProjectDTO.class)
                 .bean(projectGateway, "isProjectEligible")
                 .marshal()
-                .json();
+                .json(ProjectDTO.class)
+                .bean(projectGateway, "createLoanProposal")
+                .to("jms:queue/bankProposals" + idBank);
     }
 }

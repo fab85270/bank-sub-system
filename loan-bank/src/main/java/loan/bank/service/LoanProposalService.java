@@ -9,9 +9,8 @@ import javax.transaction.Transactional;
 
 public interface LoanProposalService {
 
-    LoanProposalDTO emitProposal(ProjectDTO projectDTO) throws ProjectException.ExpiredProjectException, LoanProposalException.LoanProposalRefusedException, LoanProposalException.LoanProposalBankNotFoundException;
+    LoanProposalDTO createProposal(ProjectDTO projectDTO) throws ProjectException.ExpiredProjectException, LoanProposalException.LoanProposalRefusedException, LoanProposalException.LoanProposalBankNotFoundException;
 
-    @Transactional
     void saveProposal(LoanProposalDTO proposalDTO) throws ProjectException.ExpiredProjectException;
 
 }

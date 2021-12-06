@@ -3,6 +3,7 @@ package fr.pantheonsorbonne.urf27.miage.service;
 import fr.pantheonsorbonne.urf27.miage.dao.LoanProposalDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.LoanProposalExceptions;
 import fr.pantheonsorbonne.urf27.miage.model.LoanProposal;
+import loan.commons.dto.LoanProposalDTO;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -21,10 +22,20 @@ public class LoanProposalServiceImpl implements LoanProposalService {
 
 
     /*Renvoie l'entièreté des loanProposal
-    * Permet pour un broker de voir les loan proposal qu'il a recu et lesquels choisir pour un client
-    */
+     * Permet pour un broker de voir les loan proposal qu'il a recu et lesquels choisir pour un client
+     */
     @Override
-    public Collection<LoanProposal> getAllLoanProposal() throws LoanProposalExceptions.LoanProposalsNotFound{
+    public Collection<LoanProposal> getAllLoanProposal() throws LoanProposalExceptions.LoanProposalsNotFound {
         return LoanProposalDAO.getAllLoanProposal();
+    }
+
+    @Override
+    public LoanProposal createLoanProposal(LoanProposalDTO proposalDTO) {
+        return LoanProposalDAO.createLoanProposal(proposalDTO);
+    }
+
+    @Override
+    public void updateApprovalStatus(int id) {
+        LoanProposalDAO.updateApprovalStatus(id);
     }
 }

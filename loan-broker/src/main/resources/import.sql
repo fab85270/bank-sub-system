@@ -5,7 +5,7 @@ REPLACE INTO `Address` (`idAddress`,`city`,`complementaryAddress`, `postalCode`,
     (2, 'Paris', '3e etage',75013,'Rue du general de Gaule',10);
 
 REPLACE INTO `Bank` (`bankId`,`bankName`,`addressId`) VALUES
-    (1,'lcl',1),
-    (2,'bnp',2);
+    (1,'BNP',1),
+    (2,'LCL',2);
 
 

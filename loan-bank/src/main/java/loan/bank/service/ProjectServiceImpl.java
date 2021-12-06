@@ -29,7 +29,7 @@ public class ProjectServiceImpl implements ProjectService {
 
 
     @Override
-    public boolean isProjectEligible(ProjectDTO project) throws LoanProposalException.LoanProposalRefusedException {
+    public ProjectDTO isProjectEligible(ProjectDTO project) throws LoanProposalException.LoanProposalRefusedException {
         BorrowerDTO borrower = project.getBorrowerId();
         int age = LocalDate.now().getYear() - borrower.getBirthdate().getYear();
 
@@ -39,9 +39,10 @@ public class ProjectServiceImpl implements ProjectService {
                 && borrower.getDebtRatio() <= debtRatio
                 && project.getDurationMax() > maxDuration);
 
+        System.out.println("PROJECT ELIGIBLE === " + isEligible);
         if(!isEligible) throw new LoanProposalException.LoanProposalRefusedException(project.getProjectDescription());
 
-        return true;
+        return project;
     }
 
     public boolean sufficientSalary(double salary, double amount) {
