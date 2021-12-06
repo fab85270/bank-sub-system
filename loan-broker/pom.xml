@@ -127,6 +127,16 @@
           <groupId>com.google.guava</groupId>
           <artifactId>guava</artifactId>
       </dependency>
+      <dependency>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>fr.pantheonsorbonne.ufr27.miage</groupId>
+          <artifactId>loan-bank</artifactId>
+          <version>1.0.0-SNAPSHOT</version>
+          <scope>test</scope>
+      </dependency>
   </dependencies>
   <build>
     <plugins>

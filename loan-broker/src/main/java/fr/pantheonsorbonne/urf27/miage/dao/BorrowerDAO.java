@@ -3,6 +3,7 @@ package fr.pantheonsorbonne.urf27.miage.dao;
 import fr.pantheonsorbonne.urf27.miage.exception.BorrowerException;
 import fr.pantheonsorbonne.urf27.miage.model.*;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -20,7 +21,10 @@ public interface BorrowerDAO {
     /*Supprimer un borrowers de la base de donnée selon son mail*/
     void deleteBorrower(String mail);
 
-    /*Crée un nouveau borrower*/
+    /*
+    Creer un nouveau Borrower a l aide de ses attributs
+     */
+    @Transactional
     Borrower createNewBorrower(Address addressId, String email, String firstName, String lastName, Gender gender, LocalDate birthdate,
                                EmploymentContract employmentContract, double annualSalary, double firstDeposit, String phoneNumber,
                                double requiredInterest, int requiredDuration, double monthlyRefund, double debtRatio);

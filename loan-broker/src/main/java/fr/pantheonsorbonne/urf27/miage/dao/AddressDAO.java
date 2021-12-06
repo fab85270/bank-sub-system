@@ -8,3 +8,4 @@ public interface AddressDAO {
 
     public Address createAddress(String streetName, int streetNumber, long postalCode, String city, String complementaryAddress);
 }
+

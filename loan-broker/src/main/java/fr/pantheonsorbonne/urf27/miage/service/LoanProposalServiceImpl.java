@@ -1,5 +1,6 @@
 package fr.pantheonsorbonne.urf27.miage.service;
 
+import fr.pantheonsorbonne.urf27.miage.dao.LoanProposalDAO;
 import fr.pantheonsorbonne.urf27.miage.dao.LoanProposalDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.LoanProposalExceptions;
 import fr.pantheonsorbonne.urf27.miage.model.LoanProposal;
@@ -17,7 +18,7 @@ public class LoanProposalServiceImpl implements LoanProposalService {
     EntityManager em;
 
     @Inject
-    LoanProposalDAOImpl LoanProposalDAO;
+    LoanProposalDAO LoanProposalDAO;
 
 
     /*Renvoie l'entièreté des loanProposal

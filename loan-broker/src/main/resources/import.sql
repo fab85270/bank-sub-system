@@ -9,3 +9,5 @@ REPLACE INTO `Bank` (`bankId`,`bankName`,`addressId`) VALUES
     (2,'bnp',2);
 
 
+
+

@@ -1,5 +1,6 @@
 package fr.pantheonsorbonne.urf27.miage.service;
 
+import fr.pantheonsorbonne.urf27.miage.dao.BankDAO;
 import fr.pantheonsorbonne.urf27.miage.dao.BankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.exception.BankExceptions;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
@@ -17,7 +18,7 @@ public class BankServiceImpl implements BankService{
     EntityManager em;
 
     @Inject
-    BankDAOImpl bankDAO;
+    BankDAO bankDAO;
 
     /*
     *Cree une bank

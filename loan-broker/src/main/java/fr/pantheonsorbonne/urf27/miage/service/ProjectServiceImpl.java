@@ -1,10 +1,7 @@
 package fr.pantheonsorbonne.urf27.miage.service;
 
 import com.google.common.hash.Hashing;
-import fr.pantheonsorbonne.urf27.miage.dao.AddressDAOImpl;
-import fr.pantheonsorbonne.urf27.miage.dao.BorrowerDAOImpl;
-import fr.pantheonsorbonne.urf27.miage.dao.ProjectDAOImpl;
-import fr.pantheonsorbonne.urf27.miage.dao.RealEstateDAOImpl;
+import fr.pantheonsorbonne.urf27.miage.dao.*;
 import fr.pantheonsorbonne.urf27.miage.exception.ProjectExceptions;
 import fr.pantheonsorbonne.urf27.miage.model.Borrower;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
@@ -30,16 +27,16 @@ public class ProjectServiceImpl implements ProjectService {
     EntityManager em;
 
     @Inject
-    RealEstateDAOImpl realEstateDAO;
+    RealEstateDAO realEstateDAO;
 
     @Inject
-    AddressDAOImpl addressDAO;
+    AddressDAO addressDAO;
 
     @Inject
-    ProjectDAOImpl projectDAO;
+    ProjectDAO projectDAO;
 
     @Inject
-    BorrowerDAOImpl borrowerDAO;
+    BorrowerDAO borrowerDAO;
 
 
     public String getKeyForProject(Project project) {

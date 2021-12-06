@@ -22,7 +22,6 @@ public class LoanProposalDAOImpl implements LoanProposalDAO{
     public Collection<LoanProposal> getAllLoanProposal() throws LoanProposalExceptions.LoanProposalsNotFound{
         try{
             Collection<LoanProposal> test = (Collection<LoanProposal>) em.createQuery("select l from LoanProposal l").getResultList();
-            //System.out.println(test);
             return test;
         }catch (NoResultException e){
             throw new LoanProposalExceptions.LoanProposalsNotFound();
