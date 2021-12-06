@@ -29,10 +29,22 @@ public class ProjectDAOImpl implements ProjectDAO {
     /*  Renvoie tous les projets présents dans la BDD */
     @Override
     @Transactional
-    public Collection<Project> getAllProject() throws ProjectExceptions.ProjectsNotFound {
+    public Collection<Object> getAllProjectSentToBank() throws ProjectExceptions.ProjectsNotFound {
         try {
-            return (Collection<Project>) em.createQuery("Select p from Project p").getResultList();
+            return (Collection<Object>) (em.createQuery("Select pr.approvalStatus,pr.bankId from ProjectSentBank pr ").getResultList());
         } catch (NoResultException e) {
+            throw new ProjectExceptions.ProjectsNotFound();
+        }
+    }
+
+    /*
+    Renvoie tous les projets présents dans la BDD
+     */
+    @Override
+    public Collection<Project> getAllProject() throws ProjectExceptions.ProjectsNotFound {
+        try{
+            return (Collection<Project>) em.createQuery("Select p from Project p").getResultList();
+        }catch (NoResultException e){
             throw new ProjectExceptions.ProjectsNotFound();
         }
     }
