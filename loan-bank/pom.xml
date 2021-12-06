@@ -99,7 +99,7 @@
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.datatype</groupId>
-      <artifactId>jackson-datatype-jsr353</artifactId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
       <version>2.13.0</version>
     </dependency>
     <dependency>

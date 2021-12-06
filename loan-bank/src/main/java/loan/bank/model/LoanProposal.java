@@ -16,13 +16,14 @@ public class LoanProposal {
     private Project projectId;
 
     @Column(name = "dateProposal", nullable = false)
-    private LocalDate dateProposal;
+    private LocalDate proposalDate;
 
     @Column(name = "endDate", nullable = false)
     private LocalDate endDate;
 
-    @Column(name = "isAccepted", nullable = false)
-    private boolean isAccepted;
+    @Column(name = "approvalStatus", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private ApprovalStatus approvalStatus;
 
     @Column(name = "loanAmount", nullable = false)
     private double loanAmount;
@@ -42,14 +43,11 @@ public class LoanProposal {
     public LoanProposal() {
     }
 
-    public LoanProposal(Integer proposalId, Project projectId, LocalDate dateProposal, LocalDate endDate,
-                        long validationNumber, boolean isAccepted, double loanAmount, String description,
-                        double interestRate, int loanDurationMonth, int idBank) {
-        this.proposalId = proposalId;
+    public LoanProposal(Project projectId, LocalDate proposalDate, LocalDate endDate, ApprovalStatus approvalStatus, double loanAmount, String description, double interestRate, int loanDurationMonth, int idBank) {
         this.projectId = projectId;
-        this.dateProposal = dateProposal;
+        this.proposalDate = proposalDate;
         this.endDate = endDate;
-        this.isAccepted = isAccepted;
+        this.approvalStatus = approvalStatus;
         this.loanAmount = loanAmount;
         this.description = description;
         this.interestRate = interestRate;
@@ -69,12 +67,12 @@ public class LoanProposal {
         this.projectId = projectId;
     }
 
-    public LocalDate getDateProposal() {
-        return dateProposal;
+    public LocalDate getProposalDate() {
+        return proposalDate;
     }
 
-    public void setDateProposal(LocalDate dateProposal) {
-        this.dateProposal = dateProposal;
+    public void setProposalDate(LocalDate proposalDate) {
+        this.proposalDate = proposalDate;
     }
 
     public LocalDate getEndDate() {
@@ -85,12 +83,12 @@ public class LoanProposal {
         this.endDate = endDate;
     }
 
-    public boolean isAccepted() {
-        return isAccepted;
+    public ApprovalStatus getApprovalStatus() {
+        return approvalStatus;
     }
 
-    public void setAccepted(boolean accepted) {
-        isAccepted = accepted;
+    public void setApprovalStatus(ApprovalStatus approvalStatus) {
+        this.approvalStatus = approvalStatus;
     }
 
     public double getLoanAmount() {
