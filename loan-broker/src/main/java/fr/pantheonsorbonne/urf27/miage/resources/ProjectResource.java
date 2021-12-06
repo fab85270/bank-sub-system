@@ -98,8 +98,8 @@ public class ProjectResource {
         Bank b = bankService.findBank(idBank);
         Project p = projectService.findProject(idProject);
 
-        projectSentBankService.createSentBankProject(p, b);
         projectGateway.sendProjectToBank(projectService.getProject(idProject), idBank);
+        projectSentBankService.createSentBankProject(p, b);
 
-        }
     }
+}

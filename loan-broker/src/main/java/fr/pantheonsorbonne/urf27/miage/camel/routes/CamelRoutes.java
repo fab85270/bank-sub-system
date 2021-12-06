@@ -4,7 +4,6 @@ import fr.pantheonsorbonne.urf27.miage.camel.gateways.LoanProposalGateway;
 import fr.pantheonsorbonne.urf27.miage.camel.gateways.ProjectGateway;
 import loan.commons.dto.LoanProposalDTO;
 import loan.commons.dto.ProjectDTO;
-import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
@@ -38,19 +37,17 @@ public class CamelRoutes extends RouteBuilder {
                 .when(header("approved").isEqualTo(false))
                 .unmarshal()
                 .json(ProjectDTO.class)
-                .bean(projectGateway, "updateStatusRejected");
-
-
-        from("jms:queue/bankProposals" + bank1Id)
+                .bean(projectGateway, "updateStatusRejected")
+                .when(header("approved").isEqualTo(true))
                 .unmarshal()
                 .json(LoanProposalDTO.class)
                 .bean(loanProposalGateway, "createLoanProposal");
 
 
-        from("jms:queue/bankProposals" + bank2Id)
-                .unmarshal()
+        from("direct:proposalConfirm")
+                .marshal()
                 .json(LoanProposalDTO.class)
-                .bean(loanProposalGateway, "createLoanProposal");
-
+                .setHeader("status", simple("approved"))
+                .to("jms:queue/bank/proposals");
     }
 }

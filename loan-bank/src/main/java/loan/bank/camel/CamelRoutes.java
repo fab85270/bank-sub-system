@@ -1,8 +1,11 @@
 package loan.bank.camel;
 
 import loan.bank.exception.LoanProposalException;
+import loan.commons.dto.LoanProposalDTO;
 import loan.commons.dto.ProjectDTO;
 import org.apache.camel.CamelContext;
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
@@ -13,7 +16,7 @@ import javax.inject.Inject;
 public class CamelRoutes extends RouteBuilder {
 
     @Inject
-    ProjectGatewayImpl projectGateway;
+    ProjectGateway projectGateway;
 
     @Inject
     CamelContext camelContext;
@@ -35,10 +38,17 @@ public class CamelRoutes extends RouteBuilder {
                 .filter(header("idBank").isEqualTo(idBank))
                 .unmarshal()
                 .json(ProjectDTO.class)
-                .bean(projectGateway, "isProjectEligible")
-                .marshal()
-                .json(ProjectDTO.class)
                 .bean(projectGateway, "createLoanProposal")
-                .to("jms:queue/bankProposals" + idBank);
+                .setHeader("approved", simple("true"))
+                .marshal()
+                .json(LoanProposalDTO.class);
+
+
+        from("jms:queue/bank/proposals")
+                .filter(header("idBank").isEqualTo(idBank))
+                .choice()
+                .when(header("status").isEqualTo("approved"))
+                .unmarshal()
+                .json(LoanProposalDTO.class);
     }
 }

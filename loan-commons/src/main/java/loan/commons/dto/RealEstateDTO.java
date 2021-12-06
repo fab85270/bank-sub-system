@@ -3,6 +3,8 @@ package loan.commons.dto;
 
 public class RealEstateDTO {
 
+    private int realEstateId;
+
     private AddressDTO addressId;
 
     private double surface;
@@ -24,6 +26,22 @@ public class RealEstateDTO {
         this.price = price;
         this.numberOfRooms = numberOfRooms;
     }
+
+    public int getRealEstateId() {
+        return realEstateId;
+    }
+
+    public void setRealEstateId(int realEstateId) {
+        this.realEstateId = realEstateId;
+    }
+    public int getNumberOfRooms() {
+        return numberOfRooms;
+    }
+
+    public void setNumberOfRooms(int numberOfRooms) {
+        this.numberOfRooms = numberOfRooms;
+    }
+
 
     public AddressDTO getAddressId() {
         return addressId;
@@ -55,14 +73,6 @@ public class RealEstateDTO {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public int getnumberOfRooms() {
-        return numberOfRooms;
-    }
-
-    public void setnumberOfRooms(int numberOfRooms) {
-        this.numberOfRooms = numberOfRooms;
     }
 
     @Override

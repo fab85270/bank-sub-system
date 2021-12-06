@@ -20,7 +20,7 @@ public class ProjectGatewayImpl implements ProjectGateway {
     LoanProposalService loanProposalService;
 
     @Override
-    public ProjectDTO isProjectEligible(ProjectDTO projectDTO) throws LoanProposalException.LoanProposalRefusedException {
+    public boolean isProjectEligible(ProjectDTO projectDTO) throws LoanProposalException.LoanProposalRefusedException {
         return projectService.isProjectEligible(projectDTO);
     }
 
@@ -28,7 +28,10 @@ public class ProjectGatewayImpl implements ProjectGateway {
     public LoanProposalDTO createLoanProposal(ProjectDTO projectDTO) throws ProjectException.ExpiredProjectException, LoanProposalException.LoanProposalRefusedException, LoanProposalException.LoanProposalBankNotFoundException {
         System.out.println("CREATE PROJECT");
         System.out.println(projectDTO);
-        return loanProposalService.createProposal(projectDTO);
+        if (isProjectEligible(projectDTO))
+            return loanProposalService.createProposal(projectDTO);
+
+        throw new LoanProposalException.LoanProposalRefusedException(projectDTO.getProjectDescription());
     }
 
 

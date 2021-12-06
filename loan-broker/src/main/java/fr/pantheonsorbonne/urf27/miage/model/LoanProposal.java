@@ -2,6 +2,7 @@ package fr.pantheonsorbonne.urf27.miage.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import loan.commons.dto.ApprovalStatus;
 
 @Entity
 public class LoanProposal {
@@ -43,7 +44,8 @@ public class LoanProposal {
     public LoanProposal() {
     }
 
-    public LoanProposal(Project projectId, LocalDate proposalDate, LocalDate endDate, ApprovalStatus approvalStatus, double loanAmount, String description, double interestRate, int loanDurationMonth, int idBank) {
+    public LoanProposal(Project projectId, LocalDate proposalDate, LocalDate endDate, ApprovalStatus approvalStatus,
+                        double loanAmount, String description, double interestRate, int loanDurationMonth, int idBank) {
         this.projectId = projectId;
         this.proposalDate = proposalDate;
         this.endDate = endDate;
@@ -131,4 +133,19 @@ public class LoanProposal {
         this.idBank = idBank;
     }
 
+    @Override
+    public String toString() {
+        return "LoanProposal{" +
+                "proposalId=" + proposalId +
+                ", projectId=" + projectId +
+                ", proposalDate=" + proposalDate +
+                ", endDate=" + endDate +
+                ", approvalStatus=" + approvalStatus +
+                ", loanAmount=" + loanAmount +
+                ", description='" + description + '\'' +
+                ", interestRate=" + interestRate +
+                ", loanDurationMonth=" + loanDurationMonth +
+                ", idBank=" + idBank +
+                '}';
+    }
 }

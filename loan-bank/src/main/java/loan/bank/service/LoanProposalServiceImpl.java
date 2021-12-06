@@ -1,6 +1,7 @@
 package loan.bank.service;
 
 import loan.bank.dao.LoanProposalDAO;
+import loan.bank.dao.ProjectDAO;
 import loan.bank.exception.LoanProposalException;
 import loan.bank.model.LoanProposal;
 import loan.commons.dto.ApprovalStatus;
@@ -47,7 +48,7 @@ public class LoanProposalServiceImpl implements LoanProposalService {
 
         LoanProposalDTO proposal = new LoanProposalDTO();
 
-        proposal.setProjectDTO(projectDTO);
+        proposal.setProjectId(projectDTO);
         LocalDate date = LocalDate.now();
         proposal.setProposalDate(date);
         proposal.setEndDate(date.plusMonths(maxProposalDuration));
@@ -58,7 +59,6 @@ public class LoanProposalServiceImpl implements LoanProposalService {
         proposal.setInterestRate(getInterestRate(projectDTO));
         proposal.setIdBank(bankId);
 
-        saveProposal(proposal);
         return proposal;
     }
 
@@ -69,25 +69,8 @@ public class LoanProposalServiceImpl implements LoanProposalService {
         loanProposalDAO.createLoanProposal(proposal);
     }
 
-    public double getInterestRate(ProjectDTO project) throws LoanProposalException.LoanProposalBankNotFoundException {
-        double rate = getDurationInterestRate(project);
-        int nrAcceptedProposals = loanProposalDAO.getNumberOfAcceptedProposals(bankId);
 
-        switch (nrAcceptedProposals) {
-            case 0:
-                return rate;
-            case 1:
-                return rate - 0.05;
-            case 2:
-            case 3:
-                return rate - 0.1;
-            default:
-                return rate - 0.15;
-
-        }
-    }
-
-    private double getDurationInterestRate(ProjectDTO project) {
+    private double getInterestRate(ProjectDTO project) {
         int duration = project.getDurationMax();
         if (duration <= creditUnder15Years) {
             return interestRate15Years;

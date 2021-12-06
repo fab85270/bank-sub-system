@@ -1,6 +1,6 @@
 package loan.commons.dto;
 
-public enum EmploymentContractDTO {
+public enum EmploymentContract {
     CDI,
     CDD,
     OTHER,

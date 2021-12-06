@@ -74,6 +74,7 @@ public class Borrower {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
+        this.requiredInterest = requiredInterest;
         this.birthdate = birthdate;
         this.employmentContract = employmentContract;
         this.annualSalary = annualSalary;

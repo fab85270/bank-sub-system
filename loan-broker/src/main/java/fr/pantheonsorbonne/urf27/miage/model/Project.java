@@ -40,9 +40,11 @@ public class Project {
     public Project() {
     }
 
-    public Project(String projectDescription, LocalDate proposalDate, LocalDate expirationDate, double requiredValue,
-                   int durationMax) {
+    public Project(String publicKey, RealEstate realEstateId, String projectDescription, Borrower borrowerId, LocalDate proposalDate, LocalDate expirationDate, double requiredValue, int durationMax) {
+        this.publicKey = publicKey;
+        this.realEstateId = realEstateId;
         this.projectDescription = projectDescription;
+        this.borrowerId = borrowerId;
         this.proposalDate = proposalDate;
         this.expirationDate = expirationDate;
         this.requiredValue = requiredValue;
@@ -76,14 +78,6 @@ public class Project {
 
     public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
-    }
-
-    public double getrequiredValue() {
-        return requiredValue;
-    }
-
-    public void setrequiredValue(double requiredValue) {
-        this.requiredValue = requiredValue;
     }
 
     public int getDurationMax() {

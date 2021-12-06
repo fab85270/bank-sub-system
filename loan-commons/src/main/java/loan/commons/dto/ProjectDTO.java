@@ -9,6 +9,7 @@ import java.time.LocalDate;
 
 public class ProjectDTO {
 
+    private int projectId;
     private String publicKey;
     private RealEstateDTO realEstateId;
     private String projectDescription;
@@ -33,6 +34,14 @@ public class ProjectDTO {
         this.expirationDate = expirationDate;
         this.requiredValue = requiredValue;
         this.durationMax = durationMax;
+    }
+
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
     }
 
     public RealEstateDTO getRealEstateId() {

@@ -1,13 +1,23 @@
 package loan.commons.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 import java.time.LocalDate;
 
 public class LoanProposalDTO {
 
     /*Attributs privés propres à la classe Loan Proposal*/
 
-    private ProjectDTO projectDTO;
+    private int proposalId;
+    private ProjectDTO projectId;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate proposalDate;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate endDate;
     private ApprovalStatus approvalStatus;
     private double loanAmount;
@@ -19,8 +29,8 @@ public class LoanProposalDTO {
     public LoanProposalDTO() {
     }
 
-    public LoanProposalDTO(ProjectDTO projectDTO, LocalDate proposalDate, LocalDate endDate, ApprovalStatus approvalStatus, double loanAmount, String description, double interestRate, int loanDurationMonth, int idBank) {
-        this.projectDTO = projectDTO;
+    public LoanProposalDTO(ProjectDTO projectId, LocalDate proposalDate, LocalDate endDate, ApprovalStatus approvalStatus, double loanAmount, String description, double interestRate, int loanDurationMonth, int idBank) {
+        this.projectId = projectId;
         this.proposalDate = proposalDate;
         this.endDate = endDate;
         this.approvalStatus = approvalStatus;
@@ -31,12 +41,20 @@ public class LoanProposalDTO {
         this.idBank = idBank;
     }
 
-    public ProjectDTO getProjectDTO() {
-        return projectDTO;
+    public int getProposalId() {
+        return proposalId;
     }
 
-    public void setProjectDTO(ProjectDTO projectDTO) {
-        this.projectDTO = projectDTO;
+    public void setProposalId(int proposalId) {
+        this.proposalId = proposalId;
+    }
+
+    public ProjectDTO getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(ProjectDTO projectId) {
+        this.projectId = projectId;
     }
 
     public LocalDate getProposalDate() {
@@ -106,10 +124,10 @@ public class LoanProposalDTO {
     @Override
     public String toString() {
         return "LoanProposalDTO{" +
-                "projectDTO=" + projectDTO +
+                "projectId=" + projectId +
                 ", proposalDate=" + proposalDate +
                 ", endDate=" + endDate +
-                ", approvalStatus='" + approvalStatus + '\'' +
+                ", approvalStatus=" + approvalStatus +
                 ", loanAmount=" + loanAmount +
                 ", description='" + description + '\'' +
                 ", interestRate=" + interestRate +

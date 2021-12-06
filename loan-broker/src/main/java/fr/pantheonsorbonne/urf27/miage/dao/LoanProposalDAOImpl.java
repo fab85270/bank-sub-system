@@ -1,12 +1,15 @@
 package fr.pantheonsorbonne.urf27.miage.dao;
 
 import fr.pantheonsorbonne.urf27.miage.exception.LoanProposalExceptions;
+import fr.pantheonsorbonne.urf27.miage.exception.ProjectExceptions;
 import fr.pantheonsorbonne.urf27.miage.model.LoanProposal;
-import jdk.jfr.StackTrace;
+import fr.pantheonsorbonne.urf27.miage.model.Project;
+import fr.pantheonsorbonne.urf27.miage.service.ProjectService;
 import loan.commons.dto.LoanProposalDTO;
 import org.modelmapper.ModelMapper;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -18,6 +21,9 @@ public class LoanProposalDAOImpl implements LoanProposalDAO {
 
     @PersistenceContext
     EntityManager em;
+
+    @Inject
+    ProjectService projectService;
 
     /*
     Renvoie tous les loan proposals de la bdd
@@ -37,9 +43,13 @@ public class LoanProposalDAOImpl implements LoanProposalDAO {
 
     @Override
     @Transactional
-    public LoanProposal createLoanProposal(LoanProposalDTO proposalDTO) {
+    public LoanProposal createLoanProposal(LoanProposalDTO proposalDTO) throws ProjectExceptions.ProjectPublicKeyNotFound {
         ModelMapper modelMapper = new ModelMapper();
+        Project project = projectService.getProjectByPublicKey(proposalDTO.getProjectId().getPublicKey());
+
         LoanProposal proposal = modelMapper.map(proposalDTO, LoanProposal.class);
+        proposal.setProjectId(project);
+
         em.persist(proposal);
         return proposal;
     }
@@ -50,5 +60,29 @@ public class LoanProposalDAOImpl implements LoanProposalDAO {
         em.createQuery("UPDATE LoanProposal lp SET lp.approvalStatus='APPROVED' WHERE lp.proposalId=:id")
                 .setParameter("id", id)
                 .executeUpdate();
+
+        em.createQuery("UPDATE LoanProposal lp SET lp.approvalStatus='APPROVED' WHERE lp.proposalId=:id")
+                .setParameter("id", id)
+                .executeUpdate();
+    }
+
+    @Override
+    @Transactional
+    public Project getProposalsProject(int id) {
+        return em.find(LoanProposal.class, id).getProjectId();
+    }
+
+    @Override
+    @Transactional
+    public Collection<LoanProposal> getAllProposalsOfProject(int id) {
+        return em.createQuery("SELECT lp.proposalId, lp.projectId, lp.approvalStatus FROM LoanProposal lp WHERE lp.projectId=:id")
+                .setParameter("id", id)
+                .getResultList();
+    }
+
+    @Override
+    @Transactional
+    public LoanProposal getLoanProposal(int id) {
+        return em.find(LoanProposal.class, id);
     }
 }

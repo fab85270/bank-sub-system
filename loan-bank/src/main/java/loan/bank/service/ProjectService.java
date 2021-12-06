@@ -5,6 +5,6 @@ import loan.commons.dto.ProjectDTO;
 
 public interface ProjectService {
 
-    ProjectDTO isProjectEligible(ProjectDTO projectDTO) throws LoanProposalException.LoanProposalRefusedException;
+    boolean isProjectEligible(ProjectDTO projectDTO) throws LoanProposalException.LoanProposalRefusedException;
 
 }

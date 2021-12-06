@@ -78,11 +78,11 @@ public class RealEstate {
         this.price = price;
     }
 
-    public Integer getnumberOfRooms() {
+    public Integer getNumberOfRooms() {
         return numberOfRooms;
     }
 
-    public void setnumberOfRooms(Integer numberOfRooms) {
+    public void setNumberOfRooms(Integer numberOfRooms) {
         this.numberOfRooms = numberOfRooms;
     }
 

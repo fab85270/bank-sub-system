@@ -7,7 +7,7 @@ import loan.commons.dto.ProjectDTO;
 
 public interface ProjectGateway {
 
-    ProjectDTO isProjectEligible(ProjectDTO projectDTO) throws LoanProposalException.LoanProposalRefusedException;
+    boolean isProjectEligible(ProjectDTO projectDTO) throws LoanProposalException.LoanProposalRefusedException;
 
     LoanProposalDTO createLoanProposal(ProjectDTO projectDTO) throws ProjectException.ExpiredProjectException, LoanProposalException.LoanProposalRefusedException, LoanProposalException.LoanProposalBankNotFoundException;
 }

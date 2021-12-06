@@ -62,7 +62,7 @@ public class ProjectServiceImpl implements ProjectService {
         project.setBorrowerId(borrower);
         project.setRealEstateId(realEstate);
         project.setProjectDescription(projectDescription);
-        project.setrequiredValue(requiredValue);
+        project.setRequiredValue(requiredValue);
         project.setProposalDate(proposalDate);
         project.setExpirationDate(projectExpirationDate);
         project.setDurationMax(durationMax);
