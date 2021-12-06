@@ -55,4 +55,14 @@ public class ProjectSentBankDAOImpl implements ProjectSentBankDAO {
                 .executeUpdate();
     }
 
+    @Override
+    @Transactional
+    public void updateStatusApproved(int idProject, int idBank) {
+        em.createQuery("UPDATE ProjectSentBank p SET p.approvalStatus=:status where p.bankId.bankId=:idBank AND p.projectId.projectId=:idProject")
+                .setParameter("status", ApprovalStatus.APPROVED)
+                .setParameter("idBank", idBank)
+                .setParameter("idProject", idProject)
+                .executeUpdate();
+    }
+
 }

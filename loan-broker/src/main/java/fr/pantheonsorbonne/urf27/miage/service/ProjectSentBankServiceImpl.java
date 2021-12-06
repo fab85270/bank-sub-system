@@ -41,5 +41,11 @@ public class ProjectSentBankServiceImpl implements ProjectSentBankService {
         projectSentBankDAO.updateStatusRejected(idProject, idBank);
     }
 
+    @Override
+    @Transactional
+    public void updateStatusApproved(int idProject, int idBank) {
+        projectSentBankDAO.updateStatusApproved(idProject, idBank);
+    }
+
 }
 

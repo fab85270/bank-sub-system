@@ -12,4 +12,6 @@ public interface ProjectSentBankDAO {
 
     void updateStatusRejected(int idProject, int idBank);
 
+    void updateStatusApproved(int idProject, int idBank);
+
 }

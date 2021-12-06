@@ -1,231 +1,221 @@
 <!DOCTYPE html>
-    <head>
-        <script>
-            /* Déclaration d'une variable globale*/
-            let projectIdTab = [];
-            let bankIdTab = [];
+<head>
+    <script>
+        /* Déclaration d'une variable globale*/
+        let projectIdTab = [];
+        let bankIdTab = [];
+
+        async function myFonction() {
+
+            /*Initialisation de tableaux vides*/
+            projectIdTab = [];
+            bankIdTab = [];
+
+            /* Récupération de toutes les banques associées au broker */
+            const responseBank = await fetch("/bank/banks", {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+            }).then(res1 => res1.json());
+
+            /* Récupération de tous les projets*/
+            const response = await fetch("/project/projects", {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+            }).then(res => res.json());
+            // console.log(response);
+
+            /* On va clear le document au début */
+            document.getElementById('project').innerHTML = "";
+            // console.log(response)
+            for (const object in response) {
+                /* On remplit le document pour affichage*/
+                document.getElementById('project').innerHTML +=
+                    '<div></div><br>Project numéro ' + object + ' :<br><br>' + ' <strong> Informations Client :</strong> <br>' + '- Nom: ' + response[object].borrowerId.lastName + '<br> - Prénom : ' + response[object].borrowerId.firstName + '<br> - Genre : ' + response[object].borrowerId.gender + '<br> - Mail : ' + response[object].borrowerId.email + '<br> - Tel : ' + response[object].borrowerId.phoneNumber + '<br> - Contrat de travail : ' + response[object].borrowerId.employmentContract
+                    + '<br> - Salaire annuel : ' + response[object].borrowerId.annualSalary + '<br> - Taux endettement : ' + response[object].borrowerId.debtRatio + '<br><br><strong>Informations demande Emprunt</strong><br>- Apport du client : ' + response[object].borrowerId.firstDeposit + '<br> - Somme à emprunter désirée : ' + response[object].requiredValue + '<br> - Montant du remboursement mensuel désiré : ' + response[object].borrowerId.monthlyRefund + '<br> - Taux intéret désiré : ' + response[object].borrowerId.requiredInterest +
+                    '<br> - Description du project  : ' + response[object].projectDescription + '<br> - Date début emprunt souhaité : ' + response[object].proposalDate + '<br> - Date de fin emprunt souhaité : ' + response[object].expirationDate + '<br><br><strong>Informations sur le bien associé au projet emprunt</strong>' + '<br> - Surface (m^2) : ' + response[object].realEstateId.surface + '<br> - Nombre de chambre : ' + response[object].realEstateId.numberOfRooms +
+                    '<br> - Prix  : ' + response[object].realEstateId.price + '<br> - Année de construction : ' + response[object].realEstateId.constructionYear + '<br>--------------------</div>';
 
 
-            async function myFonction() {
+                /*On stocke dans un tableau, tous les ID des différents projets qu'on recoit*/
+                /*Le project 0, sera associé à l'indice 0 du tableau.*/
+                projectIdTab.push(response[object].projectId);
+            }
 
-                /*Initialisation de tableaux vides*/
-                projectIdTab = [];
-                bankIdTab = [];
+            /* Récupération de tous les projets envoyés au bank */
 
+                const projectsBank = await fetch("/project/projectsBank", {
+                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
+            }).then(res => res.json());
+            document.getElementById('projectSent').innerHTML = "";
+            document.getElementById('projectSent').innerHTML = "";
+            // console.log("projectsBank");
+            // console.log(projectsBank)
+            for (const object in projectsBank) {
+                /* On remplit le document pour affichage*/
 
+                document.getElementById('projectSent').innerHTML +=
+                    '<br>Project numéro ' + object + '<br>Statut demande ' + projectsBank[object][1].bankName + ' : ' + projectsBank[object][0] + '<br>--------------------';
 
-                /* Récupération de toutes les banques associées au broker */
-                const responseBank = await fetch("/bank/banks", {
-                    method: 'GET', // *GET, POST, PUT, DELETE, etc.
-                    mode: 'cors', // no-cors, *cors, same-origin
-                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                    credentials: 'same-origin', // include, *same-origin, omit
-                    headers: {
-                        'Content-Type': 'application/json'
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    redirect: 'follow', // manual, *follow, error
-                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
-                }).then(res1 => res1.json());
-
-
-                /* Récupération de tous les projets*/
-                const response = await fetch("/project/projects", {
-                    method: 'GET', // *GET, POST, PUT, DELETE, etc.
-                    mode: 'cors', // no-cors, *cors, same-origin
-                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                    credentials: 'same-origin', // include, *same-origin, omit
-                    headers: {
-                        'Content-Type': 'application/json'
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    redirect: 'follow', // manual, *follow, error
-                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
-                }).then(res => res.json());
-                console.log(response);
-
-                /* On va clear le document au début */
-                document.getElementById('project').innerHTML = "";
-                console.log(response)
-                for (const object in response) {
-                    /* On remplit le document pour affichage*/
-
-                    document.getElementById('project').innerHTML +=
-                        '<div></div><br>Project numéro ' + object + ' :<br><br>' + ' <strong> Informations Client :</strong> <br>' + '- Nom: ' + response[object].borrowerId.lastName + '<br> - Prénom : '+ response[object].borrowerId.firstName + '<br> - Genre : '+response[object].borrowerId.gender +'<br> - Mail : '+response[object].borrowerId.email + '<br> - Tel : '+response[object].borrowerId.phoneNumber + '<br> - Contrat de travail : '+response[object].borrowerId.employmentContract
-                        + '<br> - Salaire annuel : '+response[object].borrowerId.annualSalary + '<br> - Taux endettement : '+response[object].borrowerId.debtRatio + '<br><br><strong>Informations demande Emprunt</strong><br>- Apport du client : '+response[object].borrowerId.firstDeposit +'<br> - Somme à emprunter désirée : '+response[object].requiredValue +'<br> - Montant du remboursement mensuel désiré : '+response[object].borrowerId.monthlyRefund +'<br> - Taux intéret désiré : '+response[object].borrowerId.requiredInterest +
-                        '<br> - Description du project  : '+response[object].projectDescription+ '<br> - Date début emprunt souhaité : '+  response[object].proposalDate + '<br> - Date de fin emprunt souhaité : '+  response[object].expirationDate +'<br><br><strong>Informations sur le bien associé au projet emprunt</strong>' + '<br> - Surface (m^2) : '+  response[object].realEstateId.surface + '<br> - Nombre de chambre : '+  response[object].realEstateId.numberOfRooms +
-                        '<br> - Prix  : '+  response[object].realEstateId.price + '<br> - Année de construction : '+  response[object].realEstateId.constructionYear+'<br>--------------------</div>';
-
-
-                    /*On stocke dans un tableau, tous les ID des différents projets qu'on recoit*/
-                    /*Le project 0, sera associé à l'indice 0 du tableau.*/
-                    projectIdTab.push(response[object].projectId);
-
-                }
-
-                /* Récupération de tous les projets envoyés au bank */
-
-                const response1 = await fetch("/project/projectsBank", {
-                    method: 'GET', // *GET, POST, PUT, DELETE, etc.
-                    mode: 'cors', // no-cors, *cors, same-origin
-                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                    credentials: 'same-origin', // include, *same-origin, omit
-                    headers: {
-                        'Content-Type': 'application/json'
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    redirect: 'follow', // manual, *follow, error
-                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
-                }).then(res => res.json());
-                console.log(response1);
-                document.getElementById('projectSent').innerHTML = "";
-                document.getElementById('projectSent').innerHTML = "";
-                console.log(response1[0])
-                for (const object in response) {
-                    /* On remplit le document pour affichage*/
-
-                    document.getElementById('projectSent').innerHTML +=
-                        '<br>Project numéro ' + object +'<br>Statut demande '+response1[object][1].bankName+' : '+response1[object][0]+'<br>--------------------';
-
-
-                    /*On stocke dans un tableau, tous les ID des différents projets qu'on recoit*/
-                    /*Le project 0, sera associé à l'indice 0 du tableau.*/
-                    projectIdTab.push(response[object].projectId);
-
-                }
-
-
-                /* On renvoie toutes les banques définies pour ce broker */
-                /* On va clear le document au début */
-                document.getElementById('bank').innerHTML = "";
-                console.log(responseBank);
-                for(const object1 in responseBank){
-
-                    /*On remplit le document pour afficher l'ensemble des banques*/
-
-                    document.getElementById("bank").innerHTML+=
-                        'Bank numéro '+object1+' : '+responseBank[object1].name+'<br>';
-
-                    /* On stocke dans un tableau tous les ID des différentes banques qu'on recoit depuis la BDD*/
-                    /*La bank 0, sera associé à l'indice 0 du tableau.*/
-                    bankIdTab.push(responseBank[object1].bankId);
-                }
-
+                /*On stocke dans un tableau, tous les ID des différents projets qu'on recoit*/
+                /*Le project 0, sera associé à l'indice 0 du tableau.*/
+                // projectIdTab.push(projectsBank[object].projectId);
 
             }
 
-            async function saisieProject() {
-                console.log("Tableau de project est " + projectIdTab);
-                console.log("Tableau de banque est " + bankIdTab)
+            /* On renvoie toutes les banques définies pour ce broker */
+            /* On va clear le document au début */
+            document.getElementById('bank').innerHTML = "";
+            // console.log(responseBank);
+            for (const object1 in responseBank) {
 
+                /*On remplit le document pour afficher l'ensemble des banques*/
+                document.getElementById("bank").innerHTML +=
+                    'Bank numéro ' + object1 + ' : ' + responseBank[object1].name + '<br>';
 
-                /* Récupération des valeurs saisies */
-                let projectSaisie = document.getElementById("projectSaisie").value;
-                let bankSaisie = document.getElementById("bankSaisie").value;
-
-                console.log("Votre saiise project est de : " + projectSaisie);
-                console.log("Votre saiise bank est de : " + projectSaisie);
-
-                /*Gestion des cas d'erreurs de saisies */
-
-                if (projectSaisie > projectIdTab.length - 1) {
-                    window.alert("Error : Veuillez saisir un numéro associé à un projet existant")
-                } else {
-                    if (projectSaisie < 0) {
-                        window.alert("Error : Le numéro de projet saisit doit être supérieur à 0")
-                    }else {
-                        if (projectIdTab.length === 0) {
-                            window.alert("Error : Vous n'avez aucun project qui vous est associé")
-                        } else {
-                            if (bankSaisie > bankIdTab.length - 1) {
-                                window.alert("Error : Veuillez saisir un numéro associé à une bank existante")
-                            } else {
-                                if (bankSaisie < 0) {
-                                    window.alert("Error : Le numéro de la banque saisie doit être supérieur à 0")
-                                } else {
-                                    //Gérer le cas de la saisie d'une chaine de caractère avec regexp javascript ?
-
-                                    /* Récupération de l'identifiant du projet associé */
-
-                                    let idProject = projectIdTab[projectSaisie];
-                                    let idBank = bankIdTab[bankSaisie];
-
-                                    /* Vérification si la banque à qui on désire envoyer le project ne l'a pas deja reçu*/
-
-                                    /* Elaboration d'une url */
-                                    let url = "/project/banks/"+idBank+"/banks/"+idProject;
-                                const responseFree = await fetch(url, {
-                                    method: 'HEAD', // *GET, POST, PUT, DELETE, etc.
-                                    mode: 'cors', // no-cors, *cors, same-origin
-                                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                                    credentials: 'same-origin', // include, *same-origin, omit
-                                    headers: {
-                                        'Content-Type': 'application/json'
-                                        // 'Content-Type': 'application/x-www-form-urlencoded',
-                                    },
-                                    redirect: 'follow', // manual, *follow, error
-                                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
-                                });
-
-                                console.log(responseFree.status)
-                                if(responseFree.status!==404){
-                                    window.alert("Error : Vous avez déja envoyé ce projet à cette banque");
-                                }else {
-                                    console.log("salut mec");
-
-
-                                    /*Envoie de cet ID par une requête POST vers notre application pour qu'elle soit traitée*/
-
-                                    let _data = {
-                                        idProject: idProject,
-                                        idBank: idBank,
-                                        approvalStatus: "PENDING"
-                                    }
-
-                                    let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-                                    xmlhttp.open("POST", "/project/projectBank");
-                                    xmlhttp.setRequestHeader("Content-Type", "application/json");
-                                    xmlhttp.send(JSON.stringify(_data));
-
-                                }
-                            }
-                        }
-                    }
-                }
+                /* On stocke dans un tableau tous les ID des différentes banques qu'on recoit depuis la BDD*/
+                /*La bank 0, sera associé à l'indice 0 du tableau.*/
+                bankIdTab.push(responseBank[object1].bankId);
             }
+        }
+
+        async function saisieProject() {
+            // console.log("Tableau de project est " + projectIdTab);
+            // console.log("Tableau de banque est " + bankIdTab)
+
+            /* Récupération des valeurs saisies */
+            let projectSaisie = document.getElementById("projectSaisie").value;
+            let bankSaisie = document.getElementById("bankSaisie").value;
+
+            console.log("Votre saiise project est de : " + projectSaisie);
+            // console.log("Votre saiise bank est de : " + bankSaisie);
+
+            /*Gestion des cas d'erreurs de saisies */
+            // console.log(projectIdTab)
+            // console.log(projectIdTab.includes(projectSaisie))
+            console.log(projectIdTab[projectSaisie])
+
+            if (projectSaisie > projectIdTab.length - 1) {
+                window.alert("Error : Veuillez saisir un numéro associé à un projet existant")
+                return;
+            }
+
+            if (bankSaisie > bankIdTab.length - 1) {
+                window.alert("Error : Veuillez saisir un numéro associé à une bank existante")
+            }
+            // if (!projectIdTab.includes(projectSaisie)) {
+            //     window.alert("Error : Veuillez saisir un numéro associé à un projet existant")
+            //     return;
+            // }
+            //
+            // if (!bankIdTab.includes(bankSaisie)) {
+            //     window.alert("Error : Veuillez saisir un numéro associé à une bank existante")
+            //     return;
+            // }
+
+            //Gérer le cas de la saisie d'une chaine de caractère avec regexp javascript ?
+            /* Récupération de l'identifiant du projet associé */
+
+            let idProject = projectIdTab[projectSaisie];
+            let idBank = bankIdTab[bankSaisie];
+
+            /* Vérification si la banque à qui on désire envoyer le project ne l'a pas deja reçu*/
+
+            /* Elaboration d'une url */
+            let url = "/project/banks/" + idBank + "/banks/" + idProject;
+
+            const responseFree = await fetch(url, {
+                method: 'HEAD',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+            });
+
+            console.log(responseFree.status)
+            if (responseFree.status !== 404) {
+                window.alert("Error : Vous avez déja envoyé ce projet à cette banque");
+            } else {
+                /*Envoie de cet ID par une requête POST vers notre application pour qu'elle soit traitée*/
+
+                let _data = {
+                    idProject: idProject,
+                    idBank: idBank,
+                    approvalStatus: "PENDING"
+                }
+
+                let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+                xmlhttp.open("POST", "/project/projectBank");
+                xmlhttp.setRequestHeader("Content-Type", "application/json");
+                xmlhttp.send(JSON.stringify(_data));
+
+            }
+
         }
 
     </script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="shortcut icon" href="#"/>
     <style>
-        body{
+        body {
             background-color: antiquewhite;
         }
-        .presentation h1,h3{
+
+        .presentation h1, h3 {
             text-align: center;
         }
-        .form-check{
+
+        .form-check {
             text-align: center;
             padding-bottom: 50px;
         }
-        .allProject{
+
+        .allProject {
             table-layout: fixed;
             width: 60%;
             height: 20px;
             margin: auto;
         }
-        .allProject th{
+
+        .allProject th {
             height: 20px;
         }
-        #projectSent{
+
+        #projectSent {
             vertical-align: top;
         }
 
 
     </style>
-</head>
-<body>
+    </head>
+    <body>
     <h1>Recapitulatif du projet Client</h1>
     <div>
         <p>
@@ -233,12 +223,15 @@
         </p>
     </div>
     <div class="form-check">
-        <input type="button" class="form-check-input" id="boutton" value="Afficher toutes les propositions de project" onclick="myFonction()"><br><br>
+        <input type="button" class="form-check-input" id="boutton" value="Afficher toutes les propositions de project"
+               onclick="myFonction()"><br><br>
         <form id="myForm">
-            <input type="number" class="form-control" id="projectSaisie" aria-describedby="emailHelp" placeholder="Saisie du numéro du projet à traiter" required="required">
+            <input type="number" class="form-control" id="projectSaisie" aria-describedby="emailHelp"
+                   placeholder="Saisie du numéro du projet à traiter" required="required">
             <p id="bank">
             </p>
-            <input type="number" class="form-control" id="bankSaisie" aria-describedby="emailHelp" placeholder="Saisie du numéro de la banque à qui envoyer ce projet" required="required">
+            <input type="number" class="form-control" id="bankSaisie" aria-describedby="emailHelp"
+                   placeholder="Saisie du numéro de la banque à qui envoyer ce projet" required="required">
             <input type="button" class="form-check-input" id="btn" value="Envoyer votre choix !" onclick="saisieProject()">
         </form>
     </div>
@@ -253,7 +246,7 @@
             <th scope="col">Projet envoyé</th>
         </tr>
         <tr>
-            <td id ='project'>
+            <td id='project'>
 
             </td>
             <td id="projectSent">

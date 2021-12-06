@@ -11,4 +11,6 @@ public interface ProjectSentBankService {
     void createSentBankProject(Project p, Bank b);
 
     void updateStatusRejected(int idProject, int idBank);
+
+    void updateStatusApproved(int idProject, int idBank);
 }
