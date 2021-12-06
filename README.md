@@ -34,7 +34,7 @@ la commande [quarkus dev] dans le terminal de commande dans le répertoire coura
 
 Une fois le formulaire validé et envoyé, un projet sera créé pour ce client et mit dans la BDD.
 Le broker(courtier), pourra ainsi observer l'ensemble des projets qui ont été créés et qui lui ont été soumis.
-Il pourra ensuite choisir, grâce à un nouveau formulaire situé à l'adresse suivante (http://localhost:8080/ProjectSummary.html),
+Il pourra ensuite choisir, grâce à un nouveau formulaire situé à l'adresse suivante (http://localhost:8080/summaryProject.html),
 d'envoyer ce projet aux banques partenaires qu'ils désirent.
 
 
