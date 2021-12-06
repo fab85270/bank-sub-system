@@ -62,6 +62,7 @@ public class LoanProposalServiceImpl implements LoanProposalService {
     @Transactional
     public boolean isProposalAlreadyAccepted(int proposalId) {
         int projectId = getProposalsProject(proposalId).getProjectId();
+        System.out.println(projectId);
         Collection<LoanProposal> proposals = getAllProposalsOfProject(projectId);
         for (LoanProposal proposal : proposals) {
             if (proposal.getApprovalStatus().toString().equals(ApprovalStatus.APPROVED.toString()))
