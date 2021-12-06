@@ -31,7 +31,7 @@ public class ProjectDAOImpl implements ProjectDAO {
     @Transactional
     public Collection<Object> getAllProjectSentToBank() throws ProjectExceptions.ProjectsNotFound {
         try {
-            return (Collection<Object>) (em.createQuery("Select pr.approvalStatus,pr.bankId from ProjectSentBank pr ").getResultList());
+            return (Collection<Object>) (em.createQuery("Select pr.approvalStatus,pr.bankId,pr.projectId from ProjectSentBank pr ").getResultList());
         } catch (NoResultException e) {
             throw new ProjectExceptions.ProjectsNotFound();
         }

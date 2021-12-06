@@ -28,7 +28,7 @@
                     redirect: 'follow', // manual, *follow, error
                     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
                 }).then(res1 => res1.json());
-
+                console.log(responseBank);
 
                 /* Récupération de tous les projets*/
                 const response = await fetch("/project/projects", {
@@ -82,16 +82,12 @@
                 document.getElementById('projectSent').innerHTML = "";
                 document.getElementById('projectSent').innerHTML = "";
                 console.log(response1[0])
-                for (const object in response) {
+                for (const object in response1) {
                     /* On remplit le document pour affichage*/
 
                     document.getElementById('projectSent').innerHTML +=
-                        '<br>Project numéro ' + object +'<br>Statut demande '+response1[object][1].bankName+' : '+response1[object][0]+'<br>--------------------';
+                        '<br>Project numéro ' + response1[object][2].projectId +'<br>Statut demande '+response1[object][1].bankName+' : '+response1[object][0]+'<br>--------------------';
 
-
-                    /*On stocke dans un tableau, tous les ID des différents projets qu'on recoit*/
-                    /*Le project 0, sera associé à l'indice 0 du tableau.*/
-                    projectIdTab.push(response[object].projectId);
 
                 }
 
@@ -113,6 +109,7 @@
                 }
 
 
+
             }
 
             async function saisieProject() {
@@ -128,7 +125,7 @@
                 console.log("Votre saiise bank est de : " + projectSaisie);
 
                 /*Gestion des cas d'erreurs de saisies */
-
+                console.log(bankIdTab);
                 if (projectSaisie > projectIdTab.length - 1) {
                     window.alert("Error : Veuillez saisir un numéro associé à un projet existant")
                 } else {
@@ -138,7 +135,7 @@
                         if (projectIdTab.length === 0) {
                             window.alert("Error : Vous n'avez aucun project qui vous est associé")
                         } else {
-                            if (bankSaisie > bankIdTab.length - 1) {
+                            if (bankSaisie > bankIdTab.length) {
                                 window.alert("Error : Veuillez saisir un numéro associé à une bank existante")
                             } else {
                                 if (bankSaisie < 0) {
@@ -207,8 +204,10 @@
             text-align: center;
         }
         .form-check{
+            margin: auto;
             text-align: center;
             padding-bottom: 50px;
+            width: 50%;
         }
         .allProject{
             table-layout: fixed;
@@ -227,41 +226,42 @@
     </style>
 </head>
 <body>
-    <h1>Recapitulatif du projet Client</h1>
-    <div>
-        <p>
-            Recapitulatif des projets de vos clients
-        </p>
-    </div>
-    <div class="form-check">
-        <input type="button" class="form-check-input" id="boutton" value="Afficher toutes les propositions de project" onclick="myFonction()"><br><br>
-        <form id="myForm">
-            <input type="number" class="form-control" id="projectSaisie" aria-describedby="emailHelp" placeholder="Saisie du numéro du projet à traiter" required="required">
-            <p id="bank">
+    <div class="containeur">
+        <h1>Recapitulatif du projet Client</h1>
+        <div>
+            <p>
+                Recapitulatif des projets de vos clients
             </p>
-            <input type="number" class="form-control" id="bankSaisie" aria-describedby="emailHelp" placeholder="Saisie du numéro de la banque à qui envoyer ce projet" required="required">
-            <input type="button" class="form-check-input" id="btn" value="Envoyer votre choix !" onclick="saisieProject()">
-        </form>
-    </div>
-    <table>
-        <div id="listBanks">
-
         </div>
-    </table>
-    <table class="allProject">
-        <tr>
-            <th scope="col">Projet Client</th>
-            <th scope="col">Projet envoyé</th>
-        </tr>
-        <tr>
-            <td id ='project'>
+        <div class="form-check">
+            <input type="button" class="form-check-input" id="boutton" value="Afficher toutes les propositions de project" onclick="myFonction()"><br><br>
+            <form id="myForm">
+                <input type="number" class="form-control" id="projectSaisie" aria-describedby="emailHelp" placeholder="Saisie du numéro du projet à traiter" required="required">
+                <p id="bank">
+                </p>
+                <input type="number" class="form-control" id="bankSaisie" aria-describedby="emailHelp" placeholder="Saisie du numéro de la banque à qui envoyer ce projet" required="required">
+                <input type="button" class="form-check-input" id="btn" value="Envoyer votre choix !" onclick="saisieProject()">
+            </form>
+        </div>
+        <table>
+            <div id="listBanks">
 
-            </td>
-            <td id="projectSent">
+            </div>
+        </table>
+        <table class="allProject">
+            <tr>
+                <th scope="col">Projet Client</th>
+                <th scope="col">Projet envoyé</th>
+            </tr>
+            <tr>
+                <td id ='project'>
 
-            </td>
-        </tr>
-    </table>
+                </td>
+                <td id="projectSent">
 
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
