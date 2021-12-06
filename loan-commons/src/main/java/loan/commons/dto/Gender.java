@@ -1,6 +1,6 @@
 package loan.commons.dto;
 
-public enum GenderDTO {
+public enum Gender {
     MALE,
     FEMALE,
     OTHER

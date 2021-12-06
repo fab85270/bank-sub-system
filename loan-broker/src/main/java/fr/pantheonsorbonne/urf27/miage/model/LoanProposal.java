@@ -2,6 +2,7 @@ package fr.pantheonsorbonne.urf27.miage.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import loan.commons.dto.ApprovalStatus;
 
 @Entity
 public class LoanProposal {
@@ -15,21 +16,15 @@ public class LoanProposal {
     @JoinColumn(name = "projectId", nullable = true)
     private Project projectId;
 
-    @ManyToOne(optional = true)
-    @JoinColumn(name = "bankId", nullable = true)
-    private Bank bankId;
-
     @Column(name = "dateProposal", nullable = false)
-    private LocalDate dateProposal;
+    private LocalDate proposalDate;
 
     @Column(name = "endDate", nullable = false)
     private LocalDate endDate;
 
-    @Column(name = "validationNumber", nullable = false)
-    private long validationNumber;
-
-    @Column(name = "isValid", nullable = false)
-    private boolean isValid;
+    @Column(name = "approvalStatus", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private ApprovalStatus approvalStatus;
 
     @Column(name = "loanAmount", nullable = false)
     private double loanAmount;
@@ -43,42 +38,43 @@ public class LoanProposal {
     @Column(name = "loanDurationMonth", nullable = false)
     private int loanDurationMonth;
 
-    public LoanProposal(Bank bankId, LocalDate dateProposal, LocalDate endDate, long validationNumber, boolean isValid,
-                        double loanAmount, String description, double interestRate, int loanDurationMonth) {
-        this.bankId = bankId;
-        this.dateProposal = dateProposal;
+    @Column(name = "idBank", nullable = false)
+    private int idBank;
+
+    public LoanProposal() {
+    }
+
+    public LoanProposal(Project projectId, LocalDate proposalDate, LocalDate endDate, ApprovalStatus approvalStatus,
+                        double loanAmount, String description, double interestRate, int loanDurationMonth, int idBank) {
+        this.projectId = projectId;
+        this.proposalDate = proposalDate;
         this.endDate = endDate;
-        this.validationNumber = validationNumber;
-        this.isValid = isValid;
+        this.approvalStatus = approvalStatus;
         this.loanAmount = loanAmount;
         this.description = description;
         this.interestRate = interestRate;
         this.loanDurationMonth = loanDurationMonth;
+        this.idBank = idBank;
     }
 
-    public LoanProposal() {
-
-    }
-
-    /*Getter & Setters */
     public Integer getProposalId() {
         return proposalId;
     }
 
-    public Bank getBankId() {
-        return bankId;
+    public Project getProjectId() {
+        return projectId;
     }
 
-    public void setBankId(Bank bankId) {
-        this.bankId = bankId;
+    public void setProjectId(Project projectId) {
+        this.projectId = projectId;
     }
 
-    public LocalDate getDateProposal() {
-        return dateProposal;
+    public LocalDate getProposalDate() {
+        return proposalDate;
     }
 
-    public void setDateProposal(LocalDate dateProposal) {
-        this.dateProposal = dateProposal;
+    public void setProposalDate(LocalDate proposalDate) {
+        this.proposalDate = proposalDate;
     }
 
     public LocalDate getEndDate() {
@@ -89,20 +85,12 @@ public class LoanProposal {
         this.endDate = endDate;
     }
 
-    public long getValidationNumber() {
-        return validationNumber;
+    public ApprovalStatus getApprovalStatus() {
+        return approvalStatus;
     }
 
-    public void setValidationNumber(long validationNumber) {
-        this.validationNumber = validationNumber;
-    }
-
-    public boolean isValid() {
-        return isValid;
-    }
-
-    public void setValid(boolean valid) {
-        isValid = valid;
+    public void setApprovalStatus(ApprovalStatus approvalStatus) {
+        this.approvalStatus = approvalStatus;
     }
 
     public double getLoanAmount() {
@@ -135,5 +123,29 @@ public class LoanProposal {
 
     public void setLoanDurationMonth(int loanDurationMonth) {
         this.loanDurationMonth = loanDurationMonth;
+    }
+
+    public int getIdBank() {
+        return idBank;
+    }
+
+    public void setIdBank(int idBank) {
+        this.idBank = idBank;
+    }
+
+    @Override
+    public String toString() {
+        return "LoanProposal{" +
+                "proposalId=" + proposalId +
+                ", projectId=" + projectId +
+                ", proposalDate=" + proposalDate +
+                ", endDate=" + endDate +
+                ", approvalStatus=" + approvalStatus +
+                ", loanAmount=" + loanAmount +
+                ", description='" + description + '\'' +
+                ", interestRate=" + interestRate +
+                ", loanDurationMonth=" + loanDurationMonth +
+                ", idBank=" + idBank +
+                '}';
     }
 }

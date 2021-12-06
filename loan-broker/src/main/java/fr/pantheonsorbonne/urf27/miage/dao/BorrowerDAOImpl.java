@@ -3,7 +3,6 @@ package fr.pantheonsorbonne.urf27.miage.dao;
 
 import fr.pantheonsorbonne.urf27.miage.exception.BorrowerException;
 import fr.pantheonsorbonne.urf27.miage.model.*;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;

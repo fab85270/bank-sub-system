@@ -9,6 +9,8 @@ import java.time.LocalDate;
 
 public class BorrowerDTO {
 
+    private int borrowerId;
+
     private AddressDTO addressId;
 
     private String email;
@@ -17,13 +19,13 @@ public class BorrowerDTO {
 
     private String lastName;
 
-    private String gender;
+    private Gender gender;
 
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate birthdate;
 
-    private String employmentContract;
+    private EmploymentContract employmentContract;
 
     private double annualSalary;
 
@@ -40,9 +42,7 @@ public class BorrowerDTO {
     public BorrowerDTO() {
     }
 
-    public BorrowerDTO(AddressDTO addressId, String email, String firstName, String lastName, String gender,
-                       LocalDate birthdate, String employmentContract, double annualSalary, double firstDeposit,
-                       String phoneNumber, double requiredInterest, double monthlyRefund, double debtRatio) {
+    public BorrowerDTO(AddressDTO addressId, String email, String firstName, String lastName, Gender gender, LocalDate birthdate, EmploymentContract employmentContract, double annualSalary, double firstDeposit, String phoneNumber, double requiredInterest, double monthlyRefund, double debtRatio) {
         this.addressId = addressId;
         this.email = email;
         this.firstName = firstName;
@@ -56,6 +56,14 @@ public class BorrowerDTO {
         this.requiredInterest = requiredInterest;
         this.monthlyRefund = monthlyRefund;
         this.debtRatio = debtRatio;
+    }
+
+    public int getBorrowerId() {
+        return borrowerId;
+    }
+
+    public void setBorrowerId(int borrowerId) {
+        this.borrowerId = borrowerId;
     }
 
     public AddressDTO getAddressId() {
@@ -90,11 +98,11 @@ public class BorrowerDTO {
         this.lastName = lastName;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
@@ -106,11 +114,11 @@ public class BorrowerDTO {
         this.birthdate = birthdate;
     }
 
-    public String getEmploymentContract() {
+    public EmploymentContract getEmploymentContract() {
         return employmentContract;
     }
 
-    public void setEmploymentContract(String employmentContract) {
+    public void setEmploymentContract(EmploymentContract employmentContract) {
         this.employmentContract = employmentContract;
     }
 

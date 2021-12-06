@@ -6,6 +6,7 @@ import loan.commons.dto.ProjectDTO;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 
 @ApplicationScoped
@@ -29,17 +30,18 @@ public class ProjectServiceImpl implements ProjectService {
 
 
     @Override
+    @Transactional
     public boolean isProjectEligible(ProjectDTO project) throws LoanProposalException.LoanProposalRefusedException {
         BorrowerDTO borrower = project.getBorrowerId();
         int age = LocalDate.now().getYear() - borrower.getBirthdate().getYear();
 
         boolean isEligible = (isBetween(age, minAge, maxAge)
-                && project.getExpirationDate().isBefore(LocalDate.now())
+                && LocalDate.now().isBefore(project.getExpirationDate())
                 && sufficientSalary(borrower.getAnnualSalary(), project.getRequiredValue())
                 && borrower.getDebtRatio() <= debtRatio
-                && project.getDurationMax() > maxDuration);
+                && project.getDurationMax() < maxDuration);
 
-        if(!isEligible) throw new LoanProposalException.LoanProposalRefusedException(project.getProjectDescription());
+        if (!isEligible) throw new LoanProposalException.LoanProposalRefusedException(project.getProjectDescription());
 
         return true;
     }
