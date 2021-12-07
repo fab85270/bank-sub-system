@@ -110,5 +110,6 @@ async function controle() {
         if (!requiredValue) {
             window.alert("Error : la somme doit être supérieur à 0")
         }
+        window.alert("Votre projet a bien ete transmis")
     }
 }
