@@ -4,38 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc34e76a-5f8d-4bf7-a0ee-115614a256e9" name="Changes" comment="Verif">
+    <list default="true" id="dc34e76a-5f8d-4bf7-a0ee-115614a256e9" name="Changes" comment="Commentaire">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/ProjectGatewayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/ProjectGatewayImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/AddressDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/AddressDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/BorrowerDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/BorrowerDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/LoanProposalDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/LoanProposalDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/ProjectDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/dao/ProjectDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/Address.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/ApprovalStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/Bank.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/Borrower.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/Broker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/EmploymentContract.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/Gender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/LoanProposal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/Project.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/model/RealEstate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/LoanProposalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/LoanProposalService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/LoanProposalServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/LoanProposalServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/LoanProposalGatewayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/LoanProposalGatewayImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/ProjectGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/ProjectGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/ProjectGatewayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/ProjectGatewayImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectSentBankDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectSentBankDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectSentBankDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectSentBankDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectSentBankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectSentBankService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectSentBankServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/ProjectSentBankServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +14,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main_modif_Anxhela_doesn't_trust_me" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -56,11 +32,15 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Palette" value="true" />
         <entry key="JPA Structure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="JPA Inspector" value="false" />
+        <entry key="JPA Palette" value="false" />
         <entry key="JPA Structure" value="false" />
       </map>
     </option>
@@ -75,12 +55,22 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ExpandQuarkusEnvironmentOptionsPanel" value="true" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.google.cloudcode.ide_session_index" value="20211207_0000" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="show.run.dashboard.notification" value="false" />
   </component>
-  <component name="RunManager" selected="Quarkus.bank2">
+  <component name="RunManager" selected="Quarkus.bank1">
     <configuration name="bank1" type="QuarkusRunConfigurationType" factoryName="Quarkus">
       <module name="loan-bank" />
       <QsMavenRunConfiguration>
@@ -219,7 +209,82 @@
       <option name="presentableId" value="Default" />
       <updated>1638877852100</updated>
       <workItem from="1638877854512" duration="2784000" />
+      <workItem from="1638892089950" duration="4296000" />
+      <workItem from="1638897194723" duration="63000" />
+      <workItem from="1638901297082" duration="2200000" />
+      <workItem from="1638905248798" duration="454000" />
     </task>
+    <task id="LOCAL-00001" summary="Derniere modif">
+      <created>1638880199845</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638880199845</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Verif loanProposal existant">
+      <created>1638882339466</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1638882339466</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Verif loanProposal existant">
+      <created>1638882536841</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1638882536841</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Verif loanProposal existant">
+      <created>1638893077582</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1638893077582</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Verif loanProposal existant">
+      <created>1638894112636</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1638894112636</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Petite modif comit">
+      <created>1638896768864</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1638896768864</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Petite modif README.md">
+      <created>1638896965023</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1638896965023</updated>
+    </task>
+    <task id="LOCAL-00008" summary="suppr image">
+      <created>1638896997021</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1638896997021</updated>
+    </task>
+    <task id="LOCAL-00009" summary="suppr image">
+      <created>1638897045629</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1638897045629</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Commentaire">
+      <created>1638904792207</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1638904792207</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,5 +301,14 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Derniere modif" />
+    <MESSAGE value="Verif loanProposal existant" />
+    <MESSAGE value="Petite modif comit" />
+    <MESSAGE value="Petite modif README.md" />
+    <MESSAGE value="suppr image" />
+    <MESSAGE value="Commentaire" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commentaire" />
   </component>
 </project>
