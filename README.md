@@ -18,7 +18,7 @@ A noter que ces emprunts se feront uniquement pour l'achat de biens immobiliers 
 
 Le courtier(broker) se caractérise comme un intermédiaire entre la banque et l'acquéreur afin d'obtenir un emprunt au meilleur
 taux selon un projet client.
-Son rôle est de recevoir le projet du client; et de déterminer à quelle banque partenaire l'envoyer.
+Son rôle est de recevoir le projet du client et de déterminer à quelle banque partenaire l'envoyer.
 
 
 Le système Bank, génère des propositions d'emprunts (loan proposal) selon un projet qui lui est soumis.
