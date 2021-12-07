@@ -1,5 +1,15 @@
 # bank-sub-system
 
+##Lancer l'application
+Lancer Broker avec [quarkus dev] en se placant dans loan-broker
+
+Lancer le profil de la bank1 avec un [quarkus dev] dans loan-bank et l'option [-Dquarkus.profile=bank1 -Dquarkus.http.port=8081]
+- Cela permet de lancer le profil 1 sur le port 8081
+
+
+Lancer le profil de la bank1 avec un [quarkus dev] dans loan-bank et l'option [-Dquarkus.profile=bank2 -Dquarkus.http.port=8082]
+- Cela permet de lancer le profil 2 sur le port 8082
+
 ##Objectifs du système à modéliser :
 
 On propose ici de modéliser un système de gestion de l'acquisition d'un emprunt entre un Borrower(client) et une banque
@@ -94,7 +104,6 @@ end
 ```
 ![](seq_diagram.png)
 ## Schéma relationnel
-### Bank System
-![](class_bank_system.png)
+
 ### Broker System
 ![](class_broker_system.png)
