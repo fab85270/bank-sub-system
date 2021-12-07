@@ -6,14 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="dc34e76a-5f8d-4bf7-a0ee-115614a256e9" name="Changes" comment="Verif">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/CamelRoutes.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/CamelRoutes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/exception/LoanProposalExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/exception/LoanProposalExceptions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/resources/LoanProposalResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/resources/LoanProposalResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/LoanProposalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/LoanProposalService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/LoanProposalServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/service/LoanProposalServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -27,13 +32,22 @@
       </map>
     </option>
   </component>
+  <component name="ProjectId" id="21xLZ7S9T6NFHuNnVWnnfHdIeHX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ExpandQuarkusEnvironmentOptionsPanel" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.google.cloudcode.ide_session_index" value="20211207_0000" />
   </component>
-  <component name="RunManager" selected="Quarkus.bank1">
+  <component name="RunManager" selected="Quarkus.bank2">
     <configuration name="bank1" type="QuarkusRunConfigurationType" factoryName="Quarkus">
       <module name="loan-bank" />
       <QsMavenRunConfiguration>
@@ -107,7 +121,9 @@
                 <set />
               </option>
               <option name="goals">
-                <list />
+                <list>
+                  <option value="quarkus:dev" />
+                </list>
               </option>
               <option name="pomFileName" value="pom.xml" />
               <option name="profilesMap">
@@ -161,8 +177,20 @@
       <item itemvalue="Quarkus.bank2" />
     </list>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dc34e76a-5f8d-4bf7-a0ee-115614a256e9" name="Changes" comment="Verif" />
+      <created>1638877852100</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1638877852100</updated>
+      <workItem from="1638877854512" duration="2784000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

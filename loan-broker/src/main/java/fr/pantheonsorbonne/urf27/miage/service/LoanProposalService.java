@@ -23,5 +23,5 @@ public interface LoanProposalService {
 
     void deleteLoanProposal(int id);
 
-    LoanProposal getLoanProposal(int id);
+    LoanProposal getLoanProposal(int id) throws LoanProposalExceptions.LoanProposalsNotFound;
 }
