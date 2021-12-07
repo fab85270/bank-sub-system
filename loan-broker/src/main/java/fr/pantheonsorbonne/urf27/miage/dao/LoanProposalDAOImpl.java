@@ -83,7 +83,7 @@ public class LoanProposalDAOImpl implements LoanProposalDAO {
     @Override
     @Transactional
     public void deleteLoanProposal(int id){
-        em.createQuery("DELETE FROM LoanProposal lp where lp.proposalId:=id")
+        em.createQuery("DELETE FROM LoanProposal lp where lp.proposalId=:id")
                 .setParameter("id",id)
                 .executeUpdate();
     }
