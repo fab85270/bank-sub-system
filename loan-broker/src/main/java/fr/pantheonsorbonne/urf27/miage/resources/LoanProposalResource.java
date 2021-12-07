@@ -45,16 +45,6 @@ public class LoanProposalResource {
         loanProposalService.deleteLoanProposal(proposalId);
     }
 
-    /*
-    @Path("/{id}")
-    @HEAD
-    public Response isProposalAlreadyAccepted(@PathParam("id") int proposalId) {
-        Response.Status status = (loanProposalService.isProposalAlreadyAccepted(proposalId))
-                ? Response.Status.FOUND
-                : Response.Status.NOT_FOUND;
-
-        return Response.status(status).build();
-    }*/
     @Path("/{id}")
     @HEAD
     public Response isProposalAlreadyAccepted(@PathParam("id") int proposalId) {
