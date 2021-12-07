@@ -48,7 +48,7 @@ public class ProjectGatewayImpl implements ProjectGateway {
     @Override
     public void updateStatusApproved(ProjectDTO projectDto, @Header("idBank") int idBank) throws ProjectExceptions.ProjectPublicKeyNotFound {
         Project project = projectService.getProjectByPublicKey(projectDto.getPublicKey());
-        System.out.println("HEEEEREEE");
+        System.out.println("APPROVED STATUS");
         projectSentBankService.updateStatusApproved(project.getProjectId(), idBank);
     }
 }

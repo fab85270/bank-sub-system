@@ -75,7 +75,7 @@ public class CamelRoutes extends RouteBuilder {
                 .process(new Processor() {
                     @Override
                     public void process(Exchange exchange) throws Exception {
-
+                        System.out.println("EMAIL SEEENNTT");
                         System.out.println(exchange.getMessage().getBody());
                         LoanProposalDTO proposal = exchange.getMessage().getMandatoryBody(LoanProposalDTO.class);
                         ProjectDTO project = proposal.getProjectId();

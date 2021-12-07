@@ -6,7 +6,7 @@
     <script>
         let loanProposalTab = [];
 
-        async function showLoanProposal(){
+        async function showLoanProposal() {
 
             loanProposalTab = [];
             let url = "/loanProposal/loanProposals/";
@@ -23,22 +23,22 @@
                 },
                 redirect: 'follow', // manual, *follow, error
                 referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
-            }).then(res=>res.json());
+            }).then(res => res.json());
 
             console.log(response);
             document.getElementById('p1').innerHTML = "";
 
-            for(const object in response){
-                document.getElementById('p1').innerHTML+=
-                    '<br> Projet LoanProposal '+ response[object].proposalId
-                    +'<br><br> Information Client : '
-                    +'<br>dateProposal : '+response[object].proposalDate
-                    +'<br>Description : '+response[object].description
-                    +'<br>Date de fin : '+response[object].endDate
-                    +'<br>Taux d interet : '+response[object].interestRate
-                    +'<br>Montant proposé : '+response[object].loanAmount
-                    +'<br>Temps emprunt : '+response[object].loanDurationMonth
-                    +'<br>';
+            for (const object in response) {
+                document.getElementById('p1').innerHTML +=
+                    '<br> Projet LoanProposal ' + response[object].proposalId
+                    + '<br><br> Information Client : '
+                    + '<br>dateProposal : ' + response[object].proposalDate
+                    + '<br>Description : ' + response[object].description
+                    + '<br>Date de fin : ' + response[object].endDate
+                    + '<br>Taux d interet : ' + response[object].interestRate
+                    + '<br>Montant proposé : ' + response[object].loanAmount
+                    + '<br>Temps emprunt : ' + response[object].loanDurationMonth
+                    + '<br>';
             }
         }
 
@@ -62,8 +62,8 @@
                 console.log(rest)
             });
             // console.log(isSent.status);
-            if (isSent.status === 404) {
-                window.alert("Le projet a déjà été validé");
+            if (isSent.status !== 404) {
+                window.alert("Erreur : Id correspondant a aucune proposition")
             } else {
                 const sentResponse = await fetch(url, {
                     method: 'PUT', // *GET, POST, PUT, DELETE, etc.
@@ -76,8 +76,8 @@
                     },
                     redirect: 'follow', // manual, *follow, error
                     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
-                }).then((response) =>{
-                    if(!response.ok){
+                }).then((response) => {
+                    if (!response.ok) {
                         window.alert("Erreur : Id correspondant a aucun projet")
                     }
                 });
@@ -87,13 +87,15 @@
         }
     </script>
     <style>
-        body{
+        body {
             background-color: antiquewhite;
         }
-        h1{
+
+        h1 {
             text-align: center;
         }
-        .form-check{
+
+        .form-check {
             text-align: center;
         }
     </style>
@@ -102,7 +104,8 @@
 <div class="showLoanProposal">
     <h1>Recapitulatif des loan proposals</h1>
     <div class="form-check">
-        <input type="button" class="form-check-input" id="btnProject" value="Affichez vos proposition !" onclick="showLoanProposal()">
+        <input type="button" class="form-check-input" id="btnProject" value="Affichez vos proposition !"
+               onclick="showLoanProposal()">
     </div>
     <table>
         <td id="p1">
@@ -113,8 +116,10 @@
 <div class="sentLoanProposal">
     <h1>Loan proposal à envoyer</h1>
     <div class="form-check">
-        <input type="number" class="form-control" id="saisieLoanProposal" placeholder="Saisir le numéro de la proposition à envoyer" required="required">
-        <input type="button" class="form-check-input" id="btnLoanProposal" value="Envoyer votre choix !" onclick="sentLoanProposal()">
+        <input type="number" class="form-control" id="saisieLoanProposal"
+               placeholder="Saisir le numéro de la proposition à envoyer" required="required">
+        <input type="button" class="form-check-input" id="btnLoanProposal" value="Envoyer votre choix !"
+               onclick="sentLoanProposal()">
     </div>
 </div>
 </body>

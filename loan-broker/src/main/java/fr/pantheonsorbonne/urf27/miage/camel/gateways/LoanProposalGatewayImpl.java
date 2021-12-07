@@ -23,8 +23,8 @@ public class LoanProposalGatewayImpl implements LoanProposalGateway {
     @Override
     public LoanProposalDTO createLoanProposal(LoanProposalDTO proposalDTO) throws ProjectExceptions.ProjectPublicKeyNotFound {
         ModelMapper modelMapper = new ModelMapper();
-        LoanProposal proposal = loanProposalService.createLoanProposal(proposalDTO);
         projectGateway.updateStatusApproved(proposalDTO.getProjectId(), proposalDTO.getIdBank());
+        LoanProposal proposal = loanProposalService.createLoanProposal(proposalDTO);
         return modelMapper.map(proposal, LoanProposalDTO.class);
     }
 }
