@@ -48,6 +48,7 @@ public class ProjectSentBankDAOImpl implements ProjectSentBankDAO {
     @Override
     @Transactional
     public void updateStatusRejected(int idProject, int idBank) {
+        System.out.println("PROJECT REJECTEEED");
         em.createQuery("UPDATE ProjectSentBank p SET p.approvalStatus=:status where p.bankId.bankId=:idBank AND p.projectId.projectId=:idProject")
                 .setParameter("status", ApprovalStatus.REJECTED)
                 .setParameter("idBank", idBank)

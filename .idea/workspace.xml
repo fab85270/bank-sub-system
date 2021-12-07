@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73f0adaa-cb58-4597-9f27-9ad606124013" name="Changes" comment="Verif">
+    <list default="true" id="dc34e76a-5f8d-4bf7-a0ee-115614a256e9" name="Changes" comment="Verif">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/ProjectGatewayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/ProjectGatewayImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/LoanProposalDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/LoanProposalDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/resources/ProjectResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/resources/ProjectResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/summaryLoanProposal.html" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/resources/META-INF/resources/summaryLoanProposal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/CamelRoutes.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/camel/CamelRoutes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/java/loan/bank/service/ProjectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-bank/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/loan-bank/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/ProjectGatewayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/gateways/ProjectGatewayImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/routes/CamelRoutes.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/camel/routes/CamelRoutes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectSentBankDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-broker/src/main/java/fr/pantheonsorbonne/urf27/miage/dao/ProjectSentBankDAOImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +101,7 @@
       <recent name="loan.bank.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Quarkus.bank1">
+  <component name="RunManager" selected="Quarkus.bank2">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />

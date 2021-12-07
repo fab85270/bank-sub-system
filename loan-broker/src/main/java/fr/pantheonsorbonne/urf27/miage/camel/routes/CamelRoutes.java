@@ -40,6 +40,9 @@ public class CamelRoutes extends RouteBuilder {
                 .bean(projectGateway, "updateStatusRejected")
                 .when(header("approved").isEqualTo(true))
                 .unmarshal()
+                .json(ProjectDTO.class)
+                .bean(projectGateway, "updateStatusApproved")
+                .unmarshal()
                 .json(LoanProposalDTO.class)
                 .bean(loanProposalGateway, "createLoanProposal");
 

@@ -32,7 +32,13 @@ public class CamelRoutes extends RouteBuilder {
                 .handled(true)
                 .marshal()
                 .json(ProjectDTO.class)
-                .setHeader("approved", simple("false"));
+                .setHeader("approved", simple("false"))
+                .process(new Processor() {
+                    @Override
+                    public void process(Exchange exchange) throws Exception {
+                        System.out.println("APPROVED FALSE!");
+                    }
+                });
 
         from("jms:queue/bank?exchangePattern=InOut")
                 .filter(header("idBank").isEqualTo(idBank))
