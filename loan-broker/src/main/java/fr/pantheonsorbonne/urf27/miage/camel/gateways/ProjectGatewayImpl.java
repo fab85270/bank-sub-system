@@ -31,6 +31,7 @@ public class ProjectGatewayImpl implements ProjectGateway {
     ProjectService projectService;
 
     @Override
+    //Permet d'envoyer un projet à une banque grâce à son DTO
     public void sendProjectToBank(ProjectDTO projectDTO, int idBank) {
         try (ProducerTemplate producer = context.createProducerTemplate()) {
             producer.sendBodyAndHeader("direct:cli", projectDTO, "idBank", idBank);
@@ -40,12 +41,14 @@ public class ProjectGatewayImpl implements ProjectGateway {
     }
 
     @Override
+    //Change le statut du projet en rejected
     public void updateStatusRejected(ProjectDTO projectDto, @Header("idBank") int idBank) throws ProjectExceptions.ProjectPublicKeyNotFound {
         Project project = projectService.getProjectByPublicKey(projectDto.getPublicKey());
         projectSentBankService.updateStatusRejected(project.getProjectId(), idBank);
     }
 
     @Override
+    //Change le statut du projet en Approved
     public void updateStatusApproved(ProjectDTO projectDto, @Header("idBank") int idBank) throws ProjectExceptions.ProjectPublicKeyNotFound {
         Project project = projectService.getProjectByPublicKey(projectDto.getPublicKey());
         projectSentBankService.updateStatusApproved(project.getProjectId(), idBank);

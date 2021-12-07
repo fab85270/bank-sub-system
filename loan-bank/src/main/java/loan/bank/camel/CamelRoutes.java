@@ -50,6 +50,7 @@ public class CamelRoutes extends RouteBuilder {
                 .json(ProjectDTO.class)
                 .setHeader("approved", simple("false"));
 
+        //Route recevant le projet et la transforme en loanProposal si elle est valide
         from("jms:queue/bank?exchangePattern=InOut")
                 .filter(header("idBank").isEqualTo(idBank))
                 .unmarshal()
@@ -59,7 +60,7 @@ public class CamelRoutes extends RouteBuilder {
                 .marshal()
                 .json(LoanProposalDTO.class);
 
-
+        //Reçoit la confirmation de la loan proposal et transmets la réponse par mail au client
         from("jms:queue/bank/proposals")
                 .filter(header("idBank").isEqualTo(idBank))
                 .choice()

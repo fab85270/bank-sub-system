@@ -36,6 +36,7 @@ public class LoanProposalServiceImpl implements LoanProposalService {
 
     @Override
     @Transactional
+    //Crée le loanProposal selon un project DTO reçue
     public LoanProposalDTO createProposal(ProjectDTO projectDTO) throws LoanProposalException.LoanProposalBankNotFoundException {
 
         LoanProposalDTO proposal = new LoanProposalDTO();
@@ -54,14 +55,7 @@ public class LoanProposalServiceImpl implements LoanProposalService {
         return proposal;
     }
 
-//    @Override
-//    public void saveProposal(LoanProposalDTO proposalDTO) {
-//        ModelMapper modelMapper = new ModelMapper();
-//        LoanProposal proposal = modelMapper.map(proposalDTO, LoanProposal.class);
-//        loanProposalDAO.createLoanProposal(proposal);
-//    }
-
-
+    //Calcule le taux d'interet selon les règles métiers
     private double getInterestRate(ProjectDTO project) {
         int duration = project.getDurationMax();
         if (duration <= creditUnder15Years) {

@@ -30,6 +30,7 @@ public class CamelRoutes extends RouteBuilder {
     @Override
     public void configure() {
 
+        //Envoie le projet à la bank
         from("direct:cli")
                 .marshal().json()
                 .to("jms:queue/bank?exchangePattern=InOut")
@@ -43,7 +44,7 @@ public class CamelRoutes extends RouteBuilder {
                 .json(LoanProposalDTO.class)
                 .bean(loanProposalGateway, "createLoanProposal");
 
-
+        //Envoie la confirmation du choix du loanProposal à la banque concernée
         from("direct:proposalConfirm")
                 .marshal()
                 .json(LoanProposalDTO.class)

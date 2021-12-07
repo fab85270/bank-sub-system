@@ -19,11 +19,13 @@ public class ProjectGatewayImpl implements ProjectGateway {
     @Inject
     LoanProposalService loanProposalService;
 
+    //Calcule l'éligibilité du projet
     @Override
     public boolean isProjectEligible(ProjectDTO projectDTO) throws LoanProposalException.LoanProposalRefusedException {
         return projectService.isProjectEligible(projectDTO);
     }
 
+    //Crée un loanProposal à partir d'un projectDTO reçu du broker
     @Override
     public LoanProposalDTO createLoanProposal(ProjectDTO projectDTO) throws ProjectException.ExpiredProjectException, LoanProposalException.LoanProposalRefusedException, LoanProposalException.LoanProposalBankNotFoundException {
         if (isProjectEligible(projectDTO))

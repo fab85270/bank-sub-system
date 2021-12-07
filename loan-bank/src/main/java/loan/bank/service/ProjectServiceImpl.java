@@ -31,6 +31,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     @Transactional
+    //Verifie si le projet est éligible
     public boolean isProjectEligible(ProjectDTO project) throws LoanProposalException.LoanProposalRefusedException {
         BorrowerDTO borrower = project.getBorrowerId();
         int age = LocalDate.now().getYear() - borrower.getBirthdate().getYear();
@@ -46,6 +47,7 @@ public class ProjectServiceImpl implements ProjectService {
         return true;
     }
 
+    //Calcule si le salaire annuel est suffisant
     public boolean sufficientSalary(double salary, double amount) {
         return salary >= salaryCoefficient * amount;
     }

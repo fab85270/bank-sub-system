@@ -62,6 +62,7 @@ public class ProjectDAOImpl implements ProjectDAO {
 
     @Override
     @Transactional
+    //Permet de trouver un projet selon sa clée public (clée unique servant d'indentifiant)
     public Project findProjectByPublicKey(String key) throws ProjectExceptions.ProjectPublicKeyNotFound {
         try {
             return (Project) em.createQuery("Select p from Project p where p.publicKey=:key")

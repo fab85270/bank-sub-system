@@ -4,7 +4,7 @@
 https://github.com/fab85270/bank-sub-system
 
 ##Lancer l'application
-Lancer Broker avec [quarkus dev] en se placant dans loan-broker
+Lancer Broker avec [quarkus dev] en se plaçant  dans loan-broker
 
 Lancer le profil de la bank1 avec un [quarkus dev] dans loan-bank et l'option [-Dquarkus.profile=bank1 -Dquarkus.http.port=8081]
 - Cela permet de lancer le profil 1 sur le port 8081
@@ -31,7 +31,7 @@ Les légales
     - l'age minimum => Etre majeur
     - le taux d'endettement => Ne doit pas dépasser 35%
     - La durée maximum => Ne doit pas dépasser 25 ans
-Celles propre à la banque
+Celle propre à la banque
     - L'age maximum
     - La fidélité du broker => Plus un broker aura envoyé de projet plus son taux sera avantageux
 
@@ -62,7 +62,7 @@ Elle se verra transmise par la suite au courtier(broker) par le moyen d'une queu
 ###Phase 3 : Choix d'un loan Proposal
 Le Broker reçoit les loan proposals (les projets qui ont été validés par les banques) à l'adresse (http://localhost:8080/summaryLoanProposal.html)
 
-Il choisit parmis ses loan proposals celle qu'il considère comme la meilleure
+Il choisit parmi ses loan proposals celle qu'il considère comme la meilleure
 
 Un message Reply est envoyé à la banque lui informant que son loan proposal a été choisi
 

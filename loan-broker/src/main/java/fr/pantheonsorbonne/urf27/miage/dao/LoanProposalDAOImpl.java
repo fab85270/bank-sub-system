@@ -43,6 +43,9 @@ public class LoanProposalDAOImpl implements LoanProposalDAO {
 
     @Override
     @Transactional
+    /*
+    Permet de créer un loanProposal à partir d'un DTO
+     */
     public LoanProposal createLoanProposal(LoanProposalDTO proposalDTO) throws ProjectExceptions.ProjectPublicKeyNotFound {
         ModelMapper modelMapper = new ModelMapper();
         Project project = projectService.getProjectByPublicKey(proposalDTO.getProjectId().getPublicKey());
@@ -56,6 +59,9 @@ public class LoanProposalDAOImpl implements LoanProposalDAO {
 
     @Override
     @Transactional
+    /*
+    Passe le statut du projet à approuvé
+     */
     public void updateApprovalStatus(int id) {
         em.createQuery("UPDATE LoanProposal lp SET lp.approvalStatus='APPROVED' WHERE lp.proposalId=:id")
                 .setParameter("id", id)
@@ -68,12 +74,14 @@ public class LoanProposalDAOImpl implements LoanProposalDAO {
 
     @Override
     @Transactional
+    //Renvoie un projet selon son id
     public Project getProposalsProject(int id) {
         return em.find(LoanProposal.class, id).getProjectId();
     }
 
     @Override
     @Transactional
+    //Renvoie tous les loanProposal liés à un projet
     public Collection<LoanProposal> getAllProposalsOfProject(int id) {
         return em.createQuery("SELECT lp.proposalId, lp.projectId, lp.approvalStatus FROM LoanProposal lp WHERE lp.projectId=:id")
                 .setParameter("id", id)
@@ -82,6 +90,7 @@ public class LoanProposalDAOImpl implements LoanProposalDAO {
 
     @Override
     @Transactional
+    //Supprime un loanProposal selon son ID
     public void deleteLoanProposal(int id){
         em.createQuery("DELETE FROM LoanProposal lp where lp.proposalId=:id")
                 .setParameter("id",id)
@@ -90,6 +99,7 @@ public class LoanProposalDAOImpl implements LoanProposalDAO {
 
     @Override
     @Transactional
+    //Renvoie un LoanProposal selon son ID
     public LoanProposal getLoanProposal(int id) {
         return em.find(LoanProposal.class, id);
     }

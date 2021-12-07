@@ -47,6 +47,7 @@ public class ProjectSentBankDAOImpl implements ProjectSentBankDAO {
 
     @Override
     @Transactional
+    //Passe le statut du projet à rejeté
     public void updateStatusRejected(int idProject, int idBank) {
         em.createQuery("UPDATE ProjectSentBank p SET p.approvalStatus=:status where p.bankId.bankId=:idBank AND p.projectId.projectId=:idProject")
                 .setParameter("status", ApprovalStatus.REJECTED)
@@ -57,6 +58,7 @@ public class ProjectSentBankDAOImpl implements ProjectSentBankDAO {
 
     @Override
     @Transactional
+    //Passe le statut du projet à approuvé
     public void updateStatusApproved(int idProject, int idBank) {
         em.createQuery("UPDATE ProjectSentBank p SET p.approvalStatus=:status where p.bankId.bankId=:idBank AND p.projectId.projectId=:idProject")
                 .setParameter("status", ApprovalStatus.APPROVED)
