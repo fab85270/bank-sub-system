@@ -42,6 +42,7 @@ public class LoanProposalResource {
         ModelMapper modelMapper = new ModelMapper();
         LoanProposalDTO proposalDto = modelMapper.map(proposal, LoanProposalDTO.class);
         confirmationMsgGateway.sendConfirmationMessageToBank(proposalDto, proposal.getIdBank());
+        loanProposalService.deleteLoanProposal(proposalId);
     }
 
     @Path("/{id}")

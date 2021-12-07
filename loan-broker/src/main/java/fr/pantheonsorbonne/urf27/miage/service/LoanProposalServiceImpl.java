@@ -60,6 +60,12 @@ public class LoanProposalServiceImpl implements LoanProposalService {
 
     @Override
     @Transactional
+    public void deleteLoanProposal(int id){
+        LoanProposalDAO.deleteLoanProposal(id);
+    }
+
+    @Override
+    @Transactional
     public boolean isProposalAlreadyAccepted(int proposalId) {
         int projectId = getProposalsProject(proposalId).getProjectId();
         Collection<LoanProposal> proposals = getAllProposalsOfProject(projectId);

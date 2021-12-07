@@ -21,5 +21,7 @@ public interface LoanProposalService {
 
     boolean isProposalAlreadyAccepted(int proposalId);
 
+    void deleteLoanProposal(int id);
+
     LoanProposal getLoanProposal(int id);
 }
