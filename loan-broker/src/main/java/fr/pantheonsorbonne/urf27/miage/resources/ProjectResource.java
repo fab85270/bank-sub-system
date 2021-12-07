@@ -73,11 +73,9 @@ public class ProjectResource {
     public Response isSent(@PathParam("idBank") int idBank, @PathParam("idProject") int idProject) throws ProjectExceptions.ProjectNotFoundId, BankExceptions.BanksNotFoundId {
 
         /* On récupère les objets associés aux identifiants obtenus */
-        System.out.println("HEEEEEEEEEEEEEEEEEERE ===" + idBank + " ===== " + idProject);
         Bank b = bankService.findBank(idBank);
         Project p = projectService.findProject(idProject);
-        System.out.println(b);
-        System.out.println(p);
+
         Response.Status status = (projectSentBankService.isSent(b, p))
                 ? Response.Status.FOUND
                 : Response.Status.NOT_FOUND;

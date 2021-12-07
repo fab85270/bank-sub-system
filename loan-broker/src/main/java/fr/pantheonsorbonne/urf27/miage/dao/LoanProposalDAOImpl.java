@@ -75,7 +75,7 @@ public class LoanProposalDAOImpl implements LoanProposalDAO {
     @Override
     @Transactional
     public Collection<LoanProposal> getAllProposalsOfProject(int id) {
-        return em.createQuery("SELECT lp.proposalId, lp.projectId, lp.approvalStatus FROM LoanProposal lp WHERE lp.projectId=:id")
+        return em.createQuery("SELECT lp FROM LoanProposal lp WHERE lp.projectId.projectId=:id")
                 .setParameter("id", id)
                 .getResultList();
     }
