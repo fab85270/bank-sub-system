@@ -36,12 +36,13 @@ public class LoanProposalResource {
     @Path("/{id}")
     @PUT
     @Consumes({MediaType.APPLICATION_JSON})
-    public void acceptLoanProposal(@PathParam("id") int proposalId) {
+    public void acceptLoanProposal(@PathParam("id") int proposalId) throws LoanProposalExceptions.LoanProposalsNotFound {
         LoanProposal proposal = loanProposalService.getLoanProposal(proposalId);
         loanProposalService.updateApprovalStatus(proposalId);
         ModelMapper modelMapper = new ModelMapper();
         LoanProposalDTO proposalDto = modelMapper.map(proposal, LoanProposalDTO.class);
         confirmationMsgGateway.sendConfirmationMessageToBank(proposalDto, proposal.getIdBank());
+        loanProposalService.deleteLoanProposal(proposalId);
     }
 
     @Path("/{id}")

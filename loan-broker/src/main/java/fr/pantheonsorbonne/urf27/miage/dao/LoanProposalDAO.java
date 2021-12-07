@@ -19,5 +19,7 @@ public interface LoanProposalDAO {
 
     Collection<LoanProposal> getAllProposalsOfProject(int id);
 
+    void deleteLoanProposal(int id);
+
     LoanProposal getLoanProposal(int id);
 }

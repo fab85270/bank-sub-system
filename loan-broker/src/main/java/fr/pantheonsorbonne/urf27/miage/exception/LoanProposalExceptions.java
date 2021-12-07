@@ -7,8 +7,7 @@ public class LoanProposalExceptions {
 
     public static class LoanProposalsNotFound extends Throwable {
         public LoanProposalsNotFound() {
-
-            super("Loan proposals not found");
+            super("Loan proposal not found");
         }
     }
 }

@@ -11,6 +11,7 @@ import loan.commons.dto.LoanProposalDTO;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.Collection;
@@ -60,6 +61,12 @@ public class LoanProposalServiceImpl implements LoanProposalService {
 
     @Override
     @Transactional
+    public void deleteLoanProposal(int id) {
+        LoanProposalDAO.deleteLoanProposal(id);
+    }
+
+    @Override
+    @Transactional
     public boolean isProposalAlreadyAccepted(int proposalId) {
         int projectId = getProposalsProject(proposalId).getProjectId();
         Collection<LoanProposal> proposals = getAllProposalsOfProject(projectId);
@@ -72,7 +79,11 @@ public class LoanProposalServiceImpl implements LoanProposalService {
 
     @Override
     @Transactional
-    public LoanProposal getLoanProposal(int id) {
-        return LoanProposalDAO.getLoanProposal(id);
+    public LoanProposal getLoanProposal(int id) throws LoanProposalExceptions.LoanProposalsNotFound {
+        try {
+            return LoanProposalDAO.getLoanProposal(id);
+        } catch (NoResultException ex) {
+            throw new LoanProposalExceptions.LoanProposalsNotFound();
+        }
     }
 }

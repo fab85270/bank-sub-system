@@ -21,5 +21,7 @@ public interface LoanProposalService {
 
     boolean isProposalAlreadyAccepted(int proposalId);
 
-    LoanProposal getLoanProposal(int id);
+    void deleteLoanProposal(int id);
+
+    LoanProposal getLoanProposal(int id) throws LoanProposalExceptions.LoanProposalsNotFound;
 }

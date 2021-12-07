@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Loan Proposal</title>
+    <title>Loan proposal</title>
     <script>
         let loanProposalTab = [];
 
@@ -30,25 +30,23 @@
 
             for(const object in response){
                 document.getElementById('p1').innerHTML+=
-                    '<br> Projet LoanProposal '+ object
+                    '<br> Projet LoanProposal '+ response[object].proposalId
                     +'<br><br> Information Client : '
-                    +'<br>Date de la proposition : '+response[object].proposalDate
+                    +'<br>dateProposal : '+response[object].proposalDate
                     +'<br>Description : '+response[object].description
                     +'<br>Date de fin : '+response[object].endDate
                     +'<br>Taux d interet : '+response[object].interestRate
                     +'<br>Montant proposé : '+response[object].loanAmount
                     +'<br>Temps emprunt : '+response[object].loanDurationMonth
-                    +'<br>Identifiant validation : '+response[object].description
-                    //+'<br>Bank : '+response[object].bankId.bankName+'<br>';
                     +'<br>';
             }
         }
 
-        async function sentLoanProposal(){
+        async function sentLoanProposal() {
             let idLoanProposal = document.getElementById('saisieLoanProposal').value;
             // console.log(idLoanProposal);
 
-            let url = "/loanProposal/"+idLoanProposal;
+            let url = "/loanProposal/" + idLoanProposal;
             const isSent = await fetch(url, {
                 method: 'HEAD', // *GET, POST, PUT, DELETE, etc.
                 mode: 'cors', // no-cors, *cors, same-origin
@@ -60,11 +58,13 @@
                 },
                 redirect: 'follow', // manual, *follow, error
                 referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
-            }).catch(rest=>{console.log(rest)});
+            }).catch(rest => {
+                console.log(rest)
+            });
             // console.log(isSent.status);
-            if(isSent.status===404){
+            if (isSent.status === 404) {
                 window.alert("Le projet a déjà été validé");
-            }else{
+            } else {
                 const sentResponse = await fetch(url, {
                     method: 'PUT', // *GET, POST, PUT, DELETE, etc.
                     mode: 'cors', // no-cors, *cors, same-origin
@@ -77,6 +77,8 @@
                     redirect: 'follow', // manual, *follow, error
                     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url// body data type must match "Content-Type" header
                 });
+
+
             }
         }
     </script>
