@@ -26,8 +26,6 @@ public class ProjectGatewayImpl implements ProjectGateway {
 
     @Override
     public LoanProposalDTO createLoanProposal(ProjectDTO projectDTO) throws ProjectException.ExpiredProjectException, LoanProposalException.LoanProposalRefusedException, LoanProposalException.LoanProposalBankNotFoundException {
-        System.out.println("CREATE PROJECT");
-        System.out.println(projectDTO);
         if (isProjectEligible(projectDTO))
             return loanProposalService.createProposal(projectDTO);
 

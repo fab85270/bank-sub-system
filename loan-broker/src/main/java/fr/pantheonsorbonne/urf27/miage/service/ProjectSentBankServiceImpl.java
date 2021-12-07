@@ -1,5 +1,6 @@
 package fr.pantheonsorbonne.urf27.miage.service;
 
+import fr.pantheonsorbonne.urf27.miage.dao.ProjectSentBankDAO;
 import fr.pantheonsorbonne.urf27.miage.dao.ProjectSentBankDAOImpl;
 import fr.pantheonsorbonne.urf27.miage.model.Bank;
 import fr.pantheonsorbonne.urf27.miage.model.Project;
@@ -19,7 +20,7 @@ public class ProjectSentBankServiceImpl implements ProjectSentBankService {
     EntityManager em;
 
     @Inject
-    ProjectSentBankDAOImpl projectSentBankDAO;
+    ProjectSentBankDAO projectSentBankDAO;
 
     /*Renvoie un boolen indiquant si le projet a deja ete envoye*/
     @Override
@@ -39,6 +40,12 @@ public class ProjectSentBankServiceImpl implements ProjectSentBankService {
     @Transactional
     public void updateStatusRejected(int idProject, int idBank) {
         projectSentBankDAO.updateStatusRejected(idProject, idBank);
+    }
+
+    @Override
+    @Transactional
+    public void updateStatusApproved(int idProject, int idBank) {
+        projectSentBankDAO.updateStatusApproved(idProject, idBank);
     }
 
 }

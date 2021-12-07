@@ -41,7 +41,6 @@ public class ProjectServiceImpl implements ProjectService {
                 && borrower.getDebtRatio() <= debtRatio
                 && project.getDurationMax() < maxDuration);
 
-        System.out.println("PROJECT ELIGIBLEEE ==== > " + isEligible);
         if (!isEligible) throw new LoanProposalException.LoanProposalRefusedException(project.getProjectDescription());
 
         return true;

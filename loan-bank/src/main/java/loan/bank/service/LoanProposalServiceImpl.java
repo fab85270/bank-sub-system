@@ -1,17 +1,12 @@
 package loan.bank.service;
 
-import loan.bank.dao.LoanProposalDAO;
-import loan.bank.dao.ProjectDAO;
 import loan.bank.exception.LoanProposalException;
-import loan.bank.model.LoanProposal;
 import loan.commons.dto.ApprovalStatus;
 import loan.commons.dto.LoanProposalDTO;
 import loan.commons.dto.ProjectDTO;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.modelmapper.ModelMapper;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 
@@ -20,9 +15,6 @@ public class LoanProposalServiceImpl implements LoanProposalService {
 
     @ConfigProperty(name = "loan.bank.id")
     int bankId;
-
-    @Inject
-    LoanProposalDAO loanProposalDAO;
 
     @ConfigProperty(name = "loan.bank.interestRate15Years")
     double interestRate15Years;
@@ -62,12 +54,12 @@ public class LoanProposalServiceImpl implements LoanProposalService {
         return proposal;
     }
 
-    @Override
-    public void saveProposal(LoanProposalDTO proposalDTO) {
-        ModelMapper modelMapper = new ModelMapper();
-        LoanProposal proposal = modelMapper.map(proposalDTO, LoanProposal.class);
-        loanProposalDAO.createLoanProposal(proposal);
-    }
+//    @Override
+//    public void saveProposal(LoanProposalDTO proposalDTO) {
+//        ModelMapper modelMapper = new ModelMapper();
+//        LoanProposal proposal = modelMapper.map(proposalDTO, LoanProposal.class);
+//        loanProposalDAO.createLoanProposal(proposal);
+//    }
 
 
     private double getInterestRate(ProjectDTO project) {

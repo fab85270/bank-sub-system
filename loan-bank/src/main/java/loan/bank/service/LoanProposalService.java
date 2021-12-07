@@ -11,6 +11,6 @@ public interface LoanProposalService {
 
     LoanProposalDTO createProposal(ProjectDTO projectDTO) throws ProjectException.ExpiredProjectException, LoanProposalException.LoanProposalRefusedException, LoanProposalException.LoanProposalBankNotFoundException;
 
-    void saveProposal(LoanProposalDTO proposalDTO) throws ProjectException.ExpiredProjectException;
+//    void saveProposal(LoanProposalDTO proposalDTO) throws ProjectException.ExpiredProjectException;
 
 }
