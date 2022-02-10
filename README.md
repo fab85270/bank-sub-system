@@ -1,9 +1,9 @@
 # bank-sub-system
 
-##Lien du github
+## Lien du github
 https://github.com/fab85270/bank-sub-system
 
-##Lancer l'application
+## Lancer l'application
 Lancer Broker avec [quarkus dev] en se plaçant  dans loan-broker
 
 Lancer le profil de la bank1 avec un [quarkus dev] dans loan-bank et l'option [-Dquarkus.profile=bank1 -Dquarkus.http.port=8081]
@@ -38,7 +38,7 @@ Celle propre à la banque
 
 La réalisation d'une proposition d'emprunt s'effectue en plusieurs phases :
 
-###Phase 1 : Création et envoie d'un projet dans le système du broker
+### Phase 1 : Création et envoie d'un projet dans le système du broker
 
 Le client(borrower) remplit un formulaire de création d'un projet de demande d'emprunt. Ce formulaire possède
 ses informations personnelles (adresse, nom, Prénom..), des informations sur le bien qu'il désire acquérir à la suite
@@ -51,7 +51,7 @@ Il pourra ensuite choisir, grâce à un nouveau formulaire situé à l'adresse s
 d'envoyer ce projet aux banques partenaires qu'ils désirent.
 
 
-###Phase 2 : Réception du project et génération d'une proposition d'emprunt
+### Phase 2 : Réception du project et génération d'une proposition d'emprunt
 Après avoir fait un [-Dquarkus.profile=bank1] qui permet de lancer le profil de la bank 1
 Le Système de la bank (loan-bank) reçoit sur une queue:JMS les différents projets que le broker lui a soumis.
 Suite à cette reception, selon les règles métiers définies par la banque, une proposition
@@ -59,7 +59,7 @@ d'emprunt sera générée si le projet correspond à ses règles.
 Elle se verra transmise par la suite au courtier(broker) par le moyen d'une queue:JMS.
 
 
-###Phase 3 : Choix d'un loan Proposal
+### Phase 3 : Choix d'un loan Proposal
 Le Broker reçoit les loan proposals (les projets qui ont été validés par les banques) à l'adresse (http://localhost:8080/summaryLoanProposal.html)
 
 Il choisit parmi ses loan proposals celle qu'il considère comme la meilleure
@@ -68,7 +68,7 @@ Un message Reply est envoyé à la banque lui informant que son loan proposal a 
 
 La banque envoie donc un mail au client (borrower) avec les informations du prêt
 
-##Interfaces
+## Interfaces
 ```
 Borrower->Broker : rest:projectInformation
 Broker->Broker : selectBank:Bank  
